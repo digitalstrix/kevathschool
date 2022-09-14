@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 9rem;
+    height: 8rem;
     position: relative;
     background: #F2F2F2;
 }
@@ -277,9 +279,6 @@ a{
 .usp210 img{
     width: 100%;
 }
-.usp21{
-    width: 40%;
-}
 .usp12{
     margin-right: 75px;
     position: relative;
@@ -422,6 +421,12 @@ a{
     justify-content: center;
     width: 100%;
 }
+.foot20{
+    width: 100%;
+}
+.foot10{
+    width: 100%;
+}
 .foot1{
     width: 80%;
     position: relative;
@@ -477,4 +482,450 @@ a{
     position: absolute;
     right: -130px;
     top: -175px;
+}
+
+.navbtn{
+    display: none;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 14px;
+    right: 18px;
+}
+.navbtn svg{
+    width: 100%;
+    height: 100%;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99999 !important;
+    top: 0;
+    right: 0;
+    background-color: rgb(75, 75, 75);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #bfbfbf;
+    display: block;
+    transition: 0.3s;
+}
+.sdi{
+    margin-top: 1rem;
+}
+.sdi button{
+    margin-left: 32px;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    font-size: 60px;
+    margin-left: 50px;
+}
+
+@media screen and (max-width:1380px) {
+    .nav0{
+        width: 450px;
+    }
+    p{
+        font-size: 16px;
+    }
+    .home11 h1{
+        font-size: 80px;
+    }
+    .fi-card-img{
+        bottom: 270px;
+        left: 32px;
+    }
+    .fi-card{
+        width: 30%;
+        margin: 3rem 1rem;
+    }
+}
+@media screen and (max-width:1250px) {
+    .fi-card-img{
+        bottom: 72%;
+        left: 32px;
+    }
+    .home11 h1{
+        font-size: 70px;
+    }
+    .home11 p{
+        font-size: 24px;
+    }
+    .people h1{
+        font-size: 50px;
+    }
+    .question13{
+        padding: 0;
+        height: 14rem;
+        width: 38vmin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .foot4{
+        right: -39px;
+    }
+    .nav0{
+        width: 450px;
+    }
+    .nav1{
+        margin: 0px 10px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .btn{
+        padding: 10px 28px;
+    }
+    .foot1{
+        width: 90%;
+    }
+}
+@media screen and (max-width:1170px) {
+    .yb111{
+        width: 35%;
+    }
+    .question11{
+        margin-left: 5rem;
+    }
+}
+@media screen and (max-width:1100px) {
+    .nav0{
+        width: 400px;
+    }
+    p{
+        font-size: 14px;
+    }
+    .foot1{
+        width: 95%;
+    }
+    .foot4{
+        top: -135px;
+        right: -8px;
+    }
+    .question11 h1{
+        font-size: 50px;
+    }
+    .question11 h3{
+        font-size: 35px;
+    }
+    .people h1{
+        font-size: 43px;
+    }
+    .fi-card{
+        width: 40%;
+        margin: 3rem 2rem;
+    }
+    .usp211 h3 {
+        font-size: 22px !important;
+    }
+    .usp2101{
+        width: 50%;
+    }
+    .yb12{
+        top: -32px;
+        right: 29.5rem;
+    }
+    .yb111{
+        width: 45%;
+    }
+    .yb121{
+        top: -47px;
+        left: 10px;
+    }
+    .yb121 img{
+        width: 25rem;
+        height: 28rem;
+    }
+    .yb122 img{
+        width: 28rem;
+        height: 22rem;
+    }
+    .question13{
+        width: 32vmin;
+        height: 11rem;
+    }
+    .question12{
+        width: 30vmin;
+    }
+    .question12 img{
+        width: 100%;
+    }
+    .foot11{
+        width: 23rem;
+    }
+}
+@media screen and (max-width:900px) {
+    .navbtn{
+        display: block;
+    }
+    .mainNav{
+        display: none;
+    }
+    .home .row{
+        flex-direction: column-reverse;
+    }
+    .home12{
+        width: 80%;
+    }
+    .home11{
+        width: 100%;
+    }
+    .home-mid{
+        flex-direction: row !important;
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+    .home11 h1{
+        text-align: center;
+    }
+    .home11 p{
+        text-align: center;
+    }
+    .ladder01{
+        margin-bottom: 2rem;
+    }
+    .ladder11{
+        bottom: -26px;
+    }
+    .ladder121{
+        flex-direction: column;
+    }
+    .ld-line{
+        height: 76px;
+        width: 4px;
+    }
+    .ld-line img{
+        transform: rotate(90deg);
+    }
+    .fi-card{
+        width: 95%;
+    }
+    .fi-card-img{
+        left: 10%;
+    }
+    .usp012{
+        flex-direction: column;
+    }
+    .usp210{
+        width: 80%;
+    }
+    .usp2101{
+        width: 95%;
+    }
+    .usp211{
+        margin: 5rem 0rem;
+    }
+    .yb11{
+        text-align: center;
+        height: 45rem;
+    }
+    .yb111{
+        width: 100%;
+    }
+    .yb12{
+        top: 17rem;
+        right: 82%;
+    }
+    .yb122 img{
+        width: 32rem;
+    }
+    .yb121 img{
+        width: 29rem;
+    }
+    .people h1{
+        font-size: 45px;
+        padding-top: 2rem;
+    }
+    .people .row{
+        flex-direction: column;
+    }
+    .people-img{
+        margin-left: 0;
+    }
+    .question0{
+        flex-direction: column;
+    }
+    .question11{
+        margin-left: 0;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+    }
+    .question01{
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    .question12{
+        width: 40vmin;
+    }
+    .foot02{
+        flex-direction: column;
+    }
+    .foot11{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .foot11 p{
+        margin-bottom: 1rem;
+    }
+    .foot4{
+        top: 145px;
+    }
+    .inp img{
+        right: 35px;
+    }
+    .foot20{
+        align-items: flex-start;
+    }
+}
+@media screen and (max-width:812px) {
+    .yb12{
+        right: 86%;
+    }
+    .people h1{
+        text-align: center;
+    }
+}
+@media screen and (max-width:760px) {
+    .yb12{
+        right: 89%;
+    }
+    .question13 {
+        width: 38vmin;
+        height: 10rem;
+    }
+}
+@media screen and (max-width:684px) {
+    .yb12{
+        right: 86%;
+        top: 20rem;
+    }
+    .yb122 img{
+        width: 26rem;
+        height: 20rem;
+    }
+    .yb121 img{
+        width: 24rem;
+        height: 26rem;
+    }
+    .usp211{
+        margin: 4.5rem 0rem;
+    }
+    .usp12{
+        margin-right: 30px;
+    }
+}
+@media screen and (max-width:604px) {
+    .yb12{
+        right: 90%;
+    }
+}
+@media screen and (max-width:555px) {
+    .yb12{
+        right: 93%;
+    }
+    .home11 h1{
+        font-size: 60px;
+    }
+}
+@media screen and (max-width:515px) {
+    .foot11_logo{
+        width: 100%;
+    }
+    .yb12{
+        right: 88%;
+    }
+    .home11 h1{
+        font-size: 50px;
+    }
+    .people h1{
+        font-size: 35px;
+    }
+    .question11 h1{
+        font-size: 42px;
+    }
+    .question11 h3{
+        font-size: 30px;
+    }
+    .question13 {
+        width: 44vmin;
+        height: 8rem;
+    }
+    .foot10 h5{
+        font-size: 16px !important;
+    }
+    .foot_a{
+        font-size: 14px;
+    }
+    .inp{
+        width: 38vmin;
+    }
+    .inp input{
+        width: 100%;
+    }
+    .yb122 img {
+        width: 21rem;
+        height: 15rem;
+    }
+    .yb121 img {
+        width: 18rem;
+        height: 21rem;
+    }
+    .yb11{
+        height: 40rem;
+    }
+}
+@media screen and (max-width:460px) {
+    .yb11{
+        height: 42rem;
+    }
+    .yb12{
+        right: 92%;
+        top: 22rem;
+    }
+}
+@media screen and (max-width: 434px) {
+    .yb122 img {
+        width: 16rem;
+        height: 11rem;
+    }
+    .yb11{
+        height: 38rem;
+    }
+    .yb12{
+        right: 85%;
+        top: 22rem;
+    }
+    .yb121 img {
+        width: 14rem;
+        height: 15rem;
+    }
+    .yb121 {
+        top: -31px;
+        left: 10px;
+    }
+    .btn{
+        padding: 10px 15px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .yb12{
+        right: 90%;
+        top: 24rem;
+    }
 }
