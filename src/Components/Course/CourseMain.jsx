@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+import Card2 from '../Card/Card2';
 
 const CourseMain = () => {
     return (
@@ -13,42 +16,124 @@ const CourseMain = () => {
                             <button className="btn btn2 contact-btn">Explore More</button>
                         </div>
                     </div>
-                    <div className="home12 course-main12">
+                    {/* <div className="home12 course-main12">
                         <img src="/static/images/Ellipse 9.png" alt="" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="course2">
                 <div className="courses21">
                     <div className="courses211">
-                        <h5>For Working Professionals</h5>
+                        <h4>For Working Professionals</h4>
                     </div>
                     <div className="course212">
                         <div className="row course0">
                             <h3>Software & Tech</h3>
                             <a href="#">View all</a>
                         </div>
-                        <div className="couse-card">
-                            <div className="course-card1">
-                                <div className="course-card-img">
-                                    <img src="/static/images/Rectangle 1281.png" alt="" />
-                                </div>
-                                <div className="course-card-text">
-                                    <div className="course-card-text1">
-                                        <h5>Full Stack Web Development</h5>
-                                        <div className="row course-card-text11">
-                                            <img src="/static/images/209-2095776_transparent-time-clock-png-time-vector-icon-png 2.png" alt="" />
-                                            <p>18 Months</p>
-                                        </div>
-                                        <div className="row course-card-text11">
-                                            <img src="/static/images/209-2095776_transparent-time-clock-png-time-vector-icon-png 3.png" alt="" />
-                                            <p>Microsoft Certified</p>
-                                        </div>
-                                        <button className="btn btn1">Apply Now</button>
-                                        <a href="#">VIEW PROGRAM</a>
-                                    </div>
-                                </div>
+                        <Splide hasTrack={false} aria-label="My Favorite Images" options={{
+                            perPage: 3,
+                            // rewind: true,
+                            gap: '1rem',
+                        }}>
+                            <SplideTrack>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                            </SplideTrack>
+                            <div className="splide__arrows">
+                                <button className="splide__arrow splide__arrow--prev">
+                                    <img src="/static/images/Vector 4.png" alt="" />
+                                </button>
+                                <button className="splide__arrow splide__arrow--next">
+                                    <img src="/static/images/Vector 3.png" alt="" />
+                                </button>
                             </div>
+                        </Splide>
+                    </div>
+
+                    <div className="course212">
+                        <div className="row course0">
+                            <h3>Data Science</h3>
+                            <a href="#">View all</a>
+                        </div>
+                        <Splide hasTrack={false} aria-label="My Favorite Images" options={{
+                            perPage: 3,
+                            // rewind: true,
+                            gap: '1rem',
+                        }}>
+                            <SplideTrack>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                            </SplideTrack>
+                            <div className="splide__arrows">
+                                <button className="splide__arrow splide__arrow--prev">
+                                    <img src="/static/images/Vector 4.png" alt="" />
+                                </button>
+                                <button className="splide__arrow splide__arrow--next">
+                                    <img src="/static/images/Vector 3.png" alt="" />
+                                </button>
+                            </div>
+                        </Splide>
+                    </div>
+
+                    <div className="course212">
+                        <div className="row course0">
+                            <h3>MBA</h3>
+                            <a href="#">View all</a>
+                        </div>
+                        <Splide hasTrack={false} aria-label="My Favorite Images" options={{
+                            perPage: 3,
+                            // rewind: true,
+                            gap: '1rem',
+                        }}>
+                            <SplideTrack>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                                <SplideSlide>
+                                    <Card2 />
+                                </SplideSlide>
+                            </SplideTrack>
+                            <div className="splide__arrows">
+                                <button className="splide__arrow splide__arrow--prev">
+                                    <img src="/static/images/Vector 4.png" alt="" />
+                                </button>
+                                <button className="splide__arrow splide__arrow--next">
+                                    <img src="/static/images/Vector 3.png" alt="" />
+                                </button>
+                            </div>
+                        </Splide>
+                    </div>
+                </div>
+            </div>
+            <div className="text-center">
+                <button className="btn btn1">View More</button>
+            </div>
+            <div className="course3">
+                <div className="course31">
+                    <div className="course311">
+                        <h1>Have more questions?</h1>
+                    </div>
+                    <div className="course312">
+                        <div className="course3121">
+                            <button className="btn btn3">CHECK OUR FAQS</button>
                         </div>
                     </div>
                 </div>
