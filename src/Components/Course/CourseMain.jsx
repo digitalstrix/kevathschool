@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
+import { useState } from 'react';
 
 const CourseMain = () => {
+    const [perPage, setPerPage] = useState(3);
+    useEffect(()=>{
+        var x = window.matchMedia("(max-width: 812px)");
+        if(x.matches)
+        {
+            setPerPage(2);
+        }
+        var y = window.matchMedia("(max-width: 604px)");
+        if(y.matches)
+        {
+            setPerPage(1);
+        }
+    },[]);
     return (
         <>
             <div className="home course-main">
@@ -32,7 +46,7 @@ const CourseMain = () => {
                             <a href="#">View all</a>
                         </div>
                         <Splide hasTrack={false} aria-label="My Favorite Images" options={{
-                            perPage: 3,
+                            perPage,
                             // rewind: true,
                             gap: '1rem',
                         }}>
@@ -64,7 +78,7 @@ const CourseMain = () => {
                             <a href="#">View all</a>
                         </div>
                         <Splide hasTrack={false} aria-label="My Favorite Images" options={{
-                            perPage: 3,
+                            perPage,
                             // rewind: true,
                             gap: '1rem',
                         }}>
@@ -96,7 +110,7 @@ const CourseMain = () => {
                             <a href="#">View all</a>
                         </div>
                         <Splide hasTrack={false} aria-label="My Favorite Images" options={{
-                            perPage: 3,
+                            perPage,
                             // rewind: true,
                             gap: '1rem',
                         }}>

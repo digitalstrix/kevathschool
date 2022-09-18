@@ -578,8 +578,8 @@ a{
 .course-card-text{
     position: absolute;
     bottom: -70px;
-    left: 20px;
-    width: 90.5%;
+    left: 19px;
+    width: 92%;
     background-color: white;
     color: black;
     box-shadow: -1px -6px 9px rgba(0, 0, 0, 0.25), 0px 8px 18px rgba(0, 0, 0, 0.12);
@@ -587,7 +587,8 @@ a{
     border-radius: 30px;
 }
 .course-card{
-    height: 50vh;
+    width: 29vw;
+    height: 55vh;
 }
 .course-card1{
     text-align: center;
@@ -667,6 +668,12 @@ a{
     font-size: 32px;
     padding: 25px 50px;
 }
+.course-card-img{
+    width: 100%;
+}
+.course-card-img img{
+    width: 100%;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{
@@ -685,6 +692,10 @@ a{
     .fi-card{
         width: 30%;
         margin: 3rem 1rem;
+    }
+    .course-card-text{
+        left: 15px;
+        bottom: -100px;
     }
 }
 @media screen and (max-width:1250px) {
@@ -726,6 +737,20 @@ a{
     }
     .foot1{
         width: 90%;
+    }
+    .course-card-text{
+        bottom: -140px;
+    }
+    .splide__arrow{
+        top: 40% !important;
+    }
+    .course311{
+        width: 65%;
+    }
+    .course312{
+        width: 35%;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 @media screen and (max-width:1170px) {
@@ -800,6 +825,23 @@ a{
     }
     .foot11{
         width: 23rem;
+    }
+    .course-card-text{
+        padding: 1rem;
+        bottom: -150px;
+        left: 12px;
+    }
+    .course-card{
+        height: 50vh;
+    }
+    .course311 h1{
+        font-size: 50px;
+    }
+    .course312{
+        width: 35%;
+    }
+    .btn3{
+        font-size: 20px;
     }
 }
 @media screen and (max-width:900px) {
@@ -927,6 +969,17 @@ a{
     .foot20{
         align-items: flex-start;
     }
+    .course-card-text{
+        padding: 0.7rem;
+        bottom: -160px;
+        left: 9px;
+    }
+    .splide__arrow{
+        top: 45% !important;
+    }
+    .course-card{
+        height: 45vh;
+    }
 }
 @media screen and (max-width:812px) {
     .yb12{
@@ -934,6 +987,53 @@ a{
     }
     .people h1{
         text-align: center;
+    }
+    .course-card{
+        margin: auto;
+        width: 90%;
+        height: 50vh;
+    }
+    .splide__arrow--prev{
+        left: -0.5em !important;
+    }
+    .splide__arrow--next{
+        right: -0.5em !important;
+    }
+    .courses21{
+        width: 96%;
+    }
+    .course-card-text {
+        bottom: -110px;
+        left: 12px;
+    }
+    .course0{
+        padding: 0rem 2rem;
+    }
+    .courses211{
+        margin-left: 2rem;
+    }
+    .course-main{
+        height: 55vh;
+    }
+    .course3{
+        height: auto;
+    }
+    .course31{
+        flex-direction: column;
+    }
+    .course311 {
+        width: 100%;
+        padding: 3rem 0rem;
+    }
+    .course312{
+        width: 100%;
+        height: fit-content;
+        padding: 4rem 0rem;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 54px;
+    }
+    .btn3{
+        font-size: 20px;
     }
 }
 @media screen and (max-width:760px) {
@@ -964,10 +1064,24 @@ a{
     .usp12{
         margin-right: 30px;
     }
+    .course-card-text {
+        bottom: -150px;
+        left: 10px;
+    }
+    .course-card{
+        height: 47vh;
+    }
 }
 @media screen and (max-width:604px) {
     .yb12{
         right: 90%;
+    }
+    .course-card-text {
+        bottom: -40px;
+        left: 20px;
+    }
+    .course-card{
+        height: 56vh;
     }
 }
 @media screen and (max-width:555px) {
@@ -976,6 +1090,12 @@ a{
     }
     .home11 h1{
         font-size: 60px;
+    }
+    .course311 h1{
+        font-size: 35px;
+    }
+    .btn3{
+        font-size: 15px;
     }
 }
 @media screen and (max-width:515px) {
@@ -1024,6 +1144,12 @@ a{
     .yb11{
         height: 40rem;
     }
+    .course-card-text {
+        left: 17px;
+    }
+    .course-card{
+        height: 47vh;
+    }
 }
 @media screen and (max-width:460px) {
     .yb11{
@@ -1032,6 +1158,13 @@ a{
     .yb12{
         right: 92%;
         top: 22rem;
+    }
+    .course-card-text {
+        bottom: -60px;
+        left: 15px;
+    }
+    .course-card{
+        height: 42vh;
     }
 }
 @media screen and (max-width: 434px) {
@@ -1057,10 +1190,23 @@ a{
     .btn{
         padding: 10px 15px;
     }
+    .course311 h1{
+        font-size: 25px;
+    }
+    .btn3{
+        font-size: 10px;
+    }
 }
 @media screen and (max-width: 380px) {
     .yb12{
         right: 90%;
         top: 24rem;
+    }
+    .course-card-text {
+        bottom: -80px;
+        left: 11px;
+    }
+    .course-card{
+        height: 38vh;
     }
 }
