@@ -60,7 +60,7 @@ const ProfileSec11 = (props) => {
                         </div>
                         <div className="psi-btn">
                             <div className="row">
-                                <button className="btn btn1 btn4">Cancel</button>
+                                <button className="btn btn1 btn4 btn0">Cancel</button>
                                 <button className="btn btn1 btn4">Change</button>
                             </div>
                         </div>
