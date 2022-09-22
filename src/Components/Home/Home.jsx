@@ -1,5 +1,7 @@
 import React from 'react'
 import Card1 from '../Card/Card1';
+import Ladder from '../Common/Ladder';
+import Usp from '../Common/Usp';
 
 const Home = () => {
     return (
@@ -23,76 +25,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="ladder">
-                <div className="ladder1">
-                    <div className="ladder01">
-                        <p className="p1">Take A Ladder</p>
-                        <h3 className="h3 ladh3">That Turns Dreams Into Reality</h3>
-                        <div className="ladder11">
-                            <a href="#">Watch Process Video</a>
-                        </div>
-                    </div>
-                    <div className="ladder12">
-                        <div className="ladder121">
-                            <div className="ld-box">
-                                <div className="ld-box1">
-                                    <h3 className="h3 green">
-                                        1
-                                    </h3>
-                                    <p>Apply For The Program</p>
-                                </div>
-                            </div>
-                            <div className="ld-line">
-                                <img src="/static/images/Polygon 2.png" alt="" />
-                            </div>
-                            <div className="ld-box">
-                                <div className="ld-box1">
-                                    <h3 className="h3 green">
-                                        2
-                                    </h3>
-                                    <p>Crack The Admission Test</p>
-                                </div>
-                            </div>
-                            <div className="ld-line">
-                                <img src="/static/images/Polygon 2.png" alt="" />
-                            </div>
-                            <div className="ld-box">
-                                <div className="ld-box1">
-                                    <h3 className="h3 green">
-                                        3
-                                    </h3>
-                                    <p>Learn At 0 Upfront Fee</p>
-                                </div>
-                            </div>
-                            <div className="ld-line">
-                                <img src="/static/images/Polygon 2.png" alt="" />
-                            </div>
-                            <div className="ld-box">
-                                <div className="ld-box1">
-                                    <h3 className="h3 green">
-                                        4
-                                    </h3>
-                                    <p>Get Placed</p>
-                                </div>
-                            </div>
-                            <div className="ld-line">
-                                <img src="/static/images/Polygon 2.png" alt="" />
-                            </div>
-                            <div className="ld-box">
-                                <div className="ld-box1">
-                                    <h3 className="h3 green">
-                                        5
-                                    </h3>
-                                    <p>Pay When You Earn 5 LPA CTC</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="ladder-fig">
-                    <img src="/static/images/Vector 1.png" alt="" />
-                </div>
-            </div>
+            <Ladder />
             <div className="fields">
                 <div className="fields1">
                     <div className="text-center">
@@ -128,49 +61,7 @@ const Home = () => {
                             <div className="usp210">
                                 <img src="/static/images/USP 1.png" alt="" />
                             </div>
-                            <div className="row usp2101">
-                                <div className="usp12">
-                                    <div className="usp-line">
-                                        <img src="/static/images/Line 5.png" alt="" />
-                                    </div>
-                                    <div className="usp-imgs">
-                                        <div className="usp-img">
-                                            <img src="/static/images/clipart4242151 1.png" alt="" />
-                                        </div>
-                                        <div className="usp-img">
-                                            <img src="/static/images/clipart996226 1.png" alt="" />
-                                        </div>
-                                        <div className="usp-img">
-                                            <img src="/static/images/clipart9962f26 1.png" alt="" />
-                                        </div>
-                                        <div className="usp-img">
-                                            <img src="/static/images/right 1.png" alt="" />
-                                        </div>
-                                        <div className="usp-img">
-                                            <img src="/static/images/dfcdfd 1.png" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="usp21">
-                                    <div className="usp211">
-                                        <h3 className="h3">Curriculum Designed By People Who Have
-                                            Worked on Multiple Companies</h3>
-                                    </div>
-                                    <div className="usp211">
-                                        <h3 className="h3">Mentor Support </h3>
-                                    </div>
-                                    <div className="usp211">
-                                        <h3 className="h3">Placement Assistance</h3>
-                                    </div>
-                                    <div className="usp211">
-                                        <h3 className="h3">Pay Only If You Get Placed </h3>
-                                    </div>
-                                    <div className="usp211">
-                                        <h3 className="h3">360 Degree Development Like We Will
-                                            Take Mock Interviews</h3>
-                                    </div>
-                                </div>
-                            </div>
+                            <Usp />
                         </div>
                     </div>
                 </div>

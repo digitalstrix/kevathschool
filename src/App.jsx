@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Navbar from './Navbar/index';
+import Navbar1 from './Navbar/Index1'
 import Footer from './Footer/Index';
 import CourseMain from './Components/Course/CourseMain';
 import Courses from './Components/Course/Courses';
@@ -29,40 +30,44 @@ import Db1 from './Components/Dashboard/Db1';
 import Db2 from './Components/Dashboard/Db2';
 import Db3 from './Components/Dashboard/Db3';
 import Courses1 from './Components/Course/Courses1';
+import { useState } from 'react';
 
 const App = () => {
+    const [navFlag1, setNavFlag1] = useState(true);
+    const [navFlag2, setNavFlag2] = useState(false);
     return (
         <>
             <BrowserRouter>
-                <Navbar />
+                {navFlag1 ? <Navbar /> : null}
+                {navFlag2 ? <Navbar1 /> : null}
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/courses_main" element={<CourseMain />} />
-                    <Route path="/courses" element={<Courses />} />
-                    <Route path="/events_reg" element={<EventReg1 />} />
-                    <Route path="/events_reg1" element={<EventReg2 />} />
-                    <Route path="/events_reg2" element={<EventReg3 />} />
-                    <Route path="/hfu" element={<Hfu />} />
-                    <Route path="/about_us" element={<About />} />
-                    <Route path="/fee_isa" element={<FeeIsa />} />
-                    <Route path="/verify_phone_number" element={<VerifyPhoneNumber />} />
-                    <Route path="/profile_sec1" element={<ProfileSec1 />} />
-                    <Route path="/profile_sec11" element={<ProfileSec11 />} />
-                    <Route path="/profile_sec12" element={<ProfileSec12 />} />
-                    <Route path="/profile_sec2" element={<ProfileSec2 />} />
-                    <Route path="/profile_sec3" element={<ProfileSec3 />} />
-                    <Route path="/profile_sec3_test" element={<ProfileSecTest />} />
-                    <Route path="/profile_sec4" element={<ProfileSec4 />} />
-                    <Route path="/profile_sec5" element={<ProfileSec5 />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/forget_password" element={<Forget1 />} />
-                    <Route path="/forget_password1" element={<Forget2 />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/signup2ver" element={<SignUp2 />} />
-                    <Route path="/user_default_dashboard" element={<Db1 />} />
-                    <Route path="/user_default_dashboard2" element={<Db2 />} />
-                    <Route path="/courses" element={<Courses1 />} />
-                    <Route path="/user_dashboard" element={<Db3 />} />
+                    <Route path="/" element={<Home setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/courses-main" element={<CourseMain setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/courses" element={<Courses setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/events-reg" element={<EventReg1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/events-reg1" element={<EventReg2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/events-reg2" element={<EventReg3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/hfu" element={<Hfu setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/about-us" element={<About setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/fee-isa" element={<FeeIsa setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/verify-phone-number" element={<VerifyPhoneNumber setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec1" element={<ProfileSec1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec11" element={<ProfileSec11 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec12" element={<ProfileSec12 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec2" element={<ProfileSec2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec3" element={<ProfileSec3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec3-test" element={<ProfileSecTest setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec4" element={<ProfileSec4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/profile-sec5" element={<ProfileSec5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/login" element={<Login setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/forget-password" element={<Forget1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/forget-password1" element={<Forget2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/signup" element={<Signup setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/signup2ver" element={<SignUp2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/user-default-dashboard" element={<Db1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/user-default-dashboard2" element={<Db2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/courses" element={<Courses1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/user-dashboard" element={<Db3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>

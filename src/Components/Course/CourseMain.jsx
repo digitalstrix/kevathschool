@@ -30,9 +30,6 @@ const CourseMain = () => {
                             <button className="btn btn2 contact-btn">Explore More</button>
                         </div>
                     </div>
-                    {/* <div className="home12 course-main12">
-                        <img src="/static/images/Ellipse 9.png" alt="" />
-                    </div> */}
                 </div>
             </div>
             <div className="course2">

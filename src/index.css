@@ -14,6 +14,21 @@
     position: relative;
     background: #F2F2F2;
 }
+.sidebar-pill{
+    width: 38px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 90;
+    display: none;
+}
+.sidebar-pill svg{
+    height: 100%;
+    width: 100%;
+}
+.navbar-1{
+    background: white;
+}
 p{
     font-size: 18px;
 }
@@ -37,6 +52,30 @@ p{
 .nav1{
     margin: 0px 20px;
 }
+.nav1-1{
+    background-color: #E9FFE8;
+    border-radius: 50%;
+    height: 37px ;
+    width: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 12px;
+}
+.nav1-2{
+    background: #E9FFE8;
+    border-radius: 10px;
+    padding: 10px;
+}
+.nav1-2 img{
+    margin-right: 12px;
+}
+.nav1-2 p{
+    font-size: 14px;
+}
+.nav1-2 .small{
+    font-size: 12px !important;
+}
 .btn{
     border-radius: 5px;
     padding: 11px 32px;
@@ -45,6 +84,38 @@ p{
     outline: none;
     cursor: pointer;
     z-index: 10;
+}
+.sidebar1{
+    transition: all 0.17s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    padding: 6px;
+    width: 17rem;
+    position: absolute;
+    height: 100%;
+    z-index: 11;
+    background: white;
+    z-index: 10;
+}
+.side-p{
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: #121F3E;
+    margin-left: 28px;
+    opacity: 0.3;
+}
+.sidebar111{
+    margin: 0.5rem 0rem;
+    font-size: 20px;
+    padding: 23px 39px;
+    color: rgba(18, 31, 62, 0.4);
+}
+.sidebar111 img{
+    margin-right: 10px;
+}
+.side-active{
+    background: linear-gradient(90deg, rgba(81, 184, 72, 0.06) 0%, rgba(0, 117, 255, 0) 117.12%);
+    font-weight: bold;
+    color: #51B848;
+    border-left: 4px solid rgb(86, 214, 176);
 }
 .btn1{
     background: #51B848;
@@ -491,6 +562,7 @@ a{
     position: absolute;
     top: 14px;
     right: 18px;
+    z-index: 99;
 }
 .navbtn svg{
     width: 100%;
@@ -674,6 +746,751 @@ a{
 .course-card-img img{
     width: 100%;
 }
+.eve-reg1-main{
+    background: url('../public/static/images/Vector.png') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.eve-reg1-main1{
+    position: absolute;
+    top: -20px;
+}
+.eve-reg1-main1 img{
+    width: 100%;
+}
+.eve-reg1-11{
+    width: 65%;
+    margin-left: 3rem;
+    margin-bottom: 5rem;
+}
+.eve-reg1-12{
+    width: 35%;
+    position: relative;
+}
+.evereg1_img1{
+    position: absolute;
+    bottom: 0;
+    left: -45px;
+    width: 21vw;
+}
+.evereg1_img2{
+    position: absolute;
+    bottom: 25px;
+    z-index: 3;
+    right: 94px;
+    width: 10vw;
+}
+.evereg1_img3{
+    position: absolute;
+    top: -60px;
+    width: 27vw;
+}
+.eve-reg1-main h1{
+    color: rgba(0, 0, 0, 0.64);
+    font-size: 55px;
+}
+.eve-reg1-main p{
+    color: rgba(0, 0, 0, 0.64);
+    font-size: 20px;
+}
+.bg-green{
+    background-color: #51B848;
+}
+.eve-reg12{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.eve-reg121{
+    width: 90%;
+}
+.eve-reg1211{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.eve-reg1211 h2{
+    font-size: 45px;
+}
+.eve-reg1212{
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.eve-reg12121{
+    padding: 0rem 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0rem 3rem;
+    font-size: 20px;
+}
+.eve-reg12121-active{
+    border-bottom: 4px solid #51B848;
+}
+.eve-reg1213{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eve-reg1214{
+    margin: 2rem 0rem;
+    text-align: center;
+}
+.eve-reg1-card{
+    width: 37vmin;
+    margin: 0rem 2rem;
+    border-radius: 30px;
+    box-shadow: -15px -15px 0px 0px #51B848;
+    background-color: #F2F2F2;
+    position: relative;
+}
+.eve-reg1-card1{
+    z-index: 2;
+    padding: 1rem;
+}
+.eve-reg1-card-img{
+    text-align: center;
+}
+.eve-reg-card-mid{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.eve-reg-card-mid h5{
+    font-size: 20px;
+}
+.eve-reg-card-mid p{
+    font-size: 12px;
+}
+.eve-reg-card-mid1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eve-reg-card-mid1 p{
+    font-size: 12px;
+}
+.eve-reg-card-mid11{
+    margin: 0px 5px;
+}
+.eve-reg-card-mid11 .row{
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+.eve-reg-card-mid11 img{
+    margin-right: 5px;
+    margin-top: 1px;
+}
+.eve-red-card-bottom{
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+.eve-red-card-bottom a{
+    font-size: 13px;
+}
+.eve-red-card-bottom .btn{
+    padding: 5px 15px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.eve-reg1-1{
+    z-index: 10;
+}
+.eve-reg2-main{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eve-reg2-main1{
+    width: 100vmin;
+    box-shadow: 5px 8px 50px 12px rgba(0, 0, 0, 0.09);
+    border-radius: 23px;
+    padding: 2rem;
+}
+.eve-reg3-main1{
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0px 4px 62px rgba(0, 0, 0, 0.23);
+}
+.eve-reg3-main1 h2{
+    font-size: 30px;
+}
+.eve-reg3-main1 h5{
+    font-size: 20px;
+    margin-bottom: 2rem;
+    margin-top: 10px;
+}
+.eve-reg2-main h1{
+    font-size: 36px;
+    color: #51B848;
+    margin-bottom: 2rem;
+}
+.text-green{
+    color: #51B848;
+}
+.eve-reg21{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.eve-reg21 input{
+    width: 100%;
+    border: 1px solid rgba(63, 63, 63, 0.32);
+    border-radius: 8px;
+    outline: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+}
+.eve-reg31{
+    margin-bottom: 2rem;
+}
+.eve-reg30{
+    margin: 1rem 0rem;
+}
+.eve-reg31 input{
+    background: rgba(231, 247, 230, 0.64);
+    border-radius: 10px;
+}
+.eve-reg21 label{
+    font-size: 18px;
+}
+.eve-reg22{
+    text-align: center;
+}
+.eve-reg22 button{
+    border-radius: 39px;
+    padding: 13px 130px;
+    margin-bottom: 10px;
+}
+.eve-reg22 a{
+    text-decoration: none;
+}
+.hfu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hfu1{
+    width: 90%;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.hfu11{
+    margin-top: 3rem;
+    width: 65%;
+}
+.hfu12{
+    width: 35%;
+}
+.hfu12 img{
+    width: 100%;
+}
+.hfu112{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+.hfu112 button{
+    margin-top: 3rem;
+    border-radius: 39px;
+}
+.hfu112 img{
+    width: 40vw;
+}
+.hfu111 h1{
+    font-size: 56px;
+}
+.hfu111 h1 span{
+    font-size: 70px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.hfu-1{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hfu-11{
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.hfu-111{
+    box-shadow: 5px 8px 50px 12px rgba(0, 0, 0, 0.09);
+    border-radius: 23px;
+    padding: 1.6rem;
+    width: 50%;
+    margin-right: 4rem;
+}
+.hfu-112{
+    width: 50%;
+    margin-left: 1rem;
+}
+.hfu-1111{
+    margin-bottom: 1.7rem;
+}
+.hfu-111 button{
+   border-radius: 5px !important;
+}
+.hfu-1111 p{
+    font-size: 15px;
+}
+.hfu-1111 h4{
+    font-size: 30px;
+}
+.hfu-line img{
+    height: 21rem;
+    width: 4px;
+}
+.hfu-img{
+    background: #D9D9D9;
+    height: 3.1rem;
+    width: 3.4rem;
+    padding: 13px;
+}
+.hfu-usp211 h3 {
+    font-size: 23px !important;
+}
+.hfu-2{
+    margin: 4rem 0rem;
+    padding: 2rem 0rem;
+    background-color: #51b8483a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hfu-21{
+    width: 80%;
+}
+.hfu-211 h4{
+    font-size: 30px;
+}
+.hfu-211{
+    margin-bottom: 3rem;
+}
+.hfu-212{
+    display: flex;
+    justify-content: space-between;
+}
+.hfu-card{
+    margin: 0rem 3rem;
+    width: 30vw;
+}
+.hfu-card-img{
+    width: 100%;
+    margin-bottom: 1.2rem;
+}
+.hfu-card-img img{
+    width: 100%;
+}
+.hfu-card-text h5{
+    font-size: 16px;
+}
+.hfu-card-text p{
+    font-size: 10px;
+}
+.hfu-213{
+    margin-top: 2rem;
+}
+.hfu-213 button{
+    border-radius: 39px;
+}
+.hfu-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.hfu-31{
+    width: 92%;
+}
+.hfu-311 h4{
+    font-size: 30px;
+    margin-bottom: 1rem;
+}
+.hfu-312{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hiring-card{
+    margin: 1.5rem;
+    width: 30vw;
+    padding: 10px;
+    box-shadow: -1px 9px 17px -3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.hiring-card1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hiring-card11{
+    font-size: 22px;
+    color: white;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 10px;
+}
+.bg-yellow{
+    background: #FFC331;
+}
+.bg-purple{
+    background: #A179DC;
+}
+.bg-blue{
+    background: #4D8AF0;
+}
+.bg-green{
+    background: #A4C639;
+}
+.hiring-card12 h5{
+    font-size: 22px;
+    margin-top: 10px;
+}
+.hiring-card12{
+    margin-top: 20px;
+    text-align: center;
+}
+.hiring-card12 img{
+    width: 50px;
+    height: 50px;
+}
+.hfu-4{
+    display: flex;
+    background: #51B848;
+    justify-content: center;
+    align-items: center;
+}
+.hfu-41{
+    width:95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 0rem;
+}
+.hfu-411{
+    width: 60vw;
+}
+.hfu-411 img{
+    width: 100%;
+}
+.hfu-413{
+    width: 40vw;
+}
+.hfu-413 img{
+    width: 100%;
+}
+.hfu-412{
+    margin: 0rem 1.5rem;
+}
+.hfu-lad3{
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+.hfu-lad12{
+    background-color: rgb(216, 243, 233);
+    margin-bottom: 2rem;
+}
+.hfu-lad12 .ld-box{
+    border: 4px solid rgba(0, 0, 0, 0.5);
+    color: #282828;
+    padding: 7px;
+    height: 160px;
+    width: 230px;
+}
+.hfu-lad12 .ld-line{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.about-main{
+    background: url('../public/static/images1/Rectangle 1325.png') no-repeat center center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.about-main1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 8rem;
+    padding-right: 20rem;
+}
+.about-main1 h1{
+    font-size: 84px;
+    color: white;
+}
+.about-main1 p{
+    font-size: 30px;
+    color: white;
+}
+.about1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0rem;
+}
+.about11{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about111{
+    text-align: center;
+    font-size: 30px;
+}
+.about112{
+    width: 70%;
+}
+.about113{
+    width: 90%;
+}
+.about112 img{
+    width: 100%;
+}
+.about113 img{
+    width: 100%;
+}
+.about2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about21{
+    width: 75%;
+}
+.about211{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.about211 h3{
+    font-size: 48px;
+}
+.about211 p{
+    font-size: 20px;
+}
+.about212{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.about-card{
+    margin: 1.2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 21vw;
+}
+.about-card11{
+    width: 100%;
+}
+.about-card11 img{
+    width: 100%;
+}
+.about-card12{
+    margin: 10px 0px;
+    text-align: center;
+}
+.about-card12 p{
+    margin: 10px 0px;
+}
+.about-card12 img{
+    width: 50px;
+}
+.about31{
+    background: #323240;
+    border: 1px solid #313131;
+    border-radius: 29px;
+}
+.about13 button{
+    background: #323240;
+    box-shadow: 0px 100px 80px rgba(49, 49, 49, 0.1), 0px 64.8148px 46.8519px rgba(49, 49, 49, 0.0759259), 0px 38.5185px 25.4815px rgba(49, 49, 49, 0.0607407), 0px 20px 13px rgba(49, 49, 49, 0.05), 0px 8.14815px 6.51852px rgba(49, 49, 49, 0.0392593), 0px 1.85185px 3.14815px rgba(49, 49, 49, 0.0240741);
+    border-radius: 33px;
+    padding: 16px 50px;
+}
+.about13{
+    background: #3F4249;
+    border-top-left-radius: 92px;
+    border-bottom-left-radius: 92px;
+}
+.prof-sec1{
+    background: #F0FFEF;
+    padding: 1rem 2rem;
+    margin-left: 17rem;
+}
+.prof-sec111{
+    margin-bottom: 1.5rem;
+}
+.prof-sec112{
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.prof-sec-top p{
+    font-size: 15px;
+    color: #121F3E;
+    opacity: 0.3;
+}
+.prof-sec-inner{
+    padding: 1.4rem;
+}
+.psi11{
+    margin-bottom: 5px;
+}
+.psi12{
+    align-items: center;
+}
+.prof-dp{
+    position: relative;
+    margin-right: 15px;
+}
+.prof-dp1{
+    background-color: #50B74B;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    z-index: 10;
+}
+.psi13{
+    margin-top: 1.7rem;
+}
+.psi12 b{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.psi12 b{
+    font-size: 20px;
+}
+.psi131{
+    margin-bottom: 1.4rem;
+}
+.psi-input{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+    width: 40vmin;
+}
+.psi-input input{
+    border: 1px solid #50B74B;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 20px;
+    margin-top: 6px;
+    width: 100%;
+}
+.psi2{
+    margin-top: 3rem;
+}
+.psi3{
+    margin-top: 3rem;
+}
+.psi31{
+    margin-top: 1.3rem;
+}
+.psi21{
+    margin-top: 1.5rem;
+}
+.psi-select{
+    margin-right: 4rem;
+    margin-bottom: 1.3rem;
+}
+.select-box--box{
+    margin-top: 7px;
+    width: 17vw;
+}
+.psi311{
+    margin-bottom: 1.2rem;
+}
+.psi40{
+    margin-top: 1.3rem;
+}
+.psi-input1{
+    width: 45vmin;
+}
+.eve-reg13{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D9D9D9;
+}
+.eve-reg131{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.eve-reg1311{
+    width: 20%;
+    margin-right: 1rem;
+}
+.eve-reg1311 img{
+    width: 100%;
+}
+.eve-reg1312{
+    width: 45%;
+    margin-top: 3rem;
+    text-align: center;
+}
+.eve-reg1312 h3{
+    font-size: 64px;
+}
+.eve-reg1312 h1{
+    color: white;
+    font-size: 94px;
+}
+.eve-reg1313{
+    position: relative;
+    width: 35%;
+}
+.eve-reg1313 button{
+    position: absolute;
+    bottom: 7%;
+    right: 78px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 39px;
+    width: 65%;
+    padding: 15px 0px;
+}
+.eve-reg1313 img{
+    width: 100%;
+    height: 100%;
+}
+.psi211{
+    align-items: flex-start;
+}
+.psi40 .psi-input{
+    margin-right: 2rem;
+}
+.psi-btn{
+    text-align: right;
+    margin-right: 3rem;
+}
+.btn4{
+    box-shadow: 0px 1px 17px -3px rgba(0, 0, 0, 0.31);
+    border-radius: 10px;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{
@@ -752,6 +1569,7 @@ a{
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
 }
 @media screen and (max-width:1170px) {
     .yb111{
@@ -759,6 +1577,28 @@ a{
     }
     .question11{
         margin-left: 5rem;
+    }
+    .evereg1_img1{
+        width: 23vw;
+    }
+    .evereg1_img2{
+        right: 45px;
+        width: 11vw;
+    }
+    .evereg1_img3{
+        width: 29vw;
+    }
+    .hfu-usp211 h3{
+        font-size: 18px !important;
+    }
+    .hfu-usp211{
+        margin: 4.6rem 0rem;
+    }
+    .about-main1{
+        padding-right: 13rem;
+    }
+    .about113{
+        width: 95%;
     }
 }
 @media screen and (max-width:1100px) {
@@ -842,6 +1682,74 @@ a{
     }
     .btn3{
         font-size: 20px;
+    }
+    .eve-reg1-card-img{
+        width: 22vw;
+        margin: auto;
+    }
+    .eve-reg1-card-img img{
+        width: 100%;
+    }
+    .hfu-21{
+        width: 90%;
+    }
+    .hiring-card12 h5 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .hfu-31 {
+        width: 96%;
+    }
+    .hfu-ladder1{
+        width: 95%;
+    }
+    .hfu-ladder1 .ladder121{
+        padding: 5rem 1.5rem;
+    }
+    .hfu-usp211 h3{
+        font-size: 18px !important;
+    }
+    .hfu-usp2101{
+        width: 100%;
+    }
+    .hfu-usp12{
+        margin-right: 32px;
+    }
+    .hfu-111{
+        margin-right: 2rem;
+    }
+    .hfu-11{
+        width: 95%;
+    }
+    .hfu-21 {
+        width: 95%;
+    }
+    .hiring-card11{
+        font-size: 18px;
+    }
+    .eve-reg1312 h3 {
+        font-size: 54px;
+    }
+    .eve-reg1312 h1 {
+        font-size: 74px;
+    }
+    .eve-reg1311 {
+        width: 23%;
+    }
+    .eve-reg1313 {
+        width: 32%;
+    }
+    .eve-reg1313 button {
+        right: 54px;
+    }
+    .psi-select{
+        margin-right: 1.7rem;
+    }
+    .psi-input{
+        margin-right: 2rem;
+    }
+    .psi-input1 {
+        width: 35vmin;
     }
 }
 @media screen and (max-width:900px) {
@@ -980,6 +1888,154 @@ a{
     .course-card{
         height: 45vh;
     }
+    .eve-reg1-main .row{
+        flex-direction: column;
+    }
+    .eve-reg1-main{
+        height: 82vh;
+    }
+    .eve-reg1-11{
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .eve-reg1-12{
+        height: 50vh;
+        width: 50%;
+        margin-bottom: 2rem;
+        top: 170px;
+    }
+    .evereg1_img1{
+        width: 35vw;
+        top: -100px;
+        left: -55px;
+    }
+    .evereg1_img2{
+        width: 18vw;
+        top: -100px;
+    }
+    .evereg1_img3{
+        top: 40px;
+        width: 46vw;
+    }
+    .eve-reg1-main1{
+        top: 100px;
+    }
+    .eve-reg121{
+        width: 95%;
+    }
+    .eve-reg12121{
+        margin: 0rem 2rem;
+    }
+    .hfu-11{
+        flex-direction: column;
+    }
+    .hfu-111{
+        width: 90%;
+    }
+    .hfu-112{
+        width: 90%;
+    }
+    .hfu-usp211 {
+        margin: 5.7rem 0rem;
+    }
+    .hfu-212{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hfu-card{
+        margin: 1rem 3rem;
+        width: 22vw;
+    }
+    .hfu-312{
+        flex-wrap: wrap;
+    }
+    .hiring-card{
+        margin: 1rem 1.5rem;
+        padding: 20px;
+    }
+    .hfu-41{
+        flex-direction: column;
+    }
+    .hfu-411 {
+        width: 37vw;
+    }
+    .hfu-413 {
+        width: 22vw;
+    }
+    .hfu-412 {
+        margin: 1.5rem 0rem;
+    }
+    .hfu1{
+        flex-direction: column;
+    }
+    .hfu11{
+        width: 100%;
+    }
+    .hfu12{
+        text-align: center;
+        width: 100%;
+    }
+    .hfu12 img{
+        width: 50%;
+    }
+    .hfu-1111{
+        text-align: center;
+    }
+    .hfu-311{
+        text-align: center;
+    }
+    .hfu-lad3{
+        text-align: center;
+    }
+    .about-main1 h1 {
+        font-size: 76px;
+    }
+    .about-main1 p {
+        font-size: 22px;
+    }
+    .about111{
+        font-size: 22px;
+    }
+    .about112 {
+        width: 85%;
+    }
+    .about113 {
+        width: 125%;
+    }
+    .about-card{
+        width: 20vw;
+    }
+    .about01{
+        justify-content: space-between !important;
+    }
+    .about13{
+        width: 43vmin;
+        height: 15rem;
+    }
+    .prof-sec1{
+        padding: 1rem;
+    }
+    .sidebar-pill{
+        display: block;
+    }
+    .sidebar1{
+        top: 80px;
+        left: -290px;
+    }
+    .prof-sec1{
+        margin-left: 0;
+    }
+    .prof-sec111{
+        margin-left: 4rem;
+    }
+    .select-box--box{
+        width: 26vw;
+    }
+    .psi-input1 {
+        width: 40vmin;
+    }    
 }
 @media screen and (max-width:812px) {
     .yb12{
@@ -1035,6 +2091,55 @@ a{
     .btn3{
         font-size: 20px;
     }
+    .eve-reg1213{
+        flex-wrap: wrap;
+    }
+    .eve-reg1-card{
+        margin: 2rem;
+    }
+    .eve-reg12121{
+        margin: 0rem 1rem;
+    }
+    .eve-reg1-12{
+        width: 62%;
+    }
+    .evereg1_img1{
+        left: 5px;
+    }
+    .evereg1_img2 {
+        right: 60px;
+    }
+    .evereg1_img3{
+        right: 15px;
+    }
+    .eve-reg1-12{
+        height: 42vh;
+        top: 140px;
+    }
+    .hiring-card{
+        width: 40vw;
+    }
+    .eve-reg131{
+        flex-direction: column;
+    }
+    .eve-reg1311 {
+        width: 40%;
+    }
+    .eve-reg1312 {
+        width: 100%;
+        margin: 1rem 0rem;
+    }
+    .eve-reg1313 {
+        width: 100%;
+        text-align: right;
+    }
+    .eve-reg1313 img {
+        width: 50%;
+    }
+    .eve-reg1313 button {
+        right: 44px;
+        width: 35%;
+    }
 }
 @media screen and (max-width:760px) {
     .yb12{
@@ -1043,6 +2148,32 @@ a{
     .question13 {
         width: 38vmin;
         height: 10rem;
+    }
+    .eve-reg1-card-img{
+        width: 31vw;
+    }
+    .evereg1_img1{
+        top: -85px;
+    }
+    .evereg1_img2 {
+        top: -85px;
+    }
+    .hfu112 img {
+        width: 60vw;
+    }
+    .about13{
+        width: 43vmin;
+        height: 13rem;
+    }
+    .about-card {
+        width: 31vw;
+    }
+    .about-main1{
+        padding-left: 4rem;
+        padding-right: 7rem;
+    }
+    .about112 {
+        width: 95%;
     }
 }
 @media screen and (max-width:684px) {
@@ -1071,6 +2202,66 @@ a{
     .course-card{
         height: 47vh;
     }
+    .eve-reg1-12 {
+        width: 73%;
+    }
+    .eve-reg1-main h1{
+        font-size: 45px;
+    }
+    .eve-reg1-main p{
+        font-size: 18px;
+    }
+    .eve-reg1-main{
+        margin-bottom: 2rem;
+    }
+    .eve-reg1211 h2{
+        font-size: 35px;
+    }
+    .eve-reg12121{
+        font-size: 15px;
+    }
+    .eve-reg1212{
+        margin-bottom: 2rem;
+    }
+    .eve-reg1214{
+        margin: 1rem 0rem;
+    }
+    .evereg1_img1{
+        width: 40vw;
+        top: -80px;
+    }
+    .evereg1_img2 {
+        width: 21vw;
+        top: -80px;
+    }
+    .evereg1_img3{
+        width: 52vw;
+    }
+    .hfu-usp211 {
+        margin: 5.7rem 0rem;
+    }
+    .psi131{
+        flex-direction: column;
+    }
+    .psi311{
+        flex-direction: column;
+    }
+    .psi-input{
+        width: 100%;
+        margin-right: 0;
+    }
+    .psi211{
+        flex-direction: column;
+    }
+    .psi-select{
+        width: 100%;
+    }
+    .select-box--box {
+        width: 100%;
+    }
+    .psi40 .psi-input {
+        margin-right: 0rem;
+    }
 }
 @media screen and (max-width:604px) {
     .yb12{
@@ -1082,6 +2273,60 @@ a{
     }
     .course-card{
         height: 56vh;
+    }
+    .eve-reg1-card{
+        width: 70vmin;
+    }
+    .eve-reg22 button{
+        padding: 13px 70px;
+    }
+    .hfu112{
+        flex-direction: column;
+        align-items: center;
+    }
+    .hfu111 h1 {
+        font-size: 36px;
+    }
+    .hfu111 h1 span{
+        font-size: 45px;
+    }
+    .hfu112 button{
+        margin-top: 1rem;
+    }
+    .hfu12 img {
+        width: 65%;
+    }
+    .hfu-1{
+        margin-top: 0;
+    }
+    .hfu-2{
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    .hiring-card {
+        width: 60vw;
+    }
+    .hfu-card{
+        width: 35vw;
+    }
+    .about212{
+        justify-content: center;
+    }
+    .about-card{
+        width: 55vw;
+    }
+    .about13 {
+        width: 48vmin;
+        height: 10rem;
+    }
+    .about13 button{
+        padding: 13px 30px;
+    }
+    .eve-reg1311 {
+        width: 50%;
+    }
+    .eve-reg1313 img {
+        width: 60%;
     }
 }
 @media screen and (max-width:555px) {
@@ -1096,6 +2341,64 @@ a{
     }
     .btn3{
         font-size: 15px;
+    }
+    .eve-reg1-12 {
+        width: 88%;
+    }
+    .eve-reg1-main h1 {
+        font-size: 35px;
+    }
+    .eve-reg1-main p {
+        font-size: 16px;
+    }
+    .eve-reg1211 h2 {
+        font-size: 25px;
+    }
+    .eve-reg12121 {
+        font-size: 12px;
+    }
+    .eve-reg1212 {
+        margin-bottom: 1rem;
+    }
+    .eve-reg1-card {
+        margin: 1rem;
+    }
+    .eve-reg1-card-img{
+        width: 60vw;
+    }
+    .evereg1_img1{
+        width: 48vw;
+        left: 0;
+    }
+    .evereg1_img2 {
+        width: 25vw;
+        top: -80px;
+    }
+    .evereg1_img3{
+        width: 65vw;
+        right: 25px;
+    }
+    .about-main1 h1 {
+        font-size: 55px;
+    }
+    .about-main1 p {
+        font-size: 15px;
+    }
+    .about111 {
+        font-size: 15px;
+    }
+    .about211 h3 {
+        font-size: 35px;
+    }
+    .about211 p {
+        font-size: 15px;
+    }
+    .about-card {
+        width: 60vw;
+    }
+    .about13 button {
+        padding: 10px 25px;
+        font-size: 14px;
     }
 }
 @media screen and (max-width:515px) {
@@ -1150,6 +2453,34 @@ a{
     .course-card{
         height: 47vh;
     }
+    .eve-reg1-12 {
+        width: 75%;
+    }
+    .evereg1_img1{
+        left: -25px;
+    }
+    .evereg1_img2 {
+       right: 25px;
+    }
+    .evereg1_img3{
+        right: -5px;
+    }
+    .eve-reg1-12 {
+        height: 27vh;
+        top: 15px;
+    }
+    .eve-reg1-main {
+        margin-bottom: -4rem;
+    }
+    .eve-reg12121{
+        margin: 0;
+    }
+    .eve-reg121 {
+        width: 100%;
+    }
+    .eve-reg1-card {
+        width: 80vmin;
+    }
 }
 @media screen and (max-width:460px) {
     .yb11{
@@ -1165,6 +2496,41 @@ a{
     }
     .course-card{
         height: 42vh;
+    }
+    .eve-reg1-12 {
+        height: 22vh;
+        top: 0px;
+    }
+    .evereg1_img1{
+        width: 52vw;
+        left: -25px;
+        top: -65px;
+    }
+    .evereg1_img2 {
+       right: 12px;
+       width: 26vw;
+       top: -65px;
+    }
+    .evereg1_img3{
+        right: -20px;
+        width: 70vw;
+    }
+    .eve-reg1311 {
+        width: 55%;
+    }
+    .eve-reg1313 img {
+        width: 65%;
+    }
+    .eve-reg1312 h3 {
+        font-size: 35px;
+    }
+    .eve-reg1312 h1 {
+        font-size: 50px;
+    }
+    .eve-reg1313 button {
+        width: 38%;
+        bottom: 10px;
+        padding: 10px 0px;
     }
 }
 @media screen and (max-width: 434px) {
@@ -1196,6 +2562,24 @@ a{
     .btn3{
         font-size: 10px;
     }
+    .hfu-card{
+        width: 45vw;
+    }
+    .hiring-card {
+        width: 72vw;
+    }
+    .hfu-413 {
+        width: 35vw;
+    }
+    .hfu-411 {
+        width: 37vw;
+    }
+    .hfu111 h1 {
+        font-size: 28px;
+    }
+    .hfu111 h1 span {
+        font-size: 37px;
+    }
 }
 @media screen and (max-width: 380px) {
     .yb12{
@@ -1208,5 +2592,24 @@ a{
     }
     .course-card{
         height: 38vh;
+    }
+    .evereg1_img1{
+        top: -23px;
+    }
+    .evereg1_img2{
+        top: -28px;
+    }
+    .eve-reg1-12 {
+        height: 10vh;
+        top: -70px;
+    }
+    .eve-reg1-main h1 {
+        font-size: 25px;
+    }
+    .eve-reg1-main p {
+        font-size: 14px;
+    }
+    .eve-reg1-main {
+        height: 67vh;
     }
 }
