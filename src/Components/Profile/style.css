@@ -1,0 +1,163 @@
+.radio {
+    margin: 0.5rem;
+}
+.radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+.radio input[type="radio"] + .radio-label:before {
+    content: '';
+    background: #f4f4f4;
+    border-radius: 100%;
+    border: 1px solid #b4b4b4;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    position: relative;
+    top: -0.2em;
+    margin-right: 1em;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked + .radio-label:before {
+    background-color: #3197ee;
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type="radio"]:focus + .radio-label:before {
+    outline: none;
+    border-color: #3197ee;
+}
+.radio input[type="radio"]:disabled + .radio-label:before {
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+}
+.radio input[type="radio"] + .radio-label:empty:before {
+    margin-right: 0;
+}
+
+.test-nav{
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 1rem;
+}
+.test-nav1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.test-nav11{
+    height: 11vh;
+}
+.test-nav11 img{
+    height: 11vh;
+}
+.test-nav12 {
+    font-size: 24px;
+    margin-right: 3rem;
+}
+.test-nav13 h5{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.test-main{
+    background: #61656D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 20px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.test-main1{
+    background-color: white;
+    width: 80%;
+    border-radius: 20px;
+}
+.test1{
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 1rem 8rem;
+}
+.test1 h5{
+    font-size: 24px;
+}
+.test2{
+    padding: 2rem 8rem;
+}
+.test211{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+.test-pill{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #D9D9D9;
+    align-items: center;
+}
+.bg-green{
+    background-color: #51B848;
+}
+.bg-red{
+    background-color: #FB5353;
+}
+.test212{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.test2121{
+    margin-right: 20px;
+}
+.test2121 p{
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.test2121 .test-pill{
+    height: 25px;
+    width: 25px;
+}
+.test221{
+    margin-top: 2rem;
+}
+.test221 h4{
+    font-size: 28px;
+}
+.test222 h5{
+    font-size: 22px;
+}
+.test222{
+    margin: 2rem 0rem;
+}
+.test23{
+    margin-top: 1rem;
+    text-align: right;
+}
+.test23 .test-btn{
+    margin-right: 4rem;
+}
+.test23 button{
+    padding: 7px 28px;
+}
+.test-op{
+    margin-left: 1.2rem;
+    margin-right: 2rem;
+}
+.test223 .radio{
+    margin-bottom: 1.1rem;
+}
