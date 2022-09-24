@@ -1,5 +1,6 @@
-import React from 'react'
-import Card3 from '../Card/Card3'
+import React from 'react';
+import Card3 from '../Card/Card3';
+
 
 const EventReg1 = () => {
     return (

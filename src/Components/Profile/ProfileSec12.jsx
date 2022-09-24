@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 
+
 const ProfileSec12 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);

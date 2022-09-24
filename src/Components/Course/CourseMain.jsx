@@ -4,6 +4,7 @@ import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
 import { useState } from 'react';
 
+
 const CourseMain = () => {
     const [perPage, setPerPage] = useState(3);
     useEffect(()=>{

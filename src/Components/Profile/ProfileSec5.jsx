@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 const ProfileSec5 = () => {
     return (

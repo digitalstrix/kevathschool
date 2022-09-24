@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 
 const EventReg3 = () => {
     const [value, setValue] = useState({

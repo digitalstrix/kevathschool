@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import SelectBox from '../../Utils/SelectBox';
 
+
 const ProfileSec1 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);
