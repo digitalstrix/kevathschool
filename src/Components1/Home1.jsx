@@ -18,6 +18,7 @@ import image6 from "./assets/image6.png";
 import vector from "./assets/vector.png";
 import vector1 from "./assets/vector1.png";
 import vector2 from "./assets/vector2.png";
+import Card5 from "../Components/Card/Card5";
 
 export default function Home1() {
   return (
@@ -198,6 +199,24 @@ export default function Home1() {
               </div>
             </div>
           </div>
+
+          <div className="acourse1">
+            <div className="acourse11">
+              <div className="acourse111">
+                <h3>Meet Our Instructors & Mentors</h3>
+                <p>Being accomplished developers themselves, the Curriculam Team is an experienced group of coding instructors.</p>
+              </div>
+              <div className="acourse112">
+                <Card5 />
+                <Card5 />
+                <Card5 />
+                <Card5 />
+                <Card5 />
+                <Card5 />
+              </div>
+            </div>
+          </div>
+
           <h1 className="n-h1">What you'll learn</h1>
           <div className="img-skill">
             <img src={image2} alt="" className="i1 img_1" />

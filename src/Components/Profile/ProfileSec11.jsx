@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Sidebar/Sidebar';
 
-
 const ProfileSec11 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);
@@ -68,6 +67,19 @@ const ProfileSec11 = (props) => {
                         <div>
                             <p>Passwords must have a Good or Strong rating. Passwords must be at least 6 characters long. Good passwords contain either a combination of uppercase and lowercase letters or a combination of letters and one digit. Strong passwords contain either a combination of letters and more than one digit or special characters.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="hfu-4">
+                <div className="hfu-41">
+                    <div className="hfu-411">
+                        <img src="/static/images1/5787097 1.png" alt="" />
+                    </div>
+                    <div className="hfu-412">
+                        <p>Eliminate the process of reaching out to different agencies for finding the right source. We provide the right platform filled with an array of tech talents that enables you to hire the right resources instantly. Did we mention that you are not paying a single penny for this?</p>
+                    </div>
+                    <div className="hfu-413">
+                        <img src="/static/images1/Vector (16).png" alt="" />
                     </div>
                 </div>
             </div>

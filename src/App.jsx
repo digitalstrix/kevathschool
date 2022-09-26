@@ -31,6 +31,8 @@ import Db2 from './Components/Dashboard/Db2';
 import Db3 from './Components/Dashboard/Db3';
 import Courses1 from './Components/Course/Courses1';
 import { useState } from 'react';
+import Db4 from './Components/Dashboard/Db4';
+import CoursesDb from './Components/Dashboard/CoursesDb';
 
 const App = () => {
     const [navFlag1, setNavFlag1] = useState(true);
@@ -65,8 +67,9 @@ const App = () => {
                     <Route path="/signup" element={<Signup setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/signup2ver" element={<SignUp2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/user-default-dashboard" element={<Db1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
-                    <Route path="/user-default-dashboard2" element={<Db2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
-                    <Route path="/courses" element={<Courses1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/user-default-dashboard5" element={<Db2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/user-default-dashboard4" element={<Db4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/courses-db" element={<CoursesDb setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/user-dashboard" element={<Db3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                 </Routes>
                 <Footer />

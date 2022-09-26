@@ -20,12 +20,12 @@ const ProfileSec12 = (props) => {
         e.preventDefault();
         console.log(value);
     };
-    
+
     return (
         <>
             <Sidebar />
-            <div className="prof-sec1">
-                <div className="prof-sec11">
+            <div className="prof-sec1 prof-sec012">
+                <div className="prof-sec11 prof-sec12">
                     <div className="eve-reg2-main">
                         <div className="eve-reg2-main1 eve-reg3-main1">
                             <h2>Verify Phone</h2>
@@ -42,6 +42,19 @@ const ProfileSec12 = (props) => {
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="hfu-4">
+                <div className="hfu-41">
+                    <div className="hfu-411">
+                        <img src="/static/images1/5787097 1.png" alt="" />
+                    </div>
+                    <div className="hfu-412">
+                        <p>Eliminate the process of reaching out to different agencies for finding the right source. We provide the right platform filled with an array of tech talents that enables you to hire the right resources instantly. Did we mention that you are not paying a single penny for this?</p>
+                    </div>
+                    <div className="hfu-413">
+                        <img src="/static/images1/Vector (16).png" alt="" />
                     </div>
                 </div>
             </div>

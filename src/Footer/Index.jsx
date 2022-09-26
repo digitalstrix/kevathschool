@@ -7,7 +7,7 @@ const Index = () => {
                 <div className="foot1">
                     <div className="row row1 row2 foot02">
                         <div className="foot11 foot10">
-                            <img className="foot11_logo" src="/static/images/UI LOGO 1 1.png" alt="" />
+                            <img className="foot11_logo" src="/static/images2/UI_LOGO_1_1-removebg-preview.png" alt="" />
                             <p>A community with high expectation and high achievement.</p>
                             <div className="row icons">
                                 <div className="icons1">
@@ -18,6 +18,12 @@ const Index = () => {
                                 </div>
                                 <div className="icons1">
                                     <img src="/static/images/Icon (2).png" alt="" />
+                                </div>
+                                <div className="icons1">
+                                    <img src="/static/images2/ig.png" alt="" />
+                                </div>
+                                <div className="icons1">
+                                    <img src="/static/images2/yb.png" alt="" />
                                 </div>
                             </div>
                         </div>
