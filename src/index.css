@@ -5,13 +5,15 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-
+.nodec{
+    text-decoration: none;
+}
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 7rem;
+    height: 5rem;
     position: relative;
     background: #F2F2F2;
 }
