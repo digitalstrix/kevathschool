@@ -33,6 +33,21 @@ const VerifyPhoneNumber = () => {
                     </form>
                 </div>
             </div>
+            <div className="eve-reg13">
+                <div className="eve-reg131">
+                    <div className="eve-reg1311">
+                        <img src="/static/images2/Polygon 9.png" alt="" />
+                    </div>
+                    <div className="eve-reg1312">
+                        <h3 className="text-green">Have more</h3>
+                        <h1>Question?</h1>
+                    </div>
+                    <div className="eve-reg1313">
+                        <img src="/static/images2/Polygon 8.png" alt="" />
+                        <button className="btn btn1">Contact us</button>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

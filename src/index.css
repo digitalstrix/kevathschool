@@ -2494,6 +2494,238 @@ font-size: 16px;
     color: white;
     padding: 8px 20px;
 }
+.fees{
+    background: url('../public/static/images3/Group\ 4210.png') no-repeat center center/cover;
+    height: 52vh;
+    display: flex;
+    align-items: center;
+}
+.fees1{
+    width: 58%;
+    padding-left: 5rem;
+}
+.fees1 h1{
+    font-size: 90px;
+    color: white;
+}
+.fees1 p{
+    color: white;
+    font-size: 24px;
+}
+.fees21{
+    text-align: center;
+    margin: 3rem 5rem;
+}
+.fees211{
+    margin-top: 2rem;
+}
+.fees21 p{
+    margin-bottom: 12px;
+    font-size: 32px;
+}
+.fees21 h4{
+    margin-bottom: 12px;
+    font-size: 40px;
+}
+.fees3{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.fees31{
+    width: 86%;
+    padding: 1.4rem 3rem;
+    background: #F0F0F0;
+    border-radius: 20px;
+}
+.fees311{
+    margin-bottom: 2rem;
+}
+.fees311 h5{
+    font-size: 40px;
+    margin: 1.5rem 0rem;
+}
+.fees311 p{
+    font-size: 24px;
+}
+.fees312 img{
+    width: 27px;
+    margin-right: 10px;
+}
+.fees312 .img{
+    width: 29px;
+    height: 42px;
+}
+.fees312 .row{
+    margin-bottom: 2rem;
+}
+.fees4{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.fees41{
+    background: #F0F0F0;
+    border-radius: 20px;
+    padding: 1.4rem 2.5rem;
+    width: 86%;
+}
+.fees412{
+    margin-left: 2.5rem;
+    margin-bottom: 2rem;
+}
+.fees412 h5{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.fees412 p{
+    font-size: 20px;
+}
+.tax{
+    font-size: 15px !important;
+}
+.fees4122 .row{
+    margin-bottom: 10px;
+}
+.fees4121{
+    margin-bottom: 1.8rem;
+}
+.fees413{
+    margin-bottom: 10px;
+}
+.fees413 p{
+    margin-bottom: 6px;
+    font-size: 24px;
+}
+.fees413 .row p{
+    margin: 0;
+}
+.fee-pill{
+    padding: 3px 14px;
+    border: 1px solid #51B848;
+    border-radius: 20px;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+.fee-pill p{
+    font-size: 13px !important;
+}
+.fees414{
+    margin-left: 3rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    display: flex;
+    margin-top: 1.6rem;
+    flex-direction: row;
+}
+.fees4141{
+    width: 65%;
+    border-top-left-radius: 30px;
+}
+.fees4142{
+    width: 35%;
+}
+.fees41411{
+    border-top-left-radius: 30px;
+    padding: 0.9rem;
+    padding-left: 2rem;
+    background-color: #CBCDD0;
+    font-weight: bold;
+    font-size: 14px;
+}
+.fees41412 p{
+    font-size: 12px;
+    padding: 18px;
+    margin-left: 15px;
+    border-bottom: 1px solid #CBCDD0;
+}
+.fees4141 p{
+    border-right: 2px solid #CBCDD0;
+}
+.fees4141 .fees41411{
+    border-right: 2px solid white;
+}
+.fees4142 .fees41411{
+    border-top-left-radius: 0;
+    border-top-right-radius: 30px;
+}
+.fees41412 .tax1{
+    font-size: 12px;
+}
+.fees415{
+    margin-top: 18px;
+}
+.fees50 h4{
+    font-size: 40px;
+    margin-bottom: 1.5rem;
+}
+.fees50 p{
+    font-size: 24px;
+}
+.fees415 .li{
+    font-size: 16px;
+}
+.fees415 .tax1{
+    font-size: 12px;
+}
+.fees5{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 3rem;
+}
+.fees511{
+    text-align: center;
+    font-size: 24px;
+    padding: 12px 50px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    margin-bottom: 2rem;
+}
+.fees512{
+    font-size: 24px;
+    text-align: center;
+    padding: 12px 65px;
+    background: #51B848;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    margin-bottom: 2rem;
+}
+.fees54{
+    margin: 0px 12px;
+    margin-top: 20px;
+}
+.faq{
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.faq1{
+    width: 70%;
+}
+.faq1 h5{
+    font-size: 34px;
+    margin-bottom: 1.2rem;
+    font-weight: 900;
+}
+.faq11{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(49, 49, 49, 0.35);
+}
+.faq11 p{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.faq11.text-green{
+    margin-bottom: 0px;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{
@@ -2743,6 +2975,51 @@ font-size: 16px;
     .user-dp4 h1{
         margin-bottom: 0.8rem;
     }
+    .fees511{
+        font-size: 20px;
+    }
+    .fees512{
+        font-size: 20px;
+    }
+    .faq1 {
+        width: 85%;
+    }
+    .fees21 p {
+        font-size: 24px;
+    }
+    .fees1 h1 {
+        font-size: 75px;
+    }
+    .fees1 p {
+        font-size: 20px;
+    }
+    .fees21 h4 {
+        font-size: 32px;
+    }
+    .fees21 p {
+        font-size: 20px;
+    }
+    .fees311 p {
+        font-size: 20px;
+    }
+    .fees311 h5 {
+        font-size: 32px;
+    }
+    .fees413 p {
+        font-size: 20px;
+    }
+    .fees50 h4{
+        font-size: 32px;
+    }
+    .fees50 p {
+        font-size: 20px;
+    }
+    .faq1 h5 {
+        font-size: 30px;
+    }
+    .faq11 p {
+        font-size: 20px;
+    }
 }
 @media screen and (max-width:1100px) {
     .course-card-text1 a{
@@ -2970,6 +3247,12 @@ font-size: 16px;
     }
     .prof-sec511 h1{
         font-size: 36px;
+    }
+    .fees512{
+        padding: 12px 40px
+    }
+    .fees511{
+        padding: 12px 28px;
     }
 }
 @media screen and (max-width:900px) {
@@ -3475,6 +3758,107 @@ font-size: 16px;
     .user-db411 {
         width: 43vw;
     }
+    .fees{
+        margin-top: 7rem;
+        height: 37vh;
+    }
+    .fees1 h1 {
+        font-size: 45px;
+    }
+    .fees1 p {
+        font-size: 15px;
+    }
+    .fees21 p {
+        font-size: 15px;
+    }
+    .fees211 {
+        margin-top: 0rem;
+        margin-bottom: -6rem;
+    }
+    .fees211 img{
+        width: 100%;
+    }
+    .fees21 h4 {
+        font-size: 26px;
+    }
+    .fees311 h5 {
+        font-size: 26px;
+    }
+    .fees311 p {
+        font-size: 15px;
+    }
+    .fees312 img {
+        width: 22px;
+        margin-right: 12px;
+    }
+    .fees312 .img{
+        height: 34px;
+        width: 24px;
+    }
+    .fees31{
+        padding: 0.5rem 2rem;
+        width: 94%;
+    }
+    .fees41{
+        width: 94%;
+    }
+    .fees412 h5 {
+        font-size: 20px;
+    }
+    .fees412 p {
+        font-size: 16px;
+    }
+    .fees413 p {
+        font-size: 16px;
+    }
+    .fees413{
+        width: 100%;
+        overflow: auto;
+    }
+    .fees413 .row{
+        padding-bottom: 1rem;
+        width: 55rem;
+        overflow: auto;
+    }
+    .tax {
+        font-size: 12px !important;
+    }
+    .fee-pill{
+        width:9.6rem;
+        text-align: center;
+    }
+    .fees414{
+        margin-left: 0;
+    }
+    .fees50 h4 {
+        font-size: 24px;
+    }
+    .fees50 p {
+        font-size: 15px;
+    }
+    .fees5{
+        margin-left: 0;
+        justify-content: center;
+    }
+    .fees511 {
+        font-size: 15px;
+    }
+    .fees512 {
+        font-size: 15px;
+    }
+    .fees54{
+        height: 10rem;
+    }
+    .fees54 img{
+        height: 100%;
+        width: 100%;
+    }
+    .faq1 h5 {
+        font-size: 24px;
+    }
+    .faq11 p {
+        font-size: 15px;
+    }
 }
 @media screen and (max-width:812px) {
     .yb12{
@@ -3909,6 +4293,13 @@ font-size: 16px;
     .prof-sec511 h1 {
         font-size: 27px;
     }
+    .fees211{
+        margin-bottom: -4rem;
+    }
+    .fees1 {
+        width: 62%;
+        padding-left: 1rem;
+    }
 }
 @media screen and (max-width:604px) {
     .yb12{
@@ -4079,6 +4470,52 @@ font-size: 16px;
     }
     .user-dp4 h1{
         font-size: 30px;
+    }
+    .fees21 {
+        text-align: center;
+        margin: 3rem 1rem;
+    }
+    .fees41 {
+        width: 97%;
+        padding: 1.3rem 1rem;
+    }
+    .fees31 {
+        padding: 0.5rem 1rem;
+        width: 97%;
+    }
+    .fees412 {
+        margin-left: 0rem;
+    }
+    .fees41411{
+        font-size: 12px;
+        padding-left: 1rem;
+    }
+    .fees41412 p {
+        font-size: 10px;
+        padding: 16px;
+        margin-left: 0px;
+    }
+    .fees415{
+        margin-left: 1rem;
+    }
+    .fees511 {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    .fees54 {
+        height: 8.5rem;
+        margin-top: 14px;
+    }
+    .fees512 {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    .fee-pill {
+        width: 6.6rem;
+        font-size: 10px;
+    }
+    .fee-pill p {
+        font-size: 10px !important;
     }
 }
 @media screen and (max-width:555px) {
@@ -4423,6 +4860,30 @@ font-size: 16px;
         font-size: 8px;
         padding: 0.5rem 0.2rem;
     }
+    .faq1 {
+        width: 97%;
+    }
+    .faq1 h5 {
+        font-size: 18px;
+    }
+    .fees {
+        height: 30vh;
+    }
+    .fees54{
+        display: none;
+    }
+    .fees5{
+        justify-content: space-between;
+    }
+    .fees41411 {
+        font-size: 9px;
+    }
+    .fees41412 p{
+        font-size: 8px;
+    }
+    .fees41412 .tax1 {
+        font-size: 7px;
+    }
 }
 @media screen and (max-width: 434px) {
     .yb122 img {
@@ -4501,6 +4962,24 @@ font-size: 16px;
     }
     .prof-sec40{
         height: 13rem;
+    }
+    .fees {
+        height: 37vh;
+    }
+    .fees211 {
+        margin-bottom: -3rem;
+    }
+    .fees1 h1 {
+        font-size: 30px;
+    }
+    .fees1 p {
+        font-size: 13px;
+    }
+    .fees21 h4 {
+        font-size: 20px;
+    }
+    .fees311 h5 {
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 380px) {
@@ -4583,5 +5062,12 @@ font-size: 16px;
     }
     .user-db41111 img{
         width: 100%;
+    }
+    .fees511 {
+        font-size: 10px;
+    }
+    .fees512 {
+        padding: 8px 15px;
+        font-size: 10px;
     }
 }
