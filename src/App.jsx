@@ -42,6 +42,8 @@ import C2 from './Components/Live/C2';
 import C3 from './Components/Live/C3';
 import C4 from './Components/Live/C4';
 import C5 from './Components/Live/C5';
+import Certificate1 from './Components/Certificate/Certificate1';
+import Certificate2 from './Components/Certificate/Certificate2';
 
 const App = () => {
     const [navFlag1, setNavFlag1] = useState(true);
@@ -90,6 +92,8 @@ const App = () => {
                     <Route path="/c3" element={<C3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                     <Route path="/c4" element={<C4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                     <Route path="/c5" element={<C5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/certificate-1" element={<Certificate1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/certificate-2" element={<Certificate2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                 </Routes>
                 {footFlag ? <Footer /> : null}
             </BrowserRouter>
