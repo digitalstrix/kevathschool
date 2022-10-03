@@ -33,10 +33,20 @@ import Courses1 from './Components/Course/Courses1';
 import { useState } from 'react';
 import Db4 from './Components/Dashboard/Db4';
 import CoursesDb from './Components/Dashboard/CoursesDb';
+import FaqPopup from './popup/FaqPopup';
+import ContactPopup from './popup/ContactPopup';
+import ContactUs from './Components/Contact/ContactUs';
+import Faq from './Components/FAQ/Faq';
+import C1 from './Components/Live/C1';
+import C2 from './Components/Live/C2';
+import C3 from './Components/Live/C3';
+import C4 from './Components/Live/C4';
+import C5 from './Components/Live/C5';
 
 const App = () => {
     const [navFlag1, setNavFlag1] = useState(true);
     const [navFlag2, setNavFlag2] = useState(false);
+    const [footFlag, setFootFlag] = useState(true);
     return (
         <>
             <BrowserRouter>
@@ -52,6 +62,8 @@ const App = () => {
                     <Route path="/hfu" element={<Hfu setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/about-us" element={<About setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/fee-isa" element={<FeeIsa setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/contact" element={<ContactUs setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/faq" element={<Faq setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/verify-phone-number" element={<VerifyPhoneNumber setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/profile-sec1" element={<ProfileSec1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/profile-sec11" element={<ProfileSec11 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
@@ -61,6 +73,8 @@ const App = () => {
                     <Route path="/profile-sec3-test" element={<ProfileSecTest setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/profile-sec4" element={<ProfileSec4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/profile-sec5" element={<ProfileSec5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/faq-popup" element={<FaqPopup setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/contact-popup" element={<ContactPopup setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/login" element={<Login setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/forget-password" element={<Forget1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/forget-password1" element={<Forget2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
@@ -71,8 +85,13 @@ const App = () => {
                     <Route path="/user-default-dashboard4" element={<Db4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/courses-db" element={<CoursesDb setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                     <Route path="/user-dashboard" element={<Db3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                    <Route path="/c1" element={<C1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/c2" element={<C2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/c3" element={<C3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/c4" element={<C4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                    <Route path="/c5" element={<C5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                 </Routes>
-                <Footer />
+                {footFlag ? <Footer /> : null}
             </BrowserRouter>
         </>
     )

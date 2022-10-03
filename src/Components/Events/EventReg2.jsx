@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 
-
 const EventReg2 = () => {
     const [value, setValue] = useState({
         name:'',

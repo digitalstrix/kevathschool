@@ -8,18 +8,16 @@ import {
 } from 'react-accessible-accordion';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
-import Sidebar from '../../Sidebar/Sidebar';
 
-const ProfileSec5 = (props) => {
+const Faq = (props) => {
     useEffect(() => {
-        props.setNavFlag1(false);
-        props.setNavFlag2(true);
+        props.setNavFlag1(true);
+        props.setNavFlag2(false);
     }, []);
 
     return (
         <>
-            <Sidebar />
-            <div className="prof-sec5 bg-light">
+            <div className="prof-sec5 prof-secm">
                 <div className="prof-sec51">
                     <div className="prof-sec511">
                         <h1>Frequently Asked <span className="bg-green">Questions</span></h1>
@@ -285,18 +283,18 @@ const ProfileSec5 = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="prof-sec-hfu">
-                <div className="hfu-4">
-                    <div className="hfu-41">
-                        <div className="hfu-411">
-                            <img src="/static/images1/5787097 1.png" alt="" />
-                        </div>
-                        <div className="hfu-412">
-                            <p>Eliminate the process of reaching out to different agencies for finding the right source. We provide the right platform filled with an array of tech talents that enables you to hire the right resources instantly. Did we mention that you are not paying a single penny for this?</p>
-                        </div>
-                        <div className="hfu-413">
-                            <img src="/static/images1/Vector (16).png" alt="" />
-                        </div>
+            <div className="eve-reg13">
+                <div className="eve-reg131">
+                    <div className="eve-reg1311">
+                        <img src="/static/images2/Polygon 9.png" alt="" />
+                    </div>
+                    <div className="eve-reg1312">
+                        <h3 className="text-green">Have more</h3>
+                        <h1>Question?</h1>
+                    </div>
+                    <div className="eve-reg1313">
+                        <img src="/static/images2/Polygon 8.png" alt="" />
+                        <button className="btn btn1">Contact us</button>
                     </div>
                 </div>
             </div>
@@ -304,4 +302,4 @@ const ProfileSec5 = (props) => {
     )
 }
 
-export default ProfileSec5;
+export default Faq
