@@ -27,7 +27,7 @@ const C5 = (props) => {
 
     return (
         <div className="live">
-            <div className="live1">
+            <div className="live1">Con
                 <div className="live-sidebar">
                     <div className="live-logo">
                         <img src="/static/images4/q1.png" alt="" />
