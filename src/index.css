@@ -3505,6 +3505,70 @@ font-size: 16px;
     display: block;
     top: 20px;
 }
+.cert01 h3{
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.cert01 h1{
+    font-size: 40px;
+}
+.cert0{
+    margin: 4rem 0rem;
+    justify-content: center;
+}
+.cert1{
+    width: 45%;
+    margin-right: 3rem;
+}
+.cert1 img{
+    width: 100%;
+}
+.cert2{
+    width:40%;
+    margin-left: 3rem;
+}
+.cert2 img{
+    width: 100%;
+}
+.cert2 p{
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+.cert2 input{
+    background: #FFFFFF;
+    outline: none;
+    width: 100%;
+    border: 1px solid #7F8184;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-size: 20px;
+    margin-bottom: 34px;
+}
+.cert2 .row{
+    justify-content: space-between;
+}
+.cert21{
+    display: flex;
+    align-items: center;
+    background: #51B848;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    color: white;
+}
+.cert21 p{
+    margin-bottom: 0px;
+}
+.cert21 img{
+    width: 30px;
+    margin-right: 10px;
+}
+.cert02{
+    width: 60%;
+    margin: 2rem auto;
+}
+.cert02 img{
+    width: 100%;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{
@@ -3855,6 +3919,12 @@ font-size: 16px;
     }
     .live-22 img{
         width: 24px;
+    }
+    .cert21 p{
+        font-size: 15px;
+    }
+    .cert21 img{
+        width: 20px;
     }
 }
 @media screen and (max-width:1100px) {
@@ -4830,6 +4900,27 @@ font-size: 16px;
         width: 73%;
         height: 5rem;
     }
+    .cert01 h3 {
+        font-size: 18px;
+    }
+    .cert01 h1 {
+        font-size: 26px;
+    }
+    .cert0{
+        flex-direction: column;
+    }
+    .cert1 {
+        width: 90%;
+        margin-right: 0rem;
+        margin-bottom: 2rem;
+    }
+    .cert2 {
+        width: 65%;
+        margin-left: 0rem;
+    }
+    .cert00{
+        margin-top: 5rem;
+    }
 }
 @media screen and (max-width:812px) {
     .yb12{
@@ -5291,6 +5382,26 @@ font-size: 16px;
     .c311 {
         width: 27vmin;
     }
+    .cert2 {
+        width: 75%;
+        margin-left: 0rem;
+    }
+    .cert2 p {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .cert2 input{
+        padding: 7px 16px;
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+    .cert21 p{
+        margin-bottom: 0px;
+        font-size: 13px;
+    }
+    .cert02{
+        width: 90%;
+    }
 }
 @media screen and (max-width:604px) {
     .yb12{
@@ -5678,6 +5789,25 @@ font-size: 16px;
     .c3111 {
         height: 8rem;
     }
+    .cert2 {
+        width: 100%;
+        margin-left: 0rem;
+    }
+    .cert01 h3 {
+        font-size: 13px;
+    }
+    .cert01 h1 {
+        font-size: 16px;
+    }
+    .cert0{
+        margin: 2rem 0rem;
+    }
+    .cert2 p {
+        font-size: 13px;
+    }
+    .cert2 input{
+        font-size: 13px;
+    }
 }
 @media screen and (max-width:515px) {
     .foot11_logo{
@@ -5972,6 +6102,12 @@ font-size: 16px;
     }
     .btn{
         font-size: 14px;
+    }
+    .cert2 .row{
+        flex-direction: column;
+    }
+    .cert21{
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 434px) {
