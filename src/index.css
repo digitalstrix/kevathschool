@@ -928,7 +928,7 @@ a{
     align-items: center;
 }
 .eve-reg2-main1{
-    width: 100vmin;
+    width: 110vmin;
     box-shadow: 5px 8px 50px 12px rgba(0, 0, 0, 0.09);
     border-radius: 23px;
     padding: 2rem;
@@ -1599,7 +1599,7 @@ a{
     /* background-image: url(pic.jpg); */
     height: 392px;
     /* background-repeat: no-repeat; */
-    background: url('../src//Components1/pic.jpg') no-repeat center center/cover;
+    background: url('../src/Components/CoursesUtil/pic.jpg') no-repeat center center/cover;
 }
 .main-banner {
 display: grid;
@@ -1650,7 +1650,7 @@ border-radius: 46px;
 margin-top: 27px;
 margin-left: 58px;
 padding: 16px 56px;
-background-image: url('../src/Components1/box1.jpg');
+background-image: url('../src/Components//CoursesUtil/box1.jpg');
 background-repeat: no-repeat;
 }
 .bm{
@@ -2787,7 +2787,7 @@ font-size: 16px;
 }
 .auth-main0{
     background: url('../public/static/images3/bg.png') no-repeat center center/cover;
-    height: 80vh;
+    height: 52rem;
 }
 .auth-main0 p{
     color: #5B5E61;

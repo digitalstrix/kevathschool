@@ -18,7 +18,7 @@ import image6 from "./assets/image6.png";
 import vector from "./assets/vector.png";
 import vector1 from "./assets/vector1.png";
 import vector2 from "./assets/vector2.png";
-import Card5 from "../Components/Card/Card5";
+import Card5 from "../Card/Card5";
 
 export default function Home1() {
   return (

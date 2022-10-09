@@ -89,11 +89,11 @@ const App = () => {
                         <Route path="/user-default-dashboard4" element={<Db4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/courses-db" element={<CoursesDb setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/user-dashboard" element={<Db3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
-                        <Route path="/c1" element={<C1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
-                        <Route path="/c2" element={<C2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
-                        <Route path="/c3" element={<C3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
-                        <Route path="/c4" element={<C4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
-                        <Route path="/c5" element={<C5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                        <Route path="/live-classes" element={<C1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                        <Route path="/program-contents" element={<C2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                        <Route path="/resources-course" element={<C3 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                        <Route path="/assesments-course" element={<C4 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
+                        <Route path="/assesments-course1" element={<C5 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                         <Route path="/certificate-1" element={<Certificate1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                         <Route path="/certificate-2" element={<Certificate2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} setFootFlag={setFootFlag} />} />
                     </Routes>
