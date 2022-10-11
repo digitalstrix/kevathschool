@@ -34,7 +34,7 @@ const Signup = (props) => {
                     </div>
                 </div>
             </nav>
-            <div className="auth-main0">
+            <div className="auth-main0 signup-0">
                 <div className="eve-reg2-main">
                     <div className="eve-reg2-main1">
                         <div className="auth-main">

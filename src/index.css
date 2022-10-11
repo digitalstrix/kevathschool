@@ -2793,7 +2793,10 @@ font-size: 16px;
 }
 .auth-main0{
     background: url('../public/static/images3/bg.png') no-repeat center center/cover;
-    height: 25rem;
+    height: 42rem;
+}
+.signup-0{
+    height: 52rem;
 }
 .auth-main0 p{
     color: #5B5E61;
