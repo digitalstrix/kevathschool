@@ -4,12 +4,14 @@ import React from 'react';
 const FeeIsa = () => {
     return (
         <>
-            <div className="fees">
-                <div className="fees1">
-                    <h1>Fees & ISA</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                        veniam, quis nostrud exercitation ullamco laboris.</p>
+            <div className="img-cls">
+                <div className="fees">
+                    <div className="fees1">
+                        <h1>Fees & ISA</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
                 </div>
             </div>
             <div className="fees2">

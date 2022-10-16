@@ -4,36 +4,38 @@ import Card3 from "../Card/Card3";
 const EventReg1 = () => {
   return (
     <>
-      <div className="home eve-reg1-main">
-        <div className="eve-reg1-main1">
-          <img src="/static/images/Vector (1).png" alt="" />
-        </div>
-        <div className="home1 eve-reg1-1">
-          <div className="row">
-            <div className="home12 eve-reg1-12">
-              <div className="evereg1_img1">
-                <img src="/static/images/unsplash_5QgIuuBxKwM.png" alt="" />
+      <div className="img-cls">
+        <div className="home eve-reg1-main">
+          <div className="eve-reg1-main1">
+            <img src="/static/images/Vector (1).png" alt="" />
+          </div>
+          <div className="home1 eve-reg1-1">
+            <div className="row">
+              <div className="home12 eve-reg1-12">
+                <div className="evereg1_img1">
+                  <img src="/static/images/unsplash_5QgIuuBxKwM.png" alt="" />
+                </div>
+                <div className="evereg1_img2">
+                  <img src="/static/images/unsplash_fIq0tET6llw.png" alt="" />
+                </div>
+                <div className="evereg1_img3">
+                  <img src="/static/images/unsplash_bzdhc5b3Bxs.png" alt="" />
+                </div>
               </div>
-              <div className="evereg1_img2">
-                <img src="/static/images/unsplash_fIq0tET6llw.png" alt="" />
+              <div className="eve-reg1-11">
+                <h1 style={{ marginTop: "20px" }}>
+                  Education is not <span className="bg-green">preparation</span>{" "}
+                  for life,{" "}
+                </h1>
+                <h1>
+                  <span className="bg-green">education</span> is life itself
+                </h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                </p>
               </div>
-              <div className="evereg1_img3">
-                <img src="/static/images/unsplash_bzdhc5b3Bxs.png" alt="" />
-              </div>
-            </div>
-            <div className="eve-reg1-11">
-              <h1 style={{ marginTop: "20px" }}>
-                Education is not <span className="bg-green">preparation</span>{" "}
-                for life,{" "}
-              </h1>
-              <h1>
-                <span className="bg-green">education</span> is life itself
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </p>
             </div>
           </div>
         </div>

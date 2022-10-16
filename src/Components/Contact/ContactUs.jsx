@@ -25,8 +25,10 @@ const ContactUs = (props) => {
 
     return (
         <>
-            <div className="prof4">
-                <h1><span className="bg-green">Connect</span>With Us</h1>
+            <div className="img-cls">
+                <div className="prof4">
+                    <h1><span className="bg-green">Connect</span>With Us</h1>
+                </div>
             </div>
             <div className="prof-sec3 prof-sec04 prof-secm prof-secm1">
                 <div className="prof-sec31 profile-sec-41">

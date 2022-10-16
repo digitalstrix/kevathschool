@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Avatar from 'react-avatar';
 
 const Index1 = () => {
     function openNav() {
@@ -53,8 +54,9 @@ const Index1 = () => {
                         <p>Cummunity</p>
                     </div>
                     <div className="nav1 nav1-2 row">
-                        <img src="/static/images2/Ellipse 39.png" alt="" />
-                        <div>
+                        {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
+                        <Avatar name="Narendra" round={true} color="#51B848" size={'35px'}  textSizeRatio="2" />
+                        <div style={{marginLeft:'7px'}}>
                             <p>Narendra Modi</p>
                             <p className="small">Prime Minister</p>
                         </div>
@@ -77,8 +79,9 @@ const Index1 = () => {
                     <div className='dropdown'>
                         <div className='dropdown-header' onClick={toggleDropdown}>
                             <div className="nav1 nav1-2 mob-nav1-2 row">
-                                <img src="/static/images2/Ellipse 39.png" alt="" />
-                                <div>
+                                {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
+                                <Avatar name="Narendra" round={true} color="#51B848" size={'35px'}  textSizeRatio="2" />
+                                <div style={{marginLeft:'7px'}}>
                                     <p>Narendra Modi</p>
                                     <p className="small">Prime Minister</p>
                                 </div>
