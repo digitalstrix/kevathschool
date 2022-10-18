@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
 
 a{
     text-decoration: none;
+}
+@font-face {
+    font-family: Gilroy-Regular;
+    src: url('../public/static/fonts/Gilroy-Regular.ttf');
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: Gilroy-Regular;
 }
 .nodec{
     text-decoration: none;
