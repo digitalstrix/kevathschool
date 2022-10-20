@@ -9,7 +9,7 @@ const Index = () => {
             <div className="foot11 foot10">
               <img
                 className="foot11_logo"
-                src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
+                src="/static/images2/nav_logo.png"
                 alt=""
               />
               <p>A community with high expectation and high achievement.</p>
@@ -74,10 +74,10 @@ const Index = () => {
                   <a href="#">Referral Program</a>
                 </div>
                 <div className="foot_a">
-                  <a href="#">Contact Us</a>
+                  <a href="/contact">Contact Us</a>
                 </div>
                 <div className="foot_a">
-                  <a href="#">FAQ</a>
+                  <a href="/faq">FAQ</a>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@ const Index = () => {
             <p>Copyright 2022 ©ARC423 All rights reserved.</p>
           </div>
           <div className="foot4">
-            <img src="/static/images/Vector 2.png" alt="" />
+            <img src="/static/images/Vector 2.png" alt="" width="310px" />
           </div>
         </div>
       </footer>

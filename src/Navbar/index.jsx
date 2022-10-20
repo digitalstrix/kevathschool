@@ -86,7 +86,9 @@ const index = () => {
           <a onClick={closeNav} href="#">
             Refer & Earn
           </a>
-          <button className="btn btn1">Login</button>
+          <Link to="/login">
+            <button className="btn btn1">Login</button>
+          </Link>
         </div>
       </div>
 

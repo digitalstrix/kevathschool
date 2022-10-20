@@ -1,8 +1,6 @@
-
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 
 const EventReg2 = () => {
   const [value, setValue] = useState({
@@ -66,7 +64,7 @@ const EventReg2 = () => {
                 <p>
                   Don't have any account?{" "}
                   <span>
-                    <a className="text-green" href="#">
+                    <a className="text-green" href="/signup">
                       Sign up
                     </a>
                   </span>

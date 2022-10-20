@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 import Card3 from '../Card/Card3';
 
 const Db2 = (props) => {
-    useEffect(()=>{
+    useEffect(() => {
         props.setNavFlag1(false);
         props.setNavFlag2(true);
-    },[]);
+    }, []);
 
     return (
         <>

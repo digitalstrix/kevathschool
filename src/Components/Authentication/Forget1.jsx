@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Forget1 = (props) => {
   useEffect(() => {
@@ -30,7 +31,7 @@ const Forget1 = (props) => {
           </div>
         </div>
       </nav>
-      <div className="auth-main0 height-forget">
+      <div className="auth-main0 auth-main01">
         <div className="eve-reg2-main">
           <div className="eve-reg2-main1">
             <div className="auth-main">
@@ -53,13 +54,37 @@ const Forget1 = (props) => {
               <div className="eve-reg22">
                 <button className="btn auth-btn2">Reset</button>
                 <div>
-                  <p>Back to Login</p>
+                  <Link to="/login">
+                    <p>Back to Login</p>
+                  </Link>
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      {/* <form onSubmit={handleSubmit}>
+        <div className="eve-reg21">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={value.email}
+            onChange={handleChange}
+            placeholder="Enter email"
+          />
+        </div>
+        <div className="eve-reg22">
+          <button className="btn auth-btn2">Reset</button>
+          <div>
+            <Link to="/login">
+              <p>Back to Login</p>
+            </Link>
+          </div>
+        </div>
+      </form> */}
     </>
   );
 };
