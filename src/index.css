@@ -7,7 +7,11 @@ a{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: "Gilroy-Bold";
+
+
+
 }
 .nodec{
     text-decoration: none;
@@ -576,7 +580,7 @@ a{
 }
 .navbtn{
     display: none;
-    height: 80px;
+    height: 53px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -2219,6 +2223,7 @@ margin-bottom: 20px;
 }
 .acourse111{
     margin-bottom: 1rem;
+    
 }
 .acourse111 h3{
 font-size: 36px;
@@ -2793,10 +2798,10 @@ font-size: 16px;
 }
 .auth-main0{
     background: url('../public/static/images3/bg.png') no-repeat center center/cover;
-    height: 42rem;
+    height:40rem;
 }
 .signup-0{
-    height: 52rem;
+    height: 52rem !important;
 }
 .auth-main0 p{
     color: #5B5E61;
@@ -4670,7 +4675,8 @@ font-size: 16px;
         height: 13rem;
     }
     .eve-reg2-main{
-        margin-top: 7rem;
+        margin-top: 2rem;
+
     }
     .hfu{
         margin-top: 1rem;
@@ -5413,6 +5419,10 @@ font-size: 16px;
     }
 }
 @media screen and (max-width:604px) {
+    .auth-main0{
+        background: url('../public/static/images3/bg.png') no-repeat center center/cover;
+        height:30rem;
+    }
     .yb12{
         right: 90%;
     }
@@ -5707,6 +5717,11 @@ font-size: 16px;
     }
 }
 @media screen and (max-width:555px) {
+    .acourse111{
+        padding: 10px;
+        text-align: center;
+
+    }
     .yb12{
         right: 93%;
     }

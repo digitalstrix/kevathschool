@@ -63,7 +63,9 @@ const Index = () => {
                 </div>
               </div>
               <div className="foot14 foot10">
-                <h5 className="h5">Get in touch</h5>
+                <h5 className="h5" style={{ marginBottom: "1.1rem" }}>
+                  Get in touch
+                </h5>
                 <div className="inp">
                   <input type="text" placeholder="Enter your email" />
                   <img src="/static/images/Icon (3).png" alt="" />
