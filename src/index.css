@@ -3639,6 +3639,48 @@ font-size: 16px;
     height: 100%;
     width: 100%;
 }
+.alert{
+    z-index: 99999 !important;
+    min-width: 25rem;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+.alert1{
+    display: flex;
+}
+.alert11{
+    width: 8px;
+    background-color: #51B848;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.alert12{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    padding: 1.5rem;
+}
+.alert121{
+    margin-right: 1.4rem;
+}
+.alert122 p{
+    font-size: 13px;
+    margin-top: 0.8rem;
+    margin-bottom: 1.4rem;
+}
+.alert122 b{
+    font-size: 15px;
+}
+.alert-close{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{

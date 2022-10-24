@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Sidebar from '../../Sidebar/Sidebar';
+import MainContext from "../../context/MainContext";
 
 const ProfileSec11 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);
         props.setNavFlag2(true);
     }, []);
+    const context = useContext(MainContext);
 
     const [value1, setValue1] = useState({
         currentPassword: "",
@@ -20,6 +22,7 @@ const ProfileSec11 = (props) => {
     const submitHandle1 = async (e) => {
         e.preventDefault();
         console.log(value1);
+        let ans = await context.changePassword();
     };
 
     return (

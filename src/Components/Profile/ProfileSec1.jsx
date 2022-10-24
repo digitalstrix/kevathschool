@@ -1,15 +1,15 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import SelectBox from '../../Utils/SelectBox';
 import Avatar from 'react-avatar';
+import MainContext from "../../context/MainContext";
 
 const ProfileSec1 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);
         props.setNavFlag2(true);
     }, []);
+    const context = useContext(MainContext);
 
     const [value, setValue] = useState({
         firstName: "",
@@ -60,11 +60,13 @@ const ProfileSec1 = (props) => {
     const submitHandle = async (e) => {
         e.preventDefault();
         console.log(value);
+        let ans = await context.updateUserDetails();
     };
 
     const submitHandle1 = async (e) => {
         e.preventDefault();
         console.log(value1);
+        let ans = await context.updateAddress();
     };
 
     return (

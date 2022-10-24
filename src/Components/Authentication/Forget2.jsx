@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import MainContext from "../../context/MainContext";
 
 const Forget2 = (props) => {
     useEffect(() => {
         props.setNavFlag1(false);
         props.setNavFlag2(false);
     }, []);
+    const context = useContext(MainContext);
 
     return (
         <>

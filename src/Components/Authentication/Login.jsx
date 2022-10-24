@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import MainContext from "../../context/MainContext";
 
 const Login = (props) => {
   useEffect(() => {
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
+  const context = useContext(MainContext);
 
   const [value, setValue] = useState({
     email: "",
-    password: "",
+    Password: "",
   });
 
   const handleChange = (e) => {
@@ -17,7 +19,10 @@ const Login = (props) => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(value);
+    let ans = await context.login(value.email, value.Password);
+
   };
 
   return (

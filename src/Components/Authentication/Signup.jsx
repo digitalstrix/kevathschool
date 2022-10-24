@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import MainContext from "../../context/MainContext";
 
 const Signup = (props) => {
   useEffect(() => {
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
+  const context = useContext(MainContext);
 
   const [value, setValue] = useState({
     email: "",
-    password: "",
+    Password: "",
     fullName: "",
     phone: "",
   });
@@ -19,7 +22,10 @@ const Signup = (props) => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(value);
+    let ans = await context.signup(value.fullName, "", value.email, value.phone, value.Password);
+
   };
 
   return (

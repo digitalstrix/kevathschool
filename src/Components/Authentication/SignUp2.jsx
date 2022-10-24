@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import MainContext from "../../context/MainContext";
 
 const SignUp2 = () => {
   const [value, setValue] = useState({
     verification: "",
   });
+  const context = useContext(MainContext);
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(value);
+    let ans = await context.login(value.email, value.Password);
   };
 
   return (

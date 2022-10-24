@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import MainContext from "../../context/MainContext";
 
 const Forget1 = (props) => {
   useEffect(() => {
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
+  const context = useContext(MainContext);
 
   const [value, setValue] = useState({
     email: "",
@@ -16,7 +18,9 @@ const Forget1 = (props) => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(value);
+    let ans = await context.forgetPassword1(value.email);
   };
 
   return (
