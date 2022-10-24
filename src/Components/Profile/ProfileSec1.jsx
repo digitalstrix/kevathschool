@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import SelectBox from '../../Utils/SelectBox';
+import Avatar from 'react-avatar';
 
 const ProfileSec1 = (props) => {
     useEffect(() => {
@@ -86,7 +87,8 @@ const ProfileSec1 = (props) => {
                                 </div>
                                 <div className="row psi12">
                                     <div className="prof-dp">
-                                        <img src="/static/images2/Ellipse 41.png" alt="" />
+                                        {/* <img src="/static/images2/Ellipse 41.png" alt="" /> */}
+                                        <Avatar name="Narendra" round={true} color="#51B848" />
                                         <div className="prof-dp1">
                                             <img src="/static/images2/Vector (6).png" alt="" />
                                         </div>

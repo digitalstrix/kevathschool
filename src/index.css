@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
 
 a{
     text-decoration: none;
+}
+@font-face {
+    font-family: Gilroy-Regular;
+    src: url('../public/static/fonts/Gilroy-Regular.ttf');
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: Gilroy-Regular;
 }
 .nodec{
     text-decoration: none;
@@ -19,7 +24,10 @@ a{
     align-items: center;
     height: 5rem;
     position: relative;
+    position: fixed;
+    width: 100%;
     background: #F2F2F2;
+    z-index: 99999 !important;
 }
 .sidebar-pill{
     width: 38px;
@@ -104,7 +112,8 @@ p{
     transition: all 0.17s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     padding: 6px;
     width: 17rem;
-    position: absolute;
+    padding-top: 5rem;
+    position: fixed;
     height: 100%;
     z-index: 11;
     background: white;
@@ -148,6 +157,7 @@ p{
     z-index: 10;
 }
 .home{
+    padding-top: 5rem;
     background: #F2F2F2;
     display: flex;
     width: 100%;
@@ -687,6 +697,8 @@ a{
     text-align: center;
 }
 .course-card-text1 h5{
+    margin-left: 10px;
+    text-align: start;
     font-size: 20px;
     margin-bottom: 1rem;
 }
@@ -773,7 +785,11 @@ a{
 .course-card-img img{
     width: 100%;
 }
+.img-cls{
+    padding-top: 5rem;
+}
 .eve-reg1-main{
+    padding-top: 0 !important;
     background: url('../public/static/images/Vector.png') no-repeat center center/cover;
     height: 60vh;
     display: flex;
@@ -928,13 +944,14 @@ a{
     z-index: 10;
 }
 .eve-reg2-main{
+    padding-top: 7rem;
     margin: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .eve-reg2-main1{
-    width: 110vmin;
+    width: 80vmin;
     box-shadow: 5px 8px 50px 12px rgba(0, 0, 0, 0.09);
     border-radius: 23px;
     padding: 2rem;
@@ -998,6 +1015,7 @@ a{
     text-decoration: none;
 }
 .hfu{
+    padding-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1360,6 +1378,7 @@ a{
     background: #F0FFEF;
     padding: 1rem 2rem;
     margin-left: 17rem;
+    padding-top: 6rem;
 }
 .prof-sec111{
     margin-bottom: 1.5rem;
@@ -1510,6 +1529,9 @@ a{
 .psi211{
     align-items: flex-start;
 }
+.prof-sec012{
+    padding-top: 0 !important;
+}
 .psi40 .psi-input{
     margin-right: 2rem;
 }
@@ -1535,6 +1557,7 @@ a{
     margin-left: 17rem;
     background: #F0FFEF;
     padding: 2rem;
+    padding-top: 6.5rem;
 }
 .prof-sec31{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1601,10 +1624,11 @@ a{
 
 /* Courses Css */
 
+.container-banner1{
+    padding-top: 5rem;
+}
 .container-banner {
-    /* background-image: url(pic.jpg); */
     height: 392px;
-    /* background-repeat: no-repeat; */
     background: url('../src/Components/CoursesUtil/pic.jpg') no-repeat center center/cover;
 }
 .main-banner {
@@ -2362,6 +2386,7 @@ font-size: 16px;
     font-size: 24px;
 }
 .prof-sec5{
+    padding-top: 5rem;
     background: white;
     margin-left: 17rem;
 }
@@ -2793,7 +2818,13 @@ font-size: 16px;
 }
 .auth-main0{
     background: url('../public/static/images3/bg.png') no-repeat center center/cover;
-    height: 42rem;
+    height: 36rem;
+}
+.auth-main01{
+    height: 25rem;
+}
+.signup2ver{
+    padding-top: 9rem;
 }
 .signup-0{
     height: 52rem;
@@ -2815,7 +2846,8 @@ font-size: 16px;
     background: #51B848;
     box-shadow: 0px 1px 17px rgba(0, 0, 0, 0.31);
     border-radius: 10px !important;
-    padding: 11px 230px !important;
+    /* padding: 11px 230px !important; */
+    width: 100% ;
     color: white;
 }
 .auth-forgot{
@@ -3578,6 +3610,29 @@ font-size: 16px;
 .cert02 img{
     width: 100%;
 }
+.foot11_logo{
+    margin-bottom: 20px;
+    margin-left: -9px;
+}
+.foot14 h5{
+    margin-bottom: 19px;
+}
+.auth-main0 .eve-reg2-main{
+    padding-top: 0;
+    margin: 0rem 2rem;
+}
+.hambug{
+    height: 40px;
+    margin: auto;
+    margin-bottom: 1rem;
+    width: 40px;
+    cursor: pointer;
+    display: none;
+}
+.hambug svg{
+    height: 100%;
+    width: 100%;
+}
 
 @media screen and (max-width:1380px) {
     .nav0{
@@ -3725,7 +3780,8 @@ font-size: 16px;
         font-size: 15px;
     }
     .prof-sec04{
-        padding: 2rem 7rem;
+        padding: 2rem 1rem;
+        padding-top: 7rem;
     }
     .prof-sec22{
         width: 10rem;
@@ -4170,7 +4226,8 @@ font-size: 16px;
         padding: 12px 28px;
     }
     .prof-sec04{
-        padding: 2rem 4rem;
+        padding: 2rem 1rem;
+        padding-top: 7rem;
     }
     .prof-sec0002{
         flex-wrap: wrap;
@@ -4330,6 +4387,12 @@ font-size: 16px;
     }
     .yb111{
         width: 100%;
+    }
+    .img-cls{
+        padding-top: 0;
+    }
+    .home{
+        padding-top: 0;
     }
     .yb12{
         top: 17rem;
@@ -4544,9 +4607,11 @@ font-size: 16px;
     .prof-sec1{
         margin-left: 0;
         margin-top: 5rem;
+        padding-top: 2rem;
     }
     .prof-sec012{
         margin-top: 0rem;
+        padding-top: 1rem !important;
     }
     .prof-sec111{
         margin-left: 4rem;
@@ -4566,7 +4631,7 @@ font-size: 16px;
     }
     .prof-sec3{
         margin-left: 0;
-        padding-top: 5rem;
+        padding-top: 6rem;
     }
     .test-nav12 {
         font-size: 17px !important;
@@ -4671,9 +4736,11 @@ font-size: 16px;
     }
     .eve-reg2-main{
         margin-top: 7rem;
+        padding-top: 0;
     }
     .hfu{
         margin-top: 1rem;
+        padding-top: 0;
     }
     .about-main{
         margin-top: 5rem;
@@ -4682,11 +4749,9 @@ font-size: 16px;
         text-align: center;
         padding: 0rem 2rem !important;
     }
-    .foot11_logo{
-        height: 100px;
-    }
     .prof-sec5{
         margin-top: 4rem;
+        padding-top: 0;
         margin-left: 0;
     }
     .user-dp-top1{
@@ -4929,6 +4994,16 @@ font-size: 16px;
     }
     .cert00{
         margin-top: 5rem;
+    }
+    .foot4{
+        display: none;
+    }
+    .hambug{
+        display: block;
+    }
+    .hambug1{
+        margin: 0;
+        display: none;
     }
 }
 @media screen and (max-width:812px) {
@@ -5384,6 +5459,7 @@ font-size: 16px;
     }
     .prof-sec04 {
         padding: 2rem 1rem;
+        padding-top: 6rem;
     }
     .c31{
         flex-wrap: wrap;
@@ -5638,7 +5714,7 @@ font-size: 16px;
         width: 100%;
     }
     .eve-reg21{
-        text-align: center;
+        text-align: start;
     }
     .prof4 h1 {
         font-size: 32px;
@@ -5819,9 +5895,6 @@ font-size: 16px;
     }
 }
 @media screen and (max-width:515px) {
-    .foot11_logo{
-        width: 100%;
-    }
     .yb12{
         right: 88%;
     }
@@ -5965,6 +6038,12 @@ font-size: 16px;
     }
     .test221 h5{
         font-size: 15px !important;
+    }
+    .foot20{
+        justify-content: center;
+    }
+    .foot10{
+        text-align: center;
     }
 }
 @media screen and (max-width:460px) {

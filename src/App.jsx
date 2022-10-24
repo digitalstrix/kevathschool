@@ -82,6 +82,7 @@ const App = () => {
                         <Route path="/login" element={<Login setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/forget-password" element={<Forget1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/forget-password1" element={<Forget2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
+                        {/* start */}
                         <Route path="/signup" element={<Signup setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/signup2ver" element={<SignUp2 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />
                         <Route path="/user-default-dashboard" element={<Db1 setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />} />

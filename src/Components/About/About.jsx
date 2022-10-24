@@ -5,10 +5,12 @@ import Card4 from '../Card/Card4';
 const About = () => {
     return (
         <>
-            <div className="about-main">
-                <div className="about-main1">
-                    <h1>About Us</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <div className="img-cls">
+                <div className="about-main">
+                    <div className="about-main1">
+                        <h1>About Us</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
                 </div>
             </div>
             <div className="about1">

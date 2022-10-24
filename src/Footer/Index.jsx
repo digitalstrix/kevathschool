@@ -9,7 +9,7 @@ const Index = () => {
             <div className="foot11 foot10">
               <img
                 className="foot11_logo"
-                src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
+                src="/static/images2/nav_logo.png"
                 alt=""
               />
               <p>A community with high expectation and high achievement.</p>

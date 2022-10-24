@@ -27,7 +27,7 @@ const Forget1 = (props) => {
                     </div>
                 </div>
             </nav>
-            <div className="auth-main0">
+            <div className="auth-main0 auth-main01">
                 <div className="eve-reg2-main">
                     <div className="eve-reg2-main1">
                         <div className="auth-main">

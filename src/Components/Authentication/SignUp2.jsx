@@ -14,7 +14,7 @@ const SignUp2 = () => {
     };
 
     return (
-        <div className="auth-main0">
+        <div className="auth-main0 signup2ver">
             <div className="eve-reg2-main">
                 <div className="eve-reg2-main1 eve-reg3-main1">
                     <h2>Now, check your inbox</h2>
