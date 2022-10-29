@@ -83,9 +83,7 @@ const Login = (props) => {
                 />
               </div>
               <div className="eve-reg22">
-                <Link to="/courses-main">
-                  <button className="btn auth-btn2">Login</button>
-                </Link>
+                <button type="submit" className="btn auth-btn2">Login</button>
                 <div className="auth-forgot">
                   <Link to="/forget-password">
                     <p>Forgot password?</p>

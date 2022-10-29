@@ -24,7 +24,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.signup(value.fullName, "", value.email, value.phone, value.Password);
+    let ans = await context.signup(value.fullName, " ", value.email, value.phone, value.Password);
 
   };
 
@@ -109,7 +109,7 @@ const Signup = (props) => {
               </div>
               <div className="eve-reg22 eve-reg225">
                 <input type="checkbox" id="agree" name="agree" value="true" />
-                <label for="agree">
+                <label htmlFor="agree">
                   {" "}
                   All your information is collected, stored and processed as per
                   our data processing guidelines. By signing up on
