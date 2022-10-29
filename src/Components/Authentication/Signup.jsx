@@ -24,8 +24,13 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.signup(value.fullName, " ", value.email, value.phone, value.Password);
-
+    let ans = await context.signup(
+      value.fullName,
+      "lastName",
+      value.email,
+      value.phone,
+      value.Password
+    );
   };
 
   return (

@@ -122,7 +122,7 @@ const Home = () => {
                 <img src="/static/images/image 1.png" alt="" />
               </div>
               <div className="question13">
-                <Link>
+                <Link to="/contact">
                   <button className="btn btn1">Contact Us</button>
                 </Link>
               </div>
