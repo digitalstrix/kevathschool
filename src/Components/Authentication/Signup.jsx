@@ -13,7 +13,8 @@ const Signup = (props) => {
   const [value, setValue] = useState({
     email: "",
     Password: "",
-    fullName: "",
+    firstName: "",
+    lastName: "",
     phone: "",
   });
 
@@ -24,8 +25,15 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.signup(value.fullName, " ", value.email, value.phone, value.Password);
-
+    let ans = await context.signup(value.firstName, value.lastName, value.email, value.phone, value.Password);
+    if(ans.status)
+    {
+      props.setAlert(ans.message, "success");
+    }
+    else
+    {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (
@@ -63,16 +71,31 @@ const Signup = (props) => {
               <div className="auth-line0"></div>
             </div>
             <form onSubmit={handleSubmit}>
-              <div className="eve-reg21">
-                <label htmlFor="fullName">Full Name</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={value.fullName}
-                  onChange={handleChange}
-                  placeholder="Full Name"
-                />
+              <div className="row eve-reg-row">
+                <div className="eve-reg21 eve-reg211">
+                  <label htmlFor="fullName">First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={value.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div className="eve-reg21 eve-reg212">
+                  <label htmlFor="fullName">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={value.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
               </div>
               <div className="eve-reg21">
                 <label htmlFor="email">Email</label>
@@ -83,6 +106,7 @@ const Signup = (props) => {
                   value={value.email}
                   onChange={handleChange}
                   placeholder="Email "
+                  required
                 />
               </div>
               <div className="eve-reg21">
@@ -94,6 +118,7 @@ const Signup = (props) => {
                   value={value.phone}
                   onChange={handleChange}
                   placeholder="+91 "
+                  required
                 />
               </div>
               <div className="eve-reg21">
@@ -105,21 +130,18 @@ const Signup = (props) => {
                   value={value.Password}
                   onChange={handleChange}
                   placeholder="Enter your password"
+                  required
                 />
               </div>
               <div className="eve-reg22 eve-reg225">
-                <input type="checkbox" id="agree" name="agree" value="true" />
                 <label htmlFor="agree">
-                  {" "}
-                  All your information is collected, stored and processed as per
-                  our data processing guidelines. By signing up on
-                  Kevarthschool, you agree to our{" "}
-                  <span className="text-green">Privacy Policy</span> and{" "}
+                  By signing up on Kevarthschool, I accept the KevathScool Privacy Policy and Terms of Service
+                  <span className="text-green"> Privacy Policy</span> and{" "}
                   <span className="text-green">Terms of Use</span>
                 </label>
               </div>
               <div className="eve-reg22">
-                <button className="btn auth-btn2">Continue</button>
+                <button className="btn auth-btn2">Sign Up</button>
                 <div>
                   <p>
                     Alreadt have an account?{" "}

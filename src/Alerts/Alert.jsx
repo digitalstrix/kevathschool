@@ -5,10 +5,10 @@ const Alert = (props) => {
         <>
             <div className="alert">
                 <div className="alert1">
-                    <div className="alert11"></div>
+                    <div className={props.color==="success" ? "alert11" : "alert11 alert22"}></div>
                     <div className="alert12">
                         <div className="alert121">
-                            {props.color==='success' ? <img src="/static/images4/h1.png" alt="" /> : <img src="/static/images4/h2.png" alt="" />}
+                            {props.color==='success' ? <img src="/static/images4/h2.png" alt="" /> : <img src="/static/images4/h1.png" alt="" />}
                         </div>
                         <div className="alert122">
                             <b>{props.message}</b>

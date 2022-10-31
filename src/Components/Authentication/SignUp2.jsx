@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import MainContext from "../../context/MainContext";
 
-const SignUp2 = () => {
+const SignUp2 = (props) => {
   const [value, setValue] = useState({
     verification: "",
   });
@@ -14,7 +14,25 @@ const SignUp2 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.login(value.email, value.Password);
+    let user=localStorage.getItem('kevath_user');
+    if(user)
+    {
+      user=JSON.parse(user);
+      let ans = await context.emailVerify(user.email, value.verification);
+      if(ans.status)
+      {
+        props.setAlert(ans.message, "success");
+      }
+      else
+      {
+        props.setAlert(ans.message, "error");
+      }
+    }
+    else
+    {
+      props.setAlert("User unauthorised", "error");
+      window.location.href="/login";
+    }
   };
 
   return (
@@ -32,6 +50,7 @@ const SignUp2 = () => {
                 value={value.verification}
                 onChange={handleChange}
                 placeholder="Enter verification code"
+                required
               />
             </div>
             <div className="eve-reg22">

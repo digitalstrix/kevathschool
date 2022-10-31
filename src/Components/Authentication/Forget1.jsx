@@ -21,6 +21,15 @@ const Forget1 = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.forgetPassword1(value.email);
+    if(ans.status)
+    {
+      localStorage.setItem("kevath_forgot_email", value.email);
+      props.setAlert(ans.message, "success");
+    }
+    else
+    {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (
@@ -53,10 +62,11 @@ const Forget1 = (props) => {
                   value={value.email}
                   onChange={handleChange}
                   placeholder="Enter email"
+                  required
                 />
               </div>
               <div className="eve-reg22">
-                <button className="btn auth-btn2">Reset</button>
+                <button type="submit" className="btn auth-btn2">Reset</button>
                 <div>
                   <Link to="/login">
                     <p>Back to Login</p>

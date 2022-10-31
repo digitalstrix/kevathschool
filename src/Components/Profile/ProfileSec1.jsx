@@ -16,7 +16,10 @@ const ProfileSec1 = (props) => {
         lastName: "",
         email: "",
         phone: "",
+        emerPhone: "",
         password: "",
+        dob: "",
+        gender: "",
         higherEdu: "",
         course: "",
         specification: "",
@@ -114,17 +117,38 @@ const ProfileSec1 = (props) => {
                                     <div className="row psi131">
                                         <div className="psi-input">
                                             <label htmlFor="email">Email</label>
-                                            <input type="text" name="email" onChange={handleChange} value={value.email} />
+                                            <input type="text" id="email" name="email" onChange={handleChange} value={value.email} />
                                         </div>
                                         <div className="psi-input">
                                             <label htmlFor="phone">Phone Number</label>
-                                            <input type="text" name="phone" onChange={handleChange} value={value.phone} />
+                                            <input type="text" id="phone" name="phone" onChange={handleChange} value={value.phone} />
                                         </div>
                                     </div>
                                     <div className="row psi131">
                                         <div className="psi-input">
+                                            <label htmlFor="emerPhone">Emergency Contact Number</label>
+                                            <input type="text" id="emerPhone" name="emerPhone" onChange={handleChange} value={value.emerPhone} />
+                                        </div>
+                                        <div className="psi-input">
                                             <label htmlFor="password">Password</label>
                                             <input type="text" name="password" onChange={handleChange} value={value.password} />
+                                        </div>
+                                    </div>
+                                    <div className="row psi131">
+                                        <div className="psi-input">
+                                            <div>
+                                                <label htmlFor="dob">DOB</label>
+                                                <input type="date" id="dob" name="dob" onChange={handleChange} value={value.dob} />
+                                            </div>
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>Gender</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="gender" setValue={setValue} value={value} />
                                         </div>
                                     </div>
                                 </div>
@@ -133,17 +157,70 @@ const ProfileSec1 = (props) => {
                                 <div className="prof-sec-top">
                                     <p>EDUCATIONAL INFORMATION</p>
                                 </div>
-                                <div className="psi21">
-                                    <div className="psi211 row">
-                                        <div className="psi-select">
-                                            <label>Higher Education</label>
-                                            <SelectBox items={[
-                                                { value: "United States", id: 1 },
-                                                { value: "Canada", id: 2 },
-                                                { value: "Mexico", id: 3 },
-                                                { value: "Japan", id: 4 }
-                                            ]} name="higherEdu" setValue={setValue} value={value} />
+                                <div className="psi201">
+                                    <div className="psi2011">
+                                        <h5 className="text-green">10th</h5>
+                                        <div className="psi211 row">
+                                            <div className="psi-select">
+                                                <label>Passed Out Year</label>
+                                                <SelectBox items={[
+                                                    { value: "United States", id: 1 },
+                                                    { value: "Canada", id: 2 },
+                                                    { value: "Mexico", id: 3 },
+                                                    { value: "Japan", id: 4 }
+                                                ]} name="higherEdu" setValue={setValue} value={value} />
+                                            </div>
+                                            <div className="psi-select">
+                                                <label>Duration</label>
+                                                <SelectBox items={[
+                                                    { value: "United States", id: 1 },
+                                                    { value: "Canada", id: 2 },
+                                                    { value: "Mexico", id: 3 },
+                                                    { value: "Japan", id: 4 }
+                                                ]} name="course" setValue={setValue} value={value} />
+                                            </div>
+                                            <div className="psi-input">
+                                                <div>
+                                                    <label htmlFor="dob">Percentage</label>
+                                                    <input type="text" id="dob" name="dob" onChange={handleChange} value={value.dob} />
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div className="psi2012">
+                                        <h5 className="text-green">12th</h5>
+                                        <div className="psi211 row">
+                                            <div className="psi-select">
+                                                <label>Passed Out Year</label>
+                                                <SelectBox items={[
+                                                    { value: "United States", id: 1 },
+                                                    { value: "Canada", id: 2 },
+                                                    { value: "Mexico", id: 3 },
+                                                    { value: "Japan", id: 4 }
+                                                ]} name="higherEdu" setValue={setValue} value={value} />
+                                            </div>
+                                            <div className="psi-select">
+                                                <label>Duration</label>
+                                                <SelectBox items={[
+                                                    { value: "United States", id: 1 },
+                                                    { value: "Canada", id: 2 },
+                                                    { value: "Mexico", id: 3 },
+                                                    { value: "Japan", id: 4 }
+                                                ]} name="course" setValue={setValue} value={value} />
+                                            </div>
+                                            <div className="psi-input">
+                                                <div>
+                                                    <label htmlFor="dob">Percentage</label>
+                                                    <input type="text" id="dob" name="dob" onChange={handleChange} value={value.dob} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="psi21">
+                                    <h5 className="text-green">Bachelors/Graduation</h5>
+                                    <div className="psi211 row">
                                         <div className="psi-select">
                                             <label>Course</label>
                                             <SelectBox items={[
@@ -162,8 +239,6 @@ const ProfileSec1 = (props) => {
                                                 { value: "Japan", id: 4 }
                                             ]} name="specification" setValue={setValue} value={value} />
                                         </div>
-                                    </div>
-                                    <div className="psi211 row">
                                         <div className="psi-select">
                                             <label>College Name</label>
                                             <SelectBox items={[
@@ -173,6 +248,8 @@ const ProfileSec1 = (props) => {
                                                 { value: "Japan", id: 4 }
                                             ]} name="college" setValue={setValue} value={value} />
                                         </div>
+                                    </div>
+                                    <div className="psi211 row">
                                         <div className="psi-select">
                                             <label>University</label>
                                             <SelectBox items={[
@@ -182,17 +259,6 @@ const ProfileSec1 = (props) => {
                                                 { value: "Japan", id: 4 }
                                             ]} name="university" setValue={setValue} value={value} />
                                         </div>
-                                        <div className="psi-select">
-                                            <label>Duration</label>
-                                            <SelectBox items={[
-                                                { value: "United States", id: 1 },
-                                                { value: "Canada", id: 2 },
-                                                { value: "Mexico", id: 3 },
-                                                { value: "Japan", id: 4 }
-                                            ]} name="duration" setValue={setValue} value={value} />
-                                        </div>
-                                    </div>
-                                    <div className="psi211 row">
                                         <div className="psi-select">
                                             <label>Status</label>
                                             <SelectBox items={[
@@ -211,6 +277,17 @@ const ProfileSec1 = (props) => {
                                                 { value: "Japan", id: 4 }
                                             ]} name="yearOfPassing" setValue={setValue} value={value} />
                                         </div>
+                                    </div>
+                                    <div className="psi211 row">
+                                        <div className="psi-select">
+                                            <label>Duration</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="duration" setValue={setValue} value={value} />
+                                        </div>
                                         <div className="psi-select">
                                             <label>Percentage</label>
                                             <SelectBox items={[
@@ -222,6 +299,89 @@ const ProfileSec1 = (props) => {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div className="psi21">
+                                    <h5 className="text-green">Masters/Postgraduation</h5>
+                                    <div className="psi211 row">
+                                        <div className="psi-select">
+                                            <label>Course</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="course" setValue={setValue} value={value} />
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>Specification</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="specification" setValue={setValue} value={value} />
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>College Name</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="college" setValue={setValue} value={value} />
+                                        </div>
+                                    </div>
+                                    <div className="psi211 row">
+                                        <div className="psi-select">
+                                            <label>University</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="university" setValue={setValue} value={value} />
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>Status</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="status" setValue={setValue} value={value} />
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>Year of Passing</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="yearOfPassing" setValue={setValue} value={value} />
+                                        </div>
+                                    </div>
+                                    <div className="psi211 row">
+                                        <div className="psi-select">
+                                            <label>Duration</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="duration" setValue={setValue} value={value} />
+                                        </div>
+                                        <div className="psi-select">
+                                            <label>Percentage</label>
+                                            <SelectBox items={[
+                                                { value: "United States", id: 1 },
+                                                { value: "Canada", id: 2 },
+                                                { value: "Mexico", id: 3 },
+                                                { value: "Japan", id: 4 }
+                                            ]} name="percentage" setValue={setValue} value={value} />
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div className="psi3">
                                 <div className="prof-sec-top">
@@ -271,18 +431,19 @@ const ProfileSec1 = (props) => {
                                             <input type="text" name="addressLine1" onChange={handleChange1} value={value1.addressLine1} />
                                         </div>
                                         <div className="psi-input">
-                                            <label htmlFor="city">City</label>
-                                            <input type="text" name="city" onChange={handleChange1} value={value1.city} />
-                                        </div>
-                                    </div>
-                                    <div className="row psi131">
-                                        <div className="psi-input">
                                             <label htmlFor="addressLine2">Address Line 2</label>
                                             <input type="text" name="addressLine2" onChange={handleChange1} value={value1.addressLine2} />
                                         </div>
+
+                                    </div>
+                                    <div className="row psi131">
                                         <div className="psi-input">
-                                            <label htmlFor="phone">Phone Number</label>
-                                            <input type="text" name="phone" onChange={handleChange1} value={value.phone} />
+                                            <label htmlFor="state">State</label>
+                                            <input type="text" name="state" onChange={handleChange1} value={value1.state} />
+                                        </div>
+                                        <div className="psi-input">
+                                            <label htmlFor="city">City</label>
+                                            <input type="text" name="city" onChange={handleChange1} value={value1.city} />
                                         </div>
                                     </div>
                                     <div className="row psi131">
@@ -316,18 +477,18 @@ const ProfileSec1 = (props) => {
                                             <input type="text" name="addressLine11" onChange={handleChange1} value={value1.addressLine11} />
                                         </div>
                                         <div className="psi-input">
-                                            <label htmlFor="city1">City</label>
-                                            <input type="text" name="city1" onChange={handleChange1} value={value1.city1} />
+                                            <label htmlFor="addressLine21">Address Line 2</label>
+                                            <input type="text" name="addressLine21" onChange={handleChange1} value={value1.addressLine21} />
                                         </div>
                                     </div>
                                     <div className="row psi131">
                                         <div className="psi-input">
-                                            <label htmlFor="addressLine21">Address Line 2</label>
-                                            <input type="text" name="addressLine21" onChange={handleChange1} value={value1.addressLine21} />
+                                            <label htmlFor="state1">State</label>
+                                            <input type="text" name="state1" onChange={handleChange1} value={value1.state1} />
                                         </div>
                                         <div className="psi-input">
-                                            <label htmlFor="phone1">Phone Number</label>
-                                            <input type="text" name="phone1" onChange={handleChange1} value={value.phone1} />
+                                            <label htmlFor="city1">City</label>
+                                            <input type="text" name="city1" onChange={handleChange1} value={value1.city1} />
                                         </div>
                                     </div>
                                     <div className="row psi131">

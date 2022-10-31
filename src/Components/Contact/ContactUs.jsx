@@ -86,6 +86,15 @@ const ContactUs = (props) => {
                                 <div className="prof-sec-textarea">
                                     <textarea name="message" onChange={handleChange} value={value.message} placeholder="Message" cols="30" rows="10"></textarea>
                                 </div>
+                                <div style={{marginTop:"15px"}} className="hfu-agree">
+                                    <input type="checkbox" name="agree1" id="agree1" />
+                                    <label htmlFor="agree1">I want to receive product updates, marketing news, and other relevant content by email from KevathSchool.</label>
+                                </div>
+                                <div className="hfu-agree">
+                                    <input type="checkbox" name="agree2" id="agree2" />
+                                    <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
+                                        Privacy Policy.</label>
+                                </div>
                                 <div className="text-center">
                                     <button className="btn btn1">Send</button>
                                 </div>

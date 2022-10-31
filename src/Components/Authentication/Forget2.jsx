@@ -31,6 +31,8 @@ const Forget2 = (props) => {
                             </div>
                             <div className="eve-reg22">
                                 <button className="btn auth-btn2">Back to Login</button>
+                                <p style={{ margin: "14px 0px" }} className="text-center">Or</p>
+                                <button className="btn auth-btn2">Have OTP?</button>
                                 <div>
                                     <p>Didn’t receive the email?</p>
                                 </div>

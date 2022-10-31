@@ -22,7 +22,15 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
-
+    if(ans.status)
+    {
+      props.setAlert(ans.message, "success");
+      localStorage.setItem("kevath_user", JSON.stringify({email: value.email, token: ans.data.access_token}));
+    }
+    else
+    {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (
@@ -69,6 +77,7 @@ const Login = (props) => {
                   value={value.email}
                   onChange={handleChange}
                   placeholder="Enter email id "
+                  required
                 />
               </div>
               <div className="eve-reg21">
@@ -80,6 +89,7 @@ const Login = (props) => {
                   value={value.Password}
                   onChange={handleChange}
                   placeholder="Enter your password"
+                  required
                 />
               </div>
               <div className="eve-reg22">

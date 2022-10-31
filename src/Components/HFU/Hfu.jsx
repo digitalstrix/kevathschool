@@ -63,6 +63,15 @@ const Hfu = () => {
                                 <label htmlFor="company">Phone</label>
                                 <input type="text" id="company" name="company" value={value.company} onChange={handleChange} placeholder="Recruiter Name" />
                             </div>
+                            <div className="hfu-agree">
+                                <input type="checkbox" name="agree1" id="agree1" />
+                                <label htmlFor="agree1">I want to receive product updates, marketing news, and other relevant content by email from KevathSchool.</label>
+                            </div>
+                            <div className="hfu-agree">
+                                <input type="checkbox" name="agree2" id="agree2" />
+                                <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
+                                    Privacy Policy.</label>
+                            </div>
                             <div className="eve-reg22">
                                 <button className="btn btn1">submit</button>
                             </div>

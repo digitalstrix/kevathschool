@@ -22,7 +22,27 @@ const ProfileSec11 = (props) => {
     const submitHandle1 = async (e) => {
         e.preventDefault();
         console.log(value1);
-        let ans = await context.changePassword();
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (value1.confirmPassword === value1.newPassword) {
+                let ans = await context.changePassword(user.email, value1.currentPassword, value1.newPassword);
+                if (ans.status) {
+                    props.setAlert(ans.message, "success");
+                }
+                else {
+                    props.setAlert(ans.message, "error");
+                }
+            }
+            else
+            {
+                props.setAlert("Password and confirm password should be same", "error");
+            }
+        }
+        else {
+            props.setAlert("User unauthorised", "error");
+            window.location.href = "/login";
+        }
     };
 
     return (
@@ -34,39 +54,41 @@ const ProfileSec11 = (props) => {
                         <div className="prof-sec-top">
                             <p>CHANGE PASSWORD</p>
                         </div>
-                        <div className="prof-sec-inner">
-                            <div className="psi1">
-                                <div className="psi11">
-                                    <h5 className="text-green">Current Address</h5>
-                                </div>
-                                <div className="psi13">
-                                    <div className="psi131">
-                                        <div className="psi-input">
-                                            <label htmlFor="addressLine1">Current Password</label>
-                                            <input type="text" name="addressLine1" onChange={handleChange1} value={value1.addressLine1} />
-                                        </div>
+                        <form onSubmit={submitHandle1}>
+                            <div className="prof-sec-inner">
+                                <div className="psi1">
+                                    <div className="psi11">
+                                        <h5 className="text-green">Current Address</h5>
                                     </div>
-                                    <div className="psi131">
-                                        <div className="psi-input">
-                                            <label htmlFor="phone">New Password</label>
-                                            <input type="text" name="phone" onChange={handleChange1} value={value1.phone} />
+                                    <div className="psi13">
+                                        <div className="psi131">
+                                            <div className="psi-input">
+                                                <label htmlFor="addressLine1">Current Password</label>
+                                                <input type="text" name="addressLine1" onChange={handleChange1} value={value1.addressLine1} required />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="psi131">
-                                        <div className="psi-input">
-                                            <label htmlFor="landMark">Confirm Password</label>
-                                            <input type="text" name="landMark" onChange={handleChange1} value={value1.landMark} />
+                                        <div className="psi131">
+                                            <div className="psi-input">
+                                                <label htmlFor="phone">New Password</label>
+                                                <input type="text" name="phone" onChange={handleChange1} value={value1.phone} required />
+                                            </div>
+                                        </div>
+                                        <div className="psi131">
+                                            <div className="psi-input">
+                                                <label htmlFor="landMark">Confirm Password</label>
+                                                <input type="text" name="landMark" onChange={handleChange1} value={value1.landMark} required />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="psi-btn">
-                            <div className="row">
-                                <button className="btn btn1 btn4 btn0">Cancel</button>
-                                <button className="btn btn1 btn4">Change</button>
+                            <div className="psi-btn">
+                                <div className="row">
+                                    <button type="button" className="btn btn1 btn4 btn0">Cancel</button>
+                                    <button type="submit" className="btn btn1 btn4">Change</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                         <div>
                             <p>Passwords must have a Good or Strong rating. Passwords must be at least 6 characters long. Good passwords contain either a combination of uppercase and lowercase letters or a combination of letters and one digit. Strong passwords contain either a combination of letters and more than one digit or special characters.</p>
                         </div>

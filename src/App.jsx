@@ -46,6 +46,8 @@ import Certificate1 from "./Components/Certificate/Certificate1";
 import Certificate2 from "./Components/Certificate/Certificate2";
 import MainState from "./context/MainState";
 import Alert from "./Alerts/Alert";
+import Forget3 from "./Components/Authentication/Forget3";
+import Referral from "./Components/Authentication/Referral";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -278,7 +280,12 @@ const App = () => {
                 <Forget2 setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
               }
             />
-            {/* start */}
+            <Route
+              path="/forget-password2"
+              element={
+                <Forget3 setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+              }
+            />
             <Route
               path="/signup"
               element={
@@ -289,6 +296,12 @@ const App = () => {
               path="/signup2ver"
               element={
                 <SignUp2 setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+              }
+            />
+            <Route
+              path="/referral"
+              element={
+                <Referral setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
               }
             />
             <Route
