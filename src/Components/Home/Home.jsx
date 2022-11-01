@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card1 from "../Card/Card1";
 import Ladder from "../Common/Ladder";
 import Usp from "../Common/Usp";
 
-const Home = () => {
+const Home = (props) => {
+  useEffect(() => {
+    props.setNavFlag1(true);
+    props.setNavFlag2(false);
+}, []);
   return (
     <>
       <div className="home">
