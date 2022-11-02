@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Login = (props) => {
@@ -8,7 +8,7 @@ const Login = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
-
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     email: "",
     Password: "",
@@ -22,13 +22,14 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
-    if(ans.status)
-    {
-      props.setAlert(ans.message, "success");
-      localStorage.setItem("kevath_user", JSON.stringify({email: value.email, token: ans.data.access_token}));
-    }
-    else
-    {
+    if (ans.status) {
+      // props.setAlert(ans.message, "success");
+      localStorage.setItem(
+        "kevath_user",
+        JSON.stringify({ email: value.email, token: ans.data.access_token })
+      );
+      navigate("/");
+    } else {
       props.setAlert(ans.message, "error");
     }
   };
@@ -83,7 +84,7 @@ const Login = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="Password">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   id="Password"
                   name="Password"
                   value={value.Password}
@@ -93,7 +94,9 @@ const Login = (props) => {
                 />
               </div>
               <div className="eve-reg22">
-                <button type="submit" className="btn auth-btn2">Login</button>
+                <button type="submit" className="btn auth-btn2">
+                  Login
+                </button>
                 <div className="auth-forgot">
                   <Link to="/forget-password">
                     <p>Forgot password?</p>
