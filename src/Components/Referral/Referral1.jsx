@@ -1,8 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react';
 import MainContext from "../../context/MainContext";
+import { useNavigate } from 'react-router-dom';
 
 const Referral1 = (props) => {
+    const navigate = useNavigate();
+    
     useEffect(() => {
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                navigate('/login');
+            }
+        }
+        else {
+            navigate('/login');
+        }
+        
         props.setNavFlag1(false);
         props.setNavFlag2(true);
     }, []);

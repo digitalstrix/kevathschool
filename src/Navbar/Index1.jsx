@@ -1,8 +1,33 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import Avatar from "react-avatar";
+import { useEffect } from "react";
 
-const Index1 = () => {
+const Index1 = (props) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(Object.keys(props.userInfo)?.length === 0)
+    {
+      props.setUserInfo(JSON.parse(localStorage.getItem('kevath_user1')));
+    }
+
+    if(props.userInfoFlag)
+    {
+      if (Object.keys(props.userInfo).length === 0) {
+        props.setUserInfo(JSON.parse(localStorage.getItem('kevath_user1')));
+      }
+    }
+  }, [props.userInfoFlag]);
+
+  // useEffect(() => {
+  //   console.log(props.userInfo);
+  //   console.log(JSON.parse(localStorage.getItem('kevath_user1')));
+  //   if (Object.keys(props.userInfo).length === 0) {
+  //     props.setUserInfo(JSON.parse(localStorage.getItem('kevath_user1')));
+  //   }
+  // }, [props.userInfo]);
+
   function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
   }
@@ -60,15 +85,15 @@ const Index1 = () => {
           <div className="nav1 nav1-2 row">
             {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
             <Avatar
-              name="Narendra"
+              name={props.userInfo?.firstName}
               round={true}
               color="#51B848"
               size={"35px"}
-              textSizeRatio="2"
+              textSizeRatio={2}
             />
             <div style={{ marginLeft: "7px" }}>
-              <p>Narendra Modi</p>
-              <p className="small">Prime Minister</p>
+              <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
+              <p className="small">Designation</p>
             </div>
           </div>
         </div>
@@ -103,15 +128,15 @@ const Index1 = () => {
               <div className="nav1 nav1-2 mob-nav1-2 row">
                 {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
                 <Avatar
-                  name="Narendra"
+                  name={props.userInfo?.firstName}
                   round={true}
                   color="#51B848"
                   size={"35px"}
-                  textSizeRatio="2"
+                  textSizeRatio={2}
                 />
                 <div style={{ marginLeft: "7px" }}>
-                  <p>Narendra Modi</p>
-                  <p className="small">Prime Minister</p>
+                  <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
+                  <p className="small">Designation</p>
                 </div>
               </div>
             </div>

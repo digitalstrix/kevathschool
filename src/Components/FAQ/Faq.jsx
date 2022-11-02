@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Accordion,
     AccordionItem,
@@ -10,9 +11,25 @@ import {
 import 'react-accessible-accordion/dist/fancy-example.css';
 
 const Faq = (props) => {
+    const navigate = useNavigate();
+
     useEffect(() => {
-        props.setNavFlag1(true);
-        props.setNavFlag2(false);
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                props.setNavFlag1(true);
+                props.setNavFlag2(false);
+            }
+            else {
+                props.setNavFlag1(false);
+                props.setNavFlag2(true);
+            }
+        }
+        else {
+            props.setNavFlag1(true);
+            props.setNavFlag2(false);
+        }
     }, []);
 
     return (

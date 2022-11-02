@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const EventReg2 = () => {
+const EventReg2 = (props) => {
+  const navigate = useNavigate();
+    
+  useEffect(() => {
+    let user = localStorage.getItem('kevath_user');
+    if (user) {
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        props.setNavFlag1(true);
+        props.setNavFlag2(false);
+      }
+      else {
+        props.setNavFlag1(false);
+        props.setNavFlag2(true);
+      }
+    }
+    else {
+      props.setNavFlag1(true);
+      props.setNavFlag2(false);
+    }
+  }, []);
+
   const [value, setValue] = useState({
     name: "",
     email: "",

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Login = (props) => {
@@ -8,6 +8,7 @@ const Login = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
+  const navigate=useNavigate();
 
   const [value, setValue] = useState({
     email: "",
@@ -27,6 +28,7 @@ const Login = (props) => {
     {
       props.setAlert(ans.message, "success");
       localStorage.setItem("kevath_user", JSON.stringify({email: value.email, token: ans.data.access_token}));
+      navigate('/profile-sec1');
     }
     else
     {

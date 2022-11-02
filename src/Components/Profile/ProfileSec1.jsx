@@ -3,12 +3,10 @@ import Sidebar from '../../Sidebar/Sidebar';
 import SelectBox from '../../Utils/SelectBox';
 import Avatar from 'react-avatar';
 import MainContext from "../../context/MainContext";
+import { useNavigate } from 'react-router-dom';
 
 const ProfileSec1 = (props) => {
-    useEffect(() => {
-        props.setNavFlag1(false);
-        props.setNavFlag2(true);
-    }, []);
+    const navigate = useNavigate();
     const context = useContext(MainContext);
 
     const [value, setValue] = useState({
@@ -22,6 +20,7 @@ const ProfileSec1 = (props) => {
         gender: "",
         // higherEdu: "",
         course: "",
+        course1: "",
         specification: "",
         specification1: "",
         college: "",
@@ -64,6 +63,71 @@ const ProfileSec1 = (props) => {
         country1: "India",
         pincode1: ""
     });
+
+    const getData = async () => {
+        const data = await context.getUserDetails();
+        props.setUserInfo(data.data);
+        localStorage.setItem('kevath_user1', JSON.stringify(data.data));
+        setValue({
+            firstName: data.data.firstName,
+            lastName: data.data.lastName,
+            email: data.data.email,
+            phone: data.data.contact,
+            emerPhone: data.data.emergencyContact,
+            password: "",
+            dob: data.data.dob,
+            gender: data.data.gender,
+            //  data.data.higherEdu
+            course: data.data.educationQualification.graduation.course,
+            course1: data.data.educationQualification.postGraduation.course,
+            specification: data.data.educationQualification.graduation.specialization,
+            specification1: data.data.educationQualification.postGraduation.specialization,
+            college: data.data.educationQualification.graduation.college,
+            college1: data.data.educationQualification.postGraduation.college,
+            university: data.data.educationQualification.graduation.university,
+            university1: data.data.educationQualification.postGraduation.university,
+            duration: data.data.educationQualification.graduation.durationYears,
+            duration1: data.data.educationQualification.postGraduation.durationYears,
+            duration2: data.data.educationQualification.ssc.durationYears,
+            duration3: data.data.educationQualification.puc.durationYears,
+            status: data.data.educationQualification.graduation.status,
+            status1: data.data.educationQualification.postGraduation.status,
+            yearOfPassing: data.data.educationQualification.graduation.yearOfPassout,
+            yearOfPassing1: data.data.educationQualification.postGraduation.yearOfPassout,
+            percentage: data.data.educationQualification.graduation.percentage,
+            percentage1: data.data.educationQualification.postGraduation.percentage,
+            percentage2: data.data.educationQualification.ssc.percentage,
+            percentage3: data.data.educationQualification.puc.percentage,
+            companyName: data.data.experience.companyName,
+            role: data.data.experience.role,
+            skills: data.data.experience.skills.toString(),
+            noYears: data.data.experience.numberOfYears,
+            passedOutYear: data.data.educationQualification.ssc.yearOfPassout,
+            passedOutYear1: data.data.educationQualification.puc.yearOfPassout
+        })
+        return data;
+    };
+
+    useEffect(() => {
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                navigate('/login');
+            }
+            else
+            {
+                props.setUserInfoFlag(false);
+                getData();
+                props.setUserInfoFlag(true);
+            }
+        }
+        else {
+            navigate('/login');
+        }
+        props.setNavFlag1(false);
+        props.setNavFlag2(true);
+    }, []);
 
     const handleChange = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value });

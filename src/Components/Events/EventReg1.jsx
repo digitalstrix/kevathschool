@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import Card3 from "../Card/Card3";
+import { useNavigate } from 'react-router-dom';
 
-const EventReg1 = () => {
+const EventReg1 = (props) => {
+  const navigate = useNavigate();
+    
+  useEffect(() => {
+    let user = localStorage.getItem('kevath_user');
+    if (user) {
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        props.setNavFlag1(true);
+        props.setNavFlag2(false);
+      }
+      else {
+        props.setNavFlag1(false);
+        props.setNavFlag2(true);
+      }
+    }
+    else {
+      props.setNavFlag1(true);
+      props.setNavFlag2(false);
+    }
+  }, []);
+
   return (
     <>
       <div className="img-cls">
