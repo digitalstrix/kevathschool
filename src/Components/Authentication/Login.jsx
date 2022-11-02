@@ -22,6 +22,7 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
+    console.log(ans);
     if(ans.status)
     {
       props.setAlert(ans.message, "success");

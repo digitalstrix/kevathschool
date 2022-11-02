@@ -48,6 +48,7 @@ import MainState from "./context/MainState";
 import Alert from "./Alerts/Alert";
 import Forget3 from "./Components/Authentication/Forget3";
 import Referral from "./Components/Authentication/Referral";
+import Referral1 from "./Components/Referral/Referral1";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -58,19 +59,19 @@ const App = () => {
   const [flag, setFlag] = useState(false);
   var tc;
 
-  const setAlert=(message, color)=>{
+  const setAlert = (message, color) => {
     setMessage(message);
     setColor(color);
     setFlag(true);
 
-    tc=setTimeout(() => {
+    tc = setTimeout(() => {
       setMessage("");
       setColor("");
       setFlag(false);
     }, 4000);
   }
 
-  const closeAlert=()=>{
+  const closeAlert = () => {
     setFlag(false);
     clearTimeout(tc);
   };
@@ -81,7 +82,7 @@ const App = () => {
         <BrowserRouter>
           {navFlag1 ? <Navbar /> : null}
           {navFlag2 ? <Navbar1 /> : null}
-            {flag ? <Alert color={color} message={message} closeAlert={closeAlert} /> : null}
+          {flag ? <Alert color={color} message={message} closeAlert={closeAlert} /> : null}
           <Routes>
             <Route
               path="/"
@@ -93,7 +94,7 @@ const App = () => {
               path="/courses-main"
               element={
                 <CourseMain
-                setAlert={setAlert}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -109,7 +110,7 @@ const App = () => {
               path="/events-reg"
               element={
                 <EventReg1
-                setAlert={setAlert}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -401,6 +402,16 @@ const App = () => {
               path="/certificate-2"
               element={
                 <Certificate2 setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
+                />
+              }
+            />
+            <Route
+              path="/referral1"
+              element={
+                <Referral1 setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
