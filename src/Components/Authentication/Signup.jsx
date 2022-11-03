@@ -25,13 +25,17 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.signup(value.firstName, value.lastName, value.email, value.phone, value.Password);
-    if(ans.status)
-    {
+    let ans = await context.signup(
+      value.firstName,
+      value.lastName,
+      value.email,
+      value.phone,
+      value.Password
+    );
+    console.log(ans,"<<<<<<signup")
+    if (ans.status) {
       props.setAlert(ans.message, "success");
-    }
-    else
-    {
+    } else {
       props.setAlert(ans.message, "error");
     }
   };
@@ -124,7 +128,7 @@ const Signup = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="Password">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   id="Password"
                   name="Password"
                   value={value.Password}
@@ -135,7 +139,8 @@ const Signup = (props) => {
               </div>
               <div className="eve-reg22 eve-reg225">
                 <label htmlFor="agree">
-                  By signing up on Kevarthschool, I accept the KevathScool Privacy Policy and Terms of Service
+                  By signing up on Kevarthschool, I accept the KevathScool
+                  Privacy Policy and Terms of Service
                   <span className="text-green"> Privacy Policy</span> and{" "}
                   <span className="text-green">Terms of Use</span>
                 </label>

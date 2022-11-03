@@ -8,7 +8,8 @@ const Login = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
-  const navigate=useNavigate();
+
+  const navigate = useNavigate();
 
   const [value, setValue] = useState({
     email: "",
@@ -23,6 +24,7 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
+
     console.log(ans);
     if(ans.status)
     {
@@ -32,6 +34,7 @@ const Login = (props) => {
     }
     else
     {
+
       props.setAlert(ans.message, "error");
     }
   };
@@ -86,7 +89,7 @@ const Login = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="Password">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   id="Password"
                   name="Password"
                   value={value.Password}
@@ -96,7 +99,9 @@ const Login = (props) => {
                 />
               </div>
               <div className="eve-reg22">
-                <button type="submit" className="btn auth-btn2">Login</button>
+                <button type="submit" className="btn auth-btn2">
+                  Login
+                </button>
                 <div className="auth-forgot">
                   <Link to="/forget-password">
                     <p>Forgot password?</p>
