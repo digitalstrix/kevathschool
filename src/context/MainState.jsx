@@ -160,6 +160,25 @@ const MainState = (props) => {
     return data;
   };
 
+  const referralRegister = async (
+    referredReferralCode,
+    email,
+    fullName,
+    userId
+  ) => {
+    const response = await fetch(`${baseUrl}/users/register-referral`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ referredReferralCode, email, fullName, userId }),
+      redirect: "follow",
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
+
   return (
     <>
       <MainContext.Provider

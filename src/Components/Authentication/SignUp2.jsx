@@ -1,7 +1,13 @@
 import React, { useState, useContext } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const SignUp2 = (props) => {
+  useEffect(() => {
+    props.setFootFlag(false);
+  }, []);
+  const navigate=useNavigate();
   const [value, setValue] = useState({
     verification: "",
   });
@@ -22,6 +28,7 @@ const SignUp2 = (props) => {
       if(ans.status)
       {
         props.setAlert(ans.message, "success");
+        navigate("/login");
       }
       else
       {
@@ -54,8 +61,10 @@ const SignUp2 = (props) => {
               />
             </div>
             <div className="eve-reg22">
-              <button className="btn btn1">REGISTER</button>
-              <div className="eve-reg30">
+              <button type="submit" className="btn btn1">REGISTER</button>
+              <div onClick={()=>{
+                navigate('/referral');
+              }} className="eve-reg30">
                 <b>Back</b>
               </div>
               <div>

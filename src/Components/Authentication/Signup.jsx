@@ -6,11 +6,13 @@ import { kevath_user } from "../../Service/localdata";
 
 const Signup = (props) => {
   useEffect(() => {
+    props.setFootFlag(false);
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
   const navigate = useNavigate();
+
   const [value, setValue] = useState({
     email: "",
     Password: "",
@@ -41,8 +43,10 @@ const Signup = (props) => {
         JSON.stringify({ email: value.email, token: ans.data.access_token })
       );
       setTimeout(function () {
-        navigate("/profile-sec1");
+        // navigate("/profile-sec1");
+        navigate("/referral");
       }, 2000);
+      // navigate('/signup2ver');
     } else {
       props.setAlert(ans.message, "error");
     }
