@@ -3819,6 +3819,17 @@ hr {
 .auth-nav11 {
   padding-top: 15px;
 }
+.select-box--container {
+  cursor: pointer;
+}
+.select-box--items{
+  position: absolute;
+  width: 100%;
+  background: white;
+  z-index: 100;
+  top: 32px;
+  left: 0px;
+}
 
 @media screen and (max-width: 1380px) {
   .nav0 {
