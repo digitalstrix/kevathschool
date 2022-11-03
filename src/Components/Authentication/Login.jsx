@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
+import { kevath_user } from "../../Service/localdata";
 
 const Login = (props) => {
   useEffect(() => {
@@ -24,15 +25,14 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
-    if(ans.status)
-    {
+    if (ans.status) {
       props.setAlert(ans.message, "success");
-      localStorage.setItem("kevath_user", JSON.stringify({email: value.email, token: ans.data.access_token}));
-      navigate('/profile-sec1');
-    }
-    else
-    {
-
+      localStorage.setItem(
+        kevath_user,
+        JSON.stringify({ email: value.email, token: ans.data.access_token })
+      );
+      navigate("/profile-sec1");
+    } else {
       props.setAlert(ans.message, "error");
     }
   };

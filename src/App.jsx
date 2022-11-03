@@ -61,19 +61,19 @@ const App = () => {
   const [userInfoFlag, setUserInfoFlag] = useState(false);
   var tc;
 
-  const setAlert=(message, color)=>{
+  const setAlert = (message, color) => {
     setMessage(message);
     setColor(color);
     setFlag(true);
 
-    tc=setTimeout(() => {
+    tc = setTimeout(() => {
       setMessage("");
       setColor("");
       setFlag(false);
     }, 4000);
-  }
+  };
 
-  const closeAlert=()=>{
+  const closeAlert = () => {
     setFlag(false);
     clearTimeout(tc);
   };
@@ -83,20 +83,37 @@ const App = () => {
       <MainState>
         <BrowserRouter>
           {navFlag1 ? <Navbar /> : null}
-          {navFlag2 ? <Navbar1 /> : null}
-            {flag ? <Alert color={color} message={message} closeAlert={closeAlert} /> : null}
+          {navFlag2 ? (
+            <Navbar1
+              userInfo={userInfo}
+              setUserInfoFlag={setUserInfoFlag}
+              setUserInfo={setUserInfo}
+              userFlag={userFlag}
+              setAlert={setAlert}
+              setNavFlag1={setNavFlag1}
+              setNavFlag2={setNavFlag2}
+            />
+          ) : null}
+          {flag ? (
+            <Alert color={color} message={message} closeAlert={closeAlert} />
+          ) : null}
           <Routes>
             <Route
               path="/"
               element={
-                <Home userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Home
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/courses-main"
               element={
                 <CourseMain
-                setAlert={setAlert}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -105,14 +122,19 @@ const App = () => {
             <Route
               path="/courses"
               element={
-                <Courses userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Courses
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/events-reg"
               element={
                 <EventReg1
-                setAlert={setAlert}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -121,7 +143,9 @@ const App = () => {
             <Route
               path="/events-reg1"
               element={
-                <EventReg2 userFlag={userFlag} setAlert={setAlert}
+                <EventReg2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -130,7 +154,9 @@ const App = () => {
             <Route
               path="/events-reg2"
               element={
-                <EventReg3 userFlag={userFlag} setAlert={setAlert}
+                <EventReg3
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -139,25 +165,42 @@ const App = () => {
             <Route
               path="/hfu"
               element={
-                <Hfu userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Hfu
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/about-us"
               element={
-                <About userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <About
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/fee-isa"
               element={
-                <FeeIsa userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <FeeIsa
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/contact"
               element={
-                <ContactUs userFlag={userFlag} setAlert={setAlert}
+                <ContactUs
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -166,13 +209,20 @@ const App = () => {
             <Route
               path="/faq"
               element={
-                <Faq userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Faq
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/verify-phone-number"
               element={
-                <VerifyPhoneNumber userFlag={userFlag} setAlert={setAlert}
+                <VerifyPhoneNumber
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -181,7 +231,12 @@ const App = () => {
             <Route
               path="/profile-sec1"
               element={
-                <ProfileSec1 setUserInfoFlag={setUserInfoFlag} setUserInfo={setUserInfo} userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec1
+                  userInfo={userInfo}
+                  setUserInfoFlag={setUserInfoFlag}
+                  setUserInfo={setUserInfo}
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -190,7 +245,9 @@ const App = () => {
             <Route
               path="/profile-sec11"
               element={
-                <ProfileSec11 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec11
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -199,7 +256,9 @@ const App = () => {
             <Route
               path="/profile-sec12"
               element={
-                <ProfileSec12 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec12
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -208,7 +267,9 @@ const App = () => {
             <Route
               path="/profile-sec2"
               element={
-                <ProfileSec2 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -217,7 +278,9 @@ const App = () => {
             <Route
               path="/profile-sec3"
               element={
-                <ProfileSec3 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec3
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -226,7 +289,9 @@ const App = () => {
             <Route
               path="/profile-sec3-test"
               element={
-                <ProfileSecTest userFlag={userFlag} setAlert={setAlert}
+                <ProfileSecTest
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -235,7 +300,9 @@ const App = () => {
             <Route
               path="/profile-sec4"
               element={
-                <ProfileSec4 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec4
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -244,7 +311,9 @@ const App = () => {
             <Route
               path="/profile-sec5"
               element={
-                <ProfileSec5 userFlag={userFlag} setAlert={setAlert}
+                <ProfileSec5
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -253,13 +322,20 @@ const App = () => {
             <Route
               path="/faq-popup"
               element={
-                <FaqPopup userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <FaqPopup
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/contact-popup"
               element={
-                <ContactPopup userFlag={userFlag} setAlert={setAlert}
+                <ContactPopup
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -268,67 +344,119 @@ const App = () => {
             <Route
               path="/login"
               element={
-                <Login userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Login
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/forget-password"
               element={
-                <Forget1 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Forget1
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/forget-password1"
               element={
-                <Forget2 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Forget2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/forget-password2"
               element={
-                <Forget3 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Forget3
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/signup"
               element={
-                <Signup userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Signup
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/signup2ver"
               element={
-                <SignUp2 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <SignUp2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/referral"
               element={
-                <Referral userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Referral
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/user-default-dashboard"
               element={
-                <Db1 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Db1
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/user-default-dashboard5"
               element={
-                <Db2 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Db2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/user-default-dashboard4"
               element={
-                <Db4 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Db4
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/courses-db"
               element={
-                <CoursesDb userFlag={userFlag} setAlert={setAlert}
+                <CoursesDb
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                 />
@@ -337,13 +465,20 @@ const App = () => {
             <Route
               path="/user-dashboard"
               element={
-                <Db3 userFlag={userFlag} setAlert={setAlert} setNavFlag1={setNavFlag1} setNavFlag2={setNavFlag2} />
+                <Db3
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
               }
             />
             <Route
               path="/live-classes"
               element={
-                <C1 userFlag={userFlag} setAlert={setAlert}
+                <C1
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -353,7 +488,9 @@ const App = () => {
             <Route
               path="/program-contents"
               element={
-                <C2 userFlag={userFlag} setAlert={setAlert}
+                <C2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -363,7 +500,9 @@ const App = () => {
             <Route
               path="/resources-course"
               element={
-                <C3 userFlag={userFlag} setAlert={setAlert}
+                <C3
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -373,7 +512,9 @@ const App = () => {
             <Route
               path="/assesments-course"
               element={
-                <C4 userFlag={userFlag} setAlert={setAlert}
+                <C4
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -383,7 +524,9 @@ const App = () => {
             <Route
               path="/assesments-course1"
               element={
-                <C5 userFlag={userFlag} setAlert={setAlert}
+                <C5
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -393,7 +536,9 @@ const App = () => {
             <Route
               path="/certificate-1"
               element={
-                <Certificate1 userFlag={userFlag} setAlert={setAlert}
+                <Certificate1
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}
@@ -403,7 +548,9 @@ const App = () => {
             <Route
               path="/certificate-2"
               element={
-                <Certificate2 userFlag={userFlag} setAlert={setAlert}
+                <Certificate2
+                  userFlag={userFlag}
+                  setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
                   setFootFlag={setFootFlag}

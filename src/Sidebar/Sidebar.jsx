@@ -6,12 +6,14 @@ const Sidebar = () => {
     <>
       <div className="sidebar1">
         <div className="sidebar11">
-          <div className="sidebar111 side-active">
-            <div className="row">
-              <img src="/static/images2/Vector (3).png" alt="" />
-              <p>Profile Details</p>
+          <Link to="/profile-sec1">
+            <div className="sidebar111 side-active">
+              <div className="row">
+                <img src="/static/images2/Vector (3).png" alt="" />
+                <p>Profile Details</p>
+              </div>
             </div>
-          </div>
+          </Link>
           <Link to="/profile-sec2">
             <div className="sidebar111">
               <div className="row">
