@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Forget1 = (props) => {
@@ -8,6 +8,7 @@ const Forget1 = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
+  const navigation = useNavigate();
 
   const [value, setValue] = useState({
     email: "",
@@ -21,13 +22,13 @@ const Forget1 = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.forgetPassword1(value.email);
-    if(ans.status)
-    {
+    if (ans.status) {
       localStorage.setItem("kevath_forgot_email", value.email);
       props.setAlert(ans.message, "success");
-    }
-    else
-    {
+      setTimeout(() => {
+        navigation("/forget-password1");
+      }, 2000);
+    } else {
       props.setAlert(ans.message, "error");
     }
   };
@@ -66,7 +67,9 @@ const Forget1 = (props) => {
                 />
               </div>
               <div className="eve-reg22">
-                <button type="submit" className="btn auth-btn2">Reset</button>
+                <button type="submit" className="btn auth-btn2">
+                  Reset
+                </button>
                 <div>
                   <Link to="/login">
                     <p>Back to Login</p>

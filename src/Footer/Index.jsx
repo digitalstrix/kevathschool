@@ -41,7 +41,7 @@ const Index = () => {
                   <a href="#">Newsroom</a>
                 </div>
                 <div className="foot_a">
-                  <a href="#">Hire From Us</a>
+                  <a href="/hfu">Hire From Us</a>
                 </div>
                 <div className="foot_a">
                   <a href="#">Careers</a>
@@ -71,7 +71,7 @@ const Index = () => {
                   <img src="/static/images/Icon (3).png" alt="" />
                 </div>
                 <div className="foot_a">
-                  <a href="#">Referral Program</a>
+                  <a href="/referral">Referral Program</a>
                 </div>
                 <div className="foot_a">
                   <a href="/contact">Contact Us</a>

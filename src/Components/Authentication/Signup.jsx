@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
+import { kevath_user } from "../../Service/localdata";
 
 const Signup = (props) => {
   useEffect(() => {
@@ -9,7 +10,7 @@ const Signup = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
-
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     email: "",
     Password: "",
@@ -35,6 +36,13 @@ const Signup = (props) => {
     console.log(ans, "<<<<<<signup");
     if (ans.status) {
       props.setAlert(ans.message, "success");
+      localStorage.setItem(
+        kevath_user,
+        JSON.stringify({ email: value.email, token: ans.data.access_token })
+      );
+      setTimeout(function () {
+        navigate("/profile-sec1");
+      }, 2000);
     } else {
       props.setAlert(ans.message, "error");
     }
@@ -45,10 +53,12 @@ const Signup = (props) => {
       <nav className="auth-nav">
         <div className="auth-nav1">
           <div className="auth-nav11">
-            <img
-              src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
+                alt=""
+              />
+            </Link>
           </div>
           <div className="auth-nav12">
             <Link to="/login">

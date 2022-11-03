@@ -49,7 +49,9 @@ const Index1 = (props) => {
     <>
       <nav className="navbar navbar-1 mainNav">
         <div className="nav0 nav-0 row">
+          {/* <Link to="/"> */}
           <img src="/static/images2/UI_LOGO_1_1-removebg-preview.png" alt="" />
+          {/* </Link> */}
         </div>
         <div className="nav01 row">
           <Link to="/user-default-dashboard">
@@ -86,20 +88,23 @@ const Index1 = (props) => {
             </div>
             <p>Refer & Earn</p>
           </div>
-          <div className="nav1 nav1-2 row">
-            {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
-            <Avatar
-              name={props.userInfo?.firstName}
-              round={true}
-              color="#51B848"
-              size={"35px"}
-              textSizeRatio={2}
-            />
-            <div style={{ marginLeft: "7px" }}>
-              <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
-              <p className="small">Designation</p>
+          <Link to="/profile-sec1">
+            <div className="nav1 nav1-2 row">
+              {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
+              <Avatar
+                // name={props.userInfo?.firstName}
+                name={props.userInfo?.firstName}
+                round={true}
+                color="#51B848"
+                size={"35px"}
+                textSizeRatio={2}
+              />
+              <div style={{ marginLeft: "7px" }}>
+                <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
+                <p className="small">Designation</p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="layer">
           <img src="/static/images/Ellipse 3.png" alt="" />
@@ -123,26 +128,28 @@ const Index1 = (props) => {
           <a onClick={closeNav} href="#">
             Contest
           </a>
-          <a onClick={closeNav} href="#">
+          <a onClick={closeNav} href="referral">
             Refer & Earn
           </a>
 
           <div className="dropdown">
             <div className="dropdown-header" onClick={toggleDropdown}>
-              <div className="nav1 nav1-2 mob-nav1-2 row">
-                {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
-                <Avatar
-                  name={props.userInfo?.firstName}
-                  round={true}
-                  color="#51B848"
-                  size={"35px"}
-                  textSizeRatio={2}
-                />
-                <div style={{ marginLeft: "7px" }}>
-                  <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
-                  <p className="small">Designation</p>
+              <Link to="/profile-sec1">
+                <div className="nav1 nav1-2 mob-nav1-2 row">
+                  {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
+                  <Avatar
+                    name={props.userInfo?.firstName}
+                    round={true}
+                    color="#51B848"
+                    size={"35px"}
+                    textSizeRatio={2}
+                  />
+                  <div style={{ marginLeft: "7px" }}>
+                    <p>{`${props.userInfo?.firstName} ${props.userInfo?.lastName}`}</p>
+                    <p className="small">Designation</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className={`dropdown-body mob-sdi ${isOpen && "open"}`}>
               <div className="dropdown-item">

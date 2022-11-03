@@ -186,6 +186,7 @@ p {
   font-size: 20px;
   padding: 23px 39px;
   color: rgba(18, 31, 62, 0.4);
+  cursor: pointer;
 }
 .sidebar111 img {
   margin-right: 10px;
@@ -1476,7 +1477,8 @@ a {
   padding: 1rem 2rem;
   margin-left: 17rem;
   padding-top: 6rem;
-  min-height: 85vh;
+  min-height: 100vh;
+
 }
 .prof-sec111 {
   margin-bottom: 1.5rem;
@@ -1491,6 +1493,7 @@ a {
 .prof-sec-top p {
   font-size: 15px;
   color: #121f3e;
+  margin-bottom: 10px;
   opacity: 0.3;
 }
 .prof-sec-inner {
@@ -1530,7 +1533,7 @@ a {
   font-size: 20px;
 }
 .psi131 {
-  margin-bottom: 1.4rem;
+  margin-bottom: 12.3px;
 }
 .psi-input {
   display: flex;
@@ -1545,6 +1548,7 @@ a {
   padding: 8px 20px;
   margin-top: 6px;
   width: 100%;
+  /* max-width: 17vw; */
 }
 .psi2 {
   margin-top: 3rem;
@@ -1655,6 +1659,7 @@ a {
   margin-left: 17rem;
   background: #f0ffef;
   padding: 2rem;
+  min-height: 100vh;
   padding-top: 6.5rem;
 }
 .prof-sec31 {
@@ -2388,9 +2393,12 @@ hr {
 
 .prof-sec40 {
   width: 100%;
+  display: flex;
 }
 .prof-sec40 img {
-  width: 100%;
+  width: 70%;
+  margin: auto;
+
 }
 .prof-sec4 {
   margin: 1rem 0rem;
@@ -2405,10 +2413,10 @@ hr {
 .prof-sec4111 {
   display: flex;
   width: 20vw;
-  margin: 20px;
+  margin: 0px 20px;
   flex-direction: column;
   align-items: center;
-  padding: 18px 0px;
+  padding: 10px 0px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .prof-sec4111 h5 {
@@ -2981,7 +2989,7 @@ hr {
   background: white;
 }
 .prof-secm1 {
-  padding: 2rem 12rem;
+  padding: 1rem 12rem;
 }
 .prof4 {
   background: url("../public/static/images3/prof-bg1.png") no-repeat center
@@ -8204,6 +8212,7 @@ font-size: 16px;
 }
 .db-card-slider{
     margin: 12px 0px;
+    text-align: right;
 }
 .db-card-slider progress{
     margin-right: 10px;
@@ -10974,7 +10983,7 @@ font-size: 16px;
     }
     .prof-sec4111{
         display: flex;
-        width: 20vw;
+        width: 80vw;
         margin: 20px;
         flex-direction: column;
         align-items: center;
@@ -11232,6 +11241,7 @@ font-size: 16px;
     }
     .psi-input{
         margin-right: 2rem;
+        margin-top: 0.5rem;
     }
     .psi-input1 {
         width: 35vmin;

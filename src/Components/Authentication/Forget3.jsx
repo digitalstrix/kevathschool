@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Forget3 = (props) => {
@@ -8,11 +8,11 @@ const Forget3 = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
-
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     otp: "",
-    newPassword:"",
-    confirmPassword:""
+    newPassword: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -22,30 +22,28 @@ const Forget3 = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let email=localStorage.getItem('kevath_forgot_email');
-    if(email)
-    {
-      if(value.newPassword===value.confirmPassword)
-      {
-        let ans = await context.forgetPassword2(email, value.otp, value.newPassword);
-        if(ans.status)
-        {
+    let email = localStorage.getItem("kevath_forgot_email");
+    if (email) {
+      if (value.newPassword === value.confirmPassword) {
+        let ans = await context.forgetPassword2(
+          email,
+          value.otp,
+          value.newPassword
+        );
+        if (ans.status) {
           props.setAlert(ans.message, "success");
-        }
-        else
-        {
+          setTimeout(function () {
+            navigate("/login");
+          }, 2000);
+        } else {
           props.setAlert(ans.message, "error");
         }
-      }
-      else
-      {
+      } else {
         props.setAlert("Password and confirm password should be same", "error");
       }
-    }
-    else
-    {
+    } else {
       props.setAlert("User unauthorised", "error");
-      window.location.href="/login";
+      window.location.href = "/login";
     }
   };
 

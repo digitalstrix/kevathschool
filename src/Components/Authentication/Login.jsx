@@ -31,7 +31,9 @@ const Login = (props) => {
         kevath_user,
         JSON.stringify({ email: value.email, token: ans.data.access_token })
       );
-      navigate("/profile-sec1");
+      setTimeout(function () {
+        navigate("/profile-sec1");
+      }, 2000);
     } else {
       props.setAlert(ans.message, "error");
     }
@@ -42,10 +44,12 @@ const Login = (props) => {
       <nav className="auth-nav">
         <div className="auth-nav1">
           <div className="auth-nav11">
-            <img
-              src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
+                alt=""
+              />
+            </Link>
           </div>
           <div className="auth-nav12">
             <Link to="/signup">

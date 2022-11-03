@@ -148,8 +148,6 @@ const ProfileSec1 = (props) => {
     let ans = await context.updateAddress();
   };
 
-  
-
   return (
     <>
       <Sidebar />
@@ -173,10 +171,14 @@ const ProfileSec1 = (props) => {
                 <div className="row psi12">
                   <div className="prof-dp">
                     {/* <img src="/static/images2/Ellipse 41.png" alt="" /> */}
-                    <Avatar name="Narendra" round={true} color="#51B848" />
-                    <div className="prof-dp1">
-                      <img src="/static/images2/Vector (6).png" alt="" />
-                    </div>
+                    <Avatar
+                      name={value.firstName}
+                      round={true}
+                      color="#51B848"
+                    />
+                    {/* <div className="prof-dp1"> */}
+                    {/* <img src="/static/images2/Vector (6).png" alt="" /> */}
+                    {/* </div> */}
                   </div>
                   <div>
                     <b>
@@ -269,8 +271,8 @@ const ProfileSec1 = (props) => {
                       <SelectBox
                         items={[
                           { value: "Male", id: 1 },
-                          { value: "Femaale", id: 2 },
-                          { value: "Other", id: 3 },
+                          { value: "Female", id: 2 },
+                          { value: "Not to say", id: 3 },
                         ]}
                         name="gender"
                         selectedItem={value.gender}
@@ -293,10 +295,16 @@ const ProfileSec1 = (props) => {
                         <label>Passed Out Year</label>
                         <SelectBox
                           items={[
-                            { value: "United States", id: 1 },
-                            { value: "Canada", id: 2 },
-                            { value: "Mexico", id: 3 },
-                            { value: "Japan", id: 4 },
+                            { value: "2021", id: 1 },
+                            { value: "2020", id: 2 },
+                            { value: "2019", id: 3 },
+                            { value: "2017", id: 5 },
+                            { value: "2016", id: 6 },
+                            { value: "2015", id: 7 },
+                            { value: "2014", id: 8 },
+                            { value: "2013", id: 9 },
+                            { value: "2012", id: 10 },
+                            { value: "2011", id: 10 },
                           ]}
                           name="higherEdu"
                           setValue={setValue}
@@ -307,10 +315,8 @@ const ProfileSec1 = (props) => {
                         <label>Duration</label>
                         <SelectBox
                           items={[
-                            { value: "United States", id: 1 },
-                            { value: "Canada", id: 2 },
-                            { value: "Mexico", id: 3 },
-                            { value: "Japan", id: 4 },
+                            { value: "1", id: 1 },
+                            { value: "2", id: 2 },
                           ]}
                           name="course"
                           setValue={setValue}
@@ -338,10 +344,16 @@ const ProfileSec1 = (props) => {
                         <label>Passed Out Year</label>
                         <SelectBox
                           items={[
-                            { value: "United States", id: 1 },
-                            { value: "Canada", id: 2 },
-                            { value: "Mexico", id: 3 },
-                            { value: "Japan", id: 4 },
+                            { value: "2021", id: 1 },
+                            { value: "2020", id: 2 },
+                            { value: "2019", id: 3 },
+                            { value: "2017", id: 5 },
+                            { value: "2016", id: 6 },
+                            { value: "2015", id: 7 },
+                            { value: "2014", id: 8 },
+                            { value: "2013", id: 9 },
+                            { value: "2012", id: 10 },
+                            { value: "2011", id: 10 },
                           ]}
                           name="higherEdu"
                           setValue={setValue}
@@ -352,10 +364,9 @@ const ProfileSec1 = (props) => {
                         <label>Duration</label>
                         <SelectBox
                           items={[
-                            { value: "United States", id: 1 },
-                            { value: "Canada", id: 2 },
-                            { value: "Mexico", id: 3 },
-                            { value: "Japan", id: 4 },
+                            { value: "1", id: 1 },
+                            { value: "2", id: 2 },
+                            { value: "3", id: 3 },
                           ]}
                           name="course"
                           setValue={setValue}
@@ -385,10 +396,11 @@ const ProfileSec1 = (props) => {
                       <label>Course</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "BSC", id: 1 },
+                          { value: "BCA", id: 2 },
+                          { value: "BCOM", id: 3 },
+                          { value: "BBM", id: 4 },
+                          { value: "BA", id: 4 },
                         ]}
                         name="course"
                         setValue={setValue}
@@ -399,54 +411,52 @@ const ProfileSec1 = (props) => {
                       <label>Specification</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "Computer", id: 1 },
+                          { value: "Math", id: 2 },
+                          { value: "Science", id: 3 },
+                          { value: "Biology", id: 4 },
+                          { value: "Commerce", id: 5 },
+                          { value: "Social", id: 6 },
+                          { value: "Account", id: 7 },
                         ]}
                         name="specification"
                         setValue={setValue}
                         value={value}
                       />
                     </div>
-                    <div className="psi-select">
-                      <label>College Name</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="college"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">College Name</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="collegeName"
+                          onChange={handleChange}
+                          value={value?.collegeName}
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="psi211 row">
-                    <div className="psi-select">
-                      <label>University</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="university"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">University</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="collegeName"
+                          onChange={handleChange}
+                          value={value?.collegeName}
+                        />
+                      </div>
                     </div>
                     <div className="psi-select">
                       <label>Status</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "Pursuing", id: 1 },
+                          { value: "Completed", id: 2 },
+                          { value: "Dropout", id: 3 },
                         ]}
                         name="status"
                         setValue={setValue}
@@ -457,10 +467,16 @@ const ProfileSec1 = (props) => {
                       <label>Year of Passing</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "2021", id: 1 },
+                          { value: "2020", id: 2 },
+                          { value: "2019", id: 3 },
+                          { value: "2017", id: 5 },
+                          { value: "2016", id: 6 },
+                          { value: "2015", id: 7 },
+                          { value: "2014", id: 8 },
+                          { value: "2013", id: 9 },
+                          { value: "2012", id: 10 },
+                          { value: "2011", id: 10 },
                         ]}
                         name="yearOfPassing"
                         setValue={setValue}
@@ -473,29 +489,27 @@ const ProfileSec1 = (props) => {
                       <label>Duration</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "2", id: 1 },
+                          { value: "3", id: 2 },
+                          { value: "4", id: 3 },
+                          { value: "5", id: 4 },
                         ]}
                         name="duration"
                         setValue={setValue}
                         value={value}
                       />
                     </div>
-                    <div className="psi-select">
-                      <label>Percentage</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="percentage"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">Percentage</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="percentage"
+                          onChange={handleChange}
+                          value={value?.percentage}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -507,10 +521,11 @@ const ProfileSec1 = (props) => {
                       <label>Course</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "MCA", id: 1 },
+                          { value: "MTECH", id: 2 },
+                          { value: "MSC", id: 3 },
+                          { value: "MA", id: 4 },
+                          { value: "Others", id: 5 },
                         ]}
                         name="course"
                         setValue={setValue}
@@ -521,54 +536,52 @@ const ProfileSec1 = (props) => {
                       <label>Specification</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "Computer", id: 1 },
+                          { value: "Math", id: 2 },
+                          { value: "Science", id: 3 },
+                          { value: "Biology", id: 4 },
+                          { value: "Commerce", id: 5 },
+                          { value: "Social", id: 6 },
+                          { value: "Account", id: 7 },
                         ]}
                         name="specification"
                         setValue={setValue}
                         value={value}
                       />
                     </div>
-                    <div className="psi-select">
-                      <label>College Name</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="college"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">College Name</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="collegeName"
+                          onChange={handleChange}
+                          value={value?.collegeName}
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="psi211 row">
-                    <div className="psi-select">
-                      <label>University</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="university"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">University</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="collegeName"
+                          onChange={handleChange}
+                          value={value?.collegeName}
+                        />
+                      </div>
                     </div>
                     <div className="psi-select">
                       <label>Status</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "Pursuing", id: 1 },
+                          { value: "Completed", id: 2 },
+                          { value: "Dropout", id: 3 },
                         ]}
                         name="status"
                         setValue={setValue}
@@ -579,10 +592,16 @@ const ProfileSec1 = (props) => {
                       <label>Year of Passing</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "2021", id: 1 },
+                          { value: "2020", id: 2 },
+                          { value: "2019", id: 3 },
+                          { value: "2017", id: 5 },
+                          { value: "2016", id: 6 },
+                          { value: "2015", id: 7 },
+                          { value: "2014", id: 8 },
+                          { value: "2013", id: 9 },
+                          { value: "2012", id: 10 },
+                          { value: "2011", id: 10 },
                         ]}
                         name="yearOfPassing"
                         setValue={setValue}
@@ -595,29 +614,26 @@ const ProfileSec1 = (props) => {
                       <label>Duration</label>
                       <SelectBox
                         items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
+                          { value: "2", id: 1 },
+                          { value: "3", id: 2 },
+                          { value: "4", id: 3 },
                         ]}
                         name="duration"
                         setValue={setValue}
                         value={value}
                       />
                     </div>
-                    <div className="psi-select">
-                      <label>Percentage</label>
-                      <SelectBox
-                        items={[
-                          { value: "United States", id: 1 },
-                          { value: "Canada", id: 2 },
-                          { value: "Mexico", id: 3 },
-                          { value: "Japan", id: 4 },
-                        ]}
-                        name="percentage"
-                        setValue={setValue}
-                        value={value}
-                      />
+                    <div className="psi-input">
+                      <div>
+                        <label htmlFor="dob">Percentage</label>
+                        <input
+                          type="text"
+                          id="dob"
+                          name="collegeName"
+                          onChange={handleChange}
+                          value={value?.collegeName}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
