@@ -345,6 +345,7 @@ const App = () => {
               path="/login"
               element={
                 <Login
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -356,6 +357,7 @@ const App = () => {
               path="/forget-password"
               element={
                 <Forget1
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -367,6 +369,7 @@ const App = () => {
               path="/forget-password1"
               element={
                 <Forget2
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -378,6 +381,7 @@ const App = () => {
               path="/forget-password2"
               element={
                 <Forget3
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -389,6 +393,7 @@ const App = () => {
               path="/signup"
               element={
                 <Signup
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -400,6 +405,7 @@ const App = () => {
               path="/signup2ver"
               element={
                 <SignUp2
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -411,6 +417,7 @@ const App = () => {
               path="/referral"
               element={
                 <Referral
+                  setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}

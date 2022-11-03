@@ -1,7 +1,14 @@
 import React, { useState, useContext } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
-const Referral = () => {
+const Referral = (props) => {
+  useEffect(() => {
+    props.setFootFlag(false);
+  }, []);
+  const navigate=useNavigate();
+
   const [value, setValue] = useState({
     code: "",
   });
@@ -14,7 +21,14 @@ const Referral = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    // let ans = await context.login(value.email, value.Password);
+    let ans = await context.login(value.email, value.Password);
+    console.log(ans);
+    if (ans.status) {
+      props.setAlert(ans.message, "success");
+      navigate('/signup2ver');
+    } else {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (
@@ -35,7 +49,9 @@ const Referral = () => {
               />
             </div>
             <div className="eve-reg22 row row1">
-              <button className="btn btn7">Skip</button>
+              <button onClick={()=>{
+                navigate('/signup2ver');
+              }} className="btn btn7">Skip</button>
               <button type="submit" className="btn btn1">Continue</button>
             </div>
           </form>

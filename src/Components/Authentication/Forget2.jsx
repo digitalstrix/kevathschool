@@ -3,6 +3,7 @@ import MainContext from "../../context/MainContext";
 
 const Forget2 = (props) => {
     useEffect(() => {
+        props.setFootFlag(false);
         props.setNavFlag1(false);
         props.setNavFlag2(false);
     }, []);

@@ -2917,18 +2917,18 @@ hr {
   background: url("../public/static/images3/bg.png") no-repeat center
     center/cover;
   height: 40rem;
-  height: 36rem;
+  height: 59rem;
 }
 .auth-main01 {
   height: auto;
-  min-height: 25rem;
+  min-height: 54rem;
   padding-bottom: 4rem;
 }
 .signup2ver {
   padding-top: 9rem;
 }
 .signup-0 {
-  height: 52rem !important;
+  height: 54rem !important;
 }
 .auth-main0 p {
   color: #5b5e61;

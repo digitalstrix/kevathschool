@@ -5,6 +5,7 @@ import { kevath_user } from "../../Service/localdata";
 
 const Login = (props) => {
   useEffect(() => {
+    props.setFootFlag(false);
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);

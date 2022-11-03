@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Signup = (props) => {
   useEffect(() => {
+    props.setFootFlag(false);
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
+  const navigate=useNavigate();
 
   const [value, setValue] = useState({
     email: "",
@@ -35,6 +37,8 @@ const Signup = (props) => {
     console.log(ans, "<<<<<<signup");
     if (ans.status) {
       props.setAlert(ans.message, "success");
+      // navigate('/signup2ver');
+      navigate('/referral');
     } else {
       props.setAlert(ans.message, "error");
     }
