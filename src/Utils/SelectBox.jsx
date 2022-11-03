@@ -25,11 +25,11 @@ class SelectBox extends React.Component {
   render() {
     return (
       <div className="select-box--box">
-        <div className="select-box--container" onClick={this.dropDown}>
+        <div className="select-box--container">
           <div className="select-box--selected-item">
             {this.state.selectedItem.value}
           </div>
-          <div className="select-box--arrow">
+          <div className="select-box--arrow" onClick={this.dropDown}>
             <span
               className={`${
                 this.state.showItems
@@ -46,8 +46,8 @@ class SelectBox extends React.Component {
             {this.state.items.map(item => (
               <div
                 key={item.id}
-                onClick={() => {this.selectItem(item); this.dropDown()} }
-                className={this.state.selectedItem === item ? "selected custom-select-leaves" : "custom-select-leaves"}
+                onClick={() => this.selectItem(item)}
+                className={this.state.selectedItem === item ? "selected" : ""}
               >
                 {item.value}
               </div>
