@@ -1072,7 +1072,8 @@ a {
 }
 .eve-reg21 {
   width: 100%;
-  margin-bottom: 9px;
+  margin-top: 10px;
+  /* margin-bottom: 9px; */
 }
 .eve-reg21 input {
   width: 100%;
@@ -1097,6 +1098,7 @@ a {
 }
 .eve-reg22 {
   text-align: center;
+  margin-top: 15px;
 }
 .eve-reg22 button {
   border-radius: 39px;
@@ -3803,10 +3805,11 @@ hr {
   accent-color: green;
 }
 .eve-reg211 {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .eve-reg212 {
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  margin-top: 10px;
 }
 .btn7 {
   background: #7b7d82;

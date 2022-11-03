@@ -98,7 +98,7 @@ const Signup = (props) => {
                     required
                   />
                 </div>
-                <div className="eve-reg21 eve-reg212">
+                {/* <div className="eve-reg21 eve-reg212">
                   <label htmlFor="fullName">Last Name</label>
                   <input
                     type="text"
@@ -109,7 +109,19 @@ const Signup = (props) => {
                     placeholder="Last Name"
                     required
                   />
-                </div>
+                </div> */}
+              </div>
+              <div className="eve-reg21 eve-reg212">
+                <label htmlFor="fullName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={value.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name"
+                  required
+                />
               </div>
               <div className="eve-reg21">
                 <label htmlFor="email">Email</label>
@@ -147,6 +159,7 @@ const Signup = (props) => {
                   required
                 />
               </div>
+              <br />
               <div className="eve-reg22 eve-reg225">
                 <label htmlFor="agree">
                   By signing up on Kevarthschool, I accept the KevathScool
