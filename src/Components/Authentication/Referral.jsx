@@ -21,14 +21,14 @@ const Referral = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.login(value.email, value.Password);
-    console.log(ans);
-    if (ans.status) {
-      props.setAlert(ans.message, "success");
-      navigate('/signup2ver');
-    } else {
-      props.setAlert(ans.message, "error");
-    }
+    // let ans = await context.referralRegister();
+    // console.log(ans);
+    // if (ans.status) {
+    //   props.setAlert(ans.message, "success");
+    //   navigate('/signup2ver');
+    // } else {
+    //   props.setAlert(ans.message, "error");
+    // }
   };
 
   return (

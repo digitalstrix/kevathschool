@@ -102,18 +102,6 @@ const Signup = (props) => {
                     required
                   />
                 </div>
-                {/* <div className="eve-reg21 eve-reg212">
-                  <label htmlFor="fullName">Last Name</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={value.lastName}
-                    onChange={handleChange}
-                    placeholder="Last Name"
-                    required
-                  />
-                </div> */}
               </div>
               <div className="eve-reg21 eve-reg212">
                 <label htmlFor="fullName">Last Name</label>
@@ -173,7 +161,7 @@ const Signup = (props) => {
                 </label>
               </div>
               <div className="eve-reg22">
-                <button className="btn auth-btn2">Sign Up</button>
+                <button type="submit" className="btn auth-btn2">Sign Up</button>
                 <div>
                   <p>
                     Alreadt have an account?{" "}

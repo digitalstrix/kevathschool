@@ -3,20 +3,12 @@ import { Link } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Forget2 = (props) => {
-<<<<<<< HEAD
-  useEffect(() => {
-    props.setNavFlag1(false);
-    props.setNavFlag2(false);
-  }, []);
-  const context = useContext(MainContext);
-=======
     useEffect(() => {
         props.setFootFlag(false);
         props.setNavFlag1(false);
         props.setNavFlag2(false);
     }, []);
     const context = useContext(MainContext);
->>>>>>> 560504e46a355d3665d3e78ff50d759066f32975
 
   return (
     <>

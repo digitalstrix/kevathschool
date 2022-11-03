@@ -38,9 +38,8 @@ const MainState = (props) => {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       redirect: "follow",
     });
@@ -86,9 +85,8 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify({ email, currentPassword, newPassword }),
       redirect: "follow",
@@ -131,9 +129,8 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify(data),
       redirect: "follow",
@@ -148,9 +145,8 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify(data1),
       redirect: "follow",
@@ -170,8 +166,57 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`
       },
       body: JSON.stringify({ referredReferralCode, email, fullName, userId }),
+      redirect: "follow",
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
+
+  const contactUs = async (
+    firstName,
+    lastName,
+    contact,
+    email,
+    message,
+    acceptTermsandConditions
+  ) => {
+    const response = await fetch(`${baseUrl}/users/contact-us`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`
+      },
+      body: JSON.stringify({ firstName, lastName, contact, email, message, acceptTermsandConditions }),
+      redirect: "follow",
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
+
+  const hireFromUs = async (
+    name,
+    email,
+    contact,
+    message,
+    notifications,
+    company,
+    designation,
+    acceptTermsandConditions
+  ) => {
+    const response = await fetch(`${baseUrl}/users/hire-from-us`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, contact, message, notifications, company, designation, acceptTermsandConditions }),
       redirect: "follow",
     });
     const data = await response.json();
@@ -193,6 +238,9 @@ const MainState = (props) => {
           forgetPassword2,
           updateUserDetails,
           updateAddress,
+          referralRegister,
+          contactUs,
+          hireFromUs
         }}
       >
         {props.children}

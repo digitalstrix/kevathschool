@@ -6,12 +6,12 @@ import { useEffect } from "react";
 
 const Index1 = (props) => {
   const navigate = useNavigate();
-  console.log(props, "<<<<< props at index1");
-  const getUserData = async () => {
-    // const { data } = await context.getUserDetails();
-    // return data;
-  };
-  console.log(JSON.parse(localStorage.getItem("kevath_user")), "<<<<<user");
+  // console.log(props, "<<<<< props at index1");
+  // const getUserData = async () => {
+  //   // const { data } = await context.getUserDetails();
+  //   // return data;
+  // };
+  // console.log(JSON.parse(localStorage.getItem("kevath_user")), "<<<<<user");
   useEffect(() => {
     if (Object.keys(props.userInfo)?.length === 0) {
       props.setUserInfo(JSON.parse(localStorage.getItem("kevath_user1")));

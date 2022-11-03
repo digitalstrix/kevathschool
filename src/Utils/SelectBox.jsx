@@ -15,27 +15,33 @@ class SelectBox extends React.Component {
   };
 
   selectItem = item => {
-    this.props.setValue({...this.props.value, [this.props.name]:item.value});
+    this.props.setValue({ ...this.props.value, [this.props.name]: item.value });
     this.setState({
       selectedItem: item,
       showItems: false
     });
   };
 
+  onchange=(e)=>{
+    this.props.setValue({ ...this.props.value, [this.props.name]: e.target.value });
+  }
+
   render() {
     return (
-      <div className="select-box--box">
-        <div className="select-box--container" onClick={this.dropDown}>
-          <div className="select-box--selected-item">
+      <div className={this.props.small ? "select-box--box smallSb" : "select-box--box"}>
+
+        <div className="select-box--container" onClick={this.dropDown} onBlur={this.dropDown}>
+          <input type="text" className="select-box--selected-item" onChange={this.onchange} value={this.props.value} />
+          {/* <div className="select-box--selected-item">
             {this.state.selectedItem.value}
-          </div>
+          </div> */}
+
           <div className="select-box--arrow">
             <span
-              className={`${
-                this.state.showItems
+              className={`${this.state.showItems
                   ? "select-box--arrow-up"
                   : "select-box--arrow-down"
-              }`}
+                }`}
             />
           </div>
 
@@ -46,7 +52,7 @@ class SelectBox extends React.Component {
             {this.state.items.map(item => (
               <div
                 key={item.id}
-                onClick={() => {this.selectItem(item); this.dropDown()}}
+                onClick={() => { this.selectItem(item); this.dropDown() }}
                 className={this.state.selectedItem === item ? "selected" : ""}
               >
                 {item.value}

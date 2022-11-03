@@ -4,7 +4,7 @@ import { kevath_user } from "../Service/localdata";
 
 const Sidebar = () => {
   const checkUrl = (url) => {
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
     if (url == window.location.pathname) return true;
     else return false;
   };
