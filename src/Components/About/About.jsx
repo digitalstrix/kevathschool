@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Card4 from "../Card/Card4";
 
-const About = () => {
+const About = (props) => {
+  const navigate = useNavigate();
+    
+  useEffect(() => {
+    let user = localStorage.getItem('kevath_user');
+    if (user) {
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        props.setNavFlag1(true);
+        props.setNavFlag2(false);
+      }
+      else {
+        props.setNavFlag1(false);
+        props.setNavFlag2(true);
+      }
+    }
+    else {
+      props.setNavFlag1(true);
+      props.setNavFlag2(false);
+    }
+  }, []);
+
   return (
     <>
       <div className="img-cls">

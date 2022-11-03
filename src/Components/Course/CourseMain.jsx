@@ -1,11 +1,34 @@
 import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Card2 from "../Card/Card2";
 import { useState } from "react";
 
-const CourseMain = () => {
+const CourseMain = (props) => {
+  const navigate = useNavigate();
+    
   const [perPage, setPerPage] = useState(3);
+
+  useEffect(() => {
+    let user = localStorage.getItem('kevath_user');
+    if (user) {
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        props.setNavFlag1(true);
+        props.setNavFlag2(false);
+      }
+      else {
+        props.setNavFlag1(false);
+        props.setNavFlag2(true);
+      }
+    }
+    else {
+      props.setNavFlag1(true);
+      props.setNavFlag2(false);
+    }
+  }, []);
+
   useEffect(() => {
     var x = window.matchMedia("(max-width: 812px)");
     if (x.matches) {

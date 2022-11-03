@@ -1,7 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Certificate2 = (props) => {
+    const navigate = useNavigate();
+    
     useEffect(()=>{
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                navigate('/login');
+            }
+        }
+        else {
+            navigate('/login');
+        }
+        
         props.setNavFlag1(false);
         props.setNavFlag2(false);
         props.setFootFlag(false);

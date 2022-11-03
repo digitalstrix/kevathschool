@@ -8,7 +8,9 @@ const Login = (props) => {
     props.setNavFlag2(false);
   }, []);
   const context = useContext(MainContext);
+
   const navigate = useNavigate();
+
   const [value, setValue] = useState({
     email: "",
     Password: "",
@@ -22,14 +24,17 @@ const Login = (props) => {
     e.preventDefault();
     console.log(value);
     let ans = await context.login(value.email, value.Password);
-    if (ans.status) {
-      // props.setAlert(ans.message, "success");
-      localStorage.setItem(
-        "kevath_user",
-        JSON.stringify({ email: value.email, token: ans.data.access_token })
-      );
-      navigate("/");
-    } else {
+
+    console.log(ans);
+    if(ans.status)
+    {
+      props.setAlert(ans.message, "success");
+      localStorage.setItem("kevath_user", JSON.stringify({email: value.email, token: ans.data.access_token}));
+      navigate('/profile-sec1');
+    }
+    else
+    {
+
       props.setAlert(ans.message, "error");
     }
   };

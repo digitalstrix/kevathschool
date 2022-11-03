@@ -36,6 +36,10 @@ const MainState = (props) => {
     const getUserDetails = async () => {
         const response = await fetch(`${baseUrl}/users`, {
             method: "GET",
+            headers:{
+                'content-type':'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+            },
             redirect:"follow"
         });
         const data = await response.json();
@@ -74,7 +78,7 @@ const MainState = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization":JSON.parse(localStorage.getItem("kevath_user")).token
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
             },
             body: JSON.stringify({ email, currentPassword, newPassword }),
             redirect:"follow"
@@ -117,7 +121,7 @@ const MainState = (props) => {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization":JSON.parse(localStorage.getItem("kevath_user")).token
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
             },
             body: JSON.stringify(data),
             redirect:"follow"
@@ -132,7 +136,7 @@ const MainState = (props) => {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization":JSON.parse(localStorage.getItem("kevath_user")).token
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
             },
             body: JSON.stringify(data1),
             redirect:"follow"
@@ -141,6 +145,8 @@ const MainState = (props) => {
         console.log(data);
         return data;
     };
+
+
 
     return (
         <>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
@@ -6,7 +7,21 @@ import { useState } from 'react';
 
 const Db1 = (props) => {
     const [perPage, setPerPage] = useState(3);
+    const navigate = useNavigate();
+    
     useEffect(() => {
+        let user = localStorage.getItem('kevath_user');
+        if (user) {
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                navigate('/login');
+            }
+        }
+        else {
+            navigate('/login');
+        }
+        
+
         var x = window.matchMedia("(max-width: 812px)");
         if (x.matches) {
             setPerPage(2);
