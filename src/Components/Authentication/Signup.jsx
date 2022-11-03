@@ -32,7 +32,7 @@ const Signup = (props) => {
       value.phone,
       value.Password
     );
-    console.log(ans,"<<<<<<signup")
+    console.log(ans, "<<<<<<signup");
     if (ans.status) {
       props.setAlert(ans.message, "success");
     } else {

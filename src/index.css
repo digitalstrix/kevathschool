@@ -59,7 +59,7 @@ p{
 }
 .row2{
     align-items: flex-start !important;
-=======
+/* ======= */
   font-family: Gilroy-Regular;
   src: url("../public/static/fonts/Gilroy-Regular.ttf");
 }
