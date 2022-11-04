@@ -4,9 +4,27 @@ import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
 const Referral = (props) => {
+  const [values, setValues] = useState({
+    fullName:"",
+    userId:"",
+    email:""
+  });
+
   useEffect(() => {
     props.setFootFlag(false);
+    getData();
   }, []);
+
+  const getData=async ()=>{
+    const data = await context.getUserDetails();
+    console.log(data);
+    setValues({
+      fullName: `${data.data.firstName} ${data.data.lastName}`,
+      userId: data.data.id,
+      email: data.data.email
+    });
+  }
+
   const navigate=useNavigate();
 
   const [value, setValue] = useState({
@@ -20,15 +38,15 @@ const Referral = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(value);
-    // let ans = await context.referralRegister();
-    // console.log(ans);
-    // if (ans.status) {
-    //   props.setAlert(ans.message, "success");
-    //   navigate('/signup2ver');
-    // } else {
-    //   props.setAlert(ans.message, "error");
-    // }
+    console.log(value.code, values.email, values.fullName, values.userId);
+    let ans = await context.referralRegister(value.code, values.email, values.fullName, values.userId);
+    console.log(ans);
+    if (ans.status) {
+      props.setAlert(ans.message, "success");
+      navigate('/signup2ver');
+    } else {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (

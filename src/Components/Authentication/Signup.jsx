@@ -28,28 +28,115 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.signup(
-      value.firstName,
-      value.lastName,
-      value.email,
-      value.phone,
-      value.Password
-    );
-    console.log(ans, "<<<<<<signup");
-    if (ans.status) {
-      props.setAlert(ans.message, "success");
-      localStorage.setItem(
-        kevath_user,
-        JSON.stringify({ email: value.email, token: ans.data.access_token })
-      );
-      setTimeout(function () {
-        // navigate("/profile-sec1");
-        navigate("/referral");
-      }, 2000);
-      // navigate('/signup2ver');
-    } else {
-      props.setAlert(ans.message, "error");
+
+    let flag = false;
+    for (let i of Object.keys(value)) {
+      if (value[i].length === 0) {
+        if (!document.getElementById(`${i}-err`)) {
+          let nc = document.createElement('div');
+          nc.setAttribute('id', `${i}-err`);
+          nc.setAttribute('class', 'err-show');
+          nc.innerHTML = "Field is required";
+          if(i==="phone")
+          {
+            document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
+          }
+          else
+          {
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          }
+        }
+      }
+      else {
+        document.getElementById(`${i}-err`)?.remove();
+        
+        if(i==='firstName')
+        {
+          if(value[i].length<3)
+          {
+            let nc = document.createElement('div');
+            nc.setAttribute('id', `${i}-err`);
+            nc.setAttribute('class', 'err-show');
+            nc.innerHTML = "Must includes at least 3 characters";
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          }
+          else
+          {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+
+        if(i==="phone")
+        {
+          if(value[i].length<10)
+          {
+            let nc = document.createElement('div');
+            nc.setAttribute('id', `${i}-err`);
+            nc.setAttribute('class', 'err-show');
+            nc.innerHTML = "Must includes at least 10 characters";
+            document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
+          }
+          else
+          {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+
+        if(i==="Password")
+        {
+          let reg=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if(reg.exec(value[i])===null)
+          {
+            console.log('sdf');
+            let nc = document.createElement('div');
+            nc.setAttribute('id', `${i}-err`);
+            nc.setAttribute('class', 'err-show');
+            nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+            console.log(document.getElementsByName(i)[0].parentNode);
+            console.log(nc);
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          }
+          else
+          {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+      }
     }
+
+    const checkErr=document.querySelectorAll('.err-show');
+    if(checkErr.length===0)
+    {
+      flag=true;
+    }
+
+    if (flag) {
+      let ans = await context.signup(
+        value.firstName,
+        value.lastName,
+        value.email,
+        value.phone,
+        value.Password
+      );
+
+      console.log(ans, "<<<<<<signup");
+      if (ans.status) {
+        props.setAlert(ans.message, "success");
+        localStorage.setItem(
+          kevath_user,
+          JSON.stringify({ email: value.email, token: ans.data.access_token })
+        );
+        setTimeout(function () {
+          // navigate("/profile-sec1");
+          navigate("/referral");
+        }, 2000);
+        // navigate('/signup2ver');
+
+      } else {
+        props.setAlert(ans.message, "error");
+      }
+    }
+
   };
 
   return (
@@ -99,7 +186,6 @@ const Signup = (props) => {
                     value={value.firstName}
                     onChange={handleChange}
                     placeholder="First Name"
-                    required
                   />
                 </div>
               </div>
@@ -112,7 +198,6 @@ const Signup = (props) => {
                   value={value.lastName}
                   onChange={handleChange}
                   placeholder="Last Name"
-                  required
                 />
               </div>
               <div className="eve-reg21">
@@ -124,32 +209,49 @@ const Signup = (props) => {
                   value={value.email}
                   onChange={handleChange}
                   placeholder="Email "
-                  required
                 />
               </div>
               <div className="eve-reg21">
                 <label htmlFor="phone">Phone</label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  value={value.phone}
-                  onChange={handleChange}
-                  placeholder="+91 "
-                  required
-                />
+                <div className="row">
+                  <input type="text" value="+91" onChange={()=>{
+                    return;
+                  }} className="stick-inp" />
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={value.phone}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
               <div className="eve-reg21">
                 <label htmlFor="Password">Password</label>
-                <input
-                  type="password"
-                  id="Password"
-                  name="Password"
-                  value={value.Password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  required
-                />
+                <div className="password">
+                  <input
+                    type="password"
+                    id="Password"
+                    name="Password"
+                    value={value.Password}
+                    onChange={handleChange}
+                    placeholder="Enter your password"
+                  />
+                  <div onClick={() => {
+                    const pass = document.getElementById('Password');
+                    if (pass.type === "text") {
+                      pass.type = 'password';
+                    }
+                    else {
+                      pass.type = 'text';
+                    }
+                  }} className="pass-eye">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
               <br />
               <div className="eve-reg22 eve-reg225">

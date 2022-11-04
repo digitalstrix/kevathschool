@@ -4632,6 +4632,29 @@ hr {
 .psi13 label{
     font-size: 12px;
 }
+.err-show{
+    color: rgb(221, 51, 74);
+    font-weight: 700;
+    padding-top: 6px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+.password{
+    position: relative;
+}
+.pass-eye{
+    position: absolute;
+    cursor: pointer;
+    top: 11px;
+    right: 10px;
+}
+.pass-eye1{
+    top: 15px;
+}
+.stick-inp{
+    width: 3rem !important;
+    padding-right: 0px !important;
+}
 
 @media screen and (max-width: 1380px) {
     .nav0 {

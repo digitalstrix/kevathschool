@@ -162,7 +162,7 @@ const MainState = (props) => {
     fullName,
     userId
   ) => {
-    const response = await fetch(`${baseUrl}/users/register-referral`, {
+    const response = await fetch(`${baseUrl}/register-referral`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -185,7 +185,7 @@ const MainState = (props) => {
     message,
     acceptTermsandConditions
   ) => {
-    const response = await fetch(`${baseUrl}/users/contact-us`, {
+    const response = await fetch(`${baseUrl}/contact-us`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -193,7 +193,7 @@ const MainState = (props) => {
           JSON.parse(localStorage.getItem("kevath_user"))?.token
         }`
       },
-      body: JSON.stringify({ firstName, lastName, contact, email, message, acceptTermsandConditions }),
+      body: JSON.stringify({ firstName, lastName, contact: Number(contact), email, message, acceptTermsandConditions }),
       redirect: "follow",
     });
     const data = await response.json();
@@ -211,7 +211,7 @@ const MainState = (props) => {
     designation,
     acceptTermsandConditions
   ) => {
-    const response = await fetch(`${baseUrl}/users/hire-from-us`, {
+    const response = await fetch(`${baseUrl}/hire-from-us`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

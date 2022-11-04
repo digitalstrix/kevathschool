@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MainContext from '../../context/MainContext';
 
 const ContactUs = (props) => {
     const navigate = useNavigate();
+    const context = useContext(MainContext);
     
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
@@ -38,12 +41,14 @@ const ContactUs = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(value);
+        let ans = await context.contactUs(value.firstName, value.lastName, value.phone, value.email, value.message, true);
+        if (ans.status) {
+          props.setAlert(ans.message, "success");
+        //   navigate("/");
+        } else {
+          props.setAlert(ans.message, "error");
+        }
     };
-
-    useEffect(() => {
-        props.setNavFlag1(true);
-        props.setNavFlag2(false);
-    }, []);
 
     return (
         <>
@@ -88,39 +93,39 @@ const ContactUs = (props) => {
                             <div className="prof-sec421 text-center">
                                 <h4>CONTACT US FORM</h4>
                             </div>
-                            <div className="prof-sec422">
+                            <form onSubmit={handleSubmit} className="prof-sec422">
                                 <div className="row prof-sec4221">
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="First Name" name="firstName" onChange={handleChange} value={value.firstName} />
+                                        <input type="text" placeholder="First Name" name="firstName" onChange={handleChange} value={value.firstName} required />
                                     </div>
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Last Name" name="lastName" onChange={handleChange} value={value.lastName} />
+                                        <input type="text" placeholder="Last Name" name="lastName" onChange={handleChange} value={value.lastName} required />
                                     </div>
                                 </div>
                                 <div className="row prof-sec4221">
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Email" name="email" onChange={handleChange} value={value.email} />
+                                        <input type="text" placeholder="Email" name="email" onChange={handleChange} value={value.email} required />
                                     </div>
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Phone Number" name="phone" onChange={handleChange} value={value.phone} />
+                                        <input type="text" placeholder="Phone Number" name="phone" onChange={handleChange} value={value.phone} required />
                                     </div>
                                 </div>
                                 <div className="prof-sec-textarea">
-                                    <textarea name="message" onChange={handleChange} value={value.message} placeholder="Message" cols="30" rows="10"></textarea>
+                                    <textarea name="message" onChange={handleChange} value={value.message} placeholder="Message" cols="30" rows="10" required></textarea>
                                 </div>
                                 <div style={{marginTop:"15px"}} className="hfu-agree">
                                     <input type="checkbox" name="agree1" id="agree1" />
                                     <label htmlFor="agree1">I want to receive product updates, marketing news, and other relevant content by email from KevathSchool.</label>
                                 </div>
                                 <div className="hfu-agree">
-                                    <input type="checkbox" name="agree2" id="agree2" />
+                                    <input type="checkbox" name="agree2" id="agree2" required />
                                     <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
                                         Privacy Policy.</label>
                                 </div>
                                 <div className="text-center">
-                                    <button className="btn btn1">Send</button>
+                                    <button type="submit" className="btn btn1">Send</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

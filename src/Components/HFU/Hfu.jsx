@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MainContext from '../../context/MainContext';
 
 const Hfu = (props) => {
     const navigate = useNavigate();
+    const context = useContext(MainContext);
     
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
@@ -28,7 +31,8 @@ const Hfu = (props) => {
         email: '',
         phone: '',
         designation: '',
-        company: ''
+        company: '',
+        message: '',
     });
 
     const handleChange = (e) => {
@@ -36,7 +40,25 @@ const Hfu = (props) => {
     };
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         console.log(value);
+        let notifications=false;
+        
+        if(document.getElementById('agree1').selected)
+        {
+            notifications=true;
+        }
+        else
+        {
+            notifications=false;
+        }
+
+        let ans = await context.hireFromUs(value.name, value.email, Number(value.phone), value.message, notifications, value.company, value.designation, true);
+        if (ans.status) {
+          props.setAlert(ans.message, "success");
+        } else {
+          props.setAlert(ans.message, "error");
+        }
     };
 
     return (
@@ -67,35 +89,39 @@ const Hfu = (props) => {
                         <form onSubmit={handleSubmit}>
                             <div className="eve-reg21">
                                 <label htmlFor="name">Name</label>
-                                <input type="text" id="name" name="name" value={value.name} onChange={handleChange} placeholder="Recruiter Name" />
+                                <input type="text" id="name" name="name" value={value.name} onChange={handleChange} placeholder="Recruiter Name" required />
                             </div>
                             <div className="eve-reg21">
                                 <label htmlFor="email">Email</label>
-                                <input type="text" id="email" name="email" value={value.email} onChange={handleChange} placeholder="Recruiter Name" />
+                                <input type="text" id="email" name="email" value={value.email} onChange={handleChange} placeholder="Recruiter Email" required />
                             </div>
                             <div className="eve-reg21">
                                 <label htmlFor="phone">Phone</label>
-                                <input type="text" id="phone" name="phone" value={value.phone} onChange={handleChange} placeholder="Recruiter Name" />
+                                <input type="text" id="phone" name="phone" value={value.phone} onChange={handleChange} placeholder="Recruiter Phone" required />
                             </div>
                             <div className="eve-reg21">
                                 <label htmlFor="designation">Designation</label>
-                                <input type="text" id="designation" name="designation" value={value.designation} onChange={handleChange} placeholder="Recruiter Name" />
+                                <input type="text" id="designation" name="designation" value={value.designation} onChange={handleChange} placeholder="Recruiter Designation" />
                             </div>
                             <div className="eve-reg21">
-                                <label htmlFor="company">Phone</label>
-                                <input type="text" id="company" name="company" value={value.company} onChange={handleChange} placeholder="Recruiter Name" />
+                                <label htmlFor="company">Company</label>
+                                <input type="text" id="company" name="company" value={value.company} onChange={handleChange} placeholder="Company Name" required />
                             </div>
-                            <div className="hfu-agree">
+                            <div className="eve-reg21">
+                                <label htmlFor="message">Message</label>
+                                <input type="text" id="message" name="message" value={value.message} onChange={handleChange} placeholder="Message" required />
+                            </div>
+                            <div style={{marginTop:"8px"}} className="hfu-agree">
                                 <input type="checkbox" name="agree1" id="agree1" />
                                 <label htmlFor="agree1">I want to receive product updates, marketing news, and other relevant content by email from KevathSchool.</label>
                             </div>
                             <div className="hfu-agree">
-                                <input type="checkbox" name="agree2" id="agree2" />
+                                <input type="checkbox" name="agree2" id="agree2" required />
                                 <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
                                     Privacy Policy.</label>
                             </div>
                             <div className="eve-reg22">
-                                <button className="btn btn1">submit</button>
+                                <button type="submit" className="btn btn1">submit</button>
                             </div>
                         </form>
                     </div>

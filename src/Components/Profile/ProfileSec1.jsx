@@ -129,6 +129,7 @@ const ProfileSec1 = (props) => {
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
+    console.log(value);
   };
 
   const handleChange1 = (e) => {
@@ -139,7 +140,97 @@ const ProfileSec1 = (props) => {
   const submitHandle = async (e) => {
     e.preventDefault();
     console.log(value);
-    // let ans = await context.updateUserDetails();
+
+    const checkArr=['firstName', 'lastName', 'email', 'phone', 'password'];
+
+    let flag = false;
+    for (let i of Object.keys(value)) {
+      if(checkArr.includes(i))
+      {
+        if (value[i].length === 0) {
+          if (!document.getElementById(`${i}-err`)) {
+            let nc = document.createElement('div');
+            nc.setAttribute('id', `${i}-err`);
+            nc.setAttribute('class', 'err-show');
+            nc.innerHTML = "Field is required";
+            if(i==="phone")
+            {
+              document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
+            }
+            else
+            {
+              document.getElementsByName(i)[0].parentNode.appendChild(nc);
+            }
+          }
+        }
+        else {
+          document.getElementById(`${i}-err`)?.remove();
+          
+          if(i==='firstName')
+          {
+            if(value[i].length<3)
+            {
+              let nc = document.createElement('div');
+              nc.setAttribute('id', `${i}-err`);
+              nc.setAttribute('class', 'err-show');
+              nc.innerHTML = "Must includes at least 3 characters";
+              document.getElementsByName(i)[0].parentNode.appendChild(nc);
+            }
+            else
+            {
+              document.getElementById(`${i}-err`)?.remove();
+            }
+          }
+  
+          if(i==="phone")
+          {
+            if(value[i].length<10)
+            {
+              let nc = document.createElement('div');
+              nc.setAttribute('id', `${i}-err`);
+              nc.setAttribute('class', 'err-show');
+              nc.innerHTML = "Must includes at least 10 characters";
+              document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
+            }
+            else
+            {
+              document.getElementById(`${i}-err`)?.remove();
+            }
+          }
+  
+          if(i==="Password")
+          {
+            let reg=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if(reg.exec(value[i])===null)
+            {
+              console.log('sdf');
+              let nc = document.createElement('div');
+              nc.setAttribute('id', `${i}-err`);
+              nc.setAttribute('class', 'err-show');
+              nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+              console.log(document.getElementsByName(i)[0].parentNode);
+              console.log(nc);
+              document.getElementsByName(i)[0].parentNode.appendChild(nc);
+            }
+            else
+            {
+              document.getElementById(`${i}-err`)?.remove();
+            }
+          }
+        }
+      }
+    }
+
+    const checkErr=document.querySelectorAll('.err-show');
+    if(checkErr.length===0)
+    {
+      flag=true;
+    }
+
+    if(flag)
+    {
+      // let ans = await context.updateUserDetails();
+    }
   };
 
   const submitHandle1 = async (e) => {
@@ -159,7 +250,8 @@ const ProfileSec1 = (props) => {
             </h1>
             <h5>Welcome Back to KevathSchool!</h5>
           </div>
-          <div className="prof-sec112">
+          
+          <form onSubmit={submitHandle} className="prof-sec112">
             <div className="prof-sec-top">
               <p>PERSONAL INFORMATION</p>
             </div>
@@ -250,18 +342,35 @@ const ProfileSec1 = (props) => {
                           name="emerPhone"
                           onChange={handleChange}
                           value={value?.emergencyContact}
+                          required
                         />
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
                         <label htmlFor="password">Password</label>
-                        <input
-                          type="text"
-                          name="password"
-                          onChange={handleChange}
-                          value={value?.password}
-                        />
+                        <div className="password">
+                          <input
+                            type="text"
+                            name="password"
+                            onChange={handleChange}
+                            value={value?.password}
+                          />
+                          <div onClick={() => {
+                            const pass = document.getElementById('Password');
+                            if (pass.type === "text") {
+                              pass.type = 'password';
+                            }
+                            else {
+                              pass.type = 'text';
+                            }
+                          }} className="pass-eye pass-eye1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -275,6 +384,7 @@ const ProfileSec1 = (props) => {
                           name="dob"
                           onChange={handleChange}
                           value={value?.dob}
+                          required
                         />
                       </div>
                     </div>
@@ -289,7 +399,8 @@ const ProfileSec1 = (props) => {
                         small={true}
                         name="gender"
                         setValue={setValue}
-                        value={value?.gender}
+                        value={value}
+                        value1={value?.gender}
                       />
                     </div>
                   </div>
@@ -321,7 +432,8 @@ const ProfileSec1 = (props) => {
                           small={true}
                           name="passedOutYear"
                           setValue={setValue}
-                          value={value?.passedOutYear}
+                          value1={value?.passedOutYear}
+                          value={value}
                         />
                       </div>
                       <div className="psi-select">
@@ -334,7 +446,8 @@ const ProfileSec1 = (props) => {
                           small={true}
                           name="duration2"
                           setValue={setValue}
-                          value={value?.duration2}
+                          value1={value?.duration2}
+                          value={value}
                         />
                       </div>
                       <div className="psi-input smallInp">
@@ -346,6 +459,7 @@ const ProfileSec1 = (props) => {
                             name="percentage2"
                             onChange={handleChange}
                             value={value?.percentage2}
+                            required
                           />
                         </div>
                       </div>
@@ -372,7 +486,8 @@ const ProfileSec1 = (props) => {
                           small={true}
                           name="passedOutYear1"
                           setValue={setValue}
-                          value={value?.passedOutYear1}
+                          value1={value?.passedOutYear1}
+                          value={value}
                         />
                       </div>
                       <div className="psi-select">
@@ -386,7 +501,8 @@ const ProfileSec1 = (props) => {
                           small={true}
                           name="duration3"
                           setValue={setValue}
-                          value={value?.duration3}
+                          value1={value?.duration3}
+                          value={value}
                         />
                       </div>
                       <div className="psi-input smallInp">
@@ -398,6 +514,7 @@ const ProfileSec1 = (props) => {
                             name="percentage3"
                             onChange={handleChange}
                             value={value?.percentage3}
+                            required
                           />
                         </div>
                       </div>
@@ -421,7 +538,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="course"
                         setValue={setValue}
-                        value={value?.course}
+                        value1={value?.course}
+                        value={value}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -438,7 +556,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="specification"
                         setValue={setValue}
-                        value={value?.specification}
+                        value1={value?.specification}
+                        value={value}
                       />
                     </div>
                   </div>
@@ -453,6 +572,7 @@ const ProfileSec1 = (props) => {
                           name="college"
                           onChange={handleChange}
                           value={value?.college}
+                          required
                         />
                       </div>
                     </div>
@@ -465,6 +585,7 @@ const ProfileSec1 = (props) => {
                           name="university"
                           onChange={handleChange}
                           value={value?.university}
+                          required
                         />
                       </div>
                     </div>
@@ -481,7 +602,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="status"
                         setValue={setValue}
-                        value={value?.status}
+                        value1={value?.status}
+                        value={value}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -501,7 +623,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="yearOfPassing"
                         setValue={setValue}
-                        value={value?.yearOfPassing}
+                        value1={value?.yearOfPassing}
+                        value={value}
                       />
                     </div>
                   </div>
@@ -518,7 +641,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="duration"
                         setValue={setValue}
-                        value={value?.duration}
+                        value1={value?.duration}
+                        value={value}
                       />
                     </div>
                     <div className="psi-input psi-ex">
@@ -530,6 +654,7 @@ const ProfileSec1 = (props) => {
                           name="percentage"
                           onChange={handleChange}
                           value={value?.percentage}
+                          required
                         />
                       </div>
                     </div>
@@ -552,7 +677,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="course1"
                         setValue={setValue}
-                        value={value?.course1}
+                        value1={value?.course1}
+                        value={value}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -569,7 +695,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="specification1"
                         setValue={setValue}
-                        value={value?.specification1}
+                        value1={value?.specification1}
+                        value={value}
                       />
                     </div>
 
@@ -584,6 +711,7 @@ const ProfileSec1 = (props) => {
                           name="college1"
                           onChange={handleChange}
                           value={value?.college1}
+                          required
                         />
                       </div>
                     </div>
@@ -596,6 +724,7 @@ const ProfileSec1 = (props) => {
                           name="university1"
                           onChange={handleChange}
                           value={value?.university1}
+                          required
                         />
                       </div>
                     </div>
@@ -611,7 +740,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="status1"
                         setValue={setValue}
-                        value={value?.status1}
+                        value1={value?.status1}
+                        value={value}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -631,7 +761,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="yearOfPassing1"
                         setValue={setValue}
-                        value={value?.yearOfPassing1}
+                        value1={value?.yearOfPassing1}
+                        value={value}
                       />
                     </div>
                   </div>
@@ -646,7 +777,8 @@ const ProfileSec1 = (props) => {
                         ]}
                         name="duration1"
                         setValue={setValue}
-                        value={value?.duration1}
+                        value1={value?.duration1}
+                        value={value}
                       />
                     </div>
                     <div className="psi-input psi-ex">
@@ -658,6 +790,7 @@ const ProfileSec1 = (props) => {
                           name="percentage1"
                           onChange={handleChange}
                           value={value?.percentage1}
+                          required
                         />
                       </div>
                     </div>
@@ -678,6 +811,7 @@ const ProfileSec1 = (props) => {
                           name="companyName"
                           onChange={handleChange}
                           value={value?.companyName}
+                          required
                         />
                       </div>
                     </div>
@@ -689,6 +823,7 @@ const ProfileSec1 = (props) => {
                           name="role"
                           onChange={handleChange}
                           value={value?.role}
+                          required
                         />
                       </div>
                     </div>
@@ -702,6 +837,7 @@ const ProfileSec1 = (props) => {
                           name="skills"
                           onChange={handleChange}
                           value={value?.skills}
+                          required
                         />
                       </div>
                     </div>
@@ -713,6 +849,7 @@ const ProfileSec1 = (props) => {
                           name="noYears"
                           onChange={handleChange}
                           value={value?.noYears}
+                          required
                         />
                       </div>
                     </div>
@@ -721,10 +858,11 @@ const ProfileSec1 = (props) => {
               </div>
             </div>
             <div className="psi-btn">
-              <button className="btn btn1 btn4">Save</button>
+              <button type="submit" className="btn btn1 btn4">Save</button>
             </div>
-          </div>
-          <div className="prof-sec112">
+          </form>
+          
+          <form onSubmit={submitHandle1} className="prof-sec112">
             <div className="prof-sec-top">
               <p>ADDRESS INFORMATION</p>
             </div>
@@ -742,6 +880,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine1"
                         onChange={handleChange1}
                         value={currentAddress?.addressLine1}
+                        required
                       />
                     </div>
                     <div className="psi-input">
@@ -751,6 +890,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine2"
                         onChange={handleChange1}
                         value={currentAddress?.addressLine2}
+                        required
                       />
                     </div>
                   </div>
@@ -762,6 +902,7 @@ const ProfileSec1 = (props) => {
                         name="state"
                         onChange={handleChange1}
                         value={currentAddress?.state}
+                        required
                       />
                     </div>
                     <div className="psi-input">
@@ -771,6 +912,7 @@ const ProfileSec1 = (props) => {
                         name="city"
                         onChange={handleChange1}
                         value={currentAddress?.city}
+                        required
                       />
                     </div>
                   </div>
@@ -782,6 +924,7 @@ const ProfileSec1 = (props) => {
                         name="landMark"
                         onChange={handleChange1}
                         value={currentAddress?.landMark}
+                        required
                       />
                     </div>
                     <div className="psi-input psi-input1">
@@ -793,6 +936,7 @@ const ProfileSec1 = (props) => {
                             name="country"
                             onChange={handleChange1}
                             value={currentAddress?.country}
+                            required
                           />
                         </div>
                         <div className="psi-input">
@@ -802,6 +946,7 @@ const ProfileSec1 = (props) => {
                             name="pincode"
                             onChange={handleChange1}
                             value={currentAddress?.pincode}
+                            required
                           />
                         </div>
                       </div>
@@ -822,6 +967,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine11"
                         onChange={handleChange1}
                         value={permanentAddress?.addressLine11}
+                        required
                       />
                     </div>
                     <div className="psi-input">
@@ -831,6 +977,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine21"
                         onChange={handleChange1}
                         value={permanentAddress?.addressLine21}
+                        required
                       />
                     </div>
                   </div>
@@ -842,6 +989,7 @@ const ProfileSec1 = (props) => {
                         name="state1"
                         onChange={handleChange1}
                         value={permanentAddress?.state}
+                        required
                       />
                     </div>
                     <div className="psi-input">
@@ -851,6 +999,7 @@ const ProfileSec1 = (props) => {
                         name="city1"
                         onChange={handleChange1}
                         value={permanentAddress?.city}
+                        required
                       />
                     </div>
                   </div>
@@ -862,6 +1011,7 @@ const ProfileSec1 = (props) => {
                         name="landMark1"
                         onChange={handleChange1}
                         value={permanentAddress?.landMark}
+                        required
                       />
                     </div>
                     <div className="psi-input psi-input1">
@@ -873,6 +1023,7 @@ const ProfileSec1 = (props) => {
                             name="country1"
                             onChange={handleChange1}
                             value={permanentAddress?.country}
+                            required
                           />
                         </div>
                         <div className="psi-input">
@@ -882,6 +1033,7 @@ const ProfileSec1 = (props) => {
                             name="pincode1"
                             onChange={handleChange1}
                             value={permanentAddress?.pincode}
+                            required
                           />
                         </div>
                       </div>
@@ -891,9 +1043,9 @@ const ProfileSec1 = (props) => {
               </div>
             </div>
             <div className="psi-btn">
-              <button className="btn btn1 btn4">Save</button>
+              <button type="submit" className="btn btn1 btn4">Save</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="hfu-4">
