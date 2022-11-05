@@ -4655,6 +4655,15 @@ hr {
     width: 3rem !important;
     padding-right: 0px !important;
 }
+.prof-checkbox{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.prof-checkbox label{
+    margin-left: 5px;
+    font-size: 14px;
+
+}
 
 @media screen and (max-width: 1380px) {
     .nav0 {

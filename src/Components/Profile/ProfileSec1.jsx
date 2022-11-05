@@ -10,8 +10,9 @@ const ProfileSec1 = (props) => {
   const context = useContext(MainContext);
   // console.log(props, "<<<<userInfo");
   const [value, setValue] = useState(props.userInfo);
-  const [currentAddress, setCurrentAddress] = useState({});
-  const [permanentAddress, setPermanentAddress] = useState({});
+  // const [currentAddress, setCurrentAddress] = useState({});
+  const [address, setAddress] = useState({});
+  // const [permanentAddress, setPermanentAddress] = useState({});
 
   // console.log(value, "<<<<settovallue", props.userInfo);
 
@@ -40,71 +41,90 @@ const ProfileSec1 = (props) => {
   //   noYears: "",
   // });
 
-  const [value1, setValue1] = useState({
-    addressLine1: "",
-    addressLine2: "",
-    city: "",
-    state: "",
-    landMark: "",
-    country: "India",
-    pincode: "",
-    addressLine11: "",
-    addressLine21: "",
-    city1: "",
-    state1: "",
-    landMark1: "",
-    country1: "India",
-    pincode1: "",
-  });
+  // const [value1, setValue1] = useState({
+  //   addressLine1: "",
+  //   addressLine2: "",
+  //   city: "",
+  //   state: "",
+  //   landMark: "",
+  //   country: "India",
+  //   pincode: "",
+  //   addressLine11: "",
+  //   addressLine21: "",
+  //   city1: "",
+  //   state1: "",
+  //   landMark1: "",
+  //   country1: "India",
+  //   pincode1: "",
+  // });
 
   const getData = async () => {
     const data = await context.getUserDetails();
     console.log(data, "<<<<dataatcontext");
-    setValue(data.data);
-    setCurrentAddress(data.data.currentAddress);
-    setPermanentAddress(data.data.permanentAddress);
+    // setValue(data.data);
+    // setCurrentAddress(data.data.currentAddress);
+    // setPermanentAddress(data.data.permanentAddress);
     props.setUserInfo(data.data);
     localStorage.setItem("kevath_user1", JSON.stringify(data.data));
-    // setValue({
-    //   firstName: data.data.firstName,
-    //   lastName: data.data.lastName,
-    //   email: data.data.email,
-    //   phone: data.data.contact,
-    //   emerPhone: data.data.emergencyContact,
-    //   password: "",
-    //   dob: data.data.dob,
-    //   gender: data.data.gender,
-    //   //  data.data.higherEdu
-    //   course: data.data.educationQualification?.graduation.course,
-    //   course1: data.data.educationQualification?.postGraduation.course,
-    //   specification:
-    //     data.data.educationQualification?.graduation.specialization,
-    //   specification1:
-    //     data.data.educationQualification?.postGraduation.specialization,
-    //   college: data.data.educationQualification?.graduation.college,
-    //   college1: data.data.educationQualification?.postGraduation.college,
-    //   university: data.data.educationQualification?.graduation.university,
-    //   university1: data.data.educationQualification?.postGraduation.university,
-    //   duration: data.data.educationQualification?.graduation.durationYears,
-    //   duration1: data.data.educationQualification?.postGraduation.durationYears,
-    //   duration2: data.data.educationQualification?.ssc.durationYears,
-    //   duration3: data.data.educationQualification?.puc.durationYears,
-    //   status: data.data.educationQualification?.graduation.status,
-    //   status1: data.data.educationQualification?.postGraduation.status,
-    //   yearOfPassing: data.data.educationQualification?.graduation.yearOfPassout,
-    //   yearOfPassing1:
-    //     data.data.educationQualification?.postGraduation.yearOfPassout,
-    //   percentage: data.data.educationQualification?.graduation.percentage,
-    //   percentage1: data.data.educationQualification?.postGraduation.percentage,
-    //   percentage2: data.data.educationQualification?.ssc.percentage,
-    //   percentage3: data.data.educationQualification?.puc.percentage,
-    //   companyName: data.data.experience.companyName,
-    //   role: data.data.experience.role,
-    //   skills: data.data.experience.skills.toString(),
-    //   noYears: data.data.experience.numberOfYears,
-    //   passedOutYear: data.data.educationQualification?.ssc.yearOfPassout,
-    //   passedOutYear1: data.data.educationQualification?.puc.yearOfPassout,
-    // });
+
+    setValue({
+      firstName: data.data?.firstName,
+      lastName: data.data?.lastName,
+      email: data.data?.email,
+      contact: data.data?.contact,
+      emergencyContact: data.data?.emergencyContact,
+      password: data.data?.password,
+      dob: data.data?.dob,
+      gender: data.data?.gender,
+      //  data.data.higherEdu
+      course: data.data?.educationQualification?.graduation?.course,
+      course1: data.data?.educationQualification?.postGraduation?.course,
+      specification:
+        data.data?.educationQualification?.graduation?.specialization,
+      specification1:
+        data.data?.educationQualification?.postGraduation?.specialization,
+      college: data.data?.educationQualification?.graduation?.college,
+      college1: data.data?.educationQualification?.postGraduation?.college,
+      university: data.data?.educationQualification?.graduation?.university,
+      university1: data.data?.educationQualification?.postGraduation?.university,
+      duration: data.data?.educationQualification?.graduation?.durationYears,
+      duration1: data.data?.educationQualification?.postGraduation?.durationYears,
+      duration2: data.data?.educationQualification?.ssc?.durationYears,
+      duration3: data.data?.educationQualification?.puc?.durationYears,
+      status: data.data?.educationQualification?.graduation?.status,
+      status1: data.data?.educationQualification?.postGraduation?.status,
+      yearOfPassing: data.data?.educationQualification?.graduation?.yearOfPassout,
+      yearOfPassing1:
+        data.data?.educationQualification?.postGraduation?.yearOfPassout,
+      percentage: data.data?.educationQualification?.graduation?.percentage,
+      percentage1: data.data?.educationQualification?.postGraduation?.percentage,
+      percentage2: data.data?.educationQualification?.ssc?.percentage,
+      percentage3: data.data?.educationQualification?.puc?.percentage,
+      companyName: data.data?.experience?.companyName,
+      role: data.data?.experience?.role,
+      skills: data.data?.experience?.skills.toString(),
+      noYears: data.data?.experience?.numberOfYears,
+      passedOutYear: data.data?.educationQualification?.ssc?.yearOfPassout,
+      passedOutYear1: data.data?.educationQualification?.puc?.yearOfPassout,
+    });
+
+    setAddress({
+      addressLine1:data.data?.currentAddress?.addressLine1,
+      addressLine2:data.data?.currentAddress?.addressLine2,
+      state:data.data?.currentAddress?.state,
+      city:data.data?.currentAddress?.city,
+      landMark:data.data?.currentAddress?.landmark,
+      country:data.data?.currentAddress?.country,
+      pincode:data.data?.currentAddress?.pinCode,
+      addressLine11:data.data?.permanentAddress?.addressLine1,
+      addressLine21:data.data?.permanentAddress?.addressLine2,
+      state1:data.data?.permanentAddress?.state,
+      city1:data.data?.permanentAddress?.city,
+      landMark1:data.data?.permanentAddress?.landmark,
+      country1:data.data?.permanentAddress?.country,
+      pincode1:data.data?.permanentAddress?.pinCode
+    });
+
     return data;
   };
 
@@ -129,80 +149,67 @@ const ProfileSec1 = (props) => {
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
-    console.log(value);
   };
 
   const handleChange1 = (e) => {
-    // dob;
-    setValue1({ ...value1, [e.target.name]: e.target.value });
+    setAddress({ ...address, [e.target.name]: e.target.value });
   };
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    console.log(value);
+    // console.log(value);
 
-    const checkArr=['firstName', 'lastName', 'email', 'phone', 'password'];
+    const checkArr = ['firstName', 'lastName', 'email', 'phone', 'password'];
 
     let flag = false;
     for (let i of Object.keys(value)) {
-      if(checkArr.includes(i))
-      {
+      if (checkArr.includes(i)) {
         if (value[i].length === 0) {
           if (!document.getElementById(`${i}-err`)) {
             let nc = document.createElement('div');
             nc.setAttribute('id', `${i}-err`);
             nc.setAttribute('class', 'err-show');
             nc.innerHTML = "Field is required";
-            if(i==="phone")
-            {
+            if (i === "phone") {
               document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
             }
-            else
-            {
+            else {
               document.getElementsByName(i)[0].parentNode.appendChild(nc);
             }
           }
         }
         else {
           document.getElementById(`${i}-err`)?.remove();
-          
-          if(i==='firstName')
-          {
-            if(value[i].length<3)
-            {
+
+          if (i === 'firstName') {
+            if (value[i].length < 3) {
               let nc = document.createElement('div');
               nc.setAttribute('id', `${i}-err`);
               nc.setAttribute('class', 'err-show');
               nc.innerHTML = "Must includes at least 3 characters";
               document.getElementsByName(i)[0].parentNode.appendChild(nc);
             }
-            else
-            {
+            else {
               document.getElementById(`${i}-err`)?.remove();
             }
           }
-  
-          if(i==="phone")
-          {
-            if(value[i].length<10)
-            {
+
+          if (i === "phone") {
+            if (value[i].length < 10) {
               let nc = document.createElement('div');
               nc.setAttribute('id', `${i}-err`);
               nc.setAttribute('class', 'err-show');
               nc.innerHTML = "Must includes at least 10 characters";
               document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
             }
-            else
-            {
+            else {
               document.getElementById(`${i}-err`)?.remove();
             }
           }
-  
-          if(i==="Password")
-          {
-            let reg=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-            if(reg.exec(value[i])===null)
-            {
+
+          if (i === "Password") {
+            let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (reg.exec(value[i]) === null) {
               console.log('sdf');
               let nc = document.createElement('div');
               nc.setAttribute('id', `${i}-err`);
@@ -212,8 +219,7 @@ const ProfileSec1 = (props) => {
               console.log(nc);
               document.getElementsByName(i)[0].parentNode.appendChild(nc);
             }
-            else
-            {
+            else {
               document.getElementById(`${i}-err`)?.remove();
             }
           }
@@ -221,22 +227,115 @@ const ProfileSec1 = (props) => {
       }
     }
 
-    const checkErr=document.querySelectorAll('.err-show');
-    if(checkErr.length===0)
-    {
-      flag=true;
+    const checkErr = document.querySelectorAll('.err-show');
+
+    if (checkErr.length === 0) {
+      flag = true;
     }
 
-    if(flag)
-    {
-      // let ans = await context.updateUserDetails();
+    if (flag) {
+      console.log(value);
+      let objToSend = {
+        "firstName": value?.firstName,
+        "lastName": value?.lastName,
+        "contact": Number(value?.contact),
+        "emergencyContact": Number(value?.emergencyContact),
+        "dob": value?.dob,
+        "gender": value?.gender,
+        "educationQualification": {
+          "ssc": {
+            "percentage": Number(value?.percentage2),
+            "yearOfPassout": Number(value?.passedOutYear),
+            "durationYears": Number(value?.duration2)
+          },
+          "puc": {
+            "percentage": Number(value?.percentage3),
+            "yearOfPassout": Number(value?.passedOutYear1),
+            "durationYears": Number(value?.duration3)
+          },
+          "graduation": {
+            "percentage": Number(value?.percentage),
+            "yearOfPassout": Number(value?.yearOfPassing),
+            "durationYears": Number(value?.duration),
+            "status": value?.status,
+            "specialization": value?.specification,
+            "course": value?.course,
+            "university": value?.university,
+            "college": value?.college
+          },
+          "postGraduation": {
+            "percentage": Number(value?.percentage1),
+            "yearOfPassout": Number(value?.yearOfPassing1),
+            "durationYears": Number(value?.duration1),
+            "status": value?.status1,
+            "specialization": value?.specification1,
+            "course": value?.course1,
+            "university": value?.university1,
+            "college": value?.college1
+          }
+        },
+        "experience": {
+          "skills": [
+            value?.skills
+          ],
+          "role": value?.role,
+          "numberOfYears": Number(value?.noYears),
+          "companyName": value?.companyName
+        },
+        "resume": "null",
+        "preferences": {
+          "notifications": {
+            "push": true,
+            "sms": true
+          }
+        }
+      };
+      console.log(objToSend);
+      let ans = await context.updateUserDetails(objToSend);
+      console.log(ans);
     }
   };
 
   const submitHandle1 = async (e) => {
     e.preventDefault();
-    console.log(value1);
-    // let ans = await context.updateAddress();
+    // console.log(address);
+    let obj = {
+      "currentAddress": {
+        "addressLine1": address?.addressLine1,
+        "addressLine2": address?.addressLine2,
+        "state": address?.state,
+        "city": address?.city,
+        "landmark": address?.landMark,
+        "country": address?.country,
+        "pinCode": Number(address?.pincode)
+      }
+    };
+    if (document.getElementById("same").checked) {
+      obj = { ...obj, "isSameAddress": true }
+    }
+    else {
+      obj = {
+        ...obj, "isSameAddress": false,
+        "permanentAddress": {
+          "addressLine1": address?.addressLine11,
+          "addressLine2": address?.addressLine21,
+          "state": address?.state1,
+          "city": address?.city1,
+          "landmark": address?.landMark1,
+          "country": address?.country1,
+          "pinCode": Number(address?.pincode1)
+        }
+      }
+    }
+    console.log(obj);
+    let ans = await context.updateAddress(obj);
+    console.log(ans);
+    if (ans.status) {
+      props.setAlert(ans.message, "success");
+
+    } else {
+      props.setAlert(ans.more_info, "error");
+    }
   };
 
   return (
@@ -250,7 +349,7 @@ const ProfileSec1 = (props) => {
             </h1>
             <h5>Welcome Back to KevathSchool!</h5>
           </div>
-          
+
           <form onSubmit={submitHandle} className="prof-sec112">
             <div className="prof-sec-top">
               <p>PERSONAL INFORMATION</p>
@@ -264,7 +363,7 @@ const ProfileSec1 = (props) => {
                   <div className="prof-dp">
                     {/* <img src="/static/images2/Ellipse 41.png" alt="" /> */}
                     <Avatar
-                      name={value.firstName}
+                      name={value?.firstName}
                       round={true}
                       color="#51B848"
                     />
@@ -274,7 +373,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div>
                     <b>
-                      {value.firstName} {value.lastName}
+                      {value?.firstName} {value?.lastName}
                     </b>
                     <p>Prime Minister</p>
                   </div>
@@ -319,11 +418,11 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
-                        <label htmlFor="phone">Phone Number</label>
+                        <label htmlFor="contact">Phone Number</label>
                         <input
                           type="text"
-                          id="phone"
-                          name="phone"
+                          id="contact"
+                          name="contact"
                           onChange={handleChange}
                           value={value?.contact}
                         />
@@ -333,13 +432,13 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
-                        <label htmlFor="emerPhone">
+                        <label htmlFor="emergencyContact">
                           Emergency Contact Number
                         </label>
                         <input
                           type="text"
-                          id="emerPhone"
-                          name="emerPhone"
+                          id="emergencyContact"
+                          name="emergencyContact"
                           onChange={handleChange}
                           value={value?.emergencyContact}
                           required
@@ -348,10 +447,11 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="Password">Password</label>
                         <div className="password">
                           <input
-                            type="text"
+                            type="password"
+                            id="Password"
                             name="password"
                             onChange={handleChange}
                             value={value?.password}
@@ -861,8 +961,8 @@ const ProfileSec1 = (props) => {
               <button type="submit" className="btn btn1 btn4">Save</button>
             </div>
           </form>
-          
-          <form onSubmit={submitHandle1} className="prof-sec112">
+
+          <form id="address-form" onSubmit={submitHandle1} className="prof-sec112">
             <div className="prof-sec-top">
               <p>ADDRESS INFORMATION</p>
             </div>
@@ -879,7 +979,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="addressLine1"
                         onChange={handleChange1}
-                        value={currentAddress?.addressLine1}
+                        value={address?.addressLine1}
                         required
                       />
                     </div>
@@ -889,7 +989,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="addressLine2"
                         onChange={handleChange1}
-                        value={currentAddress?.addressLine2}
+                        value={address?.addressLine2}
                         required
                       />
                     </div>
@@ -901,7 +1001,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="state"
                         onChange={handleChange1}
-                        value={currentAddress?.state}
+                        value={address?.state}
                         required
                       />
                     </div>
@@ -911,7 +1011,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="city"
                         onChange={handleChange1}
-                        value={currentAddress?.city}
+                        value={address?.city}
                         required
                       />
                     </div>
@@ -923,7 +1023,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="landMark"
                         onChange={handleChange1}
-                        value={currentAddress?.landMark}
+                        value={address?.landMark}
                         required
                       />
                     </div>
@@ -935,7 +1035,7 @@ const ProfileSec1 = (props) => {
                             type="text"
                             name="country"
                             onChange={handleChange1}
-                            value={currentAddress?.country}
+                            value={address?.country}
                             required
                           />
                         </div>
@@ -945,7 +1045,7 @@ const ProfileSec1 = (props) => {
                             type="text"
                             name="pincode"
                             onChange={handleChange1}
-                            value={currentAddress?.pincode}
+                            value={address?.pincode}
                             required
                           />
                         </div>
@@ -954,11 +1054,21 @@ const ProfileSec1 = (props) => {
                   </div>
                 </div>
               </div>
+
               <div className="psi1">
                 <div className="psi11">
                   <h5 className="text-green">Permanent Address</h5>
                 </div>
-                <div className="psi13">
+
+                <div className="prof-checkbox">
+                  <input type="checkbox" id="same" onClick={() => {
+                    document.getElementById('address-form').toggleAttribute('novalidate');
+                    document.querySelector('.perm-add').classList.toggle('none');
+                  }} />
+                  <label>Same as above</label>
+                </div>
+
+                <div className="psi13 perm-add">
                   <div className="row psi131">
                     <div className="psi-input">
                       <label htmlFor="addressLine11">Address Line</label>
@@ -966,7 +1076,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="addressLine11"
                         onChange={handleChange1}
-                        value={permanentAddress?.addressLine11}
+                        value={address?.addressLine11}
                         required
                       />
                     </div>
@@ -976,7 +1086,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="addressLine21"
                         onChange={handleChange1}
-                        value={permanentAddress?.addressLine21}
+                        value={address?.addressLine21}
                         required
                       />
                     </div>
@@ -988,7 +1098,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="state1"
                         onChange={handleChange1}
-                        value={permanentAddress?.state}
+                        value={address?.state1}
                         required
                       />
                     </div>
@@ -998,7 +1108,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="city1"
                         onChange={handleChange1}
-                        value={permanentAddress?.city}
+                        value={address?.city1}
                         required
                       />
                     </div>
@@ -1010,7 +1120,7 @@ const ProfileSec1 = (props) => {
                         type="text"
                         name="landMark1"
                         onChange={handleChange1}
-                        value={permanentAddress?.landMark}
+                        value={address?.landMark1}
                         required
                       />
                     </div>
@@ -1022,7 +1132,7 @@ const ProfileSec1 = (props) => {
                             type="text"
                             name="country1"
                             onChange={handleChange1}
-                            value={permanentAddress?.country}
+                            value={address?.country1}
                             required
                           />
                         </div>
@@ -1032,7 +1142,7 @@ const ProfileSec1 = (props) => {
                             type="text"
                             name="pincode1"
                             onChange={handleChange1}
-                            value={permanentAddress?.pincode}
+                            value={address?.pincode1}
                             required
                           />
                         </div>
