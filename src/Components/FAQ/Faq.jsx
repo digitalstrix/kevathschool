@@ -29,6 +29,7 @@ const Faq = (props) => {
         else {
             props.setNavFlag1(true);
             props.setNavFlag2(false);
+            props.setFootFlag(true);
         }
     }, []);
 

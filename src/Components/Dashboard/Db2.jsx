@@ -21,6 +21,7 @@ const Db2 = (props) => {
 
         props.setNavFlag1(false);
         props.setNavFlag2(true);
+        props.setFootFlag(true);
     }, []);
 
     return (

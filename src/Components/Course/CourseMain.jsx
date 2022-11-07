@@ -11,6 +11,7 @@ const CourseMain = (props) => {
   const [perPage, setPerPage] = useState(3);
 
   useEffect(() => {
+    props.setFootFlag(true);
     let user = localStorage.getItem('kevath_user');
     if (user) {
       user = JSON.parse(user);

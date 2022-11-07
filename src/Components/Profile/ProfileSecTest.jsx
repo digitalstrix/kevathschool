@@ -19,6 +19,7 @@ const ProfileSecTest = (props) => {
 
         props.setNavFlag1(false);
         props.setNavFlag2(false);
+        props.setFootFlag(true);
     }, []);
 
     const func1=(e)=>{

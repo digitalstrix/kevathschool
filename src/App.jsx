@@ -48,6 +48,7 @@ import MainState from "./context/MainState";
 import Alert from "./Alerts/Alert";
 import Forget3 from "./Components/Authentication/Forget3";
 import Referral from "./Components/Authentication/Referral";
+import Referral1 from "./Components/Referral/Referral1";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -92,6 +93,7 @@ const App = () => {
               setAlert={setAlert}
               setNavFlag1={setNavFlag1}
               setNavFlag2={setNavFlag2}
+              setFootFlag={setFootFlag}
             />
           ) : null}
           {flag ? (
@@ -106,6 +108,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -116,6 +119,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -126,6 +130,7 @@ const App = () => {
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
+                  setFootFlag={setFootFlag}
                   setNavFlag2={setNavFlag2}
                 />
               }
@@ -137,6 +142,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -147,6 +153,7 @@ const App = () => {
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
+                  setFootFlag={setFootFlag}
                   setNavFlag2={setNavFlag2}
                 />
               }
@@ -159,6 +166,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -170,6 +178,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -181,6 +190,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -192,6 +202,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -203,6 +214,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -213,6 +225,7 @@ const App = () => {
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
+                  setFootFlag={setFootFlag}
                   setNavFlag2={setNavFlag2}
                 />
               }
@@ -225,6 +238,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -239,6 +253,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -250,6 +265,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -261,6 +277,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -272,6 +289,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -283,6 +301,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -293,6 +312,7 @@ const App = () => {
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
+                  setFootFlag={setFootFlag}
                   setNavFlag2={setNavFlag2}
                 />
               }
@@ -305,6 +325,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -316,6 +337,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -327,6 +349,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -338,6 +361,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -426,6 +450,18 @@ const App = () => {
               }
             />
             <Route
+              path="/referral1"
+              element={
+                <Referral1
+                  setFootFlag={setFootFlag}
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
+              }
+            />
+            <Route
               path="/user-default-dashboard"
               element={
                 <Db1
@@ -433,6 +469,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -444,6 +481,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -455,6 +493,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -466,6 +505,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />
@@ -477,6 +517,7 @@ const App = () => {
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
                 />
               }
             />

@@ -6,6 +6,7 @@ import Usp from "../Common/Usp";
 
 const Home = (props) => {
   useEffect(() => {
+    props.setFootFlag(true);
     let user = localStorage.getItem('kevath_user');
     if (user) {
       user = JSON.parse(user);

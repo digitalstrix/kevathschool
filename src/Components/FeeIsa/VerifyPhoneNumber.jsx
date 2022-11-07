@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 
-const VerifyPhoneNumber = () => {
+const VerifyPhoneNumber = (props) => {
+    useEffect(()=>{
+        props.setFootFlag(true);
+    },[]);
+
     const [value, setValue] = useState({
         verification: ''
     });

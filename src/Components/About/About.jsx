@@ -7,6 +7,7 @@ const About = (props) => {
   const navigate = useNavigate();
     
   useEffect(() => {
+    props.setFootFlag(true);
     let user = localStorage.getItem('kevath_user');
     if (user) {
       user = JSON.parse(user);

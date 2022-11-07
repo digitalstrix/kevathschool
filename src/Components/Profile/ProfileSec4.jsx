@@ -20,6 +20,7 @@ const ProfileSec4 = (props) => {
         
         props.setNavFlag1(false);
         props.setNavFlag2(true);
+        props.setFootFlag(true);
     }, []);
 
     const [value, setValue] = useState({

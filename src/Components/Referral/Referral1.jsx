@@ -19,6 +19,7 @@ const Referral1 = (props) => {
         
         props.setNavFlag1(false);
         props.setNavFlag2(true);
+        props.setFootFlag(true);
     }, []);
     const context = useContext(MainContext);
     const [value, setValue] = useState({
@@ -142,7 +143,7 @@ const Referral1 = (props) => {
                             <img src="/static/images5/image 8.png" alt="" />
                             <p>Narendra R.</p>
                         </div>
-                        <p className="refe6211">Narendra@gmail.com</p>
+                        <p className="refe6211 refe6211-1">Narendra@gmail.com</p>
                         <p className="refe6211">09 DEC 2021</p>
                         <div className="refe-status row refe6211">
                             <div className="refe-status1">
@@ -164,7 +165,7 @@ const Referral1 = (props) => {
                             <img src="/static/images5/image 8.png" alt="" />
                             <p>Narendra R.</p>
                         </div>
-                        <p className="refe6211">Narendra@gmail.com</p>
+                        <p className="refe6211 refe6211-1">Narendra@gmail.com</p>
                         <p className="refe6211">09 DEC 2021</p>
                         <div className="refe-status row refe6211">
                             <div className="refe-status1">

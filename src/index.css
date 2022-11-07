@@ -1223,7 +1223,8 @@ a {
 
 .eve-reg2-main {
     padding-top: 7rem;
-    margin: 2rem;
+    margin: 0rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -4662,7 +4663,167 @@ hr {
 .prof-checkbox label{
     margin-left: 5px;
     font-size: 14px;
-
+}
+.refe{
+    padding: 0rem 2rem;
+    padding-top: 6rem;
+}
+.refe21{
+    margin-top: 1.7rem;
+}
+.refe11{
+    width: 50%;
+    margin-right: 1rem;
+}
+.refe12{
+    width: 50%;
+    margin-left: 1rem;
+}
+.refe12 img{
+    width: 100%;
+}
+.refe1{
+    align-items: center;
+}
+.refe11 h1{
+    margin-bottom: 1rem;
+    font-size: 80px;
+}
+.refe11 h3{
+    font-size: 50px;
+}
+.refe2{
+    margin-top: 1rem;
+}
+.refe2 h5{
+    font-size: 24px;
+}
+.refe211{
+    flex-wrap: wrap;
+}
+.refe-input{
+    margin-right: 2.5rem;
+    margin-bottom: 14px;
+    width: 22vw;
+}
+.refe-input input{
+    margin-top: 5px;
+    width: 100%;
+    border: 1px solid #51b848;
+    border-radius: 10px;
+    padding: 8px 20px;
+    outline: none;
+}
+.refe-btn{
+    color: white;
+    margin-top: 1.5rem;
+    background: #51B848;
+    box-shadow: 0px 20px 13px rgba(49, 49, 49, 0.05), 0px 8.14815px 6.51852px rgba(49, 49, 49, 0.0392593), 0px 1.85185px 3.14815px rgba(49, 49, 49, 0.0240741);
+    padding: 9px 30px;
+}
+.refe3{
+    margin: 2rem;
+}
+.refe3 div{
+    height: 1px;
+    width: 100%;
+    background-color: #0000001c;
+}
+.refe3 p{
+    margin: 0rem 1.5rem;
+}
+.refe4 h5{
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+.refe4 p{
+    font-size: 18px;
+}
+.refe41{
+    margin-bottom: 0.9rem;
+}
+.refe41 h5{
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+.refe4111{
+    margin-right: 20px;
+    cursor: pointer;
+}
+.refe4112{
+    background-color: rgb(243, 243, 243);
+    padding: 7px 6px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.refe5{
+    margin-top: 2rem;
+}
+.refe5 h5{
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+.refe511{
+    padding: 12px;
+    background-color: #50B74B;
+    color: white;
+    border-radius: 10px;
+}
+.refe512{
+    margin-right: 3rem;
+}
+.refe511 b{
+    font-size: 16px;
+}
+.refe6{
+    margin-top: 2rem;
+}
+.refe6 h5{
+    margin-left: 2rem;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.refe61{
+    background-color: gainsboro;
+    padding: 0.2rem 2.2rem;
+}
+.refe611 p{
+    width: 20vw;
+    font-size: 10px;
+}
+.refe62{
+    padding: 1rem 2rem;
+    overflow: auto;
+}
+.refe621{
+    padding: 0.5rem 0rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.181);
+}
+.refe-user img{
+    margin-right: 4px;
+}
+.refe6211{
+    width: 20vw;
+    font-size: 14px;
+}
+.refe-status1{
+    border-radius: 16px;
+    padding: 3px 14px;
+    margin-right: 14px;
+    background-color: gainsboro;
+}
+.refe-status1 p{
+    font-size: 14px;
+}
+.refe-active{
+    background-color: #50B74B;
+    color: white;
+}
+.refe-user p{
+    font-size: 14px;
 }
 
 @media screen and (max-width: 1380px) {
@@ -6062,6 +6223,47 @@ hr {
     .mob-nav1-2 p{
         color: black;
     }
+    .refe1{
+        flex-direction: column-reverse;
+    }
+    .refe11{
+        width: 100%;
+        margin: 0;
+    }
+    .refe12{
+        width: 100%;
+        margin: 0;
+    }
+    .refe11 h1 {
+        margin-bottom: 1rem;
+        font-size: 55px;
+        text-align: center;
+    }
+    .refe11 h3 {
+        font-size: 35px;
+        text-align: center;
+    }
+    .refe2 h5{
+        text-align: center;
+    }
+    .refe-input{
+        width: 40vw;
+    }
+    .refe4 h5{
+        text-align: center;
+    }
+    .refe41{
+        justify-content: center;
+    }
+    .refe5 h5{
+        text-align: center;
+    }
+    .refe51{
+        justify-content: center;
+    }
+    .refe6 h5{
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 812px) {
@@ -6334,6 +6536,48 @@ hr {
     }
     .eve-reg212 {
         margin-left: 0;
+    }
+    .refe11 h1 {
+        font-size: 40px;
+    }
+    .refe11 h3 {
+        font-size: 25px;
+    }
+    .refe2 h5{
+        font-size: 20px;
+        text-align: center;
+    }
+    .refe-input{
+        width: 100%;
+    }
+    .refe4 h5{
+        font-size: 20px;
+        text-align: center;
+    }
+    .refe5 h5{
+        font-size: 20px;
+        text-align: center;
+    }
+    .refe-input{
+        margin-right: 0;
+    }
+    .refe6 h5{
+        font-size: 20px;
+    }
+    .refe-user p {
+        font-size: 10px;
+    }
+    .refe6211{
+        font-size: 10px;
+    }
+    .refe62 {
+        padding: 0.5rem 1rem;
+    }
+    .refe61 {
+        padding: 0.2rem 1.3rem;
+    }
+    .refe-status1 p {
+        font-size: 10px;
     }
 }
 
@@ -7146,6 +7390,48 @@ hr {
     .foot10 {
         text-align: center;
     }
+    .refe11 h1 {
+        font-size: 25px;
+    }
+    .refe11 h3 {
+        font-size: 15px;
+    }
+    .refe2 h5{
+        font-size: 15px;
+    }
+    .refe-input{
+        width: 100%;
+    }
+    .refe4 h5{
+        font-size: 15px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .refe5 h5{
+        font-size: 15px;
+    }
+    .refe6 h5{
+        font-size: 15px;
+    }
+    .refe6211{
+        width: 10rem;
+    }
+    .refe6211-1{
+        margin-right: 15px;
+    }
+    .refe41{
+        flex-direction: column;
+    }
+    .refe51{
+        flex-direction: column;
+    }
+    .refe512 {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .refe513 {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 460px) {
@@ -7470,6 +7756,12 @@ hr {
     .c4 .prof-sec313 li {
         font-size: 9px;
         margin-left: 4px;
+    }
+    .refe6211{
+        width: 6rem;
+    }
+    .refe6211-1{
+        margin-right: 25px;
     }
 }
 

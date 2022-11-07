@@ -32,7 +32,7 @@ class SelectBox extends React.Component {
       this.setState(prevState => ({
         showItems: false
       }));
-    }, 200);
+    }, 300);
   }
 
   render() {
@@ -41,7 +41,10 @@ class SelectBox extends React.Component {
 
         <div className="select-box--container" onBlur={this.blur} onClick={this.dropDown}>
 
-          <input type="text" className="select-box--selected-item" onChange={this.onchange} value={this.props.value1} required />
+          {this.props.isEditable ? <input type="text" className="select-box--selected-item" onChange={this.onchange} value={this.props.value1} required={this.props.required} />  : <div className="select-box--selected-item">
+            {this.state.selectedItem.value}
+          </div>}
+          
           {/* <div className="select-box--selected-item">
             {this.state.selectedItem.value}
           </div> */}

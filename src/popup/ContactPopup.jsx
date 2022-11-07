@@ -21,6 +21,7 @@ const ContactPopup = (props) => {
   useEffect(() => {
     props.setNavFlag1(false);
     props.setNavFlag2(false);
+    props.setFootFlag(false);
   }, []);
 
   return (

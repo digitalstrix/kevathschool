@@ -145,6 +145,7 @@ const ProfileSec1 = (props) => {
     }
     props.setNavFlag1(false);
     props.setNavFlag2(true);
+    props.setFootFlag(true);
   }, []);
 
   const handleChange = (e) => {
@@ -293,6 +294,12 @@ const ProfileSec1 = (props) => {
       console.log(objToSend);
       let ans = await context.updateUserDetails(objToSend);
       console.log(ans);
+      if (ans.status) {
+        props.setAlert(ans.message, "success");
+  
+      } else {
+        props.setAlert(ans.more_info, "error");
+      }
     }
   };
 
@@ -420,7 +427,7 @@ const ProfileSec1 = (props) => {
                       <div className="psi-ex1">
                         <label htmlFor="contact">Phone Number</label>
                         <input
-                          type="text"
+                          type="number"
                           id="contact"
                           name="contact"
                           onChange={handleChange}
@@ -436,7 +443,7 @@ const ProfileSec1 = (props) => {
                           Emergency Contact Number
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           id="emergencyContact"
                           name="emergencyContact"
                           onChange={handleChange}
@@ -501,6 +508,8 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value={value}
                         value1={value?.gender}
+                        required={true}
+                        isEditable={true}
                       />
                     </div>
                   </div>
@@ -534,6 +543,7 @@ const ProfileSec1 = (props) => {
                           setValue={setValue}
                           value1={value?.passedOutYear}
                           value={value}
+                          isEditable={true}
                         />
                       </div>
                       <div className="psi-select">
@@ -548,13 +558,14 @@ const ProfileSec1 = (props) => {
                           setValue={setValue}
                           value1={value?.duration2}
                           value={value}
+                          isEditable={true}
                         />
                       </div>
                       <div className="psi-input smallInp">
                         <div>
                           <label htmlFor="percentage2">Percentage</label>
                           <input
-                            type="text"
+                            type="number"
                             id="percentage2"
                             name="percentage2"
                             onChange={handleChange}
@@ -588,6 +599,7 @@ const ProfileSec1 = (props) => {
                           setValue={setValue}
                           value1={value?.passedOutYear1}
                           value={value}
+                          isEditable={true}
                         />
                       </div>
                       <div className="psi-select">
@@ -603,13 +615,14 @@ const ProfileSec1 = (props) => {
                           setValue={setValue}
                           value1={value?.duration3}
                           value={value}
+                          isEditable={true}
                         />
                       </div>
                       <div className="psi-input smallInp">
                         <div>
                           <label htmlFor="percentage3">Percentage</label>
                           <input
-                            type="text"
+                            type="number"
                             id="percentage3"
                             name="percentage3"
                             onChange={handleChange}
@@ -640,6 +653,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.course}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -658,6 +672,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.specification}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                   </div>
@@ -725,6 +740,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.yearOfPassing}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                   </div>
@@ -743,13 +759,14 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.duration}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
                         <label htmlFor="percentage">Percentage</label>
                         <input
-                          type="text"
+                          type="number"
                           id="percentage"
                           name="percentage"
                           onChange={handleChange}
@@ -779,6 +796,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.course1}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                     <div className="psi-select psi-ex">
@@ -797,6 +815,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.specification1}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
 
@@ -863,6 +882,7 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.yearOfPassing1}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                   </div>
@@ -879,13 +899,14 @@ const ProfileSec1 = (props) => {
                         setValue={setValue}
                         value1={value?.duration1}
                         value={value}
+                        isEditable={true}
                       />
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1">
                         <label htmlFor="percentage1">Percentage</label>
                         <input
-                          type="text"
+                          type="number"
                           id="percentage1"
                           name="percentage1"
                           onChange={handleChange}
@@ -945,7 +966,7 @@ const ProfileSec1 = (props) => {
                       <div className="psi-ex1">
                         <label htmlFor="noYears">Number of Years</label>
                         <input
-                          type="text"
+                          type="number"
                           name="noYears"
                           onChange={handleChange}
                           value={value?.noYears}
@@ -1042,7 +1063,7 @@ const ProfileSec1 = (props) => {
                         <div className="psi-input">
                           <label htmlFor="pincode">Pincode</label>
                           <input
-                            type="text"
+                            type="number"
                             name="pincode"
                             onChange={handleChange1}
                             value={address?.pincode}
@@ -1139,7 +1160,7 @@ const ProfileSec1 = (props) => {
                         <div className="psi-input">
                           <label htmlFor="pincode1">Pincode</label>
                           <input
-                            type="text"
+                            type="number"
                             name="pincode1"
                             onChange={handleChange1}
                             value={address?.pincode1}

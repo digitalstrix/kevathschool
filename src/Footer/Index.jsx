@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -41,7 +42,7 @@ const Index = () => {
                   <a href="#">Newsroom</a>
                 </div>
                 <div className="foot_a">
-                  <a href="/hfu">Hire From Us</a>
+                  <NavLink to="/hfu">Hire From Us</NavLink>
                 </div>
                 <div className="foot_a">
                   <a href="#">Careers</a>
@@ -50,16 +51,17 @@ const Index = () => {
               <div className="foot13 foot10">
                 <h5 className="h5">Company</h5>
                 <div className="foot_a">
-                  <a href="#">Our Team</a>
+                  <NavLink to="/about-us">Our Team</NavLink>
                 </div>
                 <div className="foot_a">
-                  <a href="#">About Us</a>
+                  <NavLink to="/about-us">About Us</NavLink>
                 </div>
                 <div className="foot_a">
                   <a href="#">Testimonials</a>
                 </div>
                 <div className="foot_a">
                   <a href="#">Our Investors</a>
+                  <NavLink to="/about-us">Our Investors</NavLink>
                 </div>
               </div>
               <div className="foot14 foot10">
@@ -71,13 +73,13 @@ const Index = () => {
                   <img src="/static/images/Icon (3).png" alt="" />
                 </div>
                 <div className="foot_a">
-                  <a href="/referral">Referral Program</a>
+                  <NavLink to="/referral1">Referral Program</NavLink>
                 </div>
                 <div className="foot_a">
-                  <a href="/contact">Contact Us</a>
+                  <NavLink to="/contact">Contact Us</NavLink>
                 </div>
                 <div className="foot_a">
-                  <a href="/faq">FAQ</a>
+                  <NavLink to="/faq">FAQ</NavLink>
                 </div>
               </div>
             </div>
