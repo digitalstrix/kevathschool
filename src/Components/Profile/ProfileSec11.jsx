@@ -37,26 +37,54 @@ const ProfileSec11 = (props) => {
         e.preventDefault();
         console.log(value1);
         let user = localStorage.getItem('kevath_user');
-        if (user) {
+        // if (user) {
             user = JSON.parse(user);
-            if (value1.confirmPassword === value1.newPassword) {
-                let ans = await context.changePassword(user.email, value1.currentPassword, value1.newPassword);
-                if (ans.status) {
-                    props.setAlert(ans.message, "success");
+            if (value1.newPassword.length >= 8 && value1.currentPassword.length >= 8) {
+                if (value1.confirmPassword === value1.newPassword) {
+                    let flag = false;
+
+                    let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if (reg.exec(value1["newPassword"]) === null) {
+                        document.getElementById(`${"newPassword"}-err`)?.remove();
+                        let nc = document.createElement('div');
+                        nc.setAttribute('id', `${"newPassword"}-err`);
+                        nc.setAttribute('class', 'err-show');
+                        nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+                        // console.log(document.getElementsByName('newPassword')[0].parentNode);
+                        // console.log(nc);
+                        document.getElementsByName('newPassword')[0].parentNode.appendChild(nc);
+                    }
+                    else {
+                        document.getElementById(`${"newPassword"}-err`)?.remove();
+                    }
+
+                    const checkErr = document.querySelectorAll('.err-show');
+                    if (checkErr.length === 0) {
+                        flag = true;
+                    }
+
+                    if (flag) {
+                        let ans = await context.changePassword(user.email, value1.currentPassword, value1.newPassword);
+                        if (ans.status) {
+                            props.setAlert(ans.message, "success");
+                        }
+                        else {
+                            props.setAlert(ans.message, "error");
+                        }
+                    }
                 }
                 else {
-                    props.setAlert(ans.message, "error");
+                    props.setAlert("Password and confirm password should be same", "error");
                 }
             }
-            else
-            {
-                props.setAlert("Password and confirm password should be same", "error");
+            else {
+                props.setAlert("Password length should be greater than or equal to 8", "error");
             }
-        }
-        else {
-            props.setAlert("User unauthorised", "error");
-            window.location.href = "/login";
-        }
+        // }
+        // else {
+        //     props.setAlert("User unauthorised", "error");
+        //     window.location.href = "/login";
+        // }
     };
 
     return (
@@ -72,25 +100,41 @@ const ProfileSec11 = (props) => {
                             <div className="prof-sec-inner">
                                 <div className="psi1">
                                     <div className="psi11">
-                                        <h5 className="text-green">Current Address</h5>
+                                        <h5 className="text-green">Change Password</h5>
                                     </div>
                                     <div className="psi13">
                                         <div className="psi131">
                                             <div className="psi-input">
-                                                <label htmlFor="addressLine1">Current Password</label>
-                                                <input type="text" name="addressLine1" onChange={handleChange1} value={value1.addressLine1} required />
+                                                <label htmlFor="currentPassword">Current Password *</label>
+                                                <input type="password" id="currentPassword" name="currentPassword" onChange={handleChange1} value={value1.currentPassword} required />
                                             </div>
                                         </div>
                                         <div className="psi131">
                                             <div className="psi-input">
-                                                <label htmlFor="phone">New Password</label>
-                                                <input type="text" name="phone" onChange={handleChange1} value={value1.phone} required />
+                                                <label htmlFor="newPassword">New Password *</label>
+                                                <div className="password">
+                                                    <input type="password" id="newPassword" name="newPassword" onChange={handleChange1} value={value1.newPassword} required />
+                                                    <div onClick={() => {
+                                                        const pass = document.getElementById('newPassword');
+                                                        if (pass.type === "text") {
+                                                            pass.type = 'password';
+                                                        }
+                                                        else {
+                                                            pass.type = 'text';
+                                                        }
+                                                    }} className="pass-eye pass-eye1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="psi131">
                                             <div className="psi-input">
-                                                <label htmlFor="landMark">Confirm Password</label>
-                                                <input type="text" name="landMark" onChange={handleChange1} value={value1.landMark} required />
+                                                <label htmlFor="confirmPassword">Confirm Password *</label>
+                                                <input type="password" id="confirmPassword" name="confirmPassword" onChange={handleChange1} value={value1.confirmPassword} required />
                                             </div>
                                         </div>
                                     </div>

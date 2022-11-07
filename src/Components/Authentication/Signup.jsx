@@ -87,13 +87,11 @@ const Signup = (props) => {
           let reg=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
           if(reg.exec(value[i])===null)
           {
-            console.log('sdf');
             let nc = document.createElement('div');
             nc.setAttribute('id', `${i}-err`);
             nc.setAttribute('class', 'err-show');
             nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
-            console.log(document.getElementsByName(i)[0].parentNode);
-            console.log(nc);
+            // console.log(document.getElementsByName(i)[0].parentNode);
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
           }
           else
@@ -178,7 +176,7 @@ const Signup = (props) => {
             <form onSubmit={handleSubmit}>
               <div className="row eve-reg-row">
                 <div className="eve-reg21 eve-reg211">
-                  <label htmlFor="fullName">First Name</label>
+                  <label htmlFor="fullName">First Name *</label>
                   <input
                     type="text"
                     id="firstName"
@@ -190,7 +188,7 @@ const Signup = (props) => {
                 </div>
               </div>
               <div className="eve-reg21 eve-reg212">
-                <label htmlFor="fullName">Last Name</label>
+                <label htmlFor="fullName">Last Name *</label>
                 <input
                   type="text"
                   id="lastName"
@@ -201,7 +199,7 @@ const Signup = (props) => {
                 />
               </div>
               <div className="eve-reg21">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="email"
                   id="email"
@@ -212,7 +210,7 @@ const Signup = (props) => {
                 />
               </div>
               <div className="eve-reg21">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phone">Phone *</label>
                 <div className="row">
                   <input type="text" value="+91" onChange={()=>{
                     return;
@@ -227,7 +225,7 @@ const Signup = (props) => {
                 </div>
               </div>
               <div className="eve-reg21">
-                <label htmlFor="Password">Password</label>
+                <label htmlFor="Password">Password *</label>
                 <div className="password">
                   <input
                     type="password"

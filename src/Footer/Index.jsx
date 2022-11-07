@@ -60,7 +60,6 @@ const Index = () => {
                   <a href="#">Testimonials</a>
                 </div>
                 <div className="foot_a">
-                  <a href="#">Our Investors</a>
                   <NavLink to="/about-us">Our Investors</NavLink>
                 </div>
               </div>
