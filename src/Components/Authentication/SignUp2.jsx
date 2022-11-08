@@ -56,7 +56,7 @@ const SignUp2 = (props) => {
                 name="verification"
                 value={value.verification}
                 onChange={handleChange}
-                placeholder="Enter verification code"
+                placeholder="Enter verification code *"
                 required
               />
             </div>

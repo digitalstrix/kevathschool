@@ -216,7 +216,7 @@ p {
 .sidebar111 {
     margin: 0.5rem 0rem;
     font-size: 20px;
-    padding: 23px 39px;
+    padding: 23px 20px;
     color: rgba(18, 31, 62, 0.4);
     cursor: pointer;
 }
@@ -4824,6 +4824,18 @@ hr {
 }
 .refe-user p{
     font-size: 14px;
+}
+.psi131-warp{
+    flex-wrap: wrap;
+}
+.mt-2{
+    margin-top: 8px;
+}
+.text-red{
+    color: rgb(236, 58, 73);
+}
+.pointer{
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1380px) {

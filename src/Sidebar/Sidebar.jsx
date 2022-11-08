@@ -15,9 +15,8 @@ const Sidebar = () => {
         <div className="sidebar11">
           <Link to="/profile-sec1">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec1") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec1") && "side-active"
+                }`}
             >
               <div className="row">
                 <img src="/static/images2/Vector (3).png" alt="" />
@@ -27,9 +26,8 @@ const Sidebar = () => {
           </Link>
           <Link to="/profile-sec2">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec2") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec2") && "side-active"
+                }`}
             >
               <div className="row">
                 <img src="/static/images2/Vector (4).png" alt="" />
@@ -39,9 +37,8 @@ const Sidebar = () => {
           </Link>
           <Link to="/profile-sec3">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec3") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec3") && "side-active"
+                }`}
             >
               <div className="row">
                 <img src="/static/images2/Group 661 (1).png" alt="" />
@@ -51,33 +48,30 @@ const Sidebar = () => {
           </Link>
           <Link to="/profile-sec11">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec11") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec11") && "side-active"
+                }`}
             >
               <div className="row">
-                <img src="/static/images2/lock.png" alt="" />
+                <img src="/static/images2/Lock.png" alt="" />
                 <p>Change Password</p>
               </div>
             </div>
           </Link>
           <Link to="/profile-sec4">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec4") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec4") && "side-active"
+                }`}
             >
               <div className="row">
-                <img src="/static/images2/help.png" alt="" />
+                <img src="/static/images5/info.png" alt="" />
                 <p>Help</p>
               </div>
             </div>
           </Link>
           <Link to="/profile-sec5">
             <div
-              className={`sidebar111 ${
-                checkUrl("/profile-sec5") && "side-active"
-              }`}
+              className={`sidebar111 ${checkUrl("/profile-sec5") && "side-active"
+                }`}
             >
               <div className="row">
                 <img src="/static/images2/faq.png" alt="" />
@@ -85,7 +79,7 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <div className="side-p">SUPPORT</div>
+          {/* <div className="side-p">SUPPORT</div> */}
           <div className="sidebar111">
             <div className="row">
               <img src="/static/images2/policy.png" alt="" />
@@ -101,7 +95,7 @@ const Sidebar = () => {
                 window.location.href = "/";
               }}
             >
-              <img src="/static/images2/logout.png" alt="" />
+              <img src="/static/images2/Logout.png" alt="" />
               <p>Logout</p>
             </div>
           </div>

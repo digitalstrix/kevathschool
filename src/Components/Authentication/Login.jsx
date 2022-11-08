@@ -78,7 +78,7 @@ const Login = (props) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="eve-reg21">
-                <label htmlFor="email">Username</label>
+                <label htmlFor="email">Username *</label>
                 <input
                   type="text"
                   id="email"
@@ -90,7 +90,7 @@ const Login = (props) => {
                 />
               </div>
               <div className="eve-reg21">
-                <label htmlFor="Password">Password</label>
+                <label htmlFor="Password">Password *</label>
                 <div className="password">
                   <input
                     type="password"
