@@ -82,12 +82,15 @@ const Index1 = (props) => {
             </div>
             <p>Contest</p>
           </div>
-          <div className="nav1-3">
-            <div className="nav1 nav1-1">
-              <img src="/static/images3/i15.png" alt="" />
+          <Link to="/referral1">
+            <div className="nav1-3">
+              <div className="nav1 nav1-1">
+                <img src="/static/images3/i15.png" alt="" />
+              </div>
+
+              <p>Refer & Earn</p>
             </div>
-            <p>Refer & Earn</p>
-          </div>
+          </Link>
           <Link to="/profile-sec1">
             <div className="nav1 nav1-2 row">
               {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
@@ -129,7 +132,7 @@ const Index1 = (props) => {
             Contest
           </a>
           <a onClick={closeNav} href="referral">
-            Refer & Earn
+            <Link to="/referral1">Refer & Earn</Link>
           </a>
 
           <div className="dropdown">

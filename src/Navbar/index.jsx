@@ -48,7 +48,9 @@ const index = () => {
             </Link>
           </div>
           <div className="nav1 row">
-            <p>Refer & Earn</p>
+            <Link to="/referral1">
+              <p>Refer & Earn</p>
+            </Link>
             <img src="/static/images/v 1.png" alt="" />
           </div>
           <div className="nav1">
@@ -84,7 +86,7 @@ const index = () => {
             Hire From Us
           </a>
           <a onClick={closeNav} href="/referral">
-            Refer & Earn
+            <Link to="/referral1">Refer & Earn</Link>
           </a>
           <Link to="/login">
             <button className="btn btn1">Login</button>
