@@ -3458,8 +3458,7 @@ hr {
 
 .auth-main0 {
     background: url("../public/static/images3/bg.png") no-repeat center center/cover;
-    height: 40rem;
-    height: 59rem;
+    height: 54rem;
 }
 
 .auth-main01 {
@@ -3469,7 +3468,7 @@ hr {
 }
 
 .signup2ver {
-    padding-top: 9rem;
+    padding-top: 3rem;
 }
 
 .signup-0 {
@@ -4836,6 +4835,9 @@ hr {
 }
 .pointer{
     cursor: pointer;
+}
+.prof-sec-mob{
+    height: 90vh;
 }
 
 @media screen and (max-width: 1380px) {
