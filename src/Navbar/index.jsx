@@ -16,7 +16,6 @@ const index = () => {
       <nav className="navbar mainNav">
         <div className="nav0 row">
           <Link to="/">
-            {" "}
             <img
               src="/static/images2/UI_LOGO_1_1-removebg-preview.png"
               alt=""
@@ -26,7 +25,6 @@ const index = () => {
         <div className="nav01 row">
           <div className="row nav2 nav1">
             <Link to="/courses-main">
-              {" "}
               <p>Courses</p>
             </Link>
 
@@ -70,24 +68,23 @@ const index = () => {
         </div>
         <div className="sdi">
           <div className="row nav2">
-            <a onClick={closeNav} href="#">
-              Courses
-            </a>
-            <img src="/static/images/Arrow drodown.png" alt="" />
+            <Link onClick={closeNav} to="/courses-main">
+              <p>Courses</p>
+            </Link>
+            {/* <img src="/static/images/Arrow drodown.png" alt="" /> */}
           </div>
-
-          <a onClick={closeNav} href="#">
-            Events
-          </a>
-          <a onClick={closeNav} href="#">
-            Fees & ISA
-          </a>
-          <a onClick={closeNav} href="#">
-            Hire From Us
-          </a>
-          <a onClick={closeNav} href="/referral">
-            <Link to="/referral1">Refer & Earn</Link>
-          </a>
+          <Link onClick={closeNav} to="/events-reg">
+            <p>Events</p>
+          </Link>
+          <Link onClick={closeNav} to="/fee-isa">
+            <p>Fees & ISA</p>
+          </Link>
+          <Link onClick={closeNav} to="/hfu">
+            <p>Hire From Us</p>
+          </Link>
+          <Link onClick={closeNav} to="/referral1">
+            <p>Refer & Earn</p>
+          </Link>
           <Link to="/login">
             <button className="btn btn1">Login</button>
           </Link>

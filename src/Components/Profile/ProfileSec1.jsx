@@ -345,6 +345,7 @@ const ProfileSec1 = (props) => {
         pinCode: Number(address?.pincode),
       },
     };
+
     if (document.getElementById("same").checked) {
       obj = { ...obj, isSameAddress: true };
     } else {
@@ -362,9 +363,11 @@ const ProfileSec1 = (props) => {
         },
       };
     }
+
     console.log(obj);
     let ans = await context.updateAddress(obj);
     console.log(ans);
+
     if (ans.status) {
       props.setAlert(ans.message, "success");
     } else {
@@ -409,7 +412,7 @@ const ProfileSec1 = (props) => {
                     <b>
                       {value?.firstName} {value?.lastName}
                     </b>
-                    <p>Prime Minister</p>
+                    {/* <p>Prime Minister</p> */}
                   </div>
                 </div>
                 <div className="psi13">

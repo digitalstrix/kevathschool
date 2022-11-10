@@ -135,8 +135,9 @@ p {
 }
 
 .nav0 {
-    width: 563px;
-    margin-top: 15px;
+    width: 225px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .nav0 img {
@@ -150,12 +151,21 @@ p {
 .nav1-1 {
     background-color: #e9ffe8;
     border-radius: 50%;
-    height: 37px;
-    width: 37px;
+    height: 30px;
+    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px 12px;
+}
+
+.nav1-3 p{
+    font-size: 15px;
+}
+
+.nav1-1 img{
+    width: 20px;
+    height: 20px;
 }
 
 .nav1-2 {
@@ -825,7 +835,7 @@ a {
 }
 
 .sdi button {
-    margin-left: 32px;
+    margin-left: 0px;
 }
 
 .sidenav a:hover {
@@ -1827,7 +1837,7 @@ a {
 }
 
 .psi131 {
-    margin-bottom: 12.3px;
+    margin-bottom: 0px;
 }
 
 .psi-input {
@@ -1876,7 +1886,7 @@ a {
 }
 
 .psi311 {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0rem;
 }
 
 .psi40 {
@@ -4671,11 +4681,11 @@ hr {
     margin-top: 1.7rem;
 }
 .refe11{
-    width: 50%;
+    width: 55%;
     margin-right: 1rem;
 }
 .refe12{
-    width: 50%;
+    width: 45%;
     margin-left: 1rem;
 }
 .refe12 img{
@@ -4692,7 +4702,7 @@ hr {
     font-size: 50px;
 }
 .refe2{
-    margin-top: 1rem;
+    margin-top: 0rem;
 }
 .refe2 h5{
     font-size: 24px;

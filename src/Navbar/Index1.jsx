@@ -50,7 +50,7 @@ const Index1 = (props) => {
       <nav className="navbar navbar-1 mainNav">
         <div className="nav0 nav-0 row">
           {/* <Link to="/"> */}
-          <img src="/static/images2/UI_LOGO_1_1-removebg-preview.png" alt="" />
+          <img src="/static/images5/nav-logo-prof.png" alt="" />
           {/* </Link> */}
         </div>
         <div className="nav01 row">
