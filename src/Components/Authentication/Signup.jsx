@@ -33,79 +33,68 @@ const Signup = (props) => {
     for (let i of Object.keys(value)) {
       if (value[i].length === 0) {
         if (!document.getElementById(`${i}-err`)) {
-          let nc = document.createElement('div');
-          nc.setAttribute('id', `${i}-err`);
-          nc.setAttribute('class', 'err-show');
+          let nc = document.createElement("div");
+          nc.setAttribute("id", `${i}-err`);
+          nc.setAttribute("class", "err-show");
           nc.innerHTML = "Field is required";
-          if(i==="phone")
-          {
-            document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
-          }
-          else
-          {
+          if (i === "phone") {
+            document
+              .getElementsByName(i)[0]
+              .parentNode.parentNode.appendChild(nc);
+          } else {
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
           }
         }
-      }
-      else {
+      } else {
         document.getElementById(`${i}-err`)?.remove();
-        
-        if(i==='firstName')
-        {
-          if(value[i].length<3)
-          {
-            let nc = document.createElement('div');
-            nc.setAttribute('id', `${i}-err`);
-            nc.setAttribute('class', 'err-show');
+
+        if (i === "firstName") {
+          if (value[i].length < 3) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
             nc.innerHTML = "Must includes at least 3 characters";
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
-          }
-          else
-          {
+          } else {
             document.getElementById(`${i}-err`)?.remove();
           }
         }
 
-        if(i==="phone")
-        {
-          if(value[i].length<10)
-          {
-            let nc = document.createElement('div');
-            nc.setAttribute('id', `${i}-err`);
-            nc.setAttribute('class', 'err-show');
+        if (i === "phone") {
+          if (value[i].length < 10) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
             nc.innerHTML = "Must includes at least 10 characters";
-            document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
-          }
-          else
-          {
+            document
+              .getElementsByName(i)[0]
+              .parentNode.parentNode.appendChild(nc);
+          } else {
             document.getElementById(`${i}-err`)?.remove();
           }
         }
 
-        if(i==="Password")
-        {
-          let reg=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-          if(reg.exec(value[i])===null)
-          {
-            let nc = document.createElement('div');
-            nc.setAttribute('id', `${i}-err`);
-            nc.setAttribute('class', 'err-show');
-            nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+        if (i === "Password") {
+          let reg =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if (reg.exec(value[i]) === null) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+            nc.innerHTML =
+              "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
             // console.log(document.getElementsByName(i)[0].parentNode);
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
-          }
-          else
-          {
+          } else {
             document.getElementById(`${i}-err`)?.remove();
           }
         }
       }
     }
 
-    const checkErr=document.querySelectorAll('.err-show');
-    if(checkErr.length===0)
-    {
-      flag=true;
+    const checkErr = document.querySelectorAll(".err-show");
+    if (checkErr.length === 0) {
+      flag = true;
     }
 
     if (flag) {
@@ -120,6 +109,7 @@ const Signup = (props) => {
       console.log(ans, "<<<<<<signup");
       if (ans.status) {
         props.setAlert(ans.message, "success");
+        let emailSent = await context.sendEmailToVerify(value.email);
         localStorage.setItem(
           kevath_user,
           JSON.stringify({ email: value.email, token: ans.data.access_token })
@@ -129,12 +119,10 @@ const Signup = (props) => {
           navigate("/referral");
         }, 2000);
         // navigate('/signup2ver');
-
       } else {
         props.setAlert(ans.message, "error");
       }
     }
-
   };
 
   return (
@@ -212,9 +200,14 @@ const Signup = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="phone">Phone *</label>
                 <div className="row">
-                  <input type="text" value="+91" onChange={()=>{
-                    return;
-                  }} className="stick-inp" />
+                  <input
+                    type="text"
+                    value="+91"
+                    onChange={() => {
+                      return;
+                    }}
+                    className="stick-inp"
+                  />
                   <input
                     type="text"
                     id="phone"
@@ -235,16 +228,25 @@ const Signup = (props) => {
                     onChange={handleChange}
                     placeholder="Enter your password"
                   />
-                  <div onClick={() => {
-                    const pass = document.getElementById('Password');
-                    if (pass.type === "text") {
-                      pass.type = 'password';
-                    }
-                    else {
-                      pass.type = 'text';
-                    }
-                  }} className="pass-eye">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                  <div
+                    onClick={() => {
+                      const pass = document.getElementById("Password");
+                      if (pass.type === "text") {
+                        pass.type = "password";
+                      } else {
+                        pass.type = "text";
+                      }
+                    }}
+                    className="pass-eye"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-eye-fill"
+                      viewBox="0 0 16 16"
+                    >
                       <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                       <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                     </svg>
@@ -261,7 +263,9 @@ const Signup = (props) => {
                 </label>
               </div>
               <div className="eve-reg22">
-                <button type="submit" className="btn auth-btn2">Sign Up</button>
+                <button type="submit" className="btn auth-btn2">
+                  Sign Up
+                </button>
                 <div>
                   <p>
                     Alreadt have an account?{" "}
