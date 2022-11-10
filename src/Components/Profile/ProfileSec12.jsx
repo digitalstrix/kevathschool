@@ -39,7 +39,7 @@ const ProfileSec12 = (props) => {
     return (
         <>
             <Sidebar />
-            <div className="prof-sec1 prof-sec012">
+            <div className="prof-sec1 prof-sec012 prof-sec-mob">
                 <div className="prof-sec11 prof-sec12">
                     <div className="eve-reg2-main">
                         <div className="eve-reg2-main1 eve-reg3-main1">
@@ -51,7 +51,7 @@ const ProfileSec12 = (props) => {
                                 </div>
                                 <div className="eve-reg22">
                                     <button className="btn btn1">Continue</button>
-                                    <div className="eve-reg30">
+                                    <div className="eve-reg30 pointer">
                                         <b>Back</b>
                                     </div>
                                 </div>
