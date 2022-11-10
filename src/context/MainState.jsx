@@ -38,8 +38,9 @@ const MainState = (props) => {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`,
       },
       redirect: "follow",
     });
@@ -55,6 +56,27 @@ const MainState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
+        },
+        redirect: "follow",
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
+  const sendEmailToVerify = async (email) => {
+    const response = await fetch(
+      `${baseUrl}/users/email-verify?email=${email}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
         },
         redirect: "follow",
       }
@@ -71,6 +93,9 @@ const MainState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
         },
         redirect: "follow",
       }
@@ -85,8 +110,9 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`,
       },
       body: JSON.stringify({ email, currentPassword, newPassword }),
       redirect: "follow",
@@ -129,8 +155,9 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`,
       },
       body: JSON.stringify(data),
       redirect: "follow",
@@ -145,8 +172,9 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`,
       },
       body: JSON.stringify(data1),
       redirect: "follow",
@@ -166,8 +194,9 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("kevath_user"))?.token
+        }`,
       },
       body: JSON.stringify({ referredReferralCode, email, fullName, userId }),
       redirect: "follow",
@@ -191,9 +220,16 @@ const MainState = (props) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${
           JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`
+        }`,
       },
-      body: JSON.stringify({ firstName, lastName, contact: Number(contact), email, message, acceptTermsandConditions }),
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        contact: Number(contact),
+        email,
+        message,
+        acceptTermsandConditions,
+      }),
       redirect: "follow",
     });
     const data = await response.json();
@@ -216,7 +252,16 @@ const MainState = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, contact, message, notifications, company, designation, acceptTermsandConditions }),
+      body: JSON.stringify({
+        name,
+        email,
+        contact,
+        message,
+        notifications,
+        company,
+        designation,
+        acceptTermsandConditions,
+      }),
       redirect: "follow",
     });
     const data = await response.json();
@@ -236,11 +281,12 @@ const MainState = (props) => {
           changePassword,
           forgetPassword1,
           forgetPassword2,
+          sendEmailToVerify,
           updateUserDetails,
           updateAddress,
           referralRegister,
           contactUs,
-          hireFromUs
+          hireFromUs,
         }}
       >
         {props.children}

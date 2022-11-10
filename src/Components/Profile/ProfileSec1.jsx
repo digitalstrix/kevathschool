@@ -76,6 +76,7 @@ const ProfileSec1 = (props) => {
       password: data.data?.password,
       dob: data.data?.dob,
       gender: data.data?.gender,
+      isEmailVerified: data.data.isEmailVerified,
       //  data.data.higherEdu
       course: data.data?.educationQualification?.graduation?.course,
       course1: data.data?.educationQualification?.postGraduation?.course,
@@ -86,18 +87,22 @@ const ProfileSec1 = (props) => {
       college: data.data?.educationQualification?.graduation?.college,
       college1: data.data?.educationQualification?.postGraduation?.college,
       university: data.data?.educationQualification?.graduation?.university,
-      university1: data.data?.educationQualification?.postGraduation?.university,
+      university1:
+        data.data?.educationQualification?.postGraduation?.university,
       duration: data.data?.educationQualification?.graduation?.durationYears,
-      duration1: data.data?.educationQualification?.postGraduation?.durationYears,
+      duration1:
+        data.data?.educationQualification?.postGraduation?.durationYears,
       duration2: data.data?.educationQualification?.ssc?.durationYears,
       duration3: data.data?.educationQualification?.puc?.durationYears,
       status: data.data?.educationQualification?.graduation?.status,
       status1: data.data?.educationQualification?.postGraduation?.status,
-      yearOfPassing: data.data?.educationQualification?.graduation?.yearOfPassout,
+      yearOfPassing:
+        data.data?.educationQualification?.graduation?.yearOfPassout,
       yearOfPassing1:
         data.data?.educationQualification?.postGraduation?.yearOfPassout,
       percentage: data.data?.educationQualification?.graduation?.percentage,
-      percentage1: data.data?.educationQualification?.postGraduation?.percentage,
+      percentage1:
+        data.data?.educationQualification?.postGraduation?.percentage,
       percentage2: data.data?.educationQualification?.ssc?.percentage,
       percentage3: data.data?.educationQualification?.puc?.percentage,
       companyName: data.data?.experience?.companyName,
@@ -122,7 +127,7 @@ const ProfileSec1 = (props) => {
       city1: data.data?.permanentAddress?.city,
       landMark1: data.data?.permanentAddress?.landmark,
       country1: data.data?.permanentAddress?.country,
-      pincode1: data.data?.permanentAddress?.pinCode
+      pincode1: data.data?.permanentAddress?.pinCode,
     });
 
     return data;
@@ -161,7 +166,7 @@ const ProfileSec1 = (props) => {
     // console.log(value);
 
     // const checkArr = ['firstName', 'lastName', 'email', 'phone', 'password'];
-    const checkArr = ['firstName', 'lastName', 'email', 'phone'];
+    const checkArr = ["firstName", "lastName", "email", "phone"];
 
     let flag = false;
     for (let i of Object.keys(value)) {
@@ -169,43 +174,43 @@ const ProfileSec1 = (props) => {
         console.log(i);
         if (value[i].length === 0) {
           if (!document.getElementById(`${i}-err`)) {
-            let nc = document.createElement('div');
-            nc.setAttribute('id', `${i}-err`);
-            nc.setAttribute('class', 'err-show');
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
             nc.innerHTML = "Field is required";
             if (i === "phone") {
-              document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
-            }
-            else {
+              document
+                .getElementsByName(i)[0]
+                .parentNode.parentNode.appendChild(nc);
+            } else {
               document.getElementsByName(i)[0].parentNode.appendChild(nc);
             }
           }
-        }
-        else {
+        } else {
           document.getElementById(`${i}-err`)?.remove();
 
-          if (i === 'firstName') {
+          if (i === "firstName") {
             if (value[i].length < 3) {
-              let nc = document.createElement('div');
-              nc.setAttribute('id', `${i}-err`);
-              nc.setAttribute('class', 'err-show');
+              let nc = document.createElement("div");
+              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("class", "err-show");
               nc.innerHTML = "Must includes at least 3 characters";
               document.getElementsByName(i)[0].parentNode.appendChild(nc);
-            }
-            else {
+            } else {
               document.getElementById(`${i}-err`)?.remove();
             }
           }
 
           if (i === "phone") {
             if (value[i].length < 10) {
-              let nc = document.createElement('div');
-              nc.setAttribute('id', `${i}-err`);
-              nc.setAttribute('class', 'err-show');
+              let nc = document.createElement("div");
+              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("class", "err-show");
               nc.innerHTML = "Must includes at least 10 characters";
-              document.getElementsByName(i)[0].parentNode.parentNode.appendChild(nc);
-            }
-            else {
+              document
+                .getElementsByName(i)[0]
+                .parentNode.parentNode.appendChild(nc);
+            } else {
               document.getElementById(`${i}-err`)?.remove();
             }
           }
@@ -230,7 +235,7 @@ const ProfileSec1 = (props) => {
       }
     }
 
-    const checkErr = document.querySelectorAll('.err-show');
+    const checkErr = document.querySelectorAll(".err-show");
 
     if (checkErr.length === 0) {
       flag = true;
@@ -239,40 +244,39 @@ const ProfileSec1 = (props) => {
     if (flag) {
       console.log(value);
 
-      let gender=value?.gender;
-      if(value?.gender === "Not to say")
-      {
-        gender="Others"
+      let gender = value?.gender;
+      if (value?.gender === "Not to say") {
+        gender = "Others";
       }
 
       let objToSend = {
-        "firstName": value?.firstName,
-        "lastName": value?.lastName,
-        "contact": Number(value?.contact),
-        "emergencyContact": Number(value?.emergencyContact),
-        "dob": value?.dob,
-        "gender": gender,
-        "educationQualification": {
-          "ssc": {
-            "percentage": Number(value?.percentage2),
-            "yearOfPassout": Number(value?.passedOutYear),
-            "durationYears": Number(value?.duration2)
+        firstName: value?.firstName,
+        lastName: value?.lastName,
+        contact: Number(value?.contact),
+        emergencyContact: Number(value?.emergencyContact),
+        dob: value?.dob,
+        gender: gender,
+        educationQualification: {
+          ssc: {
+            percentage: Number(value?.percentage2),
+            yearOfPassout: Number(value?.passedOutYear),
+            durationYears: Number(value?.duration2),
           },
-          "puc": {
-            "percentage": Number(value?.percentage3),
-            "yearOfPassout": Number(value?.passedOutYear1),
-            "durationYears": Number(value?.duration3)
+          puc: {
+            percentage: Number(value?.percentage3),
+            yearOfPassout: Number(value?.passedOutYear1),
+            durationYears: Number(value?.duration3),
           },
-          "graduation": {
-            "percentage": Number(value?.percentage),
-            "yearOfPassout": Number(value?.yearOfPassing),
-            "durationYears": Number(value?.duration),
-            "status": value?.status,
-            "specialization": value?.specification,
-            "course": value?.course,
-            "university": value?.university,
-            "college": value?.college
-          }
+          graduation: {
+            percentage: Number(value?.percentage),
+            yearOfPassout: Number(value?.yearOfPassing),
+            durationYears: Number(value?.duration),
+            status: value?.status,
+            specialization: value?.specification,
+            course: value?.course,
+            university: value?.university,
+            college: value?.college,
+          },
           // "postGraduation": {
           //   "percentage": Number(value?.percentage1),
           //   "yearOfPassout": Number(value?.yearOfPassing1),
@@ -284,44 +288,43 @@ const ProfileSec1 = (props) => {
           //   "college": value?.college1
           // }
         },
-        "experience": {
-          "skills": [
-            value?.skills
-          ],
-          "role": value?.role,
-          "numberOfYears": Number(value?.noYears),
-          "companyName": value?.companyName
+        experience: {
+          skills: [value?.skills],
+          role: value?.role,
+          numberOfYears: Number(value?.noYears),
+          companyName: value?.companyName,
         },
-        "resume": "null",
-        "preferences": {
-          "notifications": {
-            "push": true,
-            "sms": true
-          }
-        }
+        resume: "null",
+        preferences: {
+          notifications: {
+            push: true,
+            sms: true,
+          },
+        },
       };
 
-      if(document.getElementById('is-master').checked)
-      {
-        console.log('yes');
-        objToSend.educationQualification={...objToSend.educationQualification, "postGraduation":{
-          "percentage": Number(value?.percentage1),
-          "yearOfPassout": Number(value?.yearOfPassing1),
-          "durationYears": Number(value?.duration1),
-          "status": value?.status1,
-          "specialization": value?.specification1,
-          "course": value?.course1,
-          "university": value?.university1,
-          "college": value?.college1
-        }}
+      if (document.getElementById("is-master").checked) {
+        console.log("yes");
+        objToSend.educationQualification = {
+          ...objToSend.educationQualification,
+          postGraduation: {
+            percentage: Number(value?.percentage1),
+            yearOfPassout: Number(value?.yearOfPassing1),
+            durationYears: Number(value?.duration1),
+            status: value?.status1,
+            specialization: value?.specification1,
+            course: value?.course1,
+            university: value?.university1,
+            college: value?.college1,
+          },
+        };
       }
-      
+
       console.log(objToSend);
       let ans = await context.updateUserDetails(objToSend);
       console.log(ans);
       if (ans.status) {
         props.setAlert(ans.message, "success");
-
       } else {
         props.setAlert(ans.more_info, "error");
       }
@@ -332,39 +335,38 @@ const ProfileSec1 = (props) => {
     e.preventDefault();
     // console.log(address);
     let obj = {
-      "currentAddress": {
-        "addressLine1": address?.addressLine1,
-        "addressLine2": address?.addressLine2,
-        "state": address?.state,
-        "city": address?.city,
-        "landmark": address?.landMark,
-        "country": address?.country,
-        "pinCode": Number(address?.pincode)
-      }
+      currentAddress: {
+        addressLine1: address?.addressLine1,
+        addressLine2: address?.addressLine2,
+        state: address?.state,
+        city: address?.city,
+        landmark: address?.landMark,
+        country: address?.country,
+        pinCode: Number(address?.pincode),
+      },
     };
     if (document.getElementById("same").checked) {
-      obj = { ...obj, "isSameAddress": true }
-    }
-    else {
+      obj = { ...obj, isSameAddress: true };
+    } else {
       obj = {
-        ...obj, "isSameAddress": false,
-        "permanentAddress": {
-          "addressLine1": address?.addressLine11,
-          "addressLine2": address?.addressLine21,
-          "state": address?.state1,
-          "city": address?.city1,
-          "landmark": address?.landMark1,
-          "country": address?.country1,
-          "pinCode": Number(address?.pincode1)
-        }
-      }
+        ...obj,
+        isSameAddress: false,
+        permanentAddress: {
+          addressLine1: address?.addressLine11,
+          addressLine2: address?.addressLine21,
+          state: address?.state1,
+          city: address?.city1,
+          landmark: address?.landMark1,
+          country: address?.country1,
+          pinCode: Number(address?.pincode1),
+        },
+      };
     }
     console.log(obj);
     let ans = await context.updateAddress(obj);
     console.log(ans);
     if (ans.status) {
       props.setAlert(ans.message, "success");
-
     } else {
       props.setAlert(ans.more_info, "error");
     }
@@ -447,7 +449,24 @@ const ProfileSec1 = (props) => {
                           value={value?.email}
                         />
                         <div className="text-end mt-2">
-                          {value?.isEmailVerified ? <b className="text-green">Verified</b> : <b onClick={() => { navigate('/signup2ver') }} className="text-red pointer">Verify</b>}
+                          {value?.isEmailVerified ? (
+                            <b className="text-green">Verified</b>
+                          ) : (
+                            <b
+                              onClick={async () => {
+                                let ans = await context.sendEmailToVerify(
+                                  value.email
+                                );
+                                if (ans.status == true) {
+                                  navigate("/verify-email");
+                                }
+                                // console.log(ans, "emailsent");
+                              }}
+                              className="text-red pointer"
+                            >
+                              Verify
+                            </b>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -462,7 +481,18 @@ const ProfileSec1 = (props) => {
                           value={value?.contact}
                         />
                         <div className="text-end mt-2">
-                          {value?.isContactVerified ? <b className="text-green">Verified</b> : <b onClick={() => { navigate('/profile-sec12') }} className="text-red pointer">Verify</b>}
+                          {value?.isContactVerified ? (
+                            <b className="text-green">Verified</b>
+                          ) : (
+                            <b
+                              onClick={() => {
+                                navigate("/profile-sec12");
+                              }}
+                              className="text-red pointer"
+                            >
+                              Verify
+                            </b>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -511,7 +541,10 @@ const ProfileSec1 = (props) => {
                         </div>
                       </div>
                     </div> */}
-                    <div style={{ marginBottom: "0px" }} className="row psi131 psi-ex2">
+                    <div
+                      style={{ marginBottom: "0px" }}
+                      className="row psi131 psi-ex2"
+                    >
                       <div className="psi-input">
                         <div>
                           <label htmlFor="dob">DOB *</label>
@@ -537,7 +570,9 @@ const ProfileSec1 = (props) => {
                           name="gender"
                           setValue={setValue}
                           value={value}
-                          value1={value?.gender==="false" ? "" : value?.gender}
+                          value1={
+                            value?.gender === "false" ? "" : value?.gender
+                          }
                           required={true}
                           isEditable={true}
                         />
@@ -601,7 +636,7 @@ const ProfileSec1 = (props) => {
                             name="percentage2"
                             onChange={handleChange}
                             value={value?.percentage2}
-                          // required
+                            // required
                           />
                         </div>
                       </div>
@@ -658,7 +693,7 @@ const ProfileSec1 = (props) => {
                             name="percentage3"
                             onChange={handleChange}
                             value={value?.percentage3}
-                          // required
+                            // required
                           />
                         </div>
                       </div>
@@ -718,7 +753,7 @@ const ProfileSec1 = (props) => {
                           name="college"
                           onChange={handleChange}
                           value={value?.college}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -731,7 +766,7 @@ const ProfileSec1 = (props) => {
                           name="university"
                           onChange={handleChange}
                           value={value?.university}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -802,19 +837,24 @@ const ProfileSec1 = (props) => {
                           name="percentage"
                           onChange={handleChange}
                           value={value?.percentage}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
                   </div>
-
                 </div>
 
                 <div className="prof-checkbox">
-                  <input type="checkbox" id="is-master" onClick={() => {
-                    // document.getElementById('address-form').toggleAttribute('novalidate');
-                    document.querySelector('.masters-add').classList.toggle('none');
-                  }} />
+                  <input
+                    type="checkbox"
+                    id="is-master"
+                    onClick={() => {
+                      // document.getElementById('address-form').toggleAttribute('novalidate');
+                      document
+                        .querySelector(".masters-add")
+                        .classList.toggle("none");
+                    }}
+                  />
                   <label>Fill Master Details</label>
                 </div>
 
@@ -857,7 +897,6 @@ const ProfileSec1 = (props) => {
                         isEditable={true}
                       />
                     </div>
-
                   </div>
                   <div className="psi211 row">
                     <div className="psi-input psi-ex">
@@ -869,7 +908,7 @@ const ProfileSec1 = (props) => {
                           name="college1"
                           onChange={handleChange}
                           value={value?.college1}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -882,7 +921,7 @@ const ProfileSec1 = (props) => {
                           name="university1"
                           onChange={handleChange}
                           value={value?.university1}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -950,7 +989,7 @@ const ProfileSec1 = (props) => {
                           name="percentage1"
                           onChange={handleChange}
                           value={value?.percentage1}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -971,7 +1010,7 @@ const ProfileSec1 = (props) => {
                           name="companyName"
                           onChange={handleChange}
                           value={value?.companyName}
-                        //required
+                          //required
                         />
                       </div>
                     </div>
@@ -983,7 +1022,7 @@ const ProfileSec1 = (props) => {
                           name="role"
                           onChange={handleChange}
                           value={value?.role}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -997,7 +1036,7 @@ const ProfileSec1 = (props) => {
                           name="skills"
                           onChange={handleChange}
                           value={value?.skills}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -1009,7 +1048,7 @@ const ProfileSec1 = (props) => {
                           name="noYears"
                           onChange={handleChange}
                           value={value?.noYears}
-                        // required
+                          // required
                         />
                       </div>
                     </div>
@@ -1018,11 +1057,17 @@ const ProfileSec1 = (props) => {
               </div>
             </div>
             <div className="psi-btn">
-              <button type="submit" className="btn btn1 btn4">Save</button>
+              <button type="submit" className="btn btn1 btn4">
+                Save
+              </button>
             </div>
           </form>
 
-          <form id="address-form" onSubmit={submitHandle1} className="prof-sec112">
+          <form
+            id="address-form"
+            onSubmit={submitHandle1}
+            className="prof-sec112"
+          >
             <div className="prof-sec-top">
               <p>ADDRESS INFORMATION</p>
             </div>
@@ -1040,7 +1085,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine1"
                         onChange={handleChange1}
                         value={address?.addressLine1}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input">
@@ -1050,7 +1095,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine2"
                         onChange={handleChange1}
                         value={address?.addressLine2}
-                      // required
+                        // required
                       />
                     </div>
                   </div>
@@ -1062,7 +1107,7 @@ const ProfileSec1 = (props) => {
                         name="state"
                         onChange={handleChange1}
                         value={address?.state}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input">
@@ -1072,7 +1117,7 @@ const ProfileSec1 = (props) => {
                         name="city"
                         onChange={handleChange1}
                         value={address?.city}
-                      // required
+                        // required
                       />
                     </div>
                   </div>
@@ -1084,7 +1129,7 @@ const ProfileSec1 = (props) => {
                         name="landMark"
                         onChange={handleChange1}
                         value={address?.landMark}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input psi-input1">
@@ -1096,7 +1141,7 @@ const ProfileSec1 = (props) => {
                             name="country"
                             onChange={handleChange1}
                             value={address?.country}
-                          // required
+                            // required
                           />
                         </div>
                         <div className="psi-input">
@@ -1106,7 +1151,7 @@ const ProfileSec1 = (props) => {
                             name="pincode"
                             onChange={handleChange1}
                             value={address?.pincode}
-                          // required
+                            // required
                           />
                         </div>
                       </div>
@@ -1121,10 +1166,18 @@ const ProfileSec1 = (props) => {
                 </div>
 
                 <div className="prof-checkbox">
-                  <input type="checkbox" id="same" onClick={() => {
-                    document.getElementById('address-form').toggleAttribute('novalidate');
-                    document.querySelector('.perm-add').classList.toggle('none');
-                  }} />
+                  <input
+                    type="checkbox"
+                    id="same"
+                    onClick={() => {
+                      document
+                        .getElementById("address-form")
+                        .toggleAttribute("novalidate");
+                      document
+                        .querySelector(".perm-add")
+                        .classList.toggle("none");
+                    }}
+                  />
                   <label>Same as above</label>
                 </div>
 
@@ -1137,7 +1190,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine11"
                         onChange={handleChange1}
                         value={address?.addressLine11}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input">
@@ -1147,7 +1200,7 @@ const ProfileSec1 = (props) => {
                         name="addressLine21"
                         onChange={handleChange1}
                         value={address?.addressLine21}
-                      // required
+                        // required
                       />
                     </div>
                   </div>
@@ -1159,7 +1212,7 @@ const ProfileSec1 = (props) => {
                         name="state1"
                         onChange={handleChange1}
                         value={address?.state1}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input">
@@ -1169,7 +1222,7 @@ const ProfileSec1 = (props) => {
                         name="city1"
                         onChange={handleChange1}
                         value={address?.city1}
-                      // required
+                        // required
                       />
                     </div>
                   </div>
@@ -1181,7 +1234,7 @@ const ProfileSec1 = (props) => {
                         name="landMark1"
                         onChange={handleChange1}
                         value={address?.landMark1}
-                      // required
+                        // required
                       />
                     </div>
                     <div className="psi-input psi-input1">
@@ -1193,7 +1246,7 @@ const ProfileSec1 = (props) => {
                             name="country1"
                             onChange={handleChange1}
                             value={address?.country1}
-                          // required
+                            // required
                           />
                         </div>
                         <div className="psi-input">
@@ -1203,7 +1256,7 @@ const ProfileSec1 = (props) => {
                             name="pincode1"
                             onChange={handleChange1}
                             value={address?.pincode1}
-                          // required
+                            // required
                           />
                         </div>
                       </div>
@@ -1213,7 +1266,9 @@ const ProfileSec1 = (props) => {
               </div>
             </div>
             <div className="psi-btn">
-              <button type="submit" className="btn btn1 btn4">Save</button>
+              <button type="submit" className="btn btn1 btn4">
+                Save
+              </button>
             </div>
           </form>
         </div>

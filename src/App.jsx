@@ -49,6 +49,7 @@ import Alert from "./Alerts/Alert";
 import Forget3 from "./Components/Authentication/Forget3";
 import Referral from "./Components/Authentication/Referral";
 import Referral1 from "./Components/Referral/Referral1";
+import VerifyEmail from "./Components/Authentication/VerifyEamil";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -429,6 +430,18 @@ const App = () => {
               path="/signup2ver"
               element={
                 <SignUp2
+                  setFootFlag={setFootFlag}
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
+              }
+            />
+            <Route
+              path="/verify-email"
+              element={
+                <VerifyEmail
                   setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}

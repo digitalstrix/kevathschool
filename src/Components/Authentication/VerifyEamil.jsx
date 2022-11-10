@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 
-const SignUp2 = (props) => {
+const VerifyEmail = (props) => {
   const [navFlag, setNavFlag] = useState(true);
   useEffect(() => {
     props.setFootFlag(false);
     props.setNavFlag1(false);
-    props.setNavFlag2(false);
+    props.setNavFlag2(true);
     // let user = localStorage.getItem('kevath_user');
     // if (user) {
     //   user = JSON.parse(user);
@@ -45,7 +45,7 @@ const SignUp2 = (props) => {
       let ans = await context.emailVerify(user.email, value.verification);
       if (ans.status) {
         props.setAlert(ans.message, "success");
-        navigate("/login");
+        navigate("/profile-sec1");
       } else {
         props.setAlert(ans.message, "error");
       }
@@ -93,9 +93,9 @@ const SignUp2 = (props) => {
               </div>
               <div className="eve-reg22">
                 <button type="submit" className="btn btn1">
-                  REGISTER
+                  Verify
                 </button>
-                <div
+                {/* <div
                   className="pointer"
                   onClick={() => {
                     navigate("/referral");
@@ -103,8 +103,8 @@ const SignUp2 = (props) => {
                   className="eve-reg30"
                 >
                   <b>Back</b>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                   <p>
                     Don't have any account?{" "}
                     <span>
@@ -113,7 +113,7 @@ const SignUp2 = (props) => {
                       </a>
                     </span>
                   </p>
-                </div>
+                </div> */}
               </div>
             </form>
           </div>
@@ -123,4 +123,4 @@ const SignUp2 = (props) => {
   );
 };
 
-export default SignUp2;
+export default VerifyEmail;

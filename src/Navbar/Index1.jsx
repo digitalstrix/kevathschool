@@ -131,8 +131,10 @@ const Index1 = (props) => {
           <a onClick={closeNav} href="#">
             Contest
           </a>
-          <a onClick={closeNav} href="referral">
-            <Link to="/referral1">Refer & Earn</Link>
+          <a onClick={closeNav} href="referral1">
+            {/* <Link to="/referral1"> */}
+            Refer & Earn
+            {/* </Link> */}
           </a>
 
           <div className="dropdown">
