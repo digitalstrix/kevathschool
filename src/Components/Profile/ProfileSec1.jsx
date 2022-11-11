@@ -516,7 +516,7 @@ const ProfileSec1 = (props) => {
                         />
                       </div>
                     </div>
-                    {/* <div className="psi-input psi-ex">
+                    <div className="psi-input psi-ex">
                       <div className="psi-ex1">
                         <label htmlFor="Password">Password</label>
                         <div className="password">
@@ -543,7 +543,7 @@ const ProfileSec1 = (props) => {
                           </div>
                         </div>
                       </div>
-                    </div> */}
+                    </div>
                     <div
                       style={{ marginBottom: "0px" }}
                       className="row psi131 psi-ex2"
@@ -639,7 +639,7 @@ const ProfileSec1 = (props) => {
                             name="percentage2"
                             onChange={handleChange}
                             value={value?.percentage2}
-                            // required
+                          // required
                           />
                         </div>
                       </div>
@@ -696,7 +696,7 @@ const ProfileSec1 = (props) => {
                             name="percentage3"
                             onChange={handleChange}
                             value={value?.percentage3}
-                            // required
+                          // required
                           />
                         </div>
                       </div>
@@ -756,7 +756,7 @@ const ProfileSec1 = (props) => {
                           name="college"
                           onChange={handleChange}
                           value={value?.college}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -769,70 +769,69 @@ const ProfileSec1 = (props) => {
                           name="university"
                           onChange={handleChange}
                           value={value?.university}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="psi211 row">
-                    <div className="psi-select psi-ex">
-                      <label>Status</label>
-                      <SelectBox
-                        items={[
-                          { value: "Pursuing", id: 1 },
-                          { value: "Completed", id: 2 },
-                          { value: "Dropout", id: 3 },
-                        ]}
-                        name="status"
-                        setValue={setValue}
-                        value1={value?.status}
-                        value={value}
-                      />
+                    <div className="psi-211 psi-ex">
+                      <div className="psi-select psi-2111">
+                        <label>Status</label>
+                        <SelectBox
+                          items={[
+                            { value: "Pursuing", id: 1 },
+                            { value: "Completed", id: 2 },
+                            { value: "Dropout", id: 3 },
+                          ]}
+                          name="status"
+                          setValue={setValue}
+                          value1={value?.status}
+                          value={value}
+                        />
+                      </div>
+                      <div className="psi-select psi-2112">
+                        <label>Year of Passing</label>
+                        <SelectBox
+                          items={[
+                            { value: "2021", id: 1 },
+                            { value: "2020", id: 2 },
+                            { value: "2019", id: 3 },
+                            { value: "2017", id: 5 },
+                            { value: "2016", id: 6 },
+                            { value: "2015", id: 7 },
+                            { value: "2014", id: 8 },
+                            { value: "2013", id: 9 },
+                            { value: "2012", id: 10 },
+                            { value: "2011", id: 11 },
+                          ]}
+                          name="yearOfPassing"
+                          setValue={setValue}
+                          value1={value?.yearOfPassing}
+                          value={value}
+                          isEditable={true}
+                        />
+                      </div>
                     </div>
-                    <div className="psi-select psi-ex">
-                      <label>Year of Passing</label>
-                      <SelectBox
-                        items={[
-                          { value: "2021", id: 1 },
-                          { value: "2020", id: 2 },
-                          { value: "2019", id: 3 },
-                          { value: "2017", id: 5 },
-                          { value: "2016", id: 6 },
-                          { value: "2015", id: 7 },
-                          { value: "2014", id: 8 },
-                          { value: "2013", id: 9 },
-                          { value: "2012", id: 10 },
-                          { value: "2011", id: 11 },
-                        ]}
-                        name="yearOfPassing"
-                        setValue={setValue}
-                        value1={value?.yearOfPassing}
-                        value={value}
-                        isEditable={true}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="psi211 row">
-                    <div className="psi-select psi-ex">
-                      <label>Duration</label>
-                      <SelectBox
-                        items={[
-                          { value: "2", id: 1 },
-                          { value: "3", id: 2 },
-                          { value: "4", id: 3 },
-                          { value: "5", id: 4 },
-                        ]}
-                        name="duration"
-                        setValue={setValue}
-                        value1={value?.duration}
-                        value={value}
-                        isEditable={true}
-                      />
-                    </div>
-                    <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                    <div className="psi-212">
+                      <div className="psi-select psi-2121">
+                        <label>Duration</label>
+                        <SelectBox
+                          items={[
+                            { value: "2", id: 1 },
+                            { value: "3", id: 2 },
+                            { value: "4", id: 3 },
+                            { value: "5", id: 4 },
+                          ]}
+                          name="duration"
+                          setValue={setValue}
+                          value1={value?.duration}
+                          value={value}
+                          isEditable={true}
+                        />
+                      </div>
+                      <div className="psi-input psi-2122">
                         <label htmlFor="percentage">Percentage</label>
                         <input
                           type="number"
@@ -840,7 +839,7 @@ const ProfileSec1 = (props) => {
                           name="percentage"
                           onChange={handleChange}
                           value={value?.percentage}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -911,7 +910,7 @@ const ProfileSec1 = (props) => {
                           name="college1"
                           onChange={handleChange}
                           value={value?.college1}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -924,67 +923,69 @@ const ProfileSec1 = (props) => {
                           name="university1"
                           onChange={handleChange}
                           value={value?.university1}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
                   </div>
+                  
                   <div className="psi211 row">
-                    <div className="psi-select psi-ex">
-                      <label>Status</label>
-                      <SelectBox
-                        items={[
-                          { value: "Pursuing", id: 1 },
-                          { value: "Completed", id: 2 },
-                          { value: "Dropout", id: 3 },
-                        ]}
-                        name="status1"
-                        setValue={setValue}
-                        value1={value?.status1}
-                        value={value}
-                      />
+                    <div className="psi-211 psi-ex">
+                      <div className="psi-select psi-2111">
+                        <label>Status</label>
+                        <SelectBox
+                          items={[
+                            { value: "Pursuing", id: 1 },
+                            { value: "Completed", id: 2 },
+                            { value: "Dropout", id: 3 },
+                          ]}
+                          name="status1"
+                          setValue={setValue}
+                          value1={value?.status1}
+                          value={value}
+                        />
+                      </div>
+                      <div className="psi-select psi-2112">
+                        <label>Year of Passing</label>
+                        <SelectBox
+                          items={[
+                            { value: "2021", id: 1 },
+                            { value: "2020", id: 2 },
+                            { value: "2019", id: 3 },
+                            { value: "2017", id: 5 },
+                            { value: "2016", id: 6 },
+                            { value: "2015", id: 7 },
+                            { value: "2014", id: 8 },
+                            { value: "2013", id: 9 },
+                            { value: "2012", id: 10 },
+                            { value: "2011", id: 11 },
+                          ]}
+                          name="yearOfPassing1"
+                          setValue={setValue}
+                          value1={value?.yearOfPassing1}
+                          value={value}
+                          isEditable={true}
+                        />
+                      </div>
                     </div>
-                    <div className="psi-select psi-ex">
-                      <label>Year of Passing</label>
-                      <SelectBox
-                        items={[
-                          { value: "2021", id: 1 },
-                          { value: "2020", id: 2 },
-                          { value: "2019", id: 3 },
-                          { value: "2017", id: 5 },
-                          { value: "2016", id: 6 },
-                          { value: "2015", id: 7 },
-                          { value: "2014", id: 8 },
-                          { value: "2013", id: 9 },
-                          { value: "2012", id: 10 },
-                          { value: "2011", id: 11 },
-                        ]}
-                        name="yearOfPassing1"
-                        setValue={setValue}
-                        value1={value?.yearOfPassing1}
-                        value={value}
-                        isEditable={true}
-                      />
-                    </div>
-                  </div>
-                  <div className="psi211 row">
-                    <div className="psi-select psi-ex">
-                      <label>Duration</label>
-                      <SelectBox
-                        items={[
-                          { value: "2", id: 1 },
-                          { value: "3", id: 2 },
-                          { value: "4", id: 3 },
-                        ]}
-                        name="duration1"
-                        setValue={setValue}
-                        value1={value?.duration1}
-                        value={value}
-                        isEditable={true}
-                      />
-                    </div>
-                    <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                    <div className="psi-212">
+                      <div className="psi-select psi-2121">
+                        <label>Duration</label>
+                        <SelectBox
+                          items={[
+                            { value: "2", id: 1 },
+                            { value: "3", id: 2 },
+                            { value: "4", id: 3 },
+                            { value: "5", id: 4 },
+                          ]}
+                          name="duration1"
+                          setValue={setValue}
+                          value1={value?.duration1}
+                          value={value}
+                          isEditable={true}
+                        />
+                      </div>
+                      <div className="psi-input psi-2122">
                         <label htmlFor="percentage1">Percentage</label>
                         <input
                           type="number"
@@ -992,7 +993,7 @@ const ProfileSec1 = (props) => {
                           name="percentage1"
                           onChange={handleChange}
                           value={value?.percentage1}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -1013,19 +1014,19 @@ const ProfileSec1 = (props) => {
                           name="companyName"
                           onChange={handleChange}
                           value={value?.companyName}
-                          //required
+                        //required
                         />
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex3">
                         <label htmlFor="role">Role</label>
                         <input
                           type="text"
                           name="role"
                           onChange={handleChange}
                           value={value?.role}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -1039,19 +1040,19 @@ const ProfileSec1 = (props) => {
                           name="skills"
                           onChange={handleChange}
                           value={value?.skills}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex4">
                         <label htmlFor="noYears">Number of Years</label>
                         <input
                           type="number"
                           name="noYears"
                           onChange={handleChange}
                           value={value?.noYears}
-                          // required
+                        // required
                         />
                       </div>
                     </div>
@@ -1081,62 +1082,72 @@ const ProfileSec1 = (props) => {
                 </div>
                 <div className="psi13">
                   <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="addressLine1">Address Line</label>
-                      <input
-                        type="text"
-                        name="addressLine1"
-                        onChange={handleChange1}
-                        value={address?.addressLine1}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="addressLine1">Address Line</label>
+                        <input
+                          type="text"
+                          name="addressLine1"
+                          onChange={handleChange1}
+                          value={address?.addressLine1}
                         // required
-                      />
+                        />
+                      </div>
                     </div>
-                    <div className="psi-input">
-                      <label htmlFor="addressLine2">Address Line 2</label>
-                      <input
-                        type="text"
-                        name="addressLine2"
-                        onChange={handleChange1}
-                        value={address?.addressLine2}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="addressLine2">Address Line 2</label>
+                        <input
+                          type="text"
+                          name="addressLine2"
+                          onChange={handleChange1}
+                          value={address?.addressLine2}
                         // required
-                      />
-                    </div>
-                  </div>
-                  <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="state">State</label>
-                      <input
-                        type="text"
-                        name="state"
-                        onChange={handleChange1}
-                        value={address?.state}
-                        // required
-                      />
-                    </div>
-                    <div className="psi-input">
-                      <label htmlFor="city">City</label>
-                      <input
-                        type="text"
-                        name="city"
-                        onChange={handleChange1}
-                        value={address?.city}
-                        // required
-                      />
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="landMark">Landmark</label>
-                      <input
-                        type="text"
-                        name="landMark"
-                        onChange={handleChange1}
-                        value={address?.landMark}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="state">State</label>
+                        <input
+                          type="text"
+                          name="state"
+                          onChange={handleChange1}
+                          value={address?.state}
                         // required
-                      />
+                        />
+                      </div>
                     </div>
-                    <div className="psi-input psi-input1">
-                      <div className="row psi131 psi40">
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="city">City</label>
+                        <input
+                          type="text"
+                          name="city"
+                          onChange={handleChange1}
+                          value={address?.city}
+                        // required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row psi131">
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="landMark">Landmark</label>
+                        <input
+                          type="text"
+                          name="landMark"
+                          onChange={handleChange1}
+                          value={address?.landMark}
+                        // required
+                        />
+                      </div>
+                    </div>
+                    <div className="psi-input psi-input1 psi-ex">
+                      <div className="row psi131 psi40 psi-ex1">
                         <div className="psi-input">
                           <label htmlFor="country">Country</label>
                           <input
@@ -1144,7 +1155,7 @@ const ProfileSec1 = (props) => {
                             name="country"
                             onChange={handleChange1}
                             value={address?.country}
-                            // required
+                          // required
                           />
                         </div>
                         <div className="psi-input">
@@ -1154,7 +1165,7 @@ const ProfileSec1 = (props) => {
                             name="pincode"
                             onChange={handleChange1}
                             value={address?.pincode}
-                            // required
+                          // required
                           />
                         </div>
                       </div>
@@ -1186,62 +1197,72 @@ const ProfileSec1 = (props) => {
 
                 <div className="psi13 perm-add">
                   <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="addressLine11">Address Line</label>
-                      <input
-                        type="text"
-                        name="addressLine11"
-                        onChange={handleChange1}
-                        value={address?.addressLine11}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="addressLine11">Address Line</label>
+                        <input
+                          type="text"
+                          name="addressLine11"
+                          onChange={handleChange1}
+                          value={address?.addressLine11}
                         // required
-                      />
+                        />
+                      </div>
                     </div>
-                    <div className="psi-input">
-                      <label htmlFor="addressLine21">Address Line 2</label>
-                      <input
-                        type="text"
-                        name="addressLine21"
-                        onChange={handleChange1}
-                        value={address?.addressLine21}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="addressLine21">Address Line 2</label>
+                        <input
+                          type="text"
+                          name="addressLine21"
+                          onChange={handleChange1}
+                          value={address?.addressLine21}
                         // required
-                      />
-                    </div>
-                  </div>
-                  <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="state1">State</label>
-                      <input
-                        type="text"
-                        name="state1"
-                        onChange={handleChange1}
-                        value={address?.state1}
-                        // required
-                      />
-                    </div>
-                    <div className="psi-input">
-                      <label htmlFor="city1">City</label>
-                      <input
-                        type="text"
-                        name="city1"
-                        onChange={handleChange1}
-                        value={address?.city1}
-                        // required
-                      />
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="row psi131">
-                    <div className="psi-input">
-                      <label htmlFor="landMark1">Landmark</label>
-                      <input
-                        type="text"
-                        name="landMark1"
-                        onChange={handleChange1}
-                        value={address?.landMark1}
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="state1">State</label>
+                        <input
+                          type="text"
+                          name="state1"
+                          onChange={handleChange1}
+                          value={address?.state1}
                         // required
-                      />
+                        />
+                      </div>
                     </div>
-                    <div className="psi-input psi-input1">
-                      <div className="row psi131 psi40">
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="city1">City</label>
+                        <input
+                          type="text"
+                          name="city1"
+                          onChange={handleChange1}
+                          value={address?.city1}
+                        // required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row psi131">
+                    <div className="psi-input psi-ex">
+                      <div className="psi-ex1">
+                        <label htmlFor="landMark1">Landmark</label>
+                        <input
+                          type="text"
+                          name="landMark1"
+                          onChange={handleChange1}
+                          value={address?.landMark1}
+                        // required
+                        />
+                      </div>
+                    </div>
+                    <div className="psi-input psi-input1 psi-ex">
+                      <div className="row psi131 psi40 psi-ex1">
                         <div className="psi-input">
                           <label htmlFor="country1">Country</label>
                           <input
@@ -1249,7 +1270,7 @@ const ProfileSec1 = (props) => {
                             name="country1"
                             onChange={handleChange1}
                             value={address?.country1}
-                            // required
+                          // required
                           />
                         </div>
                         <div className="psi-input">
@@ -1259,7 +1280,7 @@ const ProfileSec1 = (props) => {
                             name="pincode1"
                             onChange={handleChange1}
                             value={address?.pincode1}
-                            // required
+                          // required
                           />
                         </div>
                       </div>

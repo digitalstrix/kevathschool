@@ -1853,7 +1853,7 @@ a {
     border: 1px solid #50b74b;
     border-radius: 10px;
     outline: none;
-    padding: 8px 20px;
+    padding: 11px 20px;
     margin-top: 6px;
     width: 100%;
     /* max-width: 17vw; */
@@ -1889,8 +1889,9 @@ a {
     margin-bottom: 0rem;
 }
 
-.psi40 {
-    margin-top: 1.3rem;
+.psi40 .psi-input {
+    margin-bottom: 0rem;
+    margin-top: 4px;
 }
 
 .psi-input1 {
@@ -4849,6 +4850,44 @@ hr {
 .prof-sec-mob{
     height: 90vh;
 }
+.psi-211{
+    display: flex;
+    width: 44.2%;
+    margin-right: 37px;
+}
+.psi-211 .select-box--box{
+    width: 100%;
+}
+.psi-212 .select-box--box{
+    width: 100%;
+}
+.psi-2111{
+    width: 60%;
+}
+.psi-2112{
+    width: 40%;
+}
+.psi-212{
+    display: flex;
+    width: 38%;
+}
+.psi-2121{
+    width: 30%;
+}
+.psi-2122{
+    margin-bottom: 0;
+    margin-top: 5px;
+    width: 50%;
+}
+.select-box--container input{
+    padding: 6px 8px;
+}
+.psi-ex3{
+    width: 70%;
+}
+.psi-ex4{
+    width: 40%;
+}
 
 @media screen and (max-width: 1380px) {
     .nav0 {
@@ -6838,6 +6877,20 @@ hr {
     }
     .psi-ex .select-box--box {
         width: 100%;
+    }
+    .psi-ex3{
+        width: 100%;
+    }
+    .psi-ex4{
+        width: 100%;
+    }
+    .psi-211{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .psi-212{
+        width: 100%;
+        flex-wrap: wrap;
     }
 }
 
