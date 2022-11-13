@@ -591,7 +591,8 @@ const ProfileSec1 = (props) => {
                 <div className="psi201">
                   <div className="psi2011">
                     <h5 className="text-green">10th</h5>
-                    <div className="psi211 row">
+                    {/* <div className="psi-ex1"></div> */}
+                    <div className="psi211 psi-ex11 row">
                       <div className="psi-select">
                         <label>Passed Out Year</label>
                         <SelectBox
@@ -647,7 +648,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="psi2012">
                     <h5 className="text-green">12th</h5>
-                    <div className="psi211 row">
+                    <div className="psi211 psi-ex11 row">
                       <div className="psi-select">
                         <label>Passed Out Year</label>
                         <SelectBox
@@ -928,7 +929,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="psi211 row">
                     <div className="psi-211 psi-ex">
                       <div className="psi-select psi-2111">
@@ -1090,7 +1091,7 @@ const ProfileSec1 = (props) => {
                           name="addressLine1"
                           onChange={handleChange1}
                           value={address?.addressLine1}
-                        // required
+                          required
                         />
                       </div>
                     </div>
@@ -1102,7 +1103,7 @@ const ProfileSec1 = (props) => {
                           name="addressLine2"
                           onChange={handleChange1}
                           value={address?.addressLine2}
-                        // required
+                          required
                         />
                       </div>
                     </div>
@@ -1116,7 +1117,7 @@ const ProfileSec1 = (props) => {
                           name="state"
                           onChange={handleChange1}
                           value={address?.state}
-                        // required
+                          required
                         />
                       </div>
                     </div>
@@ -1128,7 +1129,7 @@ const ProfileSec1 = (props) => {
                           name="city"
                           onChange={handleChange1}
                           value={address?.city}
-                        // required
+                          required
                         />
                       </div>
                     </div>
@@ -1142,7 +1143,7 @@ const ProfileSec1 = (props) => {
                           name="landMark"
                           onChange={handleChange1}
                           value={address?.landMark}
-                        // required
+                          required
                         />
                       </div>
                     </div>
@@ -1155,7 +1156,7 @@ const ProfileSec1 = (props) => {
                             name="country"
                             onChange={handleChange1}
                             value={address?.country}
-                          // required
+                            required
                           />
                         </div>
                         <div className="psi-input">
@@ -1165,7 +1166,7 @@ const ProfileSec1 = (props) => {
                             name="pincode"
                             onChange={handleChange1}
                             value={address?.pincode}
-                          // required
+                            required
                           />
                         </div>
                       </div>
@@ -1184,9 +1185,9 @@ const ProfileSec1 = (props) => {
                     type="checkbox"
                     id="same"
                     onClick={() => {
-                      document
-                        .getElementById("address-form")
-                        .toggleAttribute("novalidate");
+                      for (let i of document.querySelectorAll('.address-form2')) {
+                        i.toggleAttribute('required');
+                      }
                       document
                         .querySelector(".perm-add")
                         .classList.toggle("none");
@@ -1205,7 +1206,8 @@ const ProfileSec1 = (props) => {
                           name="addressLine11"
                           onChange={handleChange1}
                           value={address?.addressLine11}
-                        // required
+                          className="address-form2"
+                          required
                         />
                       </div>
                     </div>
@@ -1217,7 +1219,8 @@ const ProfileSec1 = (props) => {
                           name="addressLine21"
                           onChange={handleChange1}
                           value={address?.addressLine21}
-                        // required
+                          className="address-form2"
+                          required
                         />
                       </div>
                     </div>
@@ -1231,7 +1234,8 @@ const ProfileSec1 = (props) => {
                           name="state1"
                           onChange={handleChange1}
                           value={address?.state1}
-                        // required
+                          className="address-form2"
+                          required
                         />
                       </div>
                     </div>
@@ -1243,7 +1247,8 @@ const ProfileSec1 = (props) => {
                           name="city1"
                           onChange={handleChange1}
                           value={address?.city1}
-                        // required
+                          className="address-form2"
+                          required
                         />
                       </div>
                     </div>
@@ -1257,7 +1262,8 @@ const ProfileSec1 = (props) => {
                           name="landMark1"
                           onChange={handleChange1}
                           value={address?.landMark1}
-                        // required
+                          className="address-form2"
+                          required
                         />
                       </div>
                     </div>
@@ -1270,7 +1276,8 @@ const ProfileSec1 = (props) => {
                             name="country1"
                             onChange={handleChange1}
                             value={address?.country1}
-                          // required
+                            className="address-form2"
+                            required
                           />
                         </div>
                         <div className="psi-input">
@@ -1280,7 +1287,8 @@ const ProfileSec1 = (props) => {
                             name="pincode1"
                             onChange={handleChange1}
                             value={address?.pincode1}
-                          // required
+                            className="address-form2"
+                            required
                           />
                         </div>
                       </div>

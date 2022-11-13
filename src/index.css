@@ -134,8 +134,11 @@ p {
     align-items: flex-start !important;
 }
 
-.nav0 {
+.navbar-1 .nav0{
     width: 225px;
+}
+.nav0 {
+    width: 360px;
     margin-top: 10px;
     margin-left: 15px;
 }
@@ -4621,6 +4624,9 @@ hr {
 .psi-ex1 {
     width: 87%;
 }
+.psi-ex11 {
+    width: 100%;
+}
 
 .psi-ex .select-box--box {
     width: 87%;
@@ -4916,6 +4922,9 @@ hr {
     }
     .live-db {
         width: 17%;
+    }
+    .psi-ex11 {
+        width: 95%;
     }
 }
 

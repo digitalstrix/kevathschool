@@ -91,6 +91,9 @@ const Home = (props) => {
           </div>
         </div>
       </div>
+      <div className="learn_more">
+        <button className="btn btn1">Start Learning</button>
+      </div>
       <div className="yb">
         <div className="yb1">
           <div className="row">
