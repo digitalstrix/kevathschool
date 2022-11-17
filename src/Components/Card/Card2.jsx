@@ -8,27 +8,45 @@ const Card2 = () => {
         <div className="course-card1">
           <div className="course-card-img">
             <img src="/static/images/Rectangle 1281.png" alt="" />
+            <h4>Full Stack Web Development</h4>
           </div>
           <div className="course-card-text">
             <div className="course-card-text1">
-              <h5>Full Stack Web Development</h5>
               <div className="course-card-text01">
                 <div className="course-card-text02">
+                  <div style={{justifyContent:"space-between"}} className="row course-card-text11">
+                    <p>Part Time</p>
+                    <button className="btn btn1 course-card-btn">Zero Upfront Fees</button>
+                  </div>
+                  <div className="row course-card-text11">
+                    <b className="text-green">Education: </b>
+                    <p>Any Graduation</p>
+                  </div>
+                  <div className="row course-card-text11">
+                    <p className="text-purple">No Prior Coding Skills Required</p>
+                  </div>
+                  <h5>Full Stack Web Development</h5>
                   <div className="row course-card-text11">
                     <img src="/static/images3/start 1.png" alt="" />
-                    <p>18 Months</p>
+                    <p>Starts : 23 Oct 2022</p>
                   </div>
                   <div className="row course-card-text11">
                     <img src="/static/images3/Vector.png" alt="" />
-                    <p>Microsoft Certified</p>
+                    <p>Last Date to Apply : 30 Oct 2022</p>
                   </div>
                   <div className="row course-card-text11">
                     <img src="/static/images3/Vector (1).png" alt="" />
-                    <p>18 Months</p>
+                    <p>Pay Only After You Earn 5LPA</p>
                   </div>
-                  <div className="row course-card-text11">
-                    <img src="/static/images3/Vector (2).png" alt="" />
-                    <p>Microsoft Certified</p>
+                  <div style={{justifyContent:"space-between"}} className="row course-card-text11">
+                    <div className="row">
+                      <img src="/static/images3/Vector (2).png" alt="" />
+                      <p>Online</p>
+                    </div>
+                    <div className="row">
+                      <img src="/static/images3/209-2095776_transparent-time-clock-png-time-vector-icon-png 2.png" alt="" />
+                      <p>30 Weeks</p>
+                    </div>
                   </div>
                 </div>
               </div>

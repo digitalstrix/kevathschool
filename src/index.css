@@ -50,6 +50,7 @@ a {
 
 .navbar-1 {
     background: white;
+    height: 4.3rem !important;
 }
 
 p {
@@ -154,8 +155,8 @@ p {
 .nav1-1 {
     background-color: #e9ffe8;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,12 +164,12 @@ p {
 }
 
 .nav1-3 p{
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .nav1-1 img{
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .nav1-2 {
@@ -418,32 +419,48 @@ a {
 
 .fi-card {
     z-index: 10;
-    box-shadow: 0px 17px 63px -12px #969f95;
+    box-shadow: -1px -6px 9px rgba(0, 0, 0, 0.25), 0px 8px 18px rgba(0, 0, 0, 0.12);
     width: 28%;
     position: relative;
-    padding: 2rem;
     background-color: #fefffe;
-    border-radius: 22px;
-    margin: 3.5rem 2rem;
+    margin: 1rem 2rem;
 }
 
 .fi-card-img {
-    position: absolute;
-    bottom: 275px;
-    left: 45px;
-    border-radius: 22px;
-    background: #51b848;
-    box-shadow: 4px 7px 7px -3px rgba(66, 60, 60, 0.5);
-    width: 80%;
-    margin: auto;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
     height: 166px;
 }
-
-.fi-card-img h4 {
+.fi-card-bottom{
+    padding: 1.5rem;
+}
+.fi-card-bottom h5{
+    font-size: 16px;
+}
+.fi-card-bottom .row{
+    margin-bottom: 1rem;
+}
+.card1-btn{
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 43px;
+    color: white !important;
+    margin: 1rem 0rem;
+    padding: 18px 30px;
+}
+.card1-btn1{
+    margin: 2rem 0rem;
+}
+.fi-card-img1{
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    top: 0;
+    width: 100%;
+    padding: 35px;
+}
+.fi-card-img h4 {
     color: white;
+    font-size: 54px;
 }
 
 .fi-card-img img {
@@ -493,10 +510,15 @@ a {
 
 .learn_more {
     text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    width: fit-content;
+    box-shadow: 0px 100px 80px rgba(49, 49, 49, 0.1), 0px 64.8148px 46.8519px rgba(49, 49, 49, 0.0759259), 0px 38.5185px 25.4815px rgba(49, 49, 49, 0.0607407), 0px 20px 13px rgba(49, 49, 49, 0.05), 0px 8.14815px 6.51852px rgba(49, 49, 49, 0.0392593), 0px 1.85185px 3.14815px rgba(49, 49, 49, 0.0240741);
 }
 
 .learn_more btn {
     box-shadow: 0px 100px 80px rgba(49, 49, 49, 0.1), 0px 64.8148px 46.8519px rgba(49, 49, 49, 0.0759259), 0px 38.5185px 25.4815px rgba(49, 49, 49, 0.0607407), 0px 20px 13px rgba(49, 49, 49, 0.05), 0px 8.14815px 6.51852px rgba(49, 49, 49, 0.0392593), 0px 1.85185px 3.14815px rgba(49, 49, 49, 0.0240741);
+    border-radius: 5px;
 }
 
 .usp {
@@ -910,19 +932,43 @@ a {
 
 .course-card-text {
     position: absolute;
-    bottom: -70px;
+    bottom: -220px;
     left: 19px;
     width: 92%;
     background-color: white;
     color: black;
     box-shadow: -1px -6px 9px rgba(0, 0, 0, 0.25), 0px 8px 18px rgba(0, 0, 0, 0.12);
     padding: 1.4rem 1rem;
-    border-radius: 30px;
+    padding-top: 0px;
+}
+.course-card-btn{
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.course-card-text02{
+    width: 100%;
+}
+.text-purple{
+    color: rgba(105, 23, 181, 0.87);
+    font-weight: bold;
+}
+.course-card-text11 b{
+    margin-right: 4px;
+}
+.course-card-img{
+    position: relative;
+}
+.course-card-img h4{
+    position: absolute;
+    top: 45px;
+    left: 9%;
+    font-size: 22px;
 }
 
 .course-card {
     width: 29vw;
-    height: 30rem;
+    height: 38rem;
 }
 
 .course-card1 {
@@ -965,6 +1011,7 @@ a {
 
 .course-card-text1 a {
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .splide__arrow {
@@ -4566,7 +4613,11 @@ hr {
     color: white;
 }
 
+.auth-nav11 img{
+ width: 100%;
+}
 .auth-nav11 {
+    width: 360px;
     padding-top: 15px;
 }
 
@@ -4584,7 +4635,7 @@ hr {
 }
 
 .smallSb {
-    width: 8vw;
+    width: 10vw;
 }
 
 .smallInp {
@@ -4605,15 +4656,18 @@ hr {
 }
 
 .psi2011 label {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .psi2012 label {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .psi21 label {
-    font-size: 12px;
+    font-size: 17px;
+}
+.psi2011 h5{
+    font-size: 18px;
 }
 
 .psi-ex {
@@ -4625,7 +4679,7 @@ hr {
     width: 87%;
 }
 .psi-ex11 {
-    width: 100%;
+    width: 93%;
 }
 
 .psi-ex .select-box--box {
@@ -4644,10 +4698,13 @@ hr {
     width: 44%;
 }
 .psi31 label{
-    font-size: 12px;
+    font-size: 17px;
 }
 .psi13 label{
-    font-size: 12px;
+    font-size: 17px;
+}
+.psi11 h5{
+    font-size: 18px;
 }
 .err-show{
     color: rgb(221, 51, 74);
@@ -4858,8 +4915,6 @@ hr {
 }
 .psi-211{
     display: flex;
-    width: 44.2%;
-    margin-right: 37px;
 }
 .psi-211 .select-box--box{
     width: 100%;
@@ -4868,22 +4923,22 @@ hr {
     width: 100%;
 }
 .psi-2111{
-    width: 60%;
+    width: 50%;
 }
 .psi-2112{
-    width: 40%;
+    width: 33.5%;
 }
 .psi-212{
     display: flex;
-    width: 38%;
+    width: 48%;
 }
 .psi-2121{
-    width: 30%;
+    width: 20%;
 }
 .psi-2122{
     margin-bottom: 0;
-    margin-top: 5px;
-    width: 50%;
+    margin-top: 1px;
+    width: 40%;
 }
 .select-box--container input{
     padding: 6px 8px;
@@ -4895,6 +4950,11 @@ hr {
     width: 40%;
 }
 
+@media screen and (max-width: 1550px) {
+    .psi-2112 {
+        width: 32.5%;
+    }
+}
 @media screen and (max-width: 1380px) {
     .nav0 {
         width: 450px;
@@ -4904,10 +4964,6 @@ hr {
     }
     .home11 h1 {
         font-size: 80px;
-    }
-    .fi-card-img {
-        bottom: 270px;
-        left: 32px;
     }
     .fi-card {
         width: 30%;
@@ -4923,16 +4979,24 @@ hr {
     .live-db {
         width: 17%;
     }
-    .psi-ex11 {
-        width: 95%;
+    .psi-2111 {
+        width: 52%;
+    }
+    .psi-2112 {
+        width: 29.5%;
+    }
+    .psi-select-101 .smallSb{
+        width: 12vw;
+    }
+    .psi-select-102 .smallSb{
+        width: 5vw;
+    }
+    .course-card-text{
+        bottom: -200px;
     }
 }
 
-@media screen and (max-width: 1250px) {
-    .fi-card-img {
-        bottom: 72%;
-        left: 32px;
-    }
+@media screen and (max-width: 1260px) {
     .home11 h1 {
         font-size: 70px;
     }
@@ -4969,7 +5033,7 @@ hr {
         width: 90%;
     }
     .course-card-text {
-        bottom: -140px;
+        bottom: -250px;
     }
     .splide__arrow {
         top: 40% !important;
@@ -5070,6 +5134,18 @@ hr {
     }
     .live21 {
         padding: 2rem 1rem;
+    }
+    .psi-2111 {
+        width: 46%;
+    }
+    .psi-2112 {
+        width: 34.5%;
+    }
+    .psi-select-101 .smallSb{
+        width: 11vw;
+    }
+    .psi-select-102 .smallSb{
+        width: 5vw;
     }
 }
 
@@ -5278,6 +5354,12 @@ hr {
     .psi-ex2 .psi-input{
         margin-right: 3rem;
     }
+    .psi-select-101 .smallSb{
+        width: 17vw;
+    }
+    .psi-select-102 .smallSb{
+        width: 17vw;
+    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -5353,8 +5435,14 @@ hr {
     }
     .course-card-text {
         padding: 1rem;
-        bottom: -150px;
+        bottom: -250px;
         left: 12px;
+    }
+    .course-card-img h4{
+        font-size: 17px;
+    }
+    .course-card-text1 h5{
+        font-size: 17px;
     }
     .course-card {
         height: 50vh;
@@ -5650,8 +5738,14 @@ hr {
     .fi-card {
         width: 95%;
     }
-    .fi-card-img {
-        left: 10%;
+    .fi-card-img{
+        height: 250px;
+    }
+    .fi-card-img1 img{
+        width: 35%;
+    }
+    .fi-card-img1{
+        justify-content: center;
     }
     .usp012 {
         flex-direction: column;
@@ -5741,7 +5835,7 @@ hr {
     }
     .course-card-text {
         padding: 0.7rem;
-        bottom: -160px;
+        bottom: -300px;
         left: 9px;
     }
     .splide__arrow {
@@ -6360,7 +6454,7 @@ hr {
         width: 96%;
     }
     .course-card-text {
-        bottom: -110px;
+        bottom: -220px;
         left: 12px;
     }
     .course0 {
@@ -6475,6 +6569,9 @@ hr {
 }
 
 @media screen and (max-width: 760px) {
+    .fi-card-img1 img {
+        width: 221px;
+    }
     .yb12 {
         right: 89%;
     }
@@ -6673,7 +6770,7 @@ hr {
         margin-right: 30px;
     }
     .course-card-text {
-        bottom: -150px;
+        bottom: -280px;
         left: 10px;
     }
     .course-card {
@@ -6901,6 +6998,15 @@ hr {
         width: 100%;
         flex-wrap: wrap;
     }
+    .psi-ex11 {
+        width: 100%;
+    }
+    .psi-select-101 .smallSb{
+        width: 100%;
+    }
+    .psi-select-102 .smallSb{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 604px) {
@@ -6912,11 +7018,11 @@ hr {
         right: 90%;
     }
     .course-card-text {
-        bottom: -40px;
+        bottom: -120px;
         left: 20px;
     }
     .course-card {
-        height: 30rem;
+        height: 36rem;
     }
     .eve-reg1-card {
         width: 70vmin;
@@ -7206,6 +7312,18 @@ hr {
 }
 
 @media screen and (max-width: 555px) {
+    .fi-card-img1{
+        padding: 18px;
+    }
+    .fi-card-img {
+        height: 175px;
+    }
+    .fi-card-img h4 {
+        font-size: 42px;
+    }
+    .fi-card-img1 img {
+        width: 175px;
+    }
     .acourse111 {
         padding: 10px;
         text-align: center;
@@ -7529,11 +7647,11 @@ hr {
         top: 22rem;
     }
     .course-card-text {
-        bottom: -60px;
+        bottom: -140px;
         left: 15px;
     }
     .course-card{
-        height: 24rem;
+        height:31rem;
     }
     .eve-reg1-12 {
         height: 22vh;
@@ -7722,6 +7840,22 @@ hr {
 }
 
 @media screen and (max-width: 434px) {
+    .fi-card{
+        width: 100%;
+        margin: 3rem 0rem;
+    }
+    .fi-card-img1{
+        padding: 10px;
+    }
+    .fi-card-img {
+        height: 145px;
+    }
+    .fi-card-img h4 {
+        font-size: 32px;
+    }
+    .fi-card-img1 img {
+        width: 150px;
+    }
     .yb122 img {
         width: 16rem;
         height: 11rem;
@@ -7864,11 +7998,11 @@ hr {
         top: 24rem;
     }
     .course-card-text {
-        bottom: -80px;
+        bottom: -180px;
         left: 11px;
     }
     .course-card {
-        height: 22rem;
+        height: 30rem;
     }
     .evereg1_img1 {
         top: -23px;

@@ -62,9 +62,6 @@ const Home = (props) => {
               <Card1 />
               <Card1 />
               <Card1 />
-              <Card1 />
-              <Card1 />
-              <Card1 />
             </div>
             <div className="fields-fig">
               <img src="/static/images/Ellipse 1.png" alt="" />

@@ -333,45 +333,80 @@ const ProfileSec1 = (props) => {
 
   const submitHandle1 = async (e) => {
     e.preventDefault();
-    // console.log(address);
-    let obj = {
-      currentAddress: {
-        addressLine1: address?.addressLine1,
-        addressLine2: address?.addressLine2,
-        state: address?.state,
-        city: address?.city,
-        landmark: address?.landMark,
-        country: address?.country,
-        pinCode: Number(address?.pincode),
-      },
-    };
 
-    if (document.getElementById("same").checked) {
-      obj = { ...obj, isSameAddress: true };
-    } else {
-      obj = {
-        ...obj,
-        isSameAddress: false,
-        permanentAddress: {
-          addressLine1: address?.addressLine11,
-          addressLine2: address?.addressLine21,
-          state: address?.state1,
-          city: address?.city1,
-          landmark: address?.landMark1,
-          country: address?.country1,
-          pinCode: Number(address?.pincode1),
-        },
-      };
+    // console.log(address);
+    // console.log(Object.keys(address).length);
+    // let n = Object.keys(address).length;
+    // if(document.getElementById("same").checked)
+    // {
+
+    // }
+
+    let flag = false;
+    for (let i of document.querySelectorAll('.address-input')) {
+      // console.log(i);
+      // console.log(i.name);
+      // console.log(i.value);
+      if (i.value.length === 0) {
+        if (!document.getElementById(`${i.name}-err`)) {
+          let nc = document.createElement("div");
+          nc.setAttribute("id", `${i.name}-err`);
+          nc.setAttribute("class", "err-show");
+          nc.innerHTML = `${i.previousElementSibling.innerText} is required`;
+          i.parentNode.appendChild(nc);
+        }
+      } else {
+        document.getElementById(`${i.name}-err`)?.remove();
+      }
     }
 
-    console.log(obj);
-    let ans = await context.updateAddress(obj);
-    console.log(ans);
+    const checkErr = document.querySelectorAll(".err-show");
 
-    if (ans.status) {
-      props.setAlert(ans.message, "success");
-    } else {
-      props.setAlert(ans.more_info, "error");
+    if (checkErr.length === 0) {
+      flag = true;
+    }
+
+    if (flag) {
+      // console.log(address);
+      let obj = {
+        currentAddress: {
+          addressLine1: address?.addressLine1,
+          addressLine2: address?.addressLine2,
+          state: address?.state,
+          city: address?.city,
+          landmark: address?.landMark,
+          country: address?.country,
+          pinCode: Number(address?.pincode),
+        },
+      };
+
+      if (document.getElementById("same").checked) {
+        obj = { ...obj, isSameAddress: true };
+      } else {
+        obj = {
+          ...obj,
+          isSameAddress: false,
+          permanentAddress: {
+            addressLine1: address?.addressLine11,
+            addressLine2: address?.addressLine21,
+            state: address?.state1,
+            city: address?.city1,
+            landmark: address?.landMark1,
+            country: address?.country1,
+            pinCode: Number(address?.pincode1),
+          },
+        };
+      }
+
+      console.log(obj);
+      let ans = await context.updateAddress(obj);
+      console.log(ans);
+
+      if (ans.status) {
+        props.setAlert(ans.message, "success");
+      } else {
+        props.setAlert(ans.more_info, "error");
+      }
     }
   };
 
@@ -593,7 +628,7 @@ const ProfileSec1 = (props) => {
                     <h5 className="text-green">10th</h5>
                     {/* <div className="psi-ex1"></div> */}
                     <div className="psi211 psi-ex11 row">
-                      <div className="psi-select">
+                      <div className="psi-select psi-select-101">
                         <label>Passed Out Year</label>
                         <SelectBox
                           items={[
@@ -616,7 +651,7 @@ const ProfileSec1 = (props) => {
                           isEditable={true}
                         />
                       </div>
-                      <div className="psi-select">
+                      <div className="psi-select psi-select-102">
                         <label>Duration</label>
                         <SelectBox
                           items={[
@@ -649,7 +684,7 @@ const ProfileSec1 = (props) => {
                   <div className="psi2012">
                     <h5 className="text-green">12th</h5>
                     <div className="psi211 psi-ex11 row">
-                      <div className="psi-select">
+                      <div className="psi-select psi-select-101">
                         <label>Passed Out Year</label>
                         <SelectBox
                           items={[
@@ -672,7 +707,7 @@ const ProfileSec1 = (props) => {
                           isEditable={true}
                         />
                       </div>
-                      <div className="psi-select">
+                      <div className="psi-select psi-select-102">
                         <label>Duration</label>
                         <SelectBox
                           items={[
@@ -1090,8 +1125,8 @@ const ProfileSec1 = (props) => {
                           type="text"
                           name="addressLine1"
                           onChange={handleChange1}
+                          className="address-input"
                           value={address?.addressLine1}
-                          required
                         />
                       </div>
                     </div>
@@ -1102,8 +1137,8 @@ const ProfileSec1 = (props) => {
                           type="text"
                           name="addressLine2"
                           onChange={handleChange1}
+                          className="address-input"
                           value={address?.addressLine2}
-                          required
                         />
                       </div>
                     </div>
@@ -1116,8 +1151,8 @@ const ProfileSec1 = (props) => {
                           type="text"
                           name="state"
                           onChange={handleChange1}
+                          className="address-input"
                           value={address?.state}
-                          required
                         />
                       </div>
                     </div>
@@ -1128,8 +1163,8 @@ const ProfileSec1 = (props) => {
                           type="text"
                           name="city"
                           onChange={handleChange1}
+                          className="address-input"
                           value={address?.city}
-                          required
                         />
                       </div>
                     </div>
@@ -1142,8 +1177,8 @@ const ProfileSec1 = (props) => {
                           type="text"
                           name="landMark"
                           onChange={handleChange1}
+                          className="address-input"
                           value={address?.landMark}
-                          required
                         />
                       </div>
                     </div>
@@ -1155,8 +1190,8 @@ const ProfileSec1 = (props) => {
                             type="text"
                             name="country"
                             onChange={handleChange1}
+                            className="address-input"
                             value={address?.country}
-                            required
                           />
                         </div>
                         <div className="psi-input">
@@ -1165,8 +1200,8 @@ const ProfileSec1 = (props) => {
                             type="number"
                             name="pincode"
                             onChange={handleChange1}
+                            className="address-input"
                             value={address?.pincode}
-                            required
                           />
                         </div>
                       </div>
@@ -1186,7 +1221,8 @@ const ProfileSec1 = (props) => {
                     id="same"
                     onClick={() => {
                       for (let i of document.querySelectorAll('.address-form2')) {
-                        i.toggleAttribute('required');
+                        i.classList.toggle('address-input');
+                        document.getElementById(`${i.name}-err`)?.remove();
                       }
                       document
                         .querySelector(".perm-add")
@@ -1206,8 +1242,7 @@ const ProfileSec1 = (props) => {
                           name="addressLine11"
                           onChange={handleChange1}
                           value={address?.addressLine11}
-                          className="address-form2"
-                          required
+                          className="address-form2 address-input"
                         />
                       </div>
                     </div>
@@ -1219,8 +1254,7 @@ const ProfileSec1 = (props) => {
                           name="addressLine21"
                           onChange={handleChange1}
                           value={address?.addressLine21}
-                          className="address-form2"
-                          required
+                          className="address-form2 address-input"
                         />
                       </div>
                     </div>
@@ -1234,8 +1268,7 @@ const ProfileSec1 = (props) => {
                           name="state1"
                           onChange={handleChange1}
                           value={address?.state1}
-                          className="address-form2"
-                          required
+                          className="address-form2 address-input"
                         />
                       </div>
                     </div>
@@ -1247,8 +1280,7 @@ const ProfileSec1 = (props) => {
                           name="city1"
                           onChange={handleChange1}
                           value={address?.city1}
-                          className="address-form2"
-                          required
+                          className="address-form2 address-input"
                         />
                       </div>
                     </div>
@@ -1262,8 +1294,7 @@ const ProfileSec1 = (props) => {
                           name="landMark1"
                           onChange={handleChange1}
                           value={address?.landMark1}
-                          className="address-form2"
-                          required
+                          className="address-form2 address-input"
                         />
                       </div>
                     </div>
@@ -1276,8 +1307,7 @@ const ProfileSec1 = (props) => {
                             name="country1"
                             onChange={handleChange1}
                             value={address?.country1}
-                            className="address-form2"
-                            required
+                            className="address-form2 address-input"
                           />
                         </div>
                         <div className="psi-input">
@@ -1287,8 +1317,7 @@ const ProfileSec1 = (props) => {
                             name="pincode1"
                             onChange={handleChange1}
                             value={address?.pincode1}
-                            className="address-form2"
-                            required
+                            className="address-form2 address-input"
                           />
                         </div>
                       </div>

@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const CourseMain = (props) => {
   const navigate = useNavigate();
-    
+
   const [perPage, setPerPage] = useState(3);
 
   useEffect(() => {
