@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Card2 from "../Card/Card2";
@@ -183,7 +183,7 @@ const CourseMain = (props) => {
           </div>
           <div className="course312">
             <div className="course3121">
-              <button className="btn btn3">CHECK OUR FAQS</button>
+              <NavLink to="/faq" className="btn btn3">CHECK OUR FAQS</NavLink>
             </div>
           </div>
         </div>

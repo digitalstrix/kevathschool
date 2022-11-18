@@ -50,6 +50,7 @@ import Forget3 from "./Components/Authentication/Forget3";
 import Referral from "./Components/Authentication/Referral";
 import Referral1 from "./Components/Referral/Referral1";
 import VerifyEmail from "./Components/Authentication/VerifyEamil";
+import Referral2 from "./Components/Referral/Referral2";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -466,6 +467,18 @@ const App = () => {
               path="/referral1"
               element={
                 <Referral1
+                  setFootFlag={setFootFlag}
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                />
+              }
+            />
+            <Route
+              path="/referral2"
+              element={
+                <Referral2
                   setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}

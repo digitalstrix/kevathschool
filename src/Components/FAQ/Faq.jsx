@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
     Accordion,
     AccordionItem,
@@ -312,7 +312,7 @@ const Faq = (props) => {
                     </div>
                     <div className="eve-reg1313">
                         <img src="/static/images2/Polygon 8.png" alt="" />
-                        <button className="btn btn1">Contact us</button>
+                        <NavLink to="/contact" className="btn btn1">Contact us</NavLink>
                     </div>
                 </div>
             </div>

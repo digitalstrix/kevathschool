@@ -4949,6 +4949,103 @@ hr {
 .psi-ex4{
     width: 40%;
 }
+.refe-2{
+    padding-top: 10rem;
+    background: linear-gradient(180deg, rgba(81, 184, 72, 0.69) 0%, rgba(217, 217, 217, 0) 65.1%);
+}
+.refe-21{
+    padding: 3rem 2rem;
+}
+.refe-211 h3{
+    font-size: 35px;
+    color: #525151;
+}
+.refe-211 h1{
+    font-size: 80px;
+    margin-top: 0.6rem;
+    margin-bottom: 1.4rem;
+}
+.refe-211{
+    width: 50%;
+}
+.refe2-btn{
+    margin-top: 3rem;
+}
+.refe-212{
+    width: 50%;
+}
+.refe-212 img{
+    width: 100%;
+}
+.refe-211 img{
+    width: 100%;
+}
+.refe-22{
+    padding: 2rem;
+}
+.refe-22 h3{
+    font-size: 45px;
+    color: #414141;
+    margin-bottom: 2rem;
+}
+.refe-2211{
+    margin-right: 1rem;
+    width: 50%;
+    text-align: end;
+}
+.refe-2212{
+    margin-left: 4rem;
+    width: 50%;
+}
+.refe-22121{
+    margin-right: 3rem;
+    position: relative;
+}
+.refe-line{
+    height: 250px;
+    width: 1px;
+    background-color: #50B74B;
+}
+.refe-line1{
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: -25px;
+}
+.refe-line12{
+    margin-bottom: 55px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #D9D9D9;
+    box-shadow: 2px 3px 13px -2px rgba(0, 0, 0, 0.25);
+    font-size: 40px;
+}
+.refe-22122{
+    margin-top: 77px;
+}
+.refe-22122 b{
+    display: block;
+    font-size: 26px;
+    margin-bottom: 60px;
+}
+.refe2-btn1{
+    margin-top: 4rem;
+}
+.refe231{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    margin-bottom: 1.5rem;
+}
+.refe231 p{
+    font-size: 20px;
+}
+.refe-23{
+    padding: 2rem 8rem;
+}
 
 @media screen and (max-width: 1550px) {
     .psi-2112 {
@@ -6430,6 +6527,38 @@ hr {
     .refe6 h5{
         text-align: center;
     }
+    .refe-2{
+        padding-top: 3rem;
+    }
+    .refe-21{
+        flex-direction: column-reverse;
+    }
+    .refe-211{
+        width: 100%;
+    }
+    .refe-212{
+        padding: 0rem 7rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    .refe-221{
+        flex-direction: column;
+    }
+    .refe-2211{
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+    .refe-2212{
+        width: 100%;
+        justify-content: center;
+    }
+    .refe-22122 b{
+        margin-bottom: 68px;
+    }
+    .refe2-btn1 {
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (max-width: 812px) {
@@ -7309,6 +7438,57 @@ hr {
     .eve-reg2-main1 {
         width: 90vmin;
     }
+    .refe-212{
+        padding: 0;
+    }
+    .refe-211 h3{
+        font-size: 17px;
+    }
+    .refe-211 h1{
+        font-size: 35px;
+        margin-top: 6px;
+        margin-bottom: 10px;
+    }
+    .refe2-btn {
+        margin-top: 1rem;
+    }
+    .refe-22 h3{
+        font-size: 19px;
+        margin-bottom: 1rem;
+    }
+    .refe-21{
+        padding-bottom: 1rem;
+    }
+    .refe-22122 b{
+        font-size: 17px;
+    }
+    .refe-line12{
+        font-size: 18px;
+        height: 30px;
+        width: 30px;
+    }
+    .refe-line{
+        height: 180px;
+    }
+    .refe-line1{
+        left: -15px;
+        top: -21px;
+    }
+    .refe-22122{
+        margin-top: 42px;
+    }
+    .refe-22122 b {
+        margin-bottom: 62px;
+    }
+    .refe-23{
+        padding: 1.5rem;
+    }
+    .refe-23 h1{
+        font-size: 20px;
+    }
+    .refe231 p {
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width: 555px) {
@@ -7788,6 +7968,9 @@ hr {
     }
     .cert21{
         margin-bottom: 10px;
+    }
+    .refe-2211 img{
+        width: 100%;
     }
 }
 @media screen and (max-width: 900px) {
