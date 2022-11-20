@@ -91,7 +91,7 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
+    height: 3.8rem;
     position: relative;
     position: fixed;
     width: 100%;
@@ -1084,7 +1084,8 @@ a {
 }
 
 .img-cls {
-    padding-top: 5rem;
+    /* padding-top: 5rem; */
+    padding-top: 3.8rem;
 }
 
 .eve-reg1-main {
@@ -3067,7 +3068,8 @@ hr {
 }
 
 .user-dp-top1 {
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
+    padding: 0px 1.5rem;
     cursor: pointer;
     color: #222121;
     font-size: 20px;
@@ -3462,6 +3464,7 @@ hr {
 
 .auth-nav1 {
     height: 100%;
+    height: 3.8rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -4619,6 +4622,7 @@ hr {
 .auth-nav11 {
     width: 360px;
     padding-top: 15px;
+    margin-left: 15px;
 }
 
 .select-box--container {
