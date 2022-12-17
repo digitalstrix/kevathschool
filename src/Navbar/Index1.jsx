@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Avatar from "react-avatar";
 import { useEffect } from "react";
+import MainContext from "../context/MainContext";
 
 const Index1 = (props) => {
   const navigate = useNavigate();
+  const context = useContext(MainContext);
   // console.log(props, "<<<<< props at index1");
   // const getUserData = async () => {
   //   // const { data } = await context.getUserDetails();
@@ -15,6 +17,7 @@ const Index1 = (props) => {
   useEffect(() => {
     if (Object.keys(props.userInfo)?.length === 0) {
       props.setUserInfo(JSON.parse(localStorage.getItem("kevath_user1")));
+      context.getUserDetails();
     }
 
     if (props.userInfoFlag) {

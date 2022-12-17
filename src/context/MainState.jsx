@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { session_data } from "../Service/localdata";
 import MainContext from "./MainContext";
 
-const baseUrl = "http://kevathschool.com/api/v1";
+export const DEFAULT_TEST_ID = "df7dd771-1d3c-41a1-81f0-816dc8394d60";
+const baseUrl = "https://kevathschool.com/api/v1";
+
+const getToken = async () =>
+  await JSON.parse(localStorage.getItem("kevath_user"))?.token;
+
+export const getSessionData = async () => {};
 
 const MainState = (props) => {
+  //  states
+  const [userData, setUserData] = useState({ name: "akshay" });
+
+  // ------
   const signup = async (firstName, lastName, email, contact, password) => {
     console.log(firstName, lastName, email, contact, password);
     const response = await fetch(`${baseUrl}/users/register`, {
@@ -46,6 +57,8 @@ const MainState = (props) => {
     });
     const data = await response.json();
     console.log(data);
+    setUserData(data.data);
+
     return data;
   };
 
@@ -269,6 +282,55 @@ const MainState = (props) => {
     return data;
   };
 
+  // test modules=------------------------
+
+  const createSession = async (userId, testId, callBack) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+    myHeaders.append("Content-Type", "application/json");
+    console.log(userId, testId, "payload at create session");
+
+    var raw = JSON.stringify({
+      // userId: "286fdcb6-6f94-4d21-b092-4abdb58ce3cf",
+      // testId: "df7dd771-1d3c-41a1-81f0-816dc8394d60",
+      userId,
+      testId,
+      correctScore: 0,
+      totalScore: 60,
+      questions: {
+        total: 0,
+        attempted: 0,
+        unAttempted: 0,
+        correct: 0,
+        wrong: 0,
+      },
+      isCleared: false,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/session", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result, "<<<<started session result");
+        const data = JSON.parse(result);
+        if (data.status == true) {
+          console.log(data);
+          localStorage.setItem(session_data, JSON.stringify(data.data));
+          callBack(data);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+  const getSaveduserData = () => userData;
+
+  //
+
   return (
     <>
       <MainContext.Provider
@@ -287,6 +349,9 @@ const MainState = (props) => {
           referralRegister,
           contactUs,
           hireFromUs,
+          userData,
+          createSession,
+          getSaveduserData,
         }}
       >
         {props.children}

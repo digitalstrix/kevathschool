@@ -300,6 +300,7 @@ const App = () => {
               element={
                 <ProfileSec3
                   userFlag={userFlag}
+                  userInfo={userInfo}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
                   setNavFlag2={setNavFlag2}
