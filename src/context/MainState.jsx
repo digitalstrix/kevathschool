@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { session_data } from "../Service/localdata";
 import MainContext from "./MainContext";
 
-export const DEFAULT_TEST_ID = "df7dd771-1d3c-41a1-81f0-816dc8394d60";
+export const DEFAULT_TEST_ID = "6b5a658f-37bc-4b9c-ba92-f0b2c3d645a3";
 const baseUrl = "https://kevathschool.com/api/v1";
 
 const getToken = async () =>
@@ -284,6 +284,57 @@ const MainState = (props) => {
 
   // test modules=------------------------
 
+  const submitQuestion = async (payload, callBAck) => {
+    const { testId, questionId, sessionId, optionCode } = payload;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+    var raw = JSON.stringify({
+      userId: userData.id,
+      questionId,
+      testId,
+      sessionId,
+      optionCode,
+    });
+    console.log(
+      { userId: userData.id, questionId, testId, sessionId, optionCode },
+      "<<<<payload at submission"
+    );
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/submission", requestOptions)
+      .then((response) => response.text())
+      .then((result) => callBAck(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
+  };
+
+  const getSubmittedQuestion = async (payload, callBAck) => {
+    const { test_id, question_id, session_id } = payload;
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      `${baseUrl}/submission?test_id=${test_id}&session_id=${session_id}&question_id=${question_id}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        callBAck(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
+  };
   const createSession = async (userId, testId, callBack) => {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + (await getToken()));
@@ -352,6 +403,8 @@ const MainState = (props) => {
           userData,
           createSession,
           getSaveduserData,
+          getSubmittedQuestion,
+          submitQuestion,
         }}
       >
         {props.children}
