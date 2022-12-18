@@ -164,13 +164,14 @@ export const checkIsAnswered = async (q_no) => {
   } else return false;
 };
 
-export const MatchColor = async (q_no) => {
+export const MatchColor = async (q_no, callback) => {
   let skipped = await checkIsSkipped(q_no);
   let answered = await checkIsAnswered(q_no);
   console.log("MatchColor", skipped, answered, q_no);
   if (answered) {
-    return 2;
+    callback(2);
+    // return 2;
   }
-  if (skipped) return 1;
-  else return 0;
+  if (skipped) callback(1);
+  else callback(0);
 };

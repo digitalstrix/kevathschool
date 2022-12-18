@@ -315,16 +315,18 @@ const ProfileSecTest = (props) => {
                   <div className="row">
                     {/* // const checkColor = await MatchColor(index + 1); */}
                     {testQuestions?.map((item, index) => {
-                      // const checkColor = 1;
+                      let checkColor = 0;
+                      console.log(MatchColor(index + 1), "<<<thisismatchcolor");
+                      // async () => await MatchColor(index + 1)
                       return (
                         <div
-                        // className={`test-pill  ${
-                        //   checkColor == 2
-                        //     ? "bg-green"
-                        //     : checkColor == 1
-                        //     ? "bg-blue"
-                        //     : ""
-                        // }`}
+                          className={`test-pill  ${
+                            checkColor == 2
+                              ? "bg-green"
+                              : checkColor == 1
+                              ? "bg-blue"
+                              : ""
+                          }`}
                         >
                           {index + 1}
                         </div>
