@@ -1,5 +1,7 @@
 export const kevath_user = "kevath_user";
 export const session_data = "session_data";
+export const skipped_question = "SKIPPED_QUESTIONS";
+export const answered_question = "ANSWERED_QUESTIONS";
 
 export const getUserData = async () => {
   const data = localStorage.getItem(kevath_user);
@@ -101,4 +103,74 @@ export const QUESTION_2 = {
   createdBy: null,
   modifiedDate: "2022-11-12T09:13:13.885Z",
   modifiedBy: null,
+};
+
+export const saveInAnswered = async (q_no) => {
+  const allAnswered = await getAnswered();
+  console.log(q_no, allAnswered, "<<<<< thisisanswered");
+  if (await checkIsAnswered(q_no)) {
+  } else {
+    if (allAnswered) {
+      await localStorage.setItem(
+        answered_question,
+        JSON.stringify([...allAnswered, q_no])
+      );
+    } else {
+      await localStorage.setItem(answered_question, JSON.stringify([q_no]));
+    }
+  }
+};
+export const saveInSkipped = async (q_no) => {
+  const allSkipped = await getSkipped();
+  if (await checkIsAnswered(q_no)) {
+  } else {
+    if (allSkipped) {
+      await localStorage.setItem(
+        skipped_question,
+        JSON.stringify([...allSkipped, q_no])
+      );
+    } else {
+      await localStorage.setItem(skipped_question, JSON.stringify([q_no]));
+    }
+  }
+};
+
+export const getSkipped = async () => {
+  const data = await localStorage.getItem(skipped_question);
+  if (data) return JSON.parse(data);
+  else return null;
+};
+
+export const getAnswered = async () => {
+  const data = await localStorage.getItem(answered_question);
+  if (data) return JSON.parse(data);
+  else return null;
+};
+
+export const checkIsSkipped = async (q_no) => {
+  const allSkipped = await getSkipped();
+  if (allSkipped != null) {
+    const checkIsInArray = allSkipped.filter((item) => item == q_no);
+    if (checkIsInArray.length > 0) return true;
+    else return false;
+  } else return false;
+};
+export const checkIsAnswered = async (q_no) => {
+  const allAnswered = await getAnswered();
+  if (allAnswered != null) {
+    const checkIsInArray = allAnswered.filter((item) => item == q_no);
+    if (checkIsInArray.length > 0) return true;
+    else return false;
+  } else return false;
+};
+
+export const MatchColor = async (q_no) => {
+  let skipped = await checkIsSkipped(q_no);
+  let answered = await checkIsAnswered(q_no);
+  console.log("MatchColor", skipped, answered, q_no);
+  if (answered) {
+    return 2;
+  }
+  if (skipped) return 1;
+  else return 0;
 };

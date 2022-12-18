@@ -380,6 +380,44 @@ const MainState = (props) => {
   };
   const getSaveduserData = () => userData;
 
+  const getSingleQuestion = async (questionId, callBack) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+
+    var formdata = new FormData();
+    // formdata.append("id", questionId);
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      // body: formdata,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/question?id=" + questionId, requestOptions)
+      .then((response) => response.text())
+      .then((result) => callBack(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
+  };
+
+  const getAllQuestionsinTest = async (testId, callBack) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/test?id=" + testId, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        callBack(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   //
 
   return (
@@ -405,6 +443,8 @@ const MainState = (props) => {
           getSaveduserData,
           getSubmittedQuestion,
           submitQuestion,
+          getSingleQuestion,
+          getAllQuestionsinTest,
         }}
       >
         {props.children}
