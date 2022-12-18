@@ -120,21 +120,35 @@ const MainState = (props) => {
     return data;
   };
 
-  const changePassword = async (email, currentPassword, newPassword) => {
-    const response = await fetch(`${baseUrl}/users/change-password`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
-      },
-      body: JSON.stringify({ email, currentPassword, newPassword }),
-      redirect: "follow",
+  const changePassword = async (
+    email,
+    currentPassword,
+    newPassword,
+    callBack
+  ) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email,
+      currentPassword,
+      newPassword,
     });
-    const data = await response.json();
-    console.log(data);
-    return data;
+
+    var requestOptions = {
+      method: "PATCH",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/users/change-password", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        callBack(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
   };
 
   const forgetPassword1 = async (email) => {
