@@ -5,8 +5,11 @@ import MainContext from "../../context/MainContext";
 import { DEFAULT_TEST_ID } from "../../context/MainState";
 import {
   getSessiondata,
+  MatchColor,
   QUESTION_1,
   QUESTION_2,
+  saveInAnswered,
+  saveInSkipped,
 } from "../../Service/localdata";
 import "./style.css";
 
@@ -17,11 +20,23 @@ const ProfileSecTest = (props) => {
   const [questionCount, setQuestionCount] = useState(1);
   const [selectedOption, setselectedOption] = useState(null);
   const [currQuestionData, setCurrQuestionData] = useState(null);
+  const [testQuestions, settestQuestionsData] = useState([]);
   //   const, s] = useState(second)
-  const testQuestions = [QUESTION_1, QUESTION_2];
+  // const testQuestions = [QUESTION_1, QUESTION_2];
 
   useEffect(() => {
     context.getUserDetails();
+    (async () => {
+      const data = await getSessiondata();
+      setSessionData(data);
+    })();
+    context.getAllQuestionsinTest(DEFAULT_TEST_ID, (res) => {
+      console.log(
+        res.data[0].questions,
+        "<<<<< this is get all questions in test"
+      );
+      settestQuestionsData(res.data[0].questions);
+    });
 
     let user = localStorage.getItem("kevath_user");
     if (user) {
@@ -32,21 +47,50 @@ const ProfileSecTest = (props) => {
     } else {
       navigate("/login");
     }
-    (async () => {
-      const data = await getSessiondata();
-      setSessionData(data);
-    })();
 
     props.setNavFlag1(false);
     props.setNavFlag2(false);
     props.setFootFlag(true);
   }, []);
+  //  call it whenever session id and test data reload
+  // console.log(testQuestions, "<<<thisistestquestions");
+  useEffect(() => {
+    console.log(testQuestions, "<<<thisistestquestions1");
+    // console.log(testQuestions, "<<<thisistestquestions");
+    if (testQuestions.length) {
+      context.getSingleQuestion(
+        testQuestions[+questionCount - 1]?.QuestionId,
+        (res) => {
+          console.log(res.data, "get single question data");
+          setCurrQuestionData(res.data[0]);
+        }
+      );
+      getIfSubmitted(testQuestions[+questionCount - 1]?.QuestionId);
+    }
+  }, [sessionData, testQuestions]);
 
   //  use effect to get question detail on changing of question
   useEffect(() => {
-    setCurrQuestionData(testQuestions[+questionCount - 1]);
-    getIfSubmitted(testQuestions[+questionCount - 1].id);
-    setselectedOption(null);
+    // console.log(testQuestions[+questionCount - 1])
+    // setCurrQuestionData(testQuestions[+questionCount - 1]);
+    // getSingleQuestion
+    // console.log(testQuestions, "get single question data");
+    if (!testQuestions.length) {
+      // console.log(testQuestions, "<<<<this is testQuestion--4");
+    } else {
+      console.log(testQuestions, "<<<<this is testQuestion");
+      getIfSubmitted(testQuestions[+questionCount - 1]?.QuestionId);
+      setselectedOption(null);
+      context.getSingleQuestion(
+        testQuestions[+questionCount - 1]?.QuestionId,
+        (res) => {
+          if (res.data != "null") {
+            console.log(res, "get single question data");
+            setCurrQuestionData(res.data[0]);
+          }
+        }
+      );
+    }
   }, [questionCount]);
 
   const func1 = (e, option) => {
@@ -73,11 +117,18 @@ const ProfileSecTest = (props) => {
 
         if (res.status) {
           setQuestionCount(+questionCount + +1);
+          saveInAnswered(questionCount);
         }
       }
     );
   };
   const getIfSubmitted = (questionID) => {
+    console.log("ifsubmitted", {
+      test_id: DEFAULT_TEST_ID,
+      question_id: questionID,
+      session_id: sessionData.id,
+    });
+
     context.getSubmittedQuestion(
       {
         test_id: DEFAULT_TEST_ID,
@@ -85,7 +136,7 @@ const ProfileSecTest = (props) => {
         session_id: sessionData.id,
       },
       (res) => {
-        console.log(res);
+        console.log(res, "ifsubmitted");
         if (res.data.status) {
           setselectedOption(res.data.data.optionCode);
         }
@@ -211,7 +262,10 @@ const ProfileSecTest = (props) => {
                 {testQuestions.length != questionCount && (
                   <button
                     className="btn1 btn test-btn"
-                    onClick={() => setQuestionCount(+questionCount + 1)}
+                    onClick={() => {
+                      setQuestionCount(+questionCount + 1);
+                      saveInSkipped(questionCount);
+                    }}
                   >
                     Skip
                   </button>
@@ -259,7 +313,24 @@ const ProfileSecTest = (props) => {
                 <div className="test-sec1">
                   <h5>Aptitude</h5>
                   <div className="row">
-                    <div className="test-pill bg-green">1</div>
+                    {/* // const checkColor = await MatchColor(index + 1); */}
+                    {testQuestions?.map((item, index) => {
+                      // const checkColor = 1;
+                      return (
+                        <div
+                        // className={`test-pill  ${
+                        //   checkColor == 2
+                        //     ? "bg-green"
+                        //     : checkColor == 1
+                        //     ? "bg-blue"
+                        //     : ""
+                        // }`}
+                        >
+                          {index + 1}
+                        </div>
+                      );
+                    })}
+                    {/* <div className="test-pill bg-green">1</div>
                     <div className="test-pill bg-green">2</div>
                     <div className="test-pill bg-blue">3</div>
                     <div className="test-pill">4</div>
@@ -268,10 +339,10 @@ const ProfileSecTest = (props) => {
                     <div className="test-pill bg-green">7</div>
                     <div className="test-pill bg-blue">8</div>
                     <div className="test-pill">9</div>
-                    <div className="test-pill">10</div>
+                    <div className="test-pill">10</div> */}
                   </div>
                 </div>
-                <div className="test-sec1">
+                {/* <div className="test-sec1">
                   <h5>English</h5>
                   <div className="row">
                     <div className="test-pill bg-green">1</div>
@@ -315,7 +386,7 @@ const ProfileSecTest = (props) => {
                     <div className="test-pill">9</div>
                     <div className="test-pill">10</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
