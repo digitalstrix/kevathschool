@@ -6143,6 +6143,7 @@ hr {
     .test-pill {
         width: 30px !important;
         height: 30px !important;
+        cursor: pointer;
     }
     .test-main1 {
         width: 100% !important;
@@ -7232,6 +7233,7 @@ hr {
     .test-pill {
         width: 25px !important;
         height: 25px !important;
+        cursor: pointer;
     }
     .test221 h4 {
         font-size: 17px !important;

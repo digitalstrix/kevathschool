@@ -141,8 +141,8 @@ export const getSkipped = async () => {
   else return null;
 };
 
-export const getAnswered = async () => {
-  const data = await localStorage.getItem(answered_question);
+export const getAnswered = () => {
+  const data = localStorage.getItem(answered_question);
   if (data) return JSON.parse(data);
   else return null;
 };
@@ -164,9 +164,9 @@ export const checkIsAnswered = async (q_no) => {
   } else return false;
 };
 
-export const MatchColor = async (q_no, callback) => {
-  let skipped = await checkIsSkipped(q_no);
-  let answered = await checkIsAnswered(q_no);
+export const MatchColor = (q_no, callback) => {
+  let skipped = checkIsSkipped(q_no);
+  let answered = checkIsAnswered(q_no);
   console.log("MatchColor", skipped, answered, q_no);
   if (answered) {
     callback(2);

@@ -49,6 +49,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 4.3rem;
 }
 .test-nav11{
     height: 11vh;

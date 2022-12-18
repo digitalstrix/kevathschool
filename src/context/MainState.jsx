@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { session_data } from "../Service/localdata";
 import MainContext from "./MainContext";
 
+// export const DEFAULT_TEST_ID = "6b5a658f-37bc-4b9c-ba92-f0b2c3d645a3";
 export const DEFAULT_TEST_ID = "6b5a658f-37bc-4b9c-ba92-f0b2c3d645a3";
+
 const baseUrl = "https://kevathschool.com/api/v1";
 
 const getToken = async () =>
@@ -418,6 +420,52 @@ const MainState = (props) => {
       .catch((error) => console.log("error", error));
   };
 
+  const submitTest = async (payload, callBack) => {
+    const { testId, sessionId } = payload;
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      userId: userData.id,
+      testId,
+      sessionId,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(baseUrl + "/test/submit", requestOptions)
+      .then((response) => response.text())
+      .then((result) => callBack(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
+  };
+
+  const getSessionStatus = async (payload, callBack) => {
+    const { test_id, session_id, status } = payload;
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + (await getToken()));
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      baseUrl +
+        `/session/status?test_id=${test_id}&session_id=${session_id}&status=${status}&user_id=${userData.id}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => callBack(JSON.parse(result)))
+      .catch((error) => console.log("error", error));
+  };
+
   //
 
   return (
@@ -445,6 +493,8 @@ const MainState = (props) => {
           submitQuestion,
           getSingleQuestion,
           getAllQuestionsinTest,
+          getSessionStatus,
+          submitTest,
         }}
       >
         {props.children}

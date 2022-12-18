@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/MainContext";
 import { DEFAULT_TEST_ID } from "../../context/MainState";
 import {
+  answered_question,
+  getAnswered,
   getSessiondata,
   MatchColor,
   QUESTION_1,
   QUESTION_2,
   saveInAnswered,
   saveInSkipped,
+  skipped_question,
 } from "../../Service/localdata";
 import "./style.css";
 
@@ -21,13 +24,17 @@ const ProfileSecTest = (props) => {
   const [selectedOption, setselectedOption] = useState(null);
   const [currQuestionData, setCurrQuestionData] = useState(null);
   const [testQuestions, settestQuestionsData] = useState([]);
+  const [testData, setTestData] = useState({});
+  const [timer, setTimer] = useState("");
   //   const, s] = useState(second)
   // const testQuestions = [QUESTION_1, QUESTION_2];
 
   useEffect(() => {
     context.getUserDetails();
+
     (async () => {
       const data = await getSessiondata();
+      console.log(data, "<<<this is session data");
       setSessionData(data);
     })();
     context.getAllQuestionsinTest(DEFAULT_TEST_ID, (res) => {
@@ -35,6 +42,7 @@ const ProfileSecTest = (props) => {
         res.data[0].questions,
         "<<<<< this is get all questions in test"
       );
+      setTestData(res.data[0]);
       settestQuestionsData(res.data[0].questions);
     });
 
@@ -67,6 +75,17 @@ const ProfileSecTest = (props) => {
       );
       getIfSubmitted(testQuestions[+questionCount - 1]?.QuestionId);
     }
+
+    context.getSessionStatus(
+      {
+        test_id: DEFAULT_TEST_ID,
+        session_id: sessionData.id,
+        status: "active",
+      },
+      (res) => {
+        console.log(res, "<<<<<sessionstatus");
+      }
+    );
   }, [sessionData, testQuestions]);
 
   //  use effect to get question detail on changing of question
@@ -143,6 +162,24 @@ const ProfileSecTest = (props) => {
       }
     );
   };
+  const submitTest = () => {
+    context.submitTest(
+      {
+        testId: DEFAULT_TEST_ID,
+        sessionId: sessionData.id,
+      },
+      (res) => {
+        console.log(res, "<<< submit test");
+        if (res.status) {
+          props.setAlert(res.message, "success");
+        } else {
+          props.setAlert(res.message, "error");
+        }
+      }
+    );
+  };
+
+  // useEffect(() => {}, []);
 
   return (
     <>
@@ -154,7 +191,7 @@ const ProfileSecTest = (props) => {
               alt=""
             />
           </div>
-          <div className="test-nav12">TEST 1 BASICS OF PROGRAMMING</div>
+          <div className="test-nav12">{testData?.testName}</div>
         </div>
       </div>
       <div className="test-main">
@@ -270,7 +307,22 @@ const ProfileSecTest = (props) => {
                     Skip
                   </button>
                 )}
-                {testQuestions.length != questionCount && (
+
+                <button
+                  className="btn1 btn test-btn"
+                  style={{
+                    background: selectedOption == null ? "gray" : "#51b848",
+                  }}
+                  onClick={() => {
+                    if (selectedOption != null) {
+                      submitQuestion();
+                    }
+                  }}
+                >
+                  Save{testQuestions.length != questionCount && " & Next"}
+                </button>
+
+                {/* {testQuestions.length == questionCount && (
                   <button
                     className="btn1 btn test-btn"
                     style={{
@@ -278,28 +330,12 @@ const ProfileSecTest = (props) => {
                     }}
                     onClick={() => {
                       if (selectedOption != null) {
-                        submitQuestion();
-                      }
-                    }}
-                  >
-                    Save & Next
-                  </button>
-                )}
-                {testQuestions.length == questionCount && (
-                  <button
-                    className="btn1 btn test-btn"
-                    style={{
-                      background: selectedOption == null ? "gray" : "#51b848",
-                    }}
-                    onClick={() => {
-                      if (selectedOption != null) {
-                        //   setQuestionCount(+questionCount + +1);
                       }
                     }}
                   >
                     Submit
                   </button>
-                )}
+                )} */}
                 {/* <button className="btn1 btn">NEXT</button> */}
               </div>
             </div>
@@ -307,8 +343,16 @@ const ProfileSecTest = (props) => {
               <div className="test211">
                 <div className="test-nav13">
                   <h5>00:58:10</h5>
+                  <h5></h5>
                   <p>Time Remaining</p>
-                  <button className="btn btn1">Submit</button>
+                  <button
+                    className="btn btn1"
+                    onClick={() => {
+                      submitTest();
+                    }}
+                  >
+                    Submit
+                  </button>
                 </div>
                 <div className="test-sec1">
                   <h5>Aptitude</h5>
@@ -316,8 +360,14 @@ const ProfileSecTest = (props) => {
                     {/* // const checkColor = await MatchColor(index + 1); */}
                     {testQuestions?.map((item, index) => {
                       let checkColor = 0;
-                      console.log(MatchColor(index + 1), "<<<thisismatchcolor");
+                      // console.log(MatchColor(index + 1), "<<<thisismatchcolor");
                       // async () => await MatchColor(index + 1)
+                      return (
+                        <ShowQuestionNumber
+                          index={index}
+                          setQuestionCount={setQuestionCount}
+                        />
+                      );
                       return (
                         <div
                           className={`test-pill  ${
@@ -396,6 +446,52 @@ const ProfileSecTest = (props) => {
       </div>
     </>
   );
+};
+
+export const ShowQuestionNumber = ({ index, setQuestionCount }) => {
+  const [checkColor, setCheckColor] = useState(0);
+
+  const ansWered = localStorage.getItem(answered_question);
+
+  if (ansWered?.includes(index + 1)) {
+    return (
+      <div
+        className="test-pill bg-green"
+        onClick={() => {
+          setQuestionCount(index + 1);
+        }}
+        style={{ cursor: "pointer" }}
+      >
+        {index + 1}
+      </div>
+    );
+  }
+  const skipped = localStorage.getItem(skipped_question);
+
+  if (skipped?.includes(index + 1)) {
+    return (
+      <div
+        className="test-pill bg-blue"
+        onClick={() => {
+          setQuestionCount(index + 1);
+        }}
+        style={{ cursor: "pointer" }}
+      >
+        {index + 1}
+      </div>
+    );
+  } else
+    return (
+      <div
+        className="test-pill"
+        onClick={() => {
+          setQuestionCount(index + 1);
+        }}
+        style={{ cursor: "pointer" }}
+      >
+        {index + 1}
+      </div>
+    );
 };
 
 export default ProfileSecTest;
