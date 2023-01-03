@@ -114,11 +114,8 @@ const Signup = (props) => {
           kevath_user,
           JSON.stringify({ email: value.email, token: ans.data.access_token })
         );
-        setTimeout(function () {
-          // navigate("/profile-sec1");
-          navigate("/referral");
-        }, 2000);
-        // navigate('/signup2ver');
+        navigate("/referral");
+        // navigate('/signup-verification');
       } else {
         props.setAlert(ans.message, "error");
       }
@@ -174,17 +171,17 @@ const Signup = (props) => {
                     placeholder="First Name"
                   />
                 </div>
-              </div>
-              <div className="eve-reg21 eve-reg212">
-                <label htmlFor="fullName">Last Name *</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={value.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name"
-                />
+                <div className="eve-reg21 eve-reg212">
+                  <label htmlFor="fullName">Last Name *</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={value.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                  />
+                </div>
               </div>
               <div className="eve-reg21">
                 <label htmlFor="email">Email *</label>
@@ -209,7 +206,7 @@ const Signup = (props) => {
                     className="stick-inp"
                   />
                   <input
-                    type="text"
+                    type="number"
                     id="phone"
                     name="phone"
                     value={value.phone}

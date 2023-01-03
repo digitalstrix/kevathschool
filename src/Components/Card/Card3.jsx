@@ -37,7 +37,7 @@ const Card3 = () => {
           </div>
           <div className="eve-red-card-bottom row">
             <a href="#">more info</a>
-            <Link to="/events-reg1">
+            <Link to="/event-register">
               <button className="btn btn1">Book your seat</button>
             </Link>
           </div>

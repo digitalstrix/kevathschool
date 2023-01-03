@@ -54,7 +54,7 @@ const Index1 = (props) => {
           {/* </Link> */}
         </div>
         <div className="nav01 row">
-          <Link to="/user-default-dashboard">
+          <Link to="/our-courses">
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i11.png" alt="" />
@@ -62,7 +62,7 @@ const Index1 = (props) => {
               <p>My Courses</p>
             </div>
           </Link>
-          <Link to="/user-dashboard">
+          <Link to="/my-library">
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i12.png" alt="" />
@@ -91,7 +91,7 @@ const Index1 = (props) => {
               <p>Refer & Earn</p>
             </div>
           </Link>
-          <Link to="/profile-sec1">
+          <Link to="/profile-section">
             <div className="nav1 nav1-2 row">
               {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
               <Avatar
@@ -139,7 +139,7 @@ const Index1 = (props) => {
 
           <div className="dropdown">
             <div className="dropdown-header" onClick={toggleDropdown}>
-              <Link to="/profile-sec1">
+              <Link to="/profile-section">
                 <div className="nav1 nav1-2 mob-nav1-2 row">
                   {/* <img src="/static/images2/Ellipse 39.png" alt="" /> */}
                   <Avatar

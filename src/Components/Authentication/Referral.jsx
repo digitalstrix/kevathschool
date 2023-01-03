@@ -45,7 +45,7 @@ const Referral = (props) => {
     console.log(ans);
     if (ans.status) {
       props.setAlert(ans.message, "success");
-      navigate('/signup2ver');
+      navigate('/signup-verification');
     } else {
       props.setAlert(ans.message, "error");
     }
@@ -88,7 +88,7 @@ const Referral = (props) => {
               </div>
               <div className="eve-reg22 row row1">
                 <button onClick={() => {
-                  navigate('/signup2ver');
+                  navigate('/signup-verification');
                 }} className="btn btn7">Skip</button>
                 <button type="submit" className="btn btn1">Continue</button>
               </div>

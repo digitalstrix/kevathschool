@@ -45,7 +45,7 @@ const VerifyEmail = (props) => {
       let ans = await context.emailVerify(user.email, value.verification);
       if (ans.status) {
         props.setAlert(ans.message, "success");
-        navigate("/profile-sec1");
+        navigate("/profile-section");
       } else {
         props.setAlert(ans.message, "error");
       }

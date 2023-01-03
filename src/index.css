@@ -956,6 +956,12 @@ a {
 .course-card-text11 b{
     margin-right: 4px;
 }
+.course-card-text11 p{
+    font-weight: 600;
+}
+.course-card-text110 p{
+    font-weight: 700;
+}
 .course-card-img{
     position: relative;
 }
@@ -1235,6 +1241,7 @@ a {
 
 .eve-reg-card-mid p {
     font-size: 12px;
+    font-weight: 600;
 }
 
 .eve-reg-card-mid1 {
@@ -1896,7 +1903,7 @@ a {
     flex-direction: column;
     margin-right: 4rem;
     width: 40vmin;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     margin-right: 2rem;
 }
 
@@ -4525,7 +4532,7 @@ hr {
     min-width: 25rem;
     position: fixed;
     top: 100px;
-    left: 100px;
+    right: 70px;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 12px 24px rgba(0, 0, 0, 0.2);
 }
@@ -4588,12 +4595,12 @@ hr {
 }
 
 .eve-reg211 {
-    /* margin-right: 10px; */
+    margin-right: 10px;
 }
 
 .eve-reg212 {
-    /* margin-left: 10px; */
-    margin-top: 10px;
+    margin-left: 10px;
+    /* margin-top: 10px; */
 }
 
 .btn7 {
@@ -5050,6 +5057,26 @@ hr {
 .refe-23{
     padding: 2rem 8rem;
 }
+.add-inp{
+    position: relative;
+}
+.add-inp .err-show{
+    position: absolute;
+    bottom: -20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 
 @media screen and (max-width: 1550px) {
     .psi-2112 {

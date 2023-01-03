@@ -1,7 +1,7 @@
 import React from "react";
 import MainContext from "./MainContext";
 
-const baseUrl = "http://kevathschool.com/api/v1";
+const baseUrl = "https://kevathschool.com/api/v1";
 
 const MainState = (props) => {
   const signup = async (firstName, lastName, email, contact, password) => {

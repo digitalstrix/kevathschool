@@ -31,7 +31,7 @@ const index = () => {
             {/* <img src="/static/images/Arrow drodown.png" alt="" /> */}
           </div>
           <div className="nav1">
-            <Link to="/events-reg">
+            <Link to="/discover">
               <p>Events</p>
             </Link>
           </div>
@@ -41,7 +41,7 @@ const index = () => {
             </Link>
           </div>
           <div className="nav1">
-            <Link to="/hfu">
+            <Link to="/hire-from-us">
               <p>Hire From Us</p>
             </Link>
           </div>
@@ -73,13 +73,13 @@ const index = () => {
             </Link>
             {/* <img src="/static/images/Arrow drodown.png" alt="" /> */}
           </div>
-          <Link onClick={closeNav} to="/events-reg">
+          <Link onClick={closeNav} to="/discover">
             <p>Events</p>
           </Link>
           <Link onClick={closeNav} to="/fee-isa">
             <p>Fees & ISA</p>
           </Link>
-          <Link onClick={closeNav} to="/hfu">
+          <Link onClick={closeNav} to="/hire-from-us">
             <p>Hire From Us</p>
           </Link>
           <Link onClick={closeNav} to="/referral1">

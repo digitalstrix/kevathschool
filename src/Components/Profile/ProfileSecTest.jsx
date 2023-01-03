@@ -36,7 +36,7 @@ const ProfileSecTest = (props) => {
             <div className="test-nav">
                 <div className="test-nav1">
                     <div className="test-nav11">
-                        <img src="/static/images2/UI_LOGO_1_1-removebg-preview.png" alt="" />
+                        <img src="/static/images5/nav-logo-prof.png" alt="" />
                     </div>
                     <div className="test-nav12">
                         TEST 1 BASICS OF PROGRAMMING

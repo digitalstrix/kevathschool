@@ -166,7 +166,7 @@ const ProfileSec1 = (props) => {
     // console.log(value);
 
     // const checkArr = ['firstName', 'lastName', 'email', 'phone', 'password'];
-    const checkArr = ["firstName", "lastName", "email", "phone"];
+    const checkArr = ["firstName", "lastName", "email", "contact", "emergencyContact"];
 
     let flag = false;
     for (let i of Object.keys(value)) {
@@ -201,8 +201,10 @@ const ProfileSec1 = (props) => {
             }
           }
 
-          if (i === "phone") {
-            if (value[i].length < 10) {
+          if (i === "contact") {
+            console.log(value[i]);
+            if (value[i].length !== 10) {
+              console.log('if');
               let nc = document.createElement("div");
               nc.setAttribute("id", `${i}-err`);
               nc.setAttribute("class", "err-show");
@@ -210,6 +212,22 @@ const ProfileSec1 = (props) => {
               document
                 .getElementsByName(i)[0]
                 .parentNode.parentNode.appendChild(nc);
+            } else {
+              document.getElementById(`${i}-err`)?.remove();
+            }
+          }
+
+          if (i === "emergencyContact") {
+            console.log(value[i]);
+            if (value[i].length !== 10) {
+              console.log('if');
+              let nc = document.createElement("div");
+              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("class", "err-show");
+              nc.innerHTML = "Must includes at least 10 characters";
+              document
+                .getElementsByName(i)[0]
+                .parentNode.appendChild(nc);
             } else {
               document.getElementById(`${i}-err`)?.remove();
             }
@@ -235,11 +253,15 @@ const ProfileSec1 = (props) => {
       }
     }
 
+    console.log('yes');
+
     const checkErr = document.querySelectorAll(".err-show");
 
     if (checkErr.length === 0) {
       flag = true;
     }
+
+    console.log(flag);
 
     if (flag) {
       console.log(value);
@@ -453,7 +475,7 @@ const ProfileSec1 = (props) => {
                 <div className="psi13">
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="firstName">First Name *</label>
                         <input
                           type="text"
@@ -464,7 +486,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="lastName">Last Name *</label>
                         <input
                           type="text"
@@ -477,7 +499,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="email">Email *</label>
                         <input
                           type="text"
@@ -509,7 +531,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="contact">Phone Number *</label>
                         <input
                           type="number"
@@ -524,7 +546,7 @@ const ProfileSec1 = (props) => {
                           ) : (
                             <b
                               onClick={() => {
-                                navigate("/profile-sec12");
+                                navigate("/proifle-verify-phone");
                               }}
                               className="text-red pointer"
                             >
@@ -537,7 +559,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131 psi131-warp">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="emergencyContact">
                           Emergency Contact Number *
                         </label>
@@ -551,7 +573,7 @@ const ProfileSec1 = (props) => {
                         />
                       </div>
                     </div>
-                    <div className="psi-input psi-ex">
+                    {/* <div className="psi-input psi-ex">
                       <div className="psi-ex1">
                         <label htmlFor="Password">Password</label>
                         <div className="password">
@@ -578,7 +600,7 @@ const ProfileSec1 = (props) => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div
                       style={{ marginBottom: "0px" }}
                       className="row psi131 psi-ex2"
@@ -1119,7 +1141,7 @@ const ProfileSec1 = (props) => {
                 <div className="psi13">
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="addressLine1">Address Line</label>
                         <input
                           type="text"
@@ -1131,7 +1153,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="addressLine2">Address Line 2</label>
                         <input
                           type="text"
@@ -1145,7 +1167,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="state">State</label>
                         <input
                           type="text"
@@ -1157,7 +1179,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="city">City</label>
                         <input
                           type="text"
@@ -1171,7 +1193,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="landMark">Landmark</label>
                         <input
                           type="text"
@@ -1184,7 +1206,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-input1 psi-ex">
                       <div className="row psi131 psi40 psi-ex1">
-                        <div className="psi-input">
+                        <div className="psi-input add-inp">
                           <label htmlFor="country">Country</label>
                           <input
                             type="text"
@@ -1194,7 +1216,7 @@ const ProfileSec1 = (props) => {
                             value={address?.country}
                           />
                         </div>
-                        <div className="psi-input">
+                        <div className="psi-input add-inp">
                           <label htmlFor="pincode">Pincode</label>
                           <input
                             type="number"
@@ -1235,7 +1257,7 @@ const ProfileSec1 = (props) => {
                 <div className="psi13 perm-add">
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="addressLine11">Address Line</label>
                         <input
                           type="text"
@@ -1247,7 +1269,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="addressLine21">Address Line 2</label>
                         <input
                           type="text"
@@ -1261,7 +1283,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="state1">State</label>
                         <input
                           type="text"
@@ -1273,7 +1295,7 @@ const ProfileSec1 = (props) => {
                       </div>
                     </div>
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="city1">City</label>
                         <input
                           type="text"
@@ -1287,7 +1309,7 @@ const ProfileSec1 = (props) => {
                   </div>
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
-                      <div className="psi-ex1">
+                      <div className="psi-ex1 add-inp">
                         <label htmlFor="landMark1">Landmark</label>
                         <input
                           type="text"
@@ -1300,7 +1322,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-input1 psi-ex">
                       <div className="row psi131 psi40 psi-ex1">
-                        <div className="psi-input">
+                        <div className="psi-input add-inp">
                           <label htmlFor="country1">Country</label>
                           <input
                             type="text"
@@ -1310,7 +1332,7 @@ const ProfileSec1 = (props) => {
                             className="address-form2 address-input"
                           />
                         </div>
-                        <div className="psi-input">
+                        <div className="psi-input add-inp">
                           <label htmlFor="pincode1">Pincode</label>
                           <input
                             type="number"

@@ -13,9 +13,9 @@ const Sidebar = () => {
     <>
       <div className="sidebar1">
         <div className="sidebar11">
-          <Link to="/profile-sec1">
+          <Link to="/profile-section">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec1") && "side-active"
+              className={`sidebar111 ${checkUrl("/profile-section") && "side-active"
                 }`}
             >
               <div className="row">
@@ -24,9 +24,9 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile-sec2">
+          <Link to="/documents">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec2") && "side-active"
+              className={`sidebar111 ${checkUrl("/documents") && "side-active"
                 }`}
             >
               <div className="row">
@@ -35,9 +35,9 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile-sec3">
+          <Link to="/pre-test">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec3") && "side-active"
+              className={`sidebar111 ${checkUrl("/pre-test") && "side-active"
                 }`}
             >
               <div className="row">
@@ -46,9 +46,9 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile-sec11">
+          <Link to="/change-password">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec11") && "side-active"
+              className={`sidebar111 ${checkUrl("/change-password") && "side-active"
                 }`}
             >
               <div className="row">
@@ -57,9 +57,9 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile-sec4">
+          <Link to="/help">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec4") && "side-active"
+              className={`sidebar111 ${checkUrl("/help") && "side-active"
                 }`}
             >
               <div className="row">
@@ -68,9 +68,9 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile-sec5">
+          <Link to="/profile-faq">
             <div
-              className={`sidebar111 ${checkUrl("/profile-sec5") && "side-active"
+              className={`sidebar111 ${checkUrl("/profile-faq") && "side-active"
                 }`}
             >
               <div className="row">

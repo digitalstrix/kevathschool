@@ -33,7 +33,7 @@ const Login = (props) => {
         JSON.stringify({ email: value.email, token: ans.data.access_token })
       );
       setTimeout(function () {
-        navigate("/profile-sec1");
+        navigate("/profile-section");
       }, 2000);
     } else {
       props.setAlert(ans.message, "error");

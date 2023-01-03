@@ -79,7 +79,7 @@ const EventReg2 = (props) => {
               />
             </div>
             <div className="eve-reg22">
-              <Link to="/events-reg2">
+              <Link to="/event-register-verification">
                 <button className="btn btn1">REGISTER</button>
               </Link>
               <div>

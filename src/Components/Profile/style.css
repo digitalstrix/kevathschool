@@ -43,23 +43,26 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    height: 5.5rem;
 }
 .test-nav1{
     display: flex;
+    padding: 15px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 .test-nav11{
-    height: 11vh;
+    /* height: 11vh; */
+    width: 225px;
 }
 .test-nav11 img{
-    height: 10vh;
+    /* height: 10vh; */
+    width: 100%;
 }
 .test-nav12 {
     font-size: 24px;
     margin-right: 3rem;
-    margin-bottom: 10px;
 }
 .test-nav13{
     text-align: center;

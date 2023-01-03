@@ -138,7 +138,7 @@ const App = () => {
               }
             />
             <Route
-              path="/events-reg"
+              path="/discover"
               element={
                 <EventReg1
                   setAlert={setAlert}
@@ -149,7 +149,7 @@ const App = () => {
               }
             />
             <Route
-              path="/events-reg1"
+              path="/event-register"
               element={
                 <EventReg2
                   userFlag={userFlag}
@@ -161,7 +161,7 @@ const App = () => {
               }
             />
             <Route
-              path="/events-reg2"
+              path="/event-register-verification"
               element={
                 <EventReg3
                   userFlag={userFlag}
@@ -173,7 +173,7 @@ const App = () => {
               }
             />
             <Route
-              path="/hfu"
+              path="/hire-from-us"
               element={
                 <Hfu
                   userFlag={userFlag}
@@ -245,7 +245,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec1"
+              path="/profile-section"
               element={
                 <ProfileSec1
                   userInfo={userInfo}
@@ -260,7 +260,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec11"
+              path="/change-password"
               element={
                 <ProfileSec11
                   userFlag={userFlag}
@@ -272,7 +272,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec12"
+              path="/proifle-verify-phone"
               element={
                 <ProfileSec12
                   userFlag={userFlag}
@@ -284,7 +284,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec2"
+              path="/documents"
               element={
                 <ProfileSec2
                   userFlag={userFlag}
@@ -296,7 +296,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec3"
+              path="/pre-test"
               element={
                 <ProfileSec3
                   userFlag={userFlag}
@@ -308,7 +308,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec3-test"
+              path="/test"
               element={
                 <ProfileSecTest
                   userFlag={userFlag}
@@ -320,7 +320,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec4"
+              path="/help"
               element={
                 <ProfileSec4
                   userFlag={userFlag}
@@ -332,7 +332,7 @@ const App = () => {
               }
             />
             <Route
-              path="/profile-sec5"
+              path="/profile-faq"
               element={
                 <ProfileSec5
                   userFlag={userFlag}
@@ -428,7 +428,7 @@ const App = () => {
               }
             />
             <Route
-              path="/signup2ver"
+              path="/signup-verification"
               element={
                 <SignUp2
                   setFootFlag={setFootFlag}
@@ -488,7 +488,7 @@ const App = () => {
               }
             />
             <Route
-              path="/user-default-dashboard"
+              path="/our-courses"
               element={
                 <Db1
                   userFlag={userFlag}
@@ -500,7 +500,7 @@ const App = () => {
               }
             />
             <Route
-              path="/user-default-dashboard5"
+              path="/dashboard-discover"
               element={
                 <Db2
                   userFlag={userFlag}
@@ -512,7 +512,7 @@ const App = () => {
               }
             />
             <Route
-              path="/user-default-dashboard4"
+              path="/learn-for-free"
               element={
                 <Db4
                   userFlag={userFlag}
@@ -536,7 +536,7 @@ const App = () => {
               }
             />
             <Route
-              path="/user-dashboard"
+              path="/my-library"
               element={
                 <Db3
                   userFlag={userFlag}

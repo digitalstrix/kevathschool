@@ -42,7 +42,7 @@ const Index = () => {
                   <a href="#">Newsroom</a>
                 </div>
                 <div className="foot_a">
-                  <NavLink to="/hfu">Hire From Us</NavLink>
+                  <NavLink to="/hire-from-us">Hire From Us</NavLink>
                 </div>
                 <div className="foot_a">
                   <a href="#">Careers</a>

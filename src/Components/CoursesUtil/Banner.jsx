@@ -14,7 +14,7 @@ export default function Banner() {
               on both front-end and back-end
               <br /> development processes.
             </p>
-            <Link to="/events-reg">
+            <Link to="/discover">
               <button className="btn_1" type="sumbit">
                 APPLY NOW
               </button>

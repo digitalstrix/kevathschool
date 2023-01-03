@@ -14,7 +14,7 @@ const Card2 = () => {
             <div className="course-card-text1">
               <div className="course-card-text01">
                 <div className="course-card-text02">
-                  <div style={{justifyContent:"space-between"}} className="row course-card-text11">
+                  <div style={{justifyContent:"space-between"}} className="row course-card-text11 course-card-text110">
                     <p>Part Time</p>
                     <button className="btn btn1 course-card-btn">Zero Upfront Fees</button>
                   </div>
