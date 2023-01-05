@@ -933,8 +933,8 @@ a {
 .course-card-text {
     position: absolute;
     bottom: -220px;
-    left: 19px;
-    width: 92%;
+    left: 18px;
+    width: 91%;
     background-color: white;
     color: black;
     box-shadow: -1px -6px 9px rgba(0, 0, 0, 0.25), 0px 8px 18px rgba(0, 0, 0, 0.12);
@@ -942,9 +942,17 @@ a {
     padding-top: 0px;
 }
 .course-card-btn{
-    padding: 4px 8px;
+    padding: 2px 6px;
     font-size: 14px;
+    position: relative;
     font-weight: bold;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 0 !important;
+}
+.color-gray{
+    color: #4F4F4F;
 }
 .course-card-text02{
     width: 100%;
@@ -961,6 +969,7 @@ a {
 }
 .course-card-text110 p{
     font-weight: 700;
+    font-size: 14px;
 }
 .course-card-img{
     position: relative;
@@ -981,9 +990,13 @@ a {
     text-align: center;
 }
 
+.course-card-mt{
+    margin-bottom: 4px;
+}
+
 .course-card-text1 h5 {
-    margin-left: 10px;
     text-align: start;
+    color: #4F4F4F;
     font-size: 20px;
     margin-bottom: 1rem;
 }
@@ -1017,7 +1030,11 @@ a {
 
 .course-card-text1 a {
     font-weight: bold;
+    font-size: 14px;
     text-decoration: underline;
+}
+.course-card-foot1 button{
+    font-weight: 700;
 }
 
 .splide__arrow {
@@ -4531,7 +4548,7 @@ hr {
     z-index: 99999 !important;
     min-width: 25rem;
     position: fixed;
-    top: 100px;
+    top: 50px;
     right: 70px;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 12px 24px rgba(0, 0, 0, 0.2);
@@ -5064,6 +5081,10 @@ hr {
     position: absolute;
     bottom: -20px;
 }
+#contact-err{
+    position: absolute;
+    bottom: 4px;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -5098,7 +5119,7 @@ input::-ms-clear {
         margin: 3rem 1rem;
     }
     .course-card-text {
-        left: 15px;
+        left: 17px;
         bottom: -100px;
     }
     .left {
@@ -5162,6 +5183,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -250px;
+        left: 16px;
     }
     .splide__arrow {
         top: 40% !important;
@@ -5487,6 +5509,9 @@ input::-ms-clear {
     }
     .psi-select-102 .smallSb{
         width: 17vw;
+    }
+    .course-card-text{
+        left: 14px;
     }
 }
 
@@ -6602,7 +6627,7 @@ input::-ms-clear {
     .course-card {
         margin: auto;
         width: 90%;
-        height: 50vh;
+        height: 63vh;
     }
     .splide__arrow--prev {
         left: -0.5em !important;
@@ -6615,7 +6640,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -220px;
-        left: 12px;
+        left: 14px;
     }
     .course0 {
         padding: 0rem 2rem;
@@ -6931,10 +6956,10 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -280px;
-        left: 10px;
+        left: 12px;
     }
     .course-card {
-        height: 47vh;
+        height: 67vh;
     }
     .eve-reg1-12 {
         width: 73%;
@@ -7179,7 +7204,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -120px;
-        left: 20px;
+        left: 21px;
     }
     .course-card {
         height: 36rem;
@@ -7698,7 +7723,7 @@ input::-ms-clear {
         height: 40rem;
     }
     .course-card-text {
-        left: 17px;
+        left: 19px;
     }
     .course-card {
         height: 28rem;
@@ -7859,7 +7884,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -140px;
-        left: 15px;
+        left: 16px;
     }
     .course-card{
         height:31rem;
@@ -8213,7 +8238,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -180px;
-        left: 11px;
+        left: 14px;
     }
     .course-card {
         height: 30rem;
