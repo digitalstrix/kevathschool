@@ -109,12 +109,11 @@ const Signup = (props) => {
       console.log(ans, "<<<<<<signup");
       if (ans.status) {
         props.setAlert(ans.message, "success");
-        let emailSent = await context.sendEmailToVerify(value.email);
         localStorage.setItem(
           kevath_user,
           JSON.stringify({ email: value.email, token: ans.data.access_token })
         );
-        alert("here");
+        let emailSent = await context.sendEmailToVerify(value.email);
         navigate("/referral");
         // navigate('/signup-verification');
       } else {

@@ -208,7 +208,7 @@ const ProfileSec1 = (props) => {
               let nc = document.createElement("div");
               nc.setAttribute("id", `${i}-err`);
               nc.setAttribute("class", "err-show");
-              nc.innerHTML = "Must includes at least 10 characters";
+              nc.innerHTML = "Must includes 10 digits";
               document
                 .getElementsByName(i)[0]
                 .parentNode.parentNode.appendChild(nc);
@@ -224,7 +224,7 @@ const ProfileSec1 = (props) => {
               let nc = document.createElement("div");
               nc.setAttribute("id", `${i}-err`);
               nc.setAttribute("class", "err-show");
-              nc.innerHTML = "Must includes at least 10 characters";
+              nc.innerHTML = "Must includes 10 digits";
               document
                 .getElementsByName(i)[0]
                 .parentNode.appendChild(nc);
@@ -530,8 +530,8 @@ const ProfileSec1 = (props) => {
                         </div>
                       </div>
                     </div>
-                    <div className="psi-input psi-ex">
-                      <div className="psi-ex1 add-inp">
+                    <div className="psi-input psi-ex add-inp">
+                      <div className="psi-ex1">
                         <label htmlFor="contact">Phone Number *</label>
                         <input
                           type="number"

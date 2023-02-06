@@ -7,8 +7,8 @@ const Card2 = () => {
       <div className="course-card">
         <div className="course-card1">
           <div className="course-card-img">
-            <img src="/static/images/Rectangle 1281.png" alt="" />
-            <h4>Full Stack Web Development</h4>
+            <img src="/static/images/newRec.png" alt="" />
+            {/* <h4>Full Stack Web Development</h4> */}
           </div>
           <div className="course-card-text">
             <div className="course-card-text1">
@@ -20,7 +20,7 @@ const Card2 = () => {
                   </div>
                   <div className="row course-card-text11">
                     <b className="text-green">Education: </b>
-                    <p>Any Graduation</p>
+                    <p className="color-gray">Any Graduation</p>
                   </div>
                   <div className="row course-card-text11">
                     <p className="text-purple">No Prior Coding Skills Required</p>
@@ -28,24 +28,24 @@ const Card2 = () => {
                   <h5>Full Stack Web Development</h5>
                   <div className="row course-card-text11">
                     <img src="/static/images3/start 1.png" alt="" />
-                    <p>Starts : 23 Oct 2022</p>
+                    <p className="color-gray course-card-mt">Starts : 23 Oct 2022</p>
                   </div>
                   <div className="row course-card-text11">
                     <img src="/static/images3/Vector.png" alt="" />
-                    <p>Last Date to Apply : 30 Oct 2022</p>
+                    <p className="color-gray course-card-mt">Last Date to Apply : 30 Oct 2022</p>
                   </div>
                   <div className="row course-card-text11">
                     <img src="/static/images3/Vector (1).png" alt="" />
-                    <p>Pay Only After You Earn 5LPA</p>
+                    <p className="color-gray course-card-mt">Pay Only After You Earn 5LPA</p>
                   </div>
                   <div style={{justifyContent:"space-between"}} className="row course-card-text11">
                     <div className="row">
                       <img src="/static/images3/Vector (2).png" alt="" />
-                      <p>Online</p>
+                      <p className="color-gray">Online</p>
                     </div>
                     <div className="row">
                       <img src="/static/images3/209-2095776_transparent-time-clock-png-time-vector-icon-png 2.png" alt="" />
-                      <p>30 Weeks</p>
+                      <p className="color-gray">30 Weeks</p>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ const Card2 = () => {
                   </Link>
                 </div>
                 <div>
-                  <a href="#">VIEW PROGRAM</a>
+                  <a className="color-gray" href="#">VIEW PROGRAM</a>
                 </div>
               </div>
             </div>
