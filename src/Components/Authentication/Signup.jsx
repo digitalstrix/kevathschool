@@ -114,6 +114,7 @@ const Signup = (props) => {
           kevath_user,
           JSON.stringify({ email: value.email, token: ans.data.access_token })
         );
+        alert("here");
         navigate("/referral");
         // navigate('/signup-verification');
       } else {
