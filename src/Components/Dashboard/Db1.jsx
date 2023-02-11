@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
 import { useState } from 'react';
+import MainContext from '../../context/MainContext';
 
 const Db1 = (props) => {
     const [perPage, setPerPage] = useState(3);
     const navigate = useNavigate();
-    
+    const context = useContext(MainContext);
+    const [data, setData] = useState([]);
+
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
         if (user) {
@@ -20,7 +23,7 @@ const Db1 = (props) => {
         else {
             navigate('/login');
         }
-        
+
 
         var x = window.matchMedia("(max-width: 812px)");
         if (x.matches) {
@@ -34,6 +37,31 @@ const Db1 = (props) => {
         props.setNavFlag2(true);
         props.setFootFlag(true);
     }, []);
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = async () => {
+        const data = await context.getMyCourses();
+        console.log(data);
+        // let tempArr = [];
+        // let tempArr1 = [];
+        // let ind = -1;
+        // for (let i of data.data) {
+        //     // console.log(i);
+        //     if (!tempArr.includes(i.careerType)) {
+        //         tempArr.push(i.careerType);
+        //         tempArr1.push([i]);
+        //         ind++;
+        //     }
+        //     else {
+        //         tempArr1[ind].push(i);
+        //     }
+        // }
+        // // console.log(tempArr1);
+        // setData(tempArr1);
+    };
 
     return (
         <>
@@ -65,7 +93,8 @@ const Db1 = (props) => {
                     <div className="courses211">
                         <h4>For Working Professionals</h4>
                     </div>
-                    <div className="course212">
+
+                    {/* <div className="course212">
                         <div className="row course0">
                             <h3>Software & Tech</h3>
                             <a href="#">View all</a>
@@ -159,7 +188,8 @@ const Db1 = (props) => {
                                 </button>
                             </div>
                         </Splide>
-                    </div>
+                    </div> */}
+
                 </div>
             </div>
             <div className="text-center">

@@ -25,6 +25,8 @@ const Signup = (props) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
+  const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
@@ -36,7 +38,19 @@ const Signup = (props) => {
           let nc = document.createElement("div");
           nc.setAttribute("id", `${i}-err`);
           nc.setAttribute("class", "err-show");
-          nc.innerHTML = "Field is required";
+          let text;
+          if(i==="phone" || i==="Password")
+          {
+            text=document.getElementById(i).parentNode.previousElementSibling.innerText.replace("*", "");
+          }
+          else
+          {
+            text=document.getElementById(i).previousElementSibling.innerText.replace("*", "");
+          }
+          
+          // nc.innerHTML = "Field is required";
+          nc.innerHTML = text+ " is required";
+
           if (i === "phone") {
             document
               .getElementsByName(i)[0]
@@ -61,11 +75,11 @@ const Signup = (props) => {
         }
 
         if (i === "phone") {
-          if (value[i].length < 10) {
+          if (value[i].length !== 10) {
             let nc = document.createElement("div");
             nc.setAttribute("id", `${i}-err`);
             nc.setAttribute("class", "err-show");
-            nc.innerHTML = "Must includes at least 10 characters";
+            nc.innerHTML = "Phone number must be 10 digits";
             document
               .getElementsByName(i)[0]
               .parentNode.parentNode.appendChild(nc);
@@ -83,6 +97,22 @@ const Signup = (props) => {
             nc.setAttribute("class", "err-show");
             nc.innerHTML =
               "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+            // console.log(document.getElementsByName(i)[0].parentNode);
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          } else {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+
+        if (i === "email") {
+          let reg =
+          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+          if (reg.exec(value[i]) === null) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+            nc.innerHTML =
+              "Please enter a valid email";
             // console.log(document.getElementsByName(i)[0].parentNode);
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
           } else {
@@ -186,7 +216,7 @@ const Signup = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="email">Email *</label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   value={value.email}
@@ -197,16 +227,18 @@ const Signup = (props) => {
               <div className="eve-reg21">
                 <label htmlFor="phone">Phone *</label>
                 <div className="row">
-                  <input
+                  <p className="stick-inp">+91</p>
+                  {/* <input
                     type="text"
                     value="+91"
                     onChange={() => {
                       return;
                     }}
                     className="stick-inp"
-                  />
+                  /> */}
                   <input
                     type="number"
+                    onKeyDown={blockInvalidChar}
                     id="phone"
                     name="phone"
                     value={value.phone}

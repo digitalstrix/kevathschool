@@ -102,9 +102,9 @@ const ProfileSec2 = (props) => {
                                 </div>
 
                             </div>
-                            <div className="text-end">
+                            {/* <div className="text-end">
                                 <button className="btn btn1">Save</button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Referral1 = (props) => {
     const navigate = useNavigate();
-    
+    const context = useContext(MainContext);
+
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
         if (user) {
@@ -16,12 +17,12 @@ const Referral1 = (props) => {
         else {
             navigate('/login');
         }
-        
+
         props.setNavFlag1(false);
         props.setNavFlag2(true);
         props.setFootFlag(true);
     }, []);
-    const context = useContext(MainContext);
+
     const [value, setValue] = useState({
         firstName: "",
         lastName: "",
@@ -31,11 +32,125 @@ const Referral1 = (props) => {
     });
 
     const handleChange = (e) => {
-        setValue({ ...value, [e.target.name]: e.target.value });
+        if (e.target.name === "firstName" || e.target.name === "lastName") {
+            let n = e.target.value.length - 1;
+            if (n < 0) {
+                setValue({ ...value, [e.target.name]: "" });
+            }
+            else {
+                let k = e.target.value.charAt(n).charCodeAt(0);
+                if ((k > 64 &&
+                    k < 91) || (k > 96 && k < 123) || k === 32) {
+                    setValue({ ...value, [e.target.name]: e.target.value });
+                }
+            }
+        }
+        else {
+            setValue({ ...value, [e.target.name]: e.target.value });
+        }
     };
+
+    const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(value);
+
+        let flag = false;
+        for (let i of Object.keys(value)) {
+            if (value[i].length === 0) {
+                if (!document.getElementById(`${i}-err`)) {
+                    let nc = document.createElement("div");
+                    nc.setAttribute("id", `${i}-err`);
+                    nc.setAttribute("class", "err-show");
+                    let text;
+                    if (i === "phone") {
+                        text = document.getElementById(i).parentNode.previousElementSibling.innerText.replace("*", "");
+                    }
+                    else {
+                        text = document.getElementById(i).previousElementSibling.innerText.replace("*", "");
+                    }
+                    nc.innerHTML = text + " is required";
+
+                    if (i === "phone") {
+                        document
+                            .getElementsByName(i)[0]
+                            .parentNode.parentNode.appendChild(nc);
+                    } else {
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    }
+                }
+            } else {
+                document.getElementById(`${i}-err`)?.remove();
+
+                if (i === "firstName") {
+                    if (value[i].length < 3) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML = "Must includes at least 3 characters";
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "phone") {
+                    if (value[i].length !== 10) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML = "Phone number must be 10 digits";
+                        document
+                            .getElementsByName(i)[0]
+                            .parentNode.parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "email") {
+                    let reg =
+                        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                    if (reg.exec(value[i]) === null) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML =
+                            "Please enter a valid email";
+                        // console.log(document.getElementsByName(i)[0].parentNode);
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "confirmEmail") {
+                    let reg =
+                        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                    if (reg.exec(value[i]) === null) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML =
+                            "Please enter a valid email";
+                        // console.log(document.getElementsByName(i)[0].parentNode);
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+            }
+        }
+
+        const checkErr = document.querySelectorAll(".err-show");
+        if (checkErr.length === 0) {
+            flag = true;
+        }
+
+        if (flag) {
+            //todo
+        }
     };
 
     return (
@@ -65,7 +180,15 @@ const Referral1 = (props) => {
                             </div>
                             <div className="refe-input">
                                 <label htmlFor="phone">Phone number</label>
-                                <input type="text" id="phone" name="phone" onChange={handleChange} value={value.phone} />
+                                <div className="row">
+                                    <select id="country-select">
+                                        <option value="+91">+91</option>
+                                        <option value="+01">+01</option>
+                                        <option value="+92">+92</option>
+                                        <option value="+93">+93</option>
+                                    </select>
+                                    <input type="number" className='cus-inp' id="phone" name="phone" onKeyDown={blockInvalidChar} onChange={handleChange} value={value.phone} />
+                                </div>
                             </div>
                             <div className="refe-input">
                                 <label htmlFor="email">Email</label>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card3 = () => {
+const Card3 = (props) => {
   return (
     <>
       <div className="eve-reg1-card">
@@ -37,7 +37,7 @@ const Card3 = () => {
           </div>
           <div className="eve-red-card-bottom row">
             <a href="#">more info</a>
-            <Link to="/event-register">
+            <Link to="/event-register/id">
               <button className="btn btn1">Book your seat</button>
             </Link>
           </div>

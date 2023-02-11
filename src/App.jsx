@@ -149,7 +149,7 @@ const App = () => {
               }
             />
             <Route
-              path="/event-register"
+              path="/event-register/:id"
               element={
                 <EventReg2
                   userFlag={userFlag}

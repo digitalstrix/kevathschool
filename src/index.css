@@ -57,6 +57,12 @@ p {
     font-size: 18px;
 }
 
+.mr-2{
+    margin-right: 5px;
+}
+.ml-2{
+    margin-left: 5px;
+}
 .row {
     display: flex;
     flex-direction: row;
@@ -1319,7 +1325,7 @@ a {
     width: 70vmin;
     box-shadow: 5px 8px 50px 12px rgba(0, 0, 0, 0.09);
     border-radius: 23px;
-    padding: 2rem;
+    padding: 1rem 2rem;
     background: white;
 }
 
@@ -1354,6 +1360,9 @@ a {
     margin-top: 10px;
     /* margin-bottom: 9px; */
 }
+#email-err{
+    bottom: 4px;
+}
 
 .eve-reg21 input {
     width: 100%;
@@ -1362,6 +1371,33 @@ a {
     outline: none;
     padding: 12px 20px;
     margin-top: 0px;
+}
+.prof-sec-input select{
+    /* width: 100%; */
+    border: 1px solid rgba(63, 63, 63, 0.32);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    outline: none;
+    padding: 12px 10px;
+    margin-top: 0px;
+}
+.eve-reg21 select{
+    /* width: 100%; */
+    border: 1px solid rgba(63, 63, 63, 0.32);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    outline: none;
+    padding: 12px 10px;
+    margin-top: 0px;
+}
+.refe-input select{
+    /* width: 100%; */
+    border: 1px solid #51b848;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    outline: none;
+    padding: 11px 6px;
+    margin-top: 5px;
 }
 
 .eve-reg31 {
@@ -2984,6 +3020,7 @@ hr {
     border-radius: 10px;
     outline: none;
     padding: 12px 20px;
+    padding-left: 7px;
 }
 
 .prof-sec-textarea {
@@ -2997,6 +3034,7 @@ hr {
     border-radius: 10px;
     outline: none;
     padding: 10px 20px;
+    padding-left: 7px;
 }
 
 .profile-sec-41 {
@@ -4812,7 +4850,7 @@ hr {
     width: 100%;
     border: 1px solid #51b848;
     border-radius: 10px;
-    padding: 8px 20px;
+    padding: 10px 20px;
     outline: none;
 }
 .refe-btn{
@@ -5079,11 +5117,18 @@ hr {
 }
 .add-inp .err-show{
     position: absolute;
-    bottom: -20px;
+    /* bottom: -20px; */
+    top: 64px;
 }
 #contact-err{
     position: absolute;
     bottom: 4px;
+}
+.cus-inp{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-left: none !important;
+    padding-top: 11px !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
