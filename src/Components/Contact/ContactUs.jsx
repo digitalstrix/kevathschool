@@ -6,26 +6,26 @@ import MainContext from '../../context/MainContext';
 const ContactUs = (props) => {
     const navigate = useNavigate();
     const context = useContext(MainContext);
-    
+
     useEffect(() => {
         props.setFootFlag(true);
         let user = localStorage.getItem('kevath_user');
         if (user) {
-          user = JSON.parse(user);
-          if (!user.token || user.token === '') {
-            props.setNavFlag1(true);
-            props.setNavFlag2(false);
-          }
-          else {
-            props.setNavFlag1(false);
-            props.setNavFlag2(true);
-          }
+            user = JSON.parse(user);
+            if (!user.token || user.token === '') {
+                props.setNavFlag1(true);
+                props.setNavFlag2(false);
+            }
+            else {
+                props.setNavFlag1(false);
+                props.setNavFlag2(true);
+            }
         }
         else {
             props.setNavFlag1(true);
             props.setNavFlag2(false);
         }
-      }, []);
+    }, []);
 
     const [value, setValue] = useState({
         firstName: "",
@@ -36,18 +36,121 @@ const ContactUs = (props) => {
     });
 
     const handleChange = (e) => {
-        setValue({ ...value, [e.target.name]: e.target.value });
+        if (e.target.name === "firstName" || e.target.name === "lastName") {
+            let n = e.target.value.length - 1;
+            if (n < 0) {
+                setValue({ ...value, [e.target.name]: "" });
+            }
+            else {
+                let k = e.target.value.charAt(n).charCodeAt(0);
+                if ((k > 64 &&
+                    k < 91) || (k > 96 && k < 123) || k === 32) {
+                    setValue({ ...value, [e.target.name]: e.target.value });
+                }
+            }
+        }
+        else {
+            setValue({ ...value, [e.target.name]: e.target.value });
+        }
     };
+
+    const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(value);
-        let ans = await context.contactUs(value.firstName, value.lastName, value.phone, value.email, value.message, true);
-        if (ans.status) {
-          props.setAlert(ans.message, "success");
-        //   navigate("/");
-        } else {
-          props.setAlert(ans.message, "error");
+
+        let flag = false;
+        for (let i of Object.keys(value)) {
+            if (value[i].length === 0) {
+                if (!document.getElementById(`${i}-err`)) {
+                    let nc = document.createElement("div");
+                    nc.setAttribute("id", `${i}-err`);
+                    nc.setAttribute("class", "err-show");
+                    let text;
+                    text=document.getElementById(i).placeholder;
+                    nc.innerHTML = text + " is required";
+
+                    if (i === "phone") {
+                        document
+                            .getElementsByName(i)[0]
+                            .parentNode.parentNode.appendChild(nc);
+                    } else {
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    }
+                }
+            } else {
+                document.getElementById(`${i}-err`)?.remove();
+
+                if (i === "firstName") {
+                    if (value[i].length < 3) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML = "Must includes at least 3 characters";
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "message") {
+                    if (value[i].length < 5) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML = "Must includes at least 5 characters";
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "phone") {
+                    if (value[i].length !== 10) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML = "Phone number must be 10 digits";
+                        document
+                            .getElementsByName(i)[0]
+                            .parentNode.parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+
+                if (i === "email") {
+                    let reg =
+                        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                    if (reg.exec(value[i]) === null) {
+                        let nc = document.createElement("div");
+                        nc.setAttribute("id", `${i}-err`);
+                        nc.setAttribute("class", "err-show");
+                        nc.innerHTML =
+                            "Please enter a valid email";
+                        // console.log(document.getElementsByName(i)[0].parentNode);
+                        document.getElementsByName(i)[0].parentNode.appendChild(nc);
+                    } else {
+                        document.getElementById(`${i}-err`)?.remove();
+                    }
+                }
+            }
+        }
+
+        const checkErr = document.querySelectorAll(".err-show");
+        if (checkErr.length === 0) {
+            flag = true;
+        }
+
+        if (flag) {
+            let ans = await context.contactUs(value.firstName, value.lastName, value.phone, value.email, value.message, true);
+            if (ans.status) {
+                props.setAlert(ans.message, "success");
+                //   navigate("/");
+            } else {
+                props.setAlert(ans.message, "error");
+            }
         }
     };
 
@@ -97,29 +200,37 @@ const ContactUs = (props) => {
                             <form onSubmit={handleSubmit} className="prof-sec422">
                                 <div className="row prof-sec4221">
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="First Name" name="firstName" onChange={handleChange} value={value.firstName} required />
+                                        <input type="text" placeholder="First Name" name="firstName" id="firstName" onChange={handleChange} value={value.firstName} />
                                     </div>
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Last Name" name="lastName" onChange={handleChange} value={value.lastName} required />
+                                        <input type="text" placeholder="Last Name" name="lastName" id='lastName' onChange={handleChange} value={value.lastName} />
                                     </div>
                                 </div>
                                 <div className="row prof-sec4221">
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Email" name="email" onChange={handleChange} value={value.email} required />
+                                        <input type="text" placeholder="Email" name="email" id='email' onChange={handleChange} value={value.email} />
                                     </div>
                                     <div className="prof-sec-input">
-                                        <input type="text" placeholder="Phone Number" name="phone" onChange={handleChange} value={value.phone} required />
+                                        <div className="row">
+                                            <select id="country-select">
+                                                <option value="+91">+91</option>
+                                                <option value="+01">+01</option>
+                                                <option value="+92">+92</option>
+                                                <option value="+93">+93</option>
+                                            </select>
+                                            <input type="number" onKeyDown={blockInvalidChar} className='cus-inp' placeholder="Phone Number" name="phone" id='phone' onChange={handleChange} value={value.phone} />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="prof-sec-textarea">
-                                    <textarea name="message" onChange={handleChange} value={value.message} placeholder="Message" cols="30" rows="10" required></textarea>
+                                    <textarea name="message" id='message' onChange={handleChange} value={value.message} placeholder="Message" cols="30" rows="10"></textarea>
                                 </div>
-                                <div style={{marginTop:"15px"}} className="hfu-agree">
+                                <div style={{ marginTop: "15px" }} className="hfu-agree">
                                     <input type="checkbox" name="agree1" id="agree1" />
                                     <label htmlFor="agree1">I want to receive product updates, marketing news, and other relevant content by email from KevathSchool.</label>
                                 </div>
                                 <div className="hfu-agree">
-                                    <input type="checkbox" name="agree2" id="agree2" required />
+                                    <input type="checkbox" name="agree2" id="agree2" />
                                     <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
                                         Privacy Policy.</label>
                                 </div>

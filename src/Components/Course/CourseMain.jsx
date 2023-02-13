@@ -4,11 +4,15 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Card2 from "../Card/Card2";
 import { useState } from "react";
+import { useContext } from "react";
+import MainContext from "../../context/MainContext";
 
 const CourseMain = (props) => {
   const navigate = useNavigate();
+  const context = useContext(MainContext);
 
   const [perPage, setPerPage] = useState(3);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     props.setFootFlag(true);
@@ -41,6 +45,42 @@ const CourseMain = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    getData(1, 3, true, 'Spark');
+  }, []);
+
+  const getData = async (page, perPage, meta, career_type) => {
+    const data = await context.getCourses({
+      page,
+      perPage,
+      meta,
+      career_type
+    });
+    console.log(data);
+    let tempArr = [];
+    let tempArr1 = [];
+    let ind = -1;
+    for (let i of data.data) {
+      // console.log(i);
+      if (!tempArr.includes(i.careerType)) {
+        tempArr.push(i.careerType);
+        tempArr1.push([i]);
+        ind++;
+      }
+      else {
+        tempArr1[ind].push(i);
+      }
+    }
+    // console.log(tempArr1);
+    setData(tempArr1);
+  };
+
+  const joinCourse = async (data) => {
+    console.log(data);
+    const ans = await context.joinCourse({id: data});
+    console.log(ans);
+  };
+
   return (
     <>
       <div className="home course-main">
@@ -64,43 +104,59 @@ const CourseMain = (props) => {
           <div className="courses211">
             <h4>For Working Professionals</h4>
           </div>
-          <div className="course212">
-            <div className="row course0">
-              <h3>Software & Tech</h3>
-              <a href="#">View all</a>
-            </div>
-            <Splide
-              hasTrack={false}
-              aria-label="My Favorite Images"
-              options={{
-                perPage,
-                // rewind: true,
-                gap: "1rem",
-              }}
-            >
-              <SplideTrack>
-                <SplideSlide>
-                  <Card2 />
-                </SplideSlide>
-                <SplideSlide>
-                  <Card2 />
-                </SplideSlide>
-                <SplideSlide>
-                  <Card2 />
-                </SplideSlide>
-              </SplideTrack>
-              <div className="splide__arrows">
-                <button className="splide__arrow splide__arrow--prev">
-                  <img src="/static/images/Vector 4.png" alt="" />
-                </button>
-                <button className="splide__arrow splide__arrow--next">
-                  <img src="/static/images/Vector 3.png" alt="" />
-                </button>
-              </div>
-            </Splide>
-          </div>
 
-          <div className="course212">
+          {data.map((e, index) => {
+            // console.log(e);
+            return (
+              <div key={index} className="course212">
+                <div className="row course0">
+                  {/* <h3>Software & Tech</h3> */}
+                  <h3>{e[0].careerType}</h3>
+                  <a href="#">View all</a>
+                </div>
+
+                <Splide
+                  hasTrack={false}
+                  aria-label="My Favorite Images"
+                  options={{
+                    perPage,
+                    // rewind: true,
+                    gap: "1rem",
+                  }}
+                >
+
+                  <SplideTrack>
+                    {e.map((f, index1) => {
+                      return (
+                        <SplideSlide key={index1}>
+                          <Card2 joinCourse={joinCourse} f={f} />
+                        </SplideSlide>
+                      )
+                    })}
+
+                    {/* <SplideSlide>
+                      <Card2 joinCourse={joinCourse} />
+                    </SplideSlide>
+                    <SplideSlide>
+                      <Card2 joinCourse={joinCourse} />
+                    </SplideSlide> */}
+                  </SplideTrack>
+
+                  <div className="splide__arrows">
+                    <button className="splide__arrow splide__arrow--prev">
+                      <img src="/static/images/Vector 4.png" alt="" />
+                    </button>
+                    <button className="splide__arrow splide__arrow--next">
+                      <img src="/static/images/Vector 3.png" alt="" />
+                    </button>
+                  </div>
+                </Splide>
+              </div>
+            );
+          })}
+
+
+          {/* <div className="course212">
             <div className="row course0">
               <h3>Data Science</h3>
               <a href="#">View all</a>
@@ -116,13 +172,13 @@ const CourseMain = (props) => {
             >
               <SplideTrack>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
               </SplideTrack>
               <div className="splide__arrows">
@@ -152,13 +208,13 @@ const CourseMain = (props) => {
             >
               <SplideTrack>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
                 <SplideSlide>
-                  <Card2 />
+                  <Card2 joinCourse={joinCourse} />
                 </SplideSlide>
               </SplideTrack>
               <div className="splide__arrows">
@@ -170,7 +226,8 @@ const CourseMain = (props) => {
                 </button>
               </div>
             </Splide>
-          </div>
+          </div> */}
+
         </div>
       </div>
       <div className="text-center">

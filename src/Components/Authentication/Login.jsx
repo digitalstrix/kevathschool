@@ -9,6 +9,7 @@ const Login = (props) => {
     props.setNavFlag1(false);
     props.setNavFlag2(false);
   }, []);
+
   const context = useContext(MainContext);
 
   const navigate = useNavigate();
@@ -22,19 +23,90 @@ const Login = (props) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
+  const blockInvalidChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(value);
-    let ans = await context.login(value.email, value.Password);
-    if (ans.status) {
-      props.setAlert(ans.message, "success");
-      localStorage.setItem(
-        kevath_user,
-        JSON.stringify({ email: value.email, token: ans.data.access_token })
-      );
-      navigate("/profile-section");
-    } else {
-      props.setAlert(ans.message, "error");
+
+    let flag = false;
+    for (let i of Object.keys(value)) {
+      if (value[i].length === 0) {
+        if (!document.getElementById(`${i}-err`)) {
+          let nc = document.createElement("div");
+          nc.setAttribute("id", `${i}-err`);
+          nc.setAttribute("class", "err-show");
+          let text;
+          if (i === "Password") {
+            text = document
+              .getElementById(i)
+              .parentNode.previousElementSibling.innerText.replace("*", "");
+          } else {
+            text = document
+              .getElementById(i)
+              .previousElementSibling.innerText.replace("*", "");
+          }
+
+          nc.innerHTML = text + " is required";
+
+          document.getElementsByName(i)[0].parentNode.appendChild(nc);
+        }
+      } else {
+        document.getElementById(`${i}-err`)?.remove();
+
+        if (i === "Password") {
+          let reg =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if (reg.exec(value[i]) === null) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+            nc.innerHTML =
+              "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+            // console.log(document.getElementsByName(i)[0].parentNode);
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          } else {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+
+        if (i === "email") {
+          let reg =
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+          if (reg.exec(value[i]) === null) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+            nc.innerHTML = "Please enter a valid email";
+            // console.log(document.getElementsByName(i)[0].parentNode);
+            document.getElementsByName(i)[0].parentNode.appendChild(nc);
+          } else {
+            document.getElementById(`${i}-err`)?.remove();
+          }
+        }
+      }
+    }
+
+    const checkErr = document.querySelectorAll(".err-show");
+    if (checkErr.length === 0) {
+      flag = true;
+    }
+
+    if (flag) {
+      let ans = await context.login(value.email, value.Password);
+      if (ans.status) {
+        props.setAlert(ans.message, "success");
+        localStorage.setItem(
+          kevath_user,
+          JSON.stringify({ email: value.email, token: ans.data.access_token })
+        );
+        setTimeout(function () {
+          navigate("/profile-section");
+        }, 2000);
+      } else {
+        props.setAlert(ans.message, "error");
+      }
     }
   };
 
@@ -76,7 +148,7 @@ const Login = (props) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="eve-reg21">
-                <label htmlFor="email">Username *</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="text"
                   id="email"
@@ -84,7 +156,6 @@ const Login = (props) => {
                   value={value.email}
                   onChange={handleChange}
                   placeholder="Enter email id "
-                  required
                 />
               </div>
               <div className="eve-reg21">
@@ -97,7 +168,6 @@ const Login = (props) => {
                     value={value.Password}
                     onChange={handleChange}
                     placeholder="Enter your password"
-                    required
                   />
                   <div
                     onClick={() => {

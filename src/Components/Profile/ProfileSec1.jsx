@@ -154,82 +154,172 @@ const ProfileSec1 = (props) => {
   }, []);
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    if (e.target.name === "firstName" || e.target.name === "lastName") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32) {
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+      }
+    }
+    else if (e.target.name === "college" || e.target.name === "university" || e.target.name === "companyName" || e.target.name === "skills") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 8 || k === 32 || (k >= 48 && k <= 57)) {
+          console.log(k);
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+        else {
+          if (value[e.target.name] === undefined) {
+            setValue({ ...value, [e.target.name]: "" });
+          }
+        }
+      }
+    }
+    else {
+      setValue({ ...value, [e.target.name]: e.target.value });
+    }
   };
 
+  const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+
   const handleChange1 = (e) => {
-    setAddress({ ...address, [e.target.name]: e.target.value });
+    // if (e.target.name === "firstName" || e.target.name === "lastName") {
+    //   let n = e.target.value.length - 1;
+    //   if (n < 0) {
+    //     setAddress({ ...address, [e.target.name]: "" });
+    //   }
+    //   else {
+    //     let k = e.target.value.charAt(n).charCodeAt(0);
+    //     if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32) {
+    //       setAddress({ ...address, [e.target.name]: e.target.value });
+    //     }
+    //   }
+    // }
+    if (e.target.name === "city" || e.target.name === "city1" || e.target.name === "country" || e.target.name === "country1" || e.target.name === "landMark" || e.target.name === "landMark1" || e.target.name === "state" || e.target.name === "state1") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setAddress({ ...address, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 8 || k === 32 || (k >= 48 && k <= 57)) {
+          console.log(k);
+          setAddress({ ...address, [e.target.name]: e.target.value });
+        }
+        else {
+          if (address[e.target.name] === undefined) {
+            setAddress({ ...address, [e.target.name]: "" });
+          }
+        }
+      }
+    }
+    else {
+      setAddress({ ...address, [e.target.name]: e.target.value });
+    }
   };
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    // console.log(value);
+    console.log(value);
 
-    // const checkArr = ['firstName', 'lastName', 'email', 'phone', 'password'];
-    const checkArr = ["firstName", "lastName", "email", "contact", "emergencyContact"];
+    const checkArr = ["firstName", "lastName", "email", "contact", "emergencyContact",];
+    let b1 = document.getElementsByTagName("input");
+    // for(let i of b1)
+    // {
+    //   console.log(i);
+    // }
 
     let flag = false;
-    for (let i of Object.keys(value)) {
-      if (checkArr.includes(i)) {
-        console.log(i);
-        if (value[i].length === 0) {
-          if (!document.getElementById(`${i}-err`)) {
+    for (let i of b1) {
+
+      if (checkArr.includes(i.name)) {
+        // console.log(i.name);
+
+        if (i.value.length === 0) {
+          if (!document.getElementById(`${i.name}-err`)) {
             let nc = document.createElement("div");
-            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("id", `${i.name}-err`);
             nc.setAttribute("class", "err-show");
-            nc.innerHTML = "Field is required";
-            if (i === "phone") {
+
+            let text;
+            text = i.previousElementSibling.innerText.replace("*", "");
+
+            nc.innerHTML = text + " is required";
+
+            if (i.name === "phone") {
               document
-                .getElementsByName(i)[0]
+                .getElementsByName(i.name)[0]
                 .parentNode.parentNode.appendChild(nc);
             } else {
-              document.getElementsByName(i)[0].parentNode.appendChild(nc);
+              document.getElementsByName(i.name)[0].parentNode.appendChild(nc);
             }
           }
         } else {
-          document.getElementById(`${i}-err`)?.remove();
+          document.getElementById(`${i.name}-err`)?.remove();
 
-          if (i === "firstName") {
-            if (value[i].length < 3) {
+          if (i.name === "firstName") {
+            if (i.value.length < 3) {
               let nc = document.createElement("div");
-              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("id", `${i.name}-err`);
               nc.setAttribute("class", "err-show");
               nc.innerHTML = "Must includes at least 3 characters";
-              document.getElementsByName(i)[0].parentNode.appendChild(nc);
+              document.getElementsByName(i.name)[0].parentNode.appendChild(nc);
             } else {
-              document.getElementById(`${i}-err`)?.remove();
+              document.getElementById(`${i.name}-err`)?.remove();
             }
           }
 
-          if (i === "contact") {
-            console.log(value[i]);
-            if (value[i].length !== 10) {
-              console.log('if');
+          if (i.name === "contact") {
+            if (i.value.length !== 10) {
               let nc = document.createElement("div");
-              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("id", `${i.name}-err`);
               nc.setAttribute("class", "err-show");
               nc.innerHTML = "Must includes 10 digits";
               document
-                .getElementsByName(i)[0]
+                .getElementsByName(i.name)[0]
                 .parentNode.parentNode.appendChild(nc);
             } else {
-              document.getElementById(`${i}-err`)?.remove();
+              document.getElementById(`${i.name}-err`)?.remove();
             }
           }
 
-          if (i === "emergencyContact") {
-            console.log(value[i]);
-            if (value[i].length !== 10) {
-              console.log('if');
+          if (i.name === "email") {
+            let reg =
+              /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+            if (reg.exec(i.value) === null) {
               let nc = document.createElement("div");
-              nc.setAttribute("id", `${i}-err`);
+              nc.setAttribute("id", `${i.name}-err`);
+              nc.setAttribute("class", "err-show");
+              nc.innerHTML =
+                "Please enter a valid email";
+              // console.log(document.getElementsByName(i)[0].parentNode);
+              document.getElementsByName(i.name)[0].parentNode.appendChild(nc);
+            } else {
+              document.getElementById(`${i.name}-err`)?.remove();
+            }
+          }
+
+          if (i.name === "emergencyContact") {
+            if (i.value.length !== 10) {
+              let nc = document.createElement("div");
+              nc.setAttribute("id", `${i.name}-err`);
               nc.setAttribute("class", "err-show");
               nc.innerHTML = "Must includes 10 digits";
               document
-                .getElementsByName(i)[0]
+                .getElementsByName(i.name)[0]
                 .parentNode.appendChild(nc);
             } else {
-              document.getElementById(`${i}-err`)?.remove();
+              document.getElementById(`${i.name}-err`)?.remove();
             }
           }
 
@@ -253,7 +343,37 @@ const ProfileSec1 = (props) => {
       }
     }
 
-    console.log('yes');
+    const checkArr2 = ['percentage', 'percentage2', 'percentage3', 'noYears'];
+    for (let i of checkArr2) {
+      let b2 = document.getElementsByName(i)[0];
+      // console.log(b2);
+      if (b2.value !== '') {
+        document.getElementById(`${i}-err`)?.remove();
+        if (i === 'percentage' || i === 'percentage2' || i === 'percentage3') {
+          if (Number(b2.value) > 100) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+
+            let text = b2.previousElementSibling.innerText.replace("*", "");
+            nc.innerHTML = text + " should range between 0 to 100";
+            b2.parentNode.appendChild(nc);
+          }
+        }
+
+        if (i === 'noYears') {
+          if (Number(b2.value) > 70) {
+            let nc = document.createElement("div");
+            nc.setAttribute("id", `${i}-err`);
+            nc.setAttribute("class", "err-show");
+
+            let text = b2.previousElementSibling.innerText.replace("*", "");
+            nc.innerHTML = text + " must be less than 70";
+            b2.parentNode.appendChild(nc);
+          }
+        }
+      }
+    }
 
     const checkErr = document.querySelectorAll(".err-show");
 
@@ -356,7 +476,7 @@ const ProfileSec1 = (props) => {
   const submitHandle1 = async (e) => {
     e.preventDefault();
 
-    // console.log(address);
+    console.log(address);
     // console.log(Object.keys(address).length);
     // let n = Object.keys(address).length;
     // if(document.getElementById("same").checked)
@@ -379,6 +499,16 @@ const ProfileSec1 = (props) => {
         }
       } else {
         document.getElementById(`${i.name}-err`)?.remove();
+
+        if (i.value.length < 3) {
+          let nc = document.createElement("div");
+          nc.setAttribute("id", `${i.name}-err`);
+          nc.setAttribute("class", "err-show");
+          nc.innerHTML = "Must includes at least 3 characters";
+          document.getElementsByName(i.name)[0].parentNode.appendChild(nc);
+        } else {
+          document.getElementById(`${i.name}-err`)?.remove();
+        }
       }
     }
 
@@ -480,6 +610,7 @@ const ProfileSec1 = (props) => {
                         <input
                           type="text"
                           name="firstName"
+                          id="firstName"
                           onChange={handleChange}
                           value={value?.firstName}
                         />
@@ -491,6 +622,7 @@ const ProfileSec1 = (props) => {
                         <input
                           type="text"
                           name="lastName"
+                          id="lastName"
                           onChange={handleChange}
                           value={value?.lastName}
                         />
@@ -535,6 +667,7 @@ const ProfileSec1 = (props) => {
                         <label htmlFor="contact">Phone Number *</label>
                         <input
                           type="number"
+                          onKeyDown={blockInvalidChar}
                           id="contact"
                           name="contact"
                           onChange={handleChange}
@@ -565,11 +698,11 @@ const ProfileSec1 = (props) => {
                         </label>
                         <input
                           type="number"
+                          onKeyDown={blockInvalidChar}
                           id="emergencyContact"
                           name="emergencyContact"
                           onChange={handleChange}
                           value={value?.emergencyContact}
-                          required
                         />
                       </div>
                     </div>
@@ -614,7 +747,6 @@ const ProfileSec1 = (props) => {
                             name="dob"
                             onChange={handleChange}
                             value={value?.dob}
-                            required
                           />
                         </div>
                       </div>
@@ -1142,7 +1274,7 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="addressLine1">Address Line</label>
+                        <label htmlFor="addressLine1">Address Line  * </label>
                         <input
                           type="text"
                           name="addressLine1"
@@ -1154,7 +1286,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="addressLine2">Address Line 2</label>
+                        <label htmlFor="addressLine2">Address Line 2 * </label>
                         <input
                           type="text"
                           name="addressLine2"
@@ -1168,7 +1300,7 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="state">State</label>
+                        <label htmlFor="state">State * </label>
                         <input
                           type="text"
                           name="state"
@@ -1180,7 +1312,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="city">City</label>
+                        <label htmlFor="city">City * </label>
                         <input
                           type="text"
                           name="city"
@@ -1194,7 +1326,7 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="landMark">Landmark</label>
+                        <label htmlFor="landMark">Landmark * </label>
                         <input
                           type="text"
                           name="landMark"
@@ -1207,7 +1339,7 @@ const ProfileSec1 = (props) => {
                     <div className="psi-input psi-input1 psi-ex">
                       <div className="row psi131 psi40 psi-ex1">
                         <div className="psi-input add-inp">
-                          <label htmlFor="country">Country</label>
+                          <label htmlFor="country">Country * </label>
                           <input
                             type="text"
                             name="country"
@@ -1217,7 +1349,7 @@ const ProfileSec1 = (props) => {
                           />
                         </div>
                         <div className="psi-input add-inp">
-                          <label htmlFor="pincode">Pincode</label>
+                          <label htmlFor="pincode">Pincode * </label>
                           <input
                             type="number"
                             name="pincode"
@@ -1251,14 +1383,14 @@ const ProfileSec1 = (props) => {
                         .classList.toggle("none");
                     }}
                   />
-                  <label>Same as above</label>
+                  <label>Same as above </label>
                 </div>
 
                 <div className="psi13 perm-add">
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="addressLine11">Address Line</label>
+                        <label htmlFor="addressLine11">Address Line * </label>
                         <input
                           type="text"
                           name="addressLine11"
@@ -1270,7 +1402,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="addressLine21">Address Line 2</label>
+                        <label htmlFor="addressLine21">Address Line 2 * </label>
                         <input
                           type="text"
                           name="addressLine21"
@@ -1284,7 +1416,7 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="state1">State</label>
+                        <label htmlFor="state1">State * </label>
                         <input
                           type="text"
                           name="state1"
@@ -1296,7 +1428,7 @@ const ProfileSec1 = (props) => {
                     </div>
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="city1">City</label>
+                        <label htmlFor="city1">City * </label>
                         <input
                           type="text"
                           name="city1"
@@ -1310,7 +1442,7 @@ const ProfileSec1 = (props) => {
                   <div className="row psi131">
                     <div className="psi-input psi-ex">
                       <div className="psi-ex1 add-inp">
-                        <label htmlFor="landMark1">Landmark</label>
+                        <label htmlFor="landMark1">Landmark * </label>
                         <input
                           type="text"
                           name="landMark1"
@@ -1323,7 +1455,7 @@ const ProfileSec1 = (props) => {
                     <div className="psi-input psi-input1 psi-ex">
                       <div className="row psi131 psi40 psi-ex1">
                         <div className="psi-input add-inp">
-                          <label htmlFor="country1">Country</label>
+                          <label htmlFor="country1">Country * </label>
                           <input
                             type="text"
                             name="country1"
@@ -1333,7 +1465,7 @@ const ProfileSec1 = (props) => {
                           />
                         </div>
                         <div className="psi-input add-inp">
-                          <label htmlFor="pincode1">Pincode</label>
+                          <label htmlFor="pincode1">Pincode  * </label>
                           <input
                             type="number"
                             name="pincode1"

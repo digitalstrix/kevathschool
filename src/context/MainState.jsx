@@ -1,7 +1,7 @@
 import React from "react";
 import MainContext from "./MainContext";
 
-const baseUrl = "https://kevathschool.com/api/v1";
+const baseUrl = "https://api-dev.kevathschool.com/api/v1";
 
 const MainState = (props) => {
   const signup = async (firstName, lastName, email, contact, password) => {
@@ -38,9 +38,8 @@ const MainState = (props) => {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       redirect: "follow",
     });
@@ -56,9 +55,8 @@ const MainState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+            }`,
         },
         redirect: "follow",
       }
@@ -67,6 +65,7 @@ const MainState = (props) => {
     console.log(data);
     return data;
   };
+
   const sendEmailToVerify = async (email) => {
     const response = await fetch(
       `${baseUrl}/users/email-verify?email=${email}`,
@@ -74,9 +73,8 @@ const MainState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+            }`,
         },
         redirect: "follow",
       }
@@ -93,9 +91,8 @@ const MainState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("kevath_user"))?.token
-          }`,
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+            }`,
         },
         redirect: "follow",
       }
@@ -110,9 +107,8 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify({ email, currentPassword, newPassword }),
       redirect: "follow",
@@ -155,9 +151,8 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`
       },
       body: JSON.stringify(data),
       redirect: "follow",
@@ -172,9 +167,8 @@ const MainState = (props) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify(data1),
       redirect: "follow",
@@ -194,9 +188,8 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify({ referredReferralCode, email, fullName, userId }),
       redirect: "follow",
@@ -218,9 +211,8 @@ const MainState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("kevath_user"))?.token
-        }`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token
+          }`,
       },
       body: JSON.stringify({
         firstName,
@@ -269,6 +261,136 @@ const MainState = (props) => {
     return data;
   };
 
+  const addCourse = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/course`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const addBatches = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/batches`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const addParticipant = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/participant`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const joinCourse = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/course/join/${data.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      // body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const addEvent = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/event`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const registerParticipantEvent = async (
+    data
+  ) => {
+    const response = await fetch(`${baseUrl}/event/${data.id}/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      body: JSON.stringify(data),
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const getMyCourses = async () => {
+    const response = await fetch(`${baseUrl}/participant/get-my-course`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      redirect: "follow",
+    });
+    const data1 = await response.json();
+    console.log(data1);
+    return data1;
+  };
+
+  const getCourses = async ({ page, perPage, meta, career_type }) => {
+    // const response = await fetch(`${baseUrl}/course?page=${page}&per_page=${perPage}&meta=${meta}&career_type=${career_type}`, {
+    const response = await fetch(`${baseUrl}/course`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
   return (
     <>
       <MainContext.Provider
@@ -287,6 +409,14 @@ const MainState = (props) => {
           referralRegister,
           contactUs,
           hireFromUs,
+          getCourses,
+          addCourse,
+          addBatches,
+          addParticipant,
+          joinCourse,
+          addEvent,
+          registerParticipantEvent,
+          getMyCourses
         }}
       >
         {props.children}

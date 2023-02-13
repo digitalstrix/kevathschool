@@ -5,6 +5,7 @@ import MainContext from "../../context/MainContext";
 
 const ProfileSec11 = (props) => {
     const navigate = useNavigate();
+
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
         if (user) {
@@ -38,48 +39,49 @@ const ProfileSec11 = (props) => {
         console.log(value1);
         let user = localStorage.getItem('kevath_user');
         // if (user) {
-            user = JSON.parse(user);
-            if (value1.newPassword.length >= 8 && value1.currentPassword.length >= 8) {
-                if (value1.confirmPassword === value1.newPassword) {
-                    let flag = false;
+        user = JSON.parse(user);
+        
+        if (value1.newPassword.length >= 8 && value1.currentPassword.length >= 8) {
+            if (value1.confirmPassword === value1.newPassword) {
+                let flag = false;
 
-                    let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-                    if (reg.exec(value1["newPassword"]) === null) {
-                        document.getElementById(`${"newPassword"}-err`)?.remove();
-                        let nc = document.createElement('div');
-                        nc.setAttribute('id', `${"newPassword"}-err`);
-                        nc.setAttribute('class', 'err-show');
-                        nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
-                        // console.log(document.getElementsByName('newPassword')[0].parentNode);
-                        // console.log(nc);
-                        document.getElementsByName('newPassword')[0].parentNode.appendChild(nc);
-                    }
-                    else {
-                        document.getElementById(`${"newPassword"}-err`)?.remove();
-                    }
-
-                    const checkErr = document.querySelectorAll('.err-show');
-                    if (checkErr.length === 0) {
-                        flag = true;
-                    }
-
-                    if (flag) {
-                        let ans = await context.changePassword(user.email, value1.currentPassword, value1.newPassword);
-                        if (ans.status) {
-                            props.setAlert(ans.message, "success");
-                        }
-                        else {
-                            props.setAlert(ans.message, "error");
-                        }
-                    }
+                let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (reg.exec(value1["newPassword"]) === null) {
+                    document.getElementById(`${"newPassword"}-err`)?.remove();
+                    let nc = document.createElement('div');
+                    nc.setAttribute('id', `${"newPassword"}-err`);
+                    nc.setAttribute('class', 'err-show');
+                    nc.innerHTML = "Password must be at least 8 characters and contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+                    // console.log(document.getElementsByName('newPassword')[0].parentNode);
+                    // console.log(nc);
+                    document.getElementsByName('newPassword')[0].parentNode.appendChild(nc);
                 }
                 else {
-                    props.setAlert("Password and confirm password should be same", "error");
+                    document.getElementById(`${"newPassword"}-err`)?.remove();
+                }
+
+                const checkErr = document.querySelectorAll('.err-show');
+                if (checkErr.length === 0) {
+                    flag = true;
+                }
+
+                if (flag) {
+                    let ans = await context.changePassword(user.email, value1.currentPassword, value1.newPassword);
+                    if (ans.status) {
+                        props.setAlert(ans.message, "success");
+                    }
+                    else {
+                        props.setAlert(ans.message, "error");
+                    }
                 }
             }
             else {
-                props.setAlert("Password length should be greater than or equal to 8", "error");
+                props.setAlert("Password and confirm password should be same", "error");
             }
+        }
+        else {
+            props.setAlert("Password length should be greater than or equal to 8", "error");
+        }
         // }
         // else {
         //     props.setAlert("User unauthorised", "error");
