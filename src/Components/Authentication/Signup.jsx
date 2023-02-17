@@ -22,7 +22,33 @@ const Signup = (props) => {
   });
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    if (e.target.name === "firstName" || e.target.name === "lastName") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32 || k === 8) {
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+      }
+    }
+    else if (e.target.name === "email") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if (k !== 32) {
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+      }
+    }
+    else {
+      setValue({ ...value, [e.target.name]: e.target.value });
+    }
   };
 
   const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
@@ -39,17 +65,15 @@ const Signup = (props) => {
           nc.setAttribute("id", `${i}-err`);
           nc.setAttribute("class", "err-show");
           let text;
-          if(i==="phone" || i==="Password")
-          {
-            text=document.getElementById(i).parentNode.previousElementSibling.innerText.replace("*", "");
+          if (i === "phone" || i === "Password") {
+            text = document.getElementById(i).parentNode.previousElementSibling.innerText.replace("*", "");
           }
-          else
-          {
-            text=document.getElementById(i).previousElementSibling.innerText.replace("*", "");
+          else {
+            text = document.getElementById(i).previousElementSibling.innerText.replace("*", "");
           }
-          
+
           // nc.innerHTML = "Field is required";
-          nc.innerHTML = text+ " is required";
+          nc.innerHTML = text + " is required";
 
           if (i === "phone") {
             document
@@ -106,7 +130,7 @@ const Signup = (props) => {
 
         if (i === "email") {
           let reg =
-          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
           if (reg.exec(value[i]) === null) {
             let nc = document.createElement("div");
             nc.setAttribute("id", `${i}-err`);

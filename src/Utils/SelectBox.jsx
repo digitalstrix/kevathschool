@@ -41,7 +41,7 @@ class SelectBox extends React.Component {
 
         <div className="select-box--container" onBlur={this.blur} onClick={this.dropDown}>
 
-          {this.props.isEditable ? <input type="text" className="select-box--selected-item" onChange={this.onchange} value={this.props.value1} required={this.props.required} />  : <div className="select-box--selected-item">
+          {this.props.isEditable ? <input type="text" className="select-box--selected-item" name={this.props.name} onChange={this.onchange} value={this.props.value1} required={this.props.required} />  : <div className="select-box--selected-item">
             {this.state.selectedItem.value}
           </div>}
           

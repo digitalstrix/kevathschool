@@ -47,8 +47,19 @@ const EventReg2 = (props) => {
       }
       else {
         let k = e.target.value.charAt(n).charCodeAt(0);
-        if ((k > 64 &&
-          k < 91) || (k > 96 && k < 123) || k === 32) {
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32 || k === 8) {
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+      }
+    }
+    else if (e.target.name === "email") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if (k !== 32) {
           setValue({ ...value, [e.target.name]: e.target.value });
         }
       }

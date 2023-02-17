@@ -161,7 +161,7 @@ const ProfileSec1 = (props) => {
       }
       else {
         let k = e.target.value.charAt(n).charCodeAt(0);
-        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32) {
+        if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32 || k === 8) {
           setValue({ ...value, [e.target.name]: e.target.value });
         }
       }
@@ -181,6 +181,18 @@ const ProfileSec1 = (props) => {
           if (value[e.target.name] === undefined) {
             setValue({ ...value, [e.target.name]: "" });
           }
+        }
+      }
+    }
+    else if (e.target.name === "email") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if (k !== 32) {
+          setValue({ ...value, [e.target.name]: e.target.value });
         }
       }
     }
@@ -231,7 +243,7 @@ const ProfileSec1 = (props) => {
     e.preventDefault();
     console.log(value);
 
-    const checkArr = ["firstName", "lastName", "email", "contact", "emergencyContact",];
+    const checkArr = ["firstName", "lastName", "email", "contact", "emergencyContact", "course", "duration", "duration2", "duration3", "passedOutYear", "passedOutYear1", "percentage", "percentage2", "percentage3", "specification", "status", "university", "yearOfPassing", "college"];
     let b1 = document.getElementsByTagName("input");
     // for(let i of b1)
     // {
@@ -251,7 +263,12 @@ const ProfileSec1 = (props) => {
             nc.setAttribute("class", "err-show");
 
             let text;
-            text = i.previousElementSibling.innerText.replace("*", "");
+            if (i.classList.contains('select-box--selected-item')) {
+              text = i.parentNode.parentNode.previousElementSibling.innerText.replace("*", "");
+            }
+            else {
+              text = i.previousElementSibling.innerText.replace("*", "");
+            }
 
             nc.innerHTML = text + " is required";
 
@@ -259,7 +276,10 @@ const ProfileSec1 = (props) => {
               document
                 .getElementsByName(i.name)[0]
                 .parentNode.parentNode.appendChild(nc);
-            } else {
+            } else if (i.classList.contains('select-box--selected-item')) {
+              document.getElementsByName(i.name)[0].parentNode.parentNode.appendChild(nc);
+            }
+            else {
               document.getElementsByName(i.name)[0].parentNode.appendChild(nc);
             }
           }

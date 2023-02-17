@@ -44,8 +44,19 @@ const Hfu = (props) => {
             }
             else {
                 let k = e.target.value.charAt(n).charCodeAt(0);
-                if ((k > 64 &&
-                    k < 91) || (k > 96 && k < 123) || k === 32) {
+                if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 32 || k === 8) {
+                    setValue({ ...value, [e.target.name]: e.target.value });
+                }
+            }
+        }
+        else if (e.target.name === "email") {
+            let n = e.target.value.length - 1;
+            if (n < 0) {
+                setValue({ ...value, [e.target.name]: "" });
+            }
+            else {
+                let k = e.target.value.charAt(n).charCodeAt(0);
+                if (k !== 32) {
                     setValue({ ...value, [e.target.name]: e.target.value });
                 }
             }
@@ -59,7 +70,7 @@ const Hfu = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        value.phone=document.getElementById('country-select').value+value.phone;
+        value.phone = document.getElementById('country-select').value + value.phone;
         console.log(value);
         let notifications = false;
 
@@ -148,8 +159,7 @@ const Hfu = (props) => {
                 }
 
                 if (i === "phone") {
-                    if(document.getElementById('country-select').value==="+91")
-                    {
+                    if (document.getElementById('country-select').value === "+91") {
                         if (value[i].length !== 10) {
                             let nc = document.createElement("div");
                             nc.setAttribute("id", `${i}-err`);
@@ -280,7 +290,7 @@ const Hfu = (props) => {
                                 <input type="checkbox" name="agree2" id="agree2" />
                                 <label htmlFor="agree2">I have read and agreed to KevarthSchool Terms of Service and
                                     Privacy Policy.</label>
-                                     {/* required */}
+                                {/* required */}
                             </div>
                             <div className="eve-reg22">
                                 <button type="submit" className="btn btn1">submit</button>

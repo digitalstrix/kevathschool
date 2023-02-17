@@ -104,7 +104,7 @@ const MainState = (props) => {
 
   const changePassword = async (email, currentPassword, newPassword) => {
     const response = await fetch(`${baseUrl}/users/change-password`, {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token

@@ -20,7 +20,21 @@ const Login = (props) => {
   });
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    if (e.target.name === "email") {
+      let n = e.target.value.length - 1;
+      if (n < 0) {
+        setValue({ ...value, [e.target.name]: "" });
+      }
+      else {
+        let k = e.target.value.charAt(n).charCodeAt(0);
+        if (k !== 32) {
+          setValue({ ...value, [e.target.name]: e.target.value });
+        }
+      }
+    }
+    else {
+      setValue({ ...value, [e.target.name]: e.target.value });
+    }
   };
 
   const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
