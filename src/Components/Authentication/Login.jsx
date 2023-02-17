@@ -37,7 +37,8 @@ const Login = (props) => {
     }
   };
 
-  const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+  const blockInvalidChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,10 +53,13 @@ const Login = (props) => {
           nc.setAttribute("class", "err-show");
           let text;
           if (i === "Password") {
-            text = document.getElementById(i).parentNode.previousElementSibling.innerText.replace("*", "");
-          }
-          else {
-            text = document.getElementById(i).previousElementSibling.innerText.replace("*", "");
+            text = document
+              .getElementById(i)
+              .parentNode.previousElementSibling.innerText.replace("*", "");
+          } else {
+            text = document
+              .getElementById(i)
+              .previousElementSibling.innerText.replace("*", "");
           }
 
           nc.innerHTML = text + " is required";
@@ -88,8 +92,7 @@ const Login = (props) => {
             let nc = document.createElement("div");
             nc.setAttribute("id", `${i}-err`);
             nc.setAttribute("class", "err-show");
-            nc.innerHTML =
-              "Please enter a valid email";
+            nc.innerHTML = "Please enter a valid email";
             // console.log(document.getElementsByName(i)[0].parentNode);
             document.getElementsByName(i)[0].parentNode.appendChild(nc);
           } else {
@@ -180,16 +183,25 @@ const Login = (props) => {
                     onChange={handleChange}
                     placeholder="Enter your password"
                   />
-                  <div onClick={() => {
-                    const pass = document.getElementById('Password');
-                    if (pass.type === "text") {
-                      pass.type = 'password';
-                    }
-                    else {
-                      pass.type = 'text';
-                    }
-                  }} className="pass-eye">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                  <div
+                    onClick={() => {
+                      const pass = document.getElementById("Password");
+                      if (pass.type === "text") {
+                        pass.type = "password";
+                      } else {
+                        pass.type = "text";
+                      }
+                    }}
+                    className="pass-eye"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-eye-fill"
+                      viewBox="0 0 16 16"
+                    >
                       <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                       <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                     </svg>
