@@ -152,7 +152,17 @@ const EventReg2 = (props) => {
     }
 
     if (flag) {
-      // navigate("/event-register-verification");
+      let ans = await context.registerParticipantEvent({...value, id});
+      console.log(ans);
+      if(ans.status)
+      {
+        props.setAlert(ans.message, "success");
+        navigate("/event-register-verification");
+      }
+      else
+      {
+        props.setAlert(ans.message, "error");
+      }
     }
   };
 

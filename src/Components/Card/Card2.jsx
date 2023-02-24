@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const Card2 = (props) => {
   const [data, setData] = useState({});
+  
   useEffect(()=>{
     setData(props.f);
   },[props.f]);

@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card3 from "../Card/Card3";
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import MainContext from '../../context/MainContext';
 
 const EventReg1 = (props) => {
   const navigate = useNavigate();
+  const context=useContext(MainContext);
+  const [data, setData] = useState([]);
     
   useEffect(() => {
     props.setFootFlag(true);
@@ -24,6 +28,16 @@ const EventReg1 = (props) => {
       props.setNavFlag2(false);
     }
   }, []);
+
+  useEffect(()=>{
+    getData();
+  },[]);
+
+  const getData=async()=>{
+    const ans =await context.getEvents();
+    console.log(ans);
+    setData(ans.data);
+  };
 
   return (
     <>
@@ -69,17 +83,20 @@ const EventReg1 = (props) => {
             <h2>Discover Lifelong Learning</h2>
           </div>
           <div className="eve-reg1212">
-            <div className="eve-reg12121 eve-reg12121-active">
-              All Categories
-            </div>
+            <div className="eve-reg12121 eve-reg12121-active">All Categories</div>
             <div className="eve-reg12121">AMA</div>
             <div className="eve-reg12121">BOOTCAMP</div>
             <div className="eve-reg12121">CRACK THE CODE</div>
           </div>
           <div className="eve-reg1213">
-            <Card3 />
-            <Card3 />
-            <Card3 />
+            {data.map((e,index)=>{
+              return (
+                <Card3 key={index} data={e} />
+              );
+            })}
+            
+            {/* <Card3 />
+            <Card3 /> */}
           </div>
           <div className="eve-reg1214">
             <button className="btn btn1">Learn More</button>

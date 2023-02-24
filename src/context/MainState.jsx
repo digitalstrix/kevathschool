@@ -355,7 +355,7 @@ const MainState = (props) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({first_name: data.firstName, last_name: data.lastName, email: data.email}),
       redirect: "follow",
     });
     const data1 = await response.json();
@@ -380,6 +380,19 @@ const MainState = (props) => {
   const getCourses = async ({ page, perPage, meta, career_type }) => {
     // const response = await fetch(`${baseUrl}/course?page=${page}&per_page=${perPage}&meta=${meta}&career_type=${career_type}`, {
     const response = await fetch(`${baseUrl}/course`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
+  const getEvents = async () => {
+    const response = await fetch(`${baseUrl}/event`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -416,7 +429,8 @@ const MainState = (props) => {
           joinCourse,
           addEvent,
           registerParticipantEvent,
-          getMyCourses
+          getMyCourses,
+          getEvents
         }}
       >
         {props.children}

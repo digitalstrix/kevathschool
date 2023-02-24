@@ -71,7 +71,7 @@ const CourseMain = (props) => {
         tempArr1[ind].push(i);
       }
     }
-    // console.log(tempArr1);
+    console.log(tempArr1);
     setData(tempArr1);
   };
 
