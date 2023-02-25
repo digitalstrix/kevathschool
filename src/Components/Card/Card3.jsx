@@ -1,7 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import MainContext from "../../context/MainContext";
 
-const Card3 = ({data}) => {
+const Card3 = ({ data, setAlert }) => {
+  const context=useContext(MainContext);
+  const navigate=useNavigate();
+
+  const handleSubmit = async () => {
+    let user=localStorage.getItem('kevath_user1');
+    if(!user)
+    {
+      navigate('/login');
+    }
+    else{
+      user=JSON.parse(user);
+    }
+
+    let ans = await context.registerParticipantEvent({ first_name:user.firstName , last_name:user.lastName , email:user.email, id: data.id });
+    console.log(ans);
+    if (ans.status) {
+      setAlert(ans.message, "success");
+      // navigate("/event-register-verification");
+    }
+    else {
+      setAlert(ans.message, "error");
+    }
+  };
+
   return (
     <>
       <div className="eve-reg1-card">
@@ -18,7 +44,7 @@ const Card3 = ({data}) => {
               <div className="row">
                 <img src="/static/images/Vector (2).png" alt="" />
                 {/* <p>Mon, 15 Aug, 2022</p> */}
-                <p>{`${new Date(data?.eventFromTime).toLocaleDateString('en-US', {weekday:'short'})}, ${new Date(data?.eventFromTime).getDate()} ${new Date(data?.eventFromTime).toLocaleDateString('en-US', {month: 'short'})}, ${new Date(data?.eventFromTime).getFullYear()}`}</p>
+                <p>{`${new Date(data?.eventFromTime).toLocaleDateString('en-US', { weekday: 'short' })}, ${new Date(data?.eventFromTime).getDate()} ${new Date(data?.eventFromTime).toLocaleDateString('en-US', { month: 'short' })}, ${new Date(data?.eventFromTime).getFullYear()}`}</p>
               </div>
               <div className="row">
                 <img src="/static/images/Vector (3).png" alt="" />
@@ -39,9 +65,11 @@ const Card3 = ({data}) => {
           </div>
           <div className="eve-red-card-bottom row">
             <a href="#">more info</a>
-            <Link to={`/event-register/${data.id}`}>
-              <button className="btn btn1">Book your seat</button>
-            </Link>
+            {/* <Link to={`/event-register/${data.id}`}> */}
+            <button onClick={() => {
+              handleSubmit();
+            }} className="btn btn1">Book your seat</button>
+            {/* </Link> */}
           </div>
         </div>
       </div>

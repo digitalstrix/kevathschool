@@ -295,8 +295,8 @@ const MainState = (props) => {
     return data1;
   };
 
-  const addParticipant = async (
-    data
+  const joinCourse = async (
+    { courseId, first_name, last_name, email }
   ) => {
     const response = await fetch(`${baseUrl}/participant`, {
       method: "POST",
@@ -304,24 +304,12 @@ const MainState = (props) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
       },
-      body: JSON.stringify(data),
-      redirect: "follow",
-    });
-    const data1 = await response.json();
-    console.log(data1);
-    return data1;
-  };
-
-  const joinCourse = async (
-    data
-  ) => {
-    const response = await fetch(`${baseUrl}/course/join/${data.id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
-      },
-      // body: JSON.stringify(data),
+      body: JSON.stringify({
+        courseId,
+        first_name,
+        last_name,
+        email
+      }),
       redirect: "follow",
     });
     const data1 = await response.json();
@@ -346,16 +334,14 @@ const MainState = (props) => {
     return data1;
   };
 
-  const registerParticipantEvent = async (
-    data
-  ) => {
-    const response = await fetch(`${baseUrl}/event/${data.id}/register`, {
+  const registerParticipantEvent = async ({first_name, last_name, email, id}) => {
+    const response = await fetch(`${baseUrl}/event/${id}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
       },
-      body: JSON.stringify({first_name: data.firstName, last_name: data.lastName, email: data.email}),
+      body: JSON.stringify({ first_name, last_name, email }),
       redirect: "follow",
     });
     const data1 = await response.json();
@@ -364,7 +350,7 @@ const MainState = (props) => {
   };
 
   const getMyCourses = async () => {
-    const response = await fetch(`${baseUrl}/participant/get-my-course`, {
+    const response = await fetch(`${baseUrl}/participant/get-courses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -425,7 +411,6 @@ const MainState = (props) => {
           getCourses,
           addCourse,
           addBatches,
-          addParticipant,
           joinCourse,
           addEvent,
           registerParticipantEvent,

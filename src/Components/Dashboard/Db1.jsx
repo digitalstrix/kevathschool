@@ -5,12 +5,14 @@ import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
 import { useState } from 'react';
 import MainContext from '../../context/MainContext';
+import CoursePopup from '../../popup/CoursePopup';
 
 const Db1 = (props) => {
     const [perPage, setPerPage] = useState(3);
     const navigate = useNavigate();
     const context = useContext(MainContext);
     const [data, setData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
@@ -65,6 +67,7 @@ const Db1 = (props) => {
 
     return (
         <>
+            {showModal ? <CoursePopup setShowModal={setShowModal} showModal={showModal} /> : null}
             <div className="user-dp-top">
                 <div className="user-dp-top1 user-dp-top-active">
                     OUR COURSES
@@ -193,7 +196,9 @@ const Db1 = (props) => {
                 </div>
             </div>
             <div className="text-center">
-                <button className="btn btn1">View More</button>
+                <button onClick={()=>{
+                    setShowModal(!showModal);
+                }} className="btn btn1">View More</button>
             </div>
             <div className="course3">
                 <div className="course31">

@@ -91,7 +91,7 @@ const EventReg1 = (props) => {
           <div className="eve-reg1213">
             {data.map((e,index)=>{
               return (
-                <Card3 key={index} data={e} />
+                <Card3 key={index} data={e} setAlert={props.setAlert} />
               );
             })}
             
