@@ -1115,6 +1115,7 @@ a {
 
 .course-card-img img {
     width: 100%;
+    padding: 18px;
 }
 
 .img-cls {
@@ -2955,6 +2956,7 @@ hr {
     margin-right: 1rem;
 }
 .course-pop{
+    z-index: 999999;
     position: fixed;
     height: 100%;
     width: 100%;

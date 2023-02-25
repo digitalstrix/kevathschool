@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const CoursePopup = ({showModal, setShowModal}) => {
+const CoursePopup = ({showModal, setShowModal, joinUrl}) => {
     return (
         <>
             <div className="course-pop">
@@ -14,7 +14,7 @@ const CoursePopup = ({showModal, setShowModal}) => {
                     </div>
                     <div className="course-pop-foot row">
                         <a href='https://zoom.us/signin#/login' target="_blank" className="zoom-btn btn">Zoom Login</a>
-                        <a href='#' target="_blank" className="btn btn1">Join Course</a>
+                        <a href={joinUrl} target="_blank" className="btn btn1">Join Course</a>
                     </div>
                 </div>
             </div>
