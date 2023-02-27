@@ -126,7 +126,7 @@ const App = () => {
               }
             />
             <Route
-              path="/courses"
+              path="/courses/:id"
               element={
                 <Courses
                   userFlag={userFlag}

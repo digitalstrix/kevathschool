@@ -7,7 +7,7 @@ const Card2 = (props) => {
   const [data, setData] = useState({});
   
   useEffect(()=>{
-    console.log(props.f);
+    // console.log(props.f);
     setData(props.f);
   },[props.f]);
 
@@ -81,7 +81,7 @@ const Card2 = (props) => {
                   }} className="btn btn1">Apply Now</button>
                 </div>
                 <div>
-                  <Link className="color-gray" to="/courses">VIEW PROGRAM</Link>
+                  <Link className="color-gray" to={`/courses/${data.id}`}>VIEW PROGRAM</Link>
                 </div>
               </div>
             </div>

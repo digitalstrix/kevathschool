@@ -377,6 +377,20 @@ const MainState = (props) => {
     return data;
   };
 
+  const getCourseById = async (id) => {
+    console.log(id);
+    const response = await fetch(`${baseUrl}/course?meta=true&id=${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
   const getEvents = async () => {
     const response = await fetch(`${baseUrl}/event`, {
       method: "GET",
@@ -415,7 +429,8 @@ const MainState = (props) => {
           addEvent,
           registerParticipantEvent,
           getMyCourses,
-          getEvents
+          getEvents,
+          getCourseById
         }}
       >
         {props.children}

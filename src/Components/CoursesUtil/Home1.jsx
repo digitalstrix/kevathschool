@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import clock from "./assets/clock.jpg";
 import week from "./assets/week.jpg";
 import vect from "./assets/vect.png"
@@ -19,102 +19,121 @@ import vector from "./assets/vector.png";
 import vector1 from "./assets/vector1.png";
 import vector2 from "./assets/vector2.png";
 import Card5 from "../Card/Card5";
+import { useEffect } from "react";
+import MainContext from "../../context/MainContext";
+import { getUserData } from "../../Service/localdata";
+import { useState } from "react";
 
-export default function Home1() {
-  const data = {
-    "media": {
-      "image_url": "https://cdn.kevathschool.com/full-stack.png"
-    },
-    "id": "53ed0181-a200-4ea5-9d41-fafabd0df4f6",
-    "type": "course",
-    "courseType": "PartTime",
-    "careerType": "Spark",
-    "title": "Full Stack Developer",
-    "description": "description of the course",
-    "courseSyllabus": [
-      {
-        "unitName": "unit1",
-        "name": "java",
-        "description": "complete java",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit2",
-        "name": "Node",
-        "description": "node js",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit3",
-        "name": "python",
-        "description": "complete python",
-        "durationWeeks": 6
-      },
-      {
-        "unitName": "unit4",
-        "name": "UI",
-        "description": "complete UI",
-        "durationWeeks": 6
-      },
-      {
-        "unitName": "unit5",
-        "name": "Practice",
-        "description": "complete java",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit6",
-        "name": "Interview Prperation",
-        "description": "Interview Prperation and mock interviews",
-        "durationWeeks": 6
-      }
-    ],
-    "no_of_weeks": 30,
-    "eligibility": [
-      {
-        "image_url": "string",
-        "data": "string",
-        "_id": "63b701815be48cf155826634"
-      }
-    ],
-    "instructors": [
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "https://cdn.kevathschool.com/backend-dev.png"
-      },
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "string"
-      },
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "string"
-      }
-    ],
-    "whatYouColudBecome": {
-      "description": "Tech job landscape in itself is lucrative, dynamic and ever growing. The roles that are offered in software development are also highly diverse.",
-      "roles": [
-        "Front-End Developer",
-        "Front-End Developer",
-        "Front-End Developer",
-        "Front-End Developer"
-      ]
-    },
-    "allowedParticipants": 100,
-    "status": "Registered",
-    "isDeleted": false,
-    "lastDateToApply": "string",
-    "createdDate": "2023-01-05T16:57:06.957Z",
-    "createdBy": null,
-    "modifiedDate": "2023-01-05T16:57:06.957Z",
-    "modifiedBy": null,
-    "whatYouWillLearn": []
+export default function Home1({ id }) {
+  // const data = {
+  //   "media": {
+  //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
+  //   },
+  //   "id": "53ed0181-a200-4ea5-9d41-fafabd0df4f6",
+  //   "type": "course",
+  //   "courseType": "PartTime",
+  //   "careerType": "Spark",
+  //   "title": "Full Stack Developer",
+  //   "description": "description of the course",
+  //   "courseSyllabus": [
+  //     {
+  //       "unitName": "unit1",
+  //       "name": "java",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit2",
+  //       "name": "Node",
+  //       "description": "node js",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit3",
+  //       "name": "python",
+  //       "description": "complete python",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit4",
+  //       "name": "UI",
+  //       "description": "complete UI",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit5",
+  //       "name": "Practice",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit6",
+  //       "name": "Interview Prperation",
+  //       "description": "Interview Prperation and mock interviews",
+  //       "durationWeeks": 6
+  //     }
+  //   ],
+  //   "no_of_weeks": 30,
+  //   "eligibility": [
+  //     {
+  //       "image_url": "string",
+  //       "data": "string",
+  //       "_id": "63b701815be48cf155826634"
+  //     }
+  //   ],
+  //   "instructors": [
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "https://cdn.kevathschool.com/backend-dev.png"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     }
+  //   ],
+  //   "whatYouColudBecome": {
+  //     "description": "Tech job landscape in itself is lucrative, dynamic and ever growing. The roles that are offered in software development are also highly diverse.",
+  //     "roles": [
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer"
+  //     ]
+  //   },
+  //   "allowedParticipants": 100,
+  //   "status": "Registered",
+  //   "isDeleted": false,
+  //   "lastDateToApply": "string",
+  //   "createdDate": "2023-01-05T16:57:06.957Z",
+  //   "createdBy": null,
+  //   "modifiedDate": "2023-01-05T16:57:06.957Z",
+  //   "modifiedBy": null,
+  //   "whatYouWillLearn": []
+  // };
+
+  const context = useContext(MainContext);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    // console.log(id);
+    getUserData();
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const ans = await context.getCourseById(id);
+    // console.log(ans);
+    setData(ans.data[0]);
   };
 
   return (
@@ -300,7 +319,6 @@ export default function Home1() {
               </div>
               <div className="acourse112">
                 {data?.instructors?.map((e, index) => {
-                  console.log(index);
                   return (
                     <Card5 key={index} data={e} />
                   );
@@ -368,10 +386,10 @@ export default function Home1() {
             <br />
             <h1 className="n-h2">What You Could Become</h1>
             <p className="p-7">
-              {data?.whatYouColudBecome.description}
+              {data?.whatYouColudBecome?.description}
             </p>
             <div className="row2 row flex-wrap mt-3">
-              {data?.whatYouColudBecome.roles.map((e, index) => {
+              {data?.whatYouColudBecome?.roles?.map((e, index) => {
                 return (
                   <p key={index} className="mr-3">{e}</p>
                 );
