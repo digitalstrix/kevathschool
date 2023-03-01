@@ -76,13 +76,12 @@ const CourseMain = (props) => {
   };
 
   const joinCourse = async (id) => {
-    let user=localStorage.getItem('kevath_user1');
-    if(!user)
-    {
+    let user = localStorage.getItem('kevath_user1');
+    if (!user) {
       navigate('/login');
     }
-    else{
-      user=JSON.parse(user);
+    else {
+      user = JSON.parse(user);
     }
     // console.log(id);
     const ans = await context.joinCourse({
@@ -92,6 +91,12 @@ const CourseMain = (props) => {
       email: user.email
     });
     console.log(ans);
+    if (ans.status) {
+      props.setAlert(ans.message, "success");
+    }
+    else {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (

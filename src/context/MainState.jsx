@@ -298,6 +298,7 @@ const MainState = (props) => {
   const joinCourse = async (
     { courseId, first_name, last_name, email }
   ) => {
+    console.log(courseId, first_name, last_name, email);
     const response = await fetch(`${baseUrl}/participant`, {
       method: "POST",
       headers: {
@@ -314,6 +315,7 @@ const MainState = (props) => {
     });
     const data1 = await response.json();
     console.log(data1);
+    
     return data1;
   };
 
