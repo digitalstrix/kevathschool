@@ -1,7 +1,7 @@
 import React from "react";
 import clock from "./assets/clock.jpg";
 import week from "./assets/week.jpg";
-import vect from "./assets/vect.png"
+import vect from "./assets/vect.png";
 import bt from "./assets/bt.png";
 import bl from "./assets/bl.png";
 import bw from "./assets/bw.png";
@@ -46,10 +46,11 @@ export default function Home1() {
               <br />
               <button className="btn3_1">APPLY NOW FOR FREE</button>
               <br />
-              <div className="bm"><img src={vect} alt="" className="vect img_1" /></div>
+              <div className="bm">
+                <img src={vect} alt="" className="vect img_1" />
+              </div>
             </div>
           </div>
-
         </div>
         <div className="left">
           <div className="btn1_1">
@@ -158,7 +159,6 @@ export default function Home1() {
               <div className="box-n01">
                 <img src={id} alt="" className="imgn img_1" />
                 <h5 className="h-7 h5_1">
-
                   ID
                   <br />
                   <br />
@@ -204,7 +204,10 @@ export default function Home1() {
             <div className="acourse11">
               <div className="acourse111">
                 <h3>Meet Our Instructors & Mentors</h3>
-                <p>Being accomplished developers themselves, the Curriculam Team is an experienced group of coding instructors.</p>
+                <p>
+                  Being accomplished developers themselves, the Curriculam Team
+                  is an experienced group of coding instructors.
+                </p>
               </div>
               <div className="acourse112">
                 <Card5 />
@@ -347,9 +350,7 @@ export default function Home1() {
                   <div className="ladder121 course-ladder121">
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          1
-                        </h3>
+                        <h3 className="h3 green">1</h3>
                         <p>Apply For The Program</p>
                       </div>
                     </div>
@@ -358,9 +359,7 @@ export default function Home1() {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          2
-                        </h3>
+                        <h3 className="h3 green">2</h3>
                         <p>Crack The Admission Test</p>
                       </div>
                     </div>
@@ -369,9 +368,7 @@ export default function Home1() {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          3
-                        </h3>
+                        <h3 className="h3 green">3</h3>
                         <p>Learn At 0 Upfront Fee</p>
                       </div>
                     </div>
@@ -380,9 +377,7 @@ export default function Home1() {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          4
-                        </h3>
+                        <h3 className="h3 green">4</h3>
                         <p>Get Placed</p>
                       </div>
                     </div>
@@ -392,16 +387,36 @@ export default function Home1() {
             </div>
             <h1 className="w-h1">Frequently asked Questions</h1>
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <br />
             <br />
