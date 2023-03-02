@@ -5,12 +5,15 @@ import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
 import { useState } from 'react';
 import MainContext from '../../context/MainContext';
+import CoursePopup from '../../popup/CoursePopup';
 
 const Db1 = (props) => {
     const [perPage, setPerPage] = useState(3);
     const navigate = useNavigate();
     const context = useContext(MainContext);
     const [data, setData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [joinUrl, setJoinUrl] = useState("");
 
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
@@ -45,6 +48,7 @@ const Db1 = (props) => {
     const getData = async () => {
         const data = await context.getMyCourses();
         console.log(data);
+        setData(data.data);
         // let tempArr = [];
         // let tempArr1 = [];
         // let ind = -1;
@@ -65,6 +69,7 @@ const Db1 = (props) => {
 
     return (
         <>
+            {showModal ? <CoursePopup setShowModal={setShowModal} showModal={showModal} joinUrl={joinUrl} /> : null}
             <div className="user-dp-top">
                 <div className="user-dp-top1 user-dp-top-active">
                     OUR COURSES
@@ -94,7 +99,7 @@ const Db1 = (props) => {
                         <h4>For Working Professionals</h4>
                     </div>
 
-                    {/* <div className="course212">
+                    <div className="course212">
                         <div className="row course0">
                             <h3>Software & Tech</h3>
                             <a href="#">View all</a>
@@ -105,15 +110,13 @@ const Db1 = (props) => {
                             gap: '1rem',
                         }}>
                             <SplideTrack>
-                                <SplideSlide>
-                                    <Card2 />
-                                </SplideSlide>
-                                <SplideSlide>
-                                    <Card2 />
-                                </SplideSlide>
-                                <SplideSlide>
-                                    <Card2 />
-                                </SplideSlide>
+                                {data?.length>0 ? data?.map((e,index)=>{
+                                    return (
+                                    <SplideSlide key={index}>
+                                        <Card2 f={e} isAuth={true} setShowModal={setShowModal} showModal={showModal} setJoinUrl={setJoinUrl} />
+                                    </SplideSlide>
+                                    );
+                                }) : "No courses found"}
                             </SplideTrack>
                             <div className="splide__arrows">
                                 <button className="splide__arrow splide__arrow--prev">
@@ -126,7 +129,7 @@ const Db1 = (props) => {
                         </Splide>
                     </div>
 
-                    <div className="course212">
+                    {/* <div className="course212">
                         <div className="row course0">
                             <h3>Data Science</h3>
                             <a href="#">View all</a>
@@ -208,7 +211,7 @@ const Db1 = (props) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Db1;

@@ -910,6 +910,7 @@ a {
 .course2 {
     display: flex;
     justify-content: center;
+    padding: 0px 20px !important;
 }
 
 .course21 {
@@ -1048,13 +1049,17 @@ a {
 }
 
 .splide__arrow--prev {
-    left: -2em !important;
+    left: 1em !important;
     opacity: 1 !important;
 }
 
 .splide__arrow--next {
-    right: -2em !important;
+    right: 1em !important;
     opacity: 1 !important;
+}
+.splide__track--draggable{
+    padding-left: 36px !important;
+    padding-right: 36px !important;
 }
 
 .course3 {
@@ -1110,6 +1115,7 @@ a {
 
 .course-card-img img {
     width: 100%;
+    padding: 18px;
 }
 
 .img-cls {
@@ -1232,7 +1238,7 @@ a {
 }
 
 .eve-reg1-card {
-    width: 75vmin;
+    width: 28%;
     margin: 0rem 2rem;
     border-radius: 30px;
     box-shadow: -15px -15px 0px 0px #51b848;
@@ -2931,8 +2937,58 @@ hr {
 .acourse112111 img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
-
+.mt-3{
+    margin-top: 20px;
+}
+.mr-3{
+    margin-right: 18px;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.zoom-btn{
+    color: #fff;
+    background-color: #0e72ed;
+    border-color: transparent;
+    outline: none;
+    margin-right: 1rem;
+}
+.course-pop{
+    z-index: 999999;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #00000073;
+}
+.course-pop1{
+    position: relative;
+    top: 10%;
+    height: 18rem;
+    width: 80vmin;
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.course-pop-title{
+    margin-bottom: 3rem;
+}
+.course-pop-foot{
+    justify-content: center;
+}
+.close-pop{
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 /* Courses Css */
 
@@ -5142,7 +5198,9 @@ input::-ms-reveal,
 input::-ms-clear {
   display: none;
 }
-
+.courses21{
+    width: 100%;
+}
 
 @media screen and (max-width: 1550px) {
     .psi-2112 {
@@ -5643,7 +5701,7 @@ input::-ms-clear {
         font-size: 17px;
     }
     .course-card {
-        height: 50vh;
+        height: 33rem;
     }
     .course311 h1 {
         font-size: 50px;
@@ -6040,7 +6098,7 @@ input::-ms-clear {
         top: 45% !important;
     }
     .course-card {
-        height: 45vh;
+        height: 33rem;
     }
     .eve-reg1-main .row {
         flex-direction: column;
@@ -6685,7 +6743,7 @@ input::-ms-clear {
     }
     .course-card-text {
         bottom: -220px;
-        left: 14px;
+        left: 12px;
     }
     .course0 {
         padding: 0rem 2rem;
@@ -7248,11 +7306,11 @@ input::-ms-clear {
         right: 90%;
     }
     .course-card-text {
-        bottom: -120px;
+        bottom: -170px;
         left: 21px;
     }
     .course-card {
-        height: 36rem;
+        height: 33rem;
     }
     .eve-reg1-card {
         width: 70vmin;
@@ -7590,6 +7648,17 @@ input::-ms-clear {
     .refe231 p {
         font-size: 13px;
     }
+    .course2{
+        padding: 0px 0px !important;
+    }
+    .splide__track--draggable {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .course-card {
+        height: 37rem;
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 555px) {
@@ -7771,7 +7840,7 @@ input::-ms-clear {
         left: 19px;
     }
     .course-card {
-        height: 28rem;
+        height: 34rem;
     }
     .eve-reg1-12 {
         width: 75%;
@@ -7928,11 +7997,11 @@ input::-ms-clear {
         top: 22rem;
     }
     .course-card-text {
-        bottom: -140px;
-        left: 16px;
+        bottom: -200px;
+        left: 17px;
     }
     .course-card{
-        height:31rem;
+        height:34rem;
     }
     .eve-reg1-12 {
         height: 22vh;
@@ -8267,6 +8336,17 @@ input::-ms-clear {
     .refe6211-1{
         margin-right: 25px;
     }
+    .course-card-text {
+        bottom: -225px;
+        left: 17px;
+    }
+    .course-card {
+        height: 35rem;
+    }
+    .course-card-text1 .btn {
+        padding: 5px 7px;
+        font-size: 11px;
+    }
 }
 
 @media screen and (max-width: 380px) {
@@ -8286,7 +8366,7 @@ input::-ms-clear {
         left: 14px;
     }
     .course-card {
-        height: 30rem;
+        height: 32rem;
     }
     .evereg1_img1 {
         top: -23px;
@@ -8365,5 +8445,9 @@ input::-ms-clear {
     }
     .auth-nav {
         padding: 0px 0px;
+    }
+    .course-card-text {
+        bottom: -225px;
+        left: 14px;
     }
 }

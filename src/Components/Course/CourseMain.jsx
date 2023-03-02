@@ -71,14 +71,32 @@ const CourseMain = (props) => {
         tempArr1[ind].push(i);
       }
     }
-    // console.log(tempArr1);
+    console.log(tempArr1);
     setData(tempArr1);
   };
 
-  const joinCourse = async (data) => {
-    console.log(data);
-    const ans = await context.joinCourse({id: data});
+  const joinCourse = async (id) => {
+    let user = localStorage.getItem('kevath_user1');
+    if (!user) {
+      navigate('/login');
+    }
+    else {
+      user = JSON.parse(user);
+    }
+    // console.log(id);
+    const ans = await context.joinCourse({
+      courseId: id,
+      first_name: user.firstName,
+      last_name: user.lastName,
+      email: user.email
+    });
     console.log(ans);
+    if (ans.status) {
+      props.setAlert(ans.message, "success");
+    }
+    else {
+      props.setAlert(ans.message, "error");
+    }
   };
 
   return (
@@ -120,11 +138,10 @@ const CourseMain = (props) => {
                   aria-label="My Favorite Images"
                   options={{
                     perPage,
-                    // rewind: true,
+                    // rewind: true,Web 22
                     gap: "1rem",
                   }}
                 >
-
                   <SplideTrack>
                     {e.map((f, index1) => {
                       return (
@@ -133,13 +150,6 @@ const CourseMain = (props) => {
                         </SplideSlide>
                       )
                     })}
-
-                    {/* <SplideSlide>
-                      <Card2 joinCourse={joinCourse} />
-                    </SplideSlide>
-                    <SplideSlide>
-                      <Card2 joinCourse={joinCourse} />
-                    </SplideSlide> */}
                   </SplideTrack>
 
                   <div className="splide__arrows">

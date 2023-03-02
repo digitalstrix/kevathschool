@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import clock from "./assets/clock.jpg";
 import week from "./assets/week.jpg";
 import vect from "./assets/vect.png";
@@ -19,17 +19,130 @@ import vector from "./assets/vector.png";
 import vector1 from "./assets/vector1.png";
 import vector2 from "./assets/vector2.png";
 import Card5 from "../Card/Card5";
+import { useEffect } from "react";
+import MainContext from "../../context/MainContext";
+import { getUserData } from "../../Service/localdata";
+import { useState } from "react";
 
-export default function Home1() {
+export default function Home1({ id }) {
+  // const data = {
+  //   "media": {
+  //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
+  //   },
+  //   "id": "53ed0181-a200-4ea5-9d41-fafabd0df4f6",
+  //   "type": "course",
+  //   "courseType": "PartTime",
+  //   "careerType": "Spark",
+  //   "title": "Full Stack Developer",
+  //   "description": "description of the course",
+  //   "courseSyllabus": [
+  //     {
+  //       "unitName": "unit1",
+  //       "name": "java",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit2",
+  //       "name": "Node",
+  //       "description": "node js",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit3",
+  //       "name": "python",
+  //       "description": "complete python",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit4",
+  //       "name": "UI",
+  //       "description": "complete UI",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit5",
+  //       "name": "Practice",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit6",
+  //       "name": "Interview Prperation",
+  //       "description": "Interview Prperation and mock interviews",
+  //       "durationWeeks": 6
+  //     }
+  //   ],
+  //   "no_of_weeks": 30,
+  //   "eligibility": [
+  //     {
+  //       "image_url": "string",
+  //       "data": "string",
+  //       "_id": "63b701815be48cf155826634"
+  //     }
+  //   ],
+  //   "instructors": [
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "https://cdn.kevathschool.com/backend-dev.png"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     }
+  //   ],
+  //   "whatYouColudBecome": {
+  //     "description": "Tech job landscape in itself is lucrative, dynamic and ever growing. The roles that are offered in software development are also highly diverse.",
+  //     "roles": [
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer"
+  //     ]
+  //   },
+  //   "allowedParticipants": 100,
+  //   "status": "Registered",
+  //   "isDeleted": false,
+  //   "lastDateToApply": "string",
+  //   "createdDate": "2023-01-05T16:57:06.957Z",
+  //   "createdBy": null,
+  //   "modifiedDate": "2023-01-05T16:57:06.957Z",
+  //   "modifiedBy": null,
+  //   "whatYouWillLearn": []
+  // };
+
+  const context = useContext(MainContext);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    // console.log(id);
+    getUserData();
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const ans = await context.getCourseById(id);
+    // console.log(ans);
+    setData(ans.data[0]);
+  };
+
   return (
     <>
       <div className="ab">
         <div className="right">
           <div className="box">
             <h3 className="h3_1 h3_11">
-              Full Stack Web
-              <br />
-              Development - Full Time
+              {data?.title} - {data?.courseType}
             </h3>
             <div className="line-1"></div>
             <div className="dashed-line">
@@ -56,18 +169,18 @@ export default function Home1() {
           <div className="btn1_1">
             <button className="btn2_1">
               <img className="img_1" src={clock} alt="" />
-              Full Time
+              {data?.courseType}
             </button>
             <button className="btn2_1">
               <img className="img_1" src={week} alt="" />
-              WEEKS
+              {data?.no_of_weeks} WEEKS
             </button>
           </div>
           <h1 className="n-h1">Next Batch</h1>
           <div className="n-box">
             <div className="box1">
               <h5 className="h5_1">
-                Web 22
+                {data?.title}
                 <br />
                 <br />
                 Starts 29 August 2022
@@ -88,16 +201,15 @@ export default function Home1() {
           </div>
           <h1 className="n-h1">Course Details</h1>
           <p className="para4">
-            In a duration of 30 weeks, the course requires a commitment from 9am
-            to 9pm for 6 days a week in an intensive and immersive curriculum.
+            {data?.description}
           </p>
           <div className="box-m">
             <div className="box3">
               <img src={bw} alt="" className="img1 img_1" />
               <h1 className="h-l">
-                30 Weeks
+                {data?.no_of_weeks}
                 <br />
-                (7 Months)
+                ({Math.floor(data?.no_of_weeks / 4)} Months)
               </h1>
             </div>
             <div className="box3">
@@ -210,12 +322,11 @@ export default function Home1() {
                 </p>
               </div>
               <div className="acourse112">
-                <Card5 />
-                <Card5 />
-                <Card5 />
-                <Card5 />
-                <Card5 />
-                <Card5 />
+                {data?.instructors?.map((e, index) => {
+                  return (
+                    <Card5 key={index} data={e} />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -279,11 +390,16 @@ export default function Home1() {
             <br />
             <h1 className="n-h2">What You Could Become</h1>
             <p className="p-7">
-              Tech job landscape in itself is lucrative, dynamic and ever
-              growing. The roles that are offered in software <br />
-              development are also highly diverse.
+              {data?.whatYouColudBecome?.description}
             </p>
-            <p className="p-e">
+            <div className="row2 row flex-wrap mt-3">
+              {data?.whatYouColudBecome?.roles?.map((e, index) => {
+                return (
+                  <p key={index} className="mr-3">{e}</p>
+                );
+              })}
+            </div>
+            {/* <p className="p-e">
               Front-End Developer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web
               Programmer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Full Stack
               Developer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Front-End Software
@@ -294,7 +410,7 @@ export default function Home1() {
               UI Engineer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Backend Engineer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
               Full Stack Engineer
-            </p>
+            </p> */}
             <br />
             <p className="p-r">and many more...</p>
             <br />
@@ -440,4 +556,4 @@ export default function Home1() {
       </div>
     </>
   );
-}
+};

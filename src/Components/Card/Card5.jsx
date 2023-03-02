@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card5 = () => {
+const Card5 = ({data}) => {
     return (
         <>
             <div className="acourse1121">
@@ -9,12 +9,13 @@ const Card5 = () => {
                 </div>
                 <div className="acourse11211">
                     <div className="acourse112111">
-                        <img src="/static/images3/Ellipse 20.png" alt="" />
+                        {/* <img src="/static/images3/Ellipse 20.png" alt="" /> */}
+                        <img src={data.image_url} alt="" />
                     </div>
                 </div>
                 <div className="acourse11212">
-                    <h5>Prof. Aniket Niketan</h5>
-                    <p>CEO EolicTech</p>
+                    <h5>{data.title}</h5>
+                    <p>{data.description}</p>
                 </div>
             </div>
         </>
