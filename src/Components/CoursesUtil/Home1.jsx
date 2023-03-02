@@ -23,8 +23,9 @@ import { useEffect } from "react";
 import MainContext from "../../context/MainContext";
 import { getUserData } from "../../Service/localdata";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Home1({ id }) {
+export default function Home1({ id , joinCourse}) {
   // const data = {
   //   "media": {
   //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
@@ -157,7 +158,7 @@ export default function Home1({ id }) {
                 <li className="para1 li_1"> FAQS </li>
               </ul>
               <br />
-              <button className="btn3_1">APPLY NOW FOR FREE</button>
+              <button onClick={joinCourse} className="btn3_1 cursor-pointer">APPLY NOW FOR FREE</button>
               <br />
               <div className="bm"><img src={vect} alt="" className="vect img_1" /></div>
             </div>
@@ -269,7 +270,6 @@ export default function Home1({ id }) {
               <div className="box-n01">
                 <img src={id} alt="" className="imgn img_1" />
                 <h5 className="h-7 h5_1">
-
                   ID
                   <br />
                   <br />
@@ -534,7 +534,7 @@ export default function Home1({ id }) {
           </div>
           <div className="eve-reg1313">
             <img src="/static/images2/Polygon 8.png" alt="" />
-            <button className="btn btn1">Contact us</button>
+            <Link to="/contact"><button className="btn btn1">Contact us</button></Link>
           </div>
         </div>
       </div>
