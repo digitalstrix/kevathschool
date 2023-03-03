@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Card2 from '../Card/Card2';
@@ -88,7 +88,7 @@ const Db1 = (props) => {
                         <h1>Courses</h1>
                         <p>Become a job-ready software developer in 30 weeks at no upfront fees. Pay us only if you get a job that pays you ₹5,00,000/- per year or more!</p>
                         <div className="row home-mid">
-                            <button className="btn btn2 contact-btn">Explore More</button>
+                            <Link to="/courses-main" className="btn btn2 contact-btn">Explore More</Link>
                         </div>
                     </div>
                 </div>
@@ -104,17 +104,17 @@ const Db1 = (props) => {
                             <h3>Software & Tech</h3>
                             <a href="#">View all</a>
                         </div>
-                        <Splide hasTrack={false} aria-label="My Favorite Images" options={{
+                        {data?.length > 0 ? <Splide hasTrack={false} aria-label="My Favorite Images" options={{
                             perPage,
                             // rewind: true,
                             gap: '1rem',
                         }}>
                             <SplideTrack>
-                                {data?.length>0 ? data?.map((e,index)=>{
+                                {data?.length > 0 ? data?.map((e, index) => {
                                     return (
-                                    <SplideSlide key={index}>
-                                        <Card2 f={e} isAuth={true} setShowModal={setShowModal} showModal={showModal} setJoinUrl={setJoinUrl} />
-                                    </SplideSlide>
+                                        <SplideSlide key={index}>
+                                            <Card2 f={e} isAuth={true} setShowModal={setShowModal} showModal={showModal} setJoinUrl={setJoinUrl} />
+                                        </SplideSlide>
                                     );
                                 }) : "No courses found"}
                             </SplideTrack>
@@ -126,7 +126,8 @@ const Db1 = (props) => {
                                     <img src="/static/images/Vector 3.png" alt="" />
                                 </button>
                             </div>
-                        </Splide>
+                        </Splide> : null}
+
                     </div>
 
                     {/* <div className="course212">
@@ -195,9 +196,9 @@ const Db1 = (props) => {
 
                 </div>
             </div>
-            <div className="text-center">
+            {data?.length > 0 ? <div className="text-center">
                 <button className="btn btn1">View More</button>
-            </div>
+            </div> : null}
             <div className="course3">
                 <div className="course31">
                     <div className="course311">
@@ -205,7 +206,7 @@ const Db1 = (props) => {
                     </div>
                     <div className="course312">
                         <div className="course3121">
-                            <button className="btn btn3">CHECK OUR FAQS</button>
+                            <button className="btn btn3"><Link to="/faq">CHECK OUR FAQS</Link></button>
                         </div>
                     </div>
                 </div>

@@ -78,7 +78,7 @@ const Card2 = (props) => {
                     {
                       props.joinCourse(data?.id);
                     }
-                  }} className="btn btn1">Apply Now</button>
+                  }} className="btn btn1">{props.isAuth ? "Join Now" : "Apply Now"}</button>
                 </div>
                 <div>
                   <Link className="color-gray" to={`/courses/${data.id}`}>VIEW PROGRAM</Link>
