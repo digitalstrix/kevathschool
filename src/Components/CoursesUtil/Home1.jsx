@@ -200,16 +200,13 @@ export default function Home1({ id }) {
             </div>
           </div>
           <h1 className="n-h1">Course Details</h1>
-          <p className="para4">
-            {data?.description}
-          </p>
+          <p className="para4">{data?.description}</p>
           <div className="box-m">
             <div className="box3">
               <img src={bw} alt="" className="img1 img_1" />
               <h1 className="h-l">
                 {data?.no_of_weeks}
-                <br />
-                ({Math.floor(data?.no_of_weeks / 4)} Months)
+                <br />({Math.floor(data?.no_of_weeks / 4)} Months)
               </h1>
             </div>
             <div className="box3">
@@ -323,9 +320,7 @@ export default function Home1({ id }) {
               </div>
               <div className="acourse112">
                 {data?.instructors?.map((e, index) => {
-                  return (
-                    <Card5 key={index} data={e} />
-                  );
+                  return <Card5 key={index} data={e} />;
                 })}
               </div>
             </div>
@@ -389,13 +384,13 @@ export default function Home1({ id }) {
           <div className="box7">
             <br />
             <h1 className="n-h2">What You Could Become</h1>
-            <p className="p-7">
-              {data?.whatYouColudBecome?.description}
-            </p>
+            <p className="p-7">{data?.whatYouColudBecome?.description}</p>
             <div className="row2 row flex-wrap mt-3">
               {data?.whatYouColudBecome?.roles?.map((e, index) => {
                 return (
-                  <p key={index} className="mr-3">{e}</p>
+                  <p key={index} className="mr-3">
+                    {e}
+                  </p>
                 );
               })}
             </div>
@@ -556,4 +551,4 @@ export default function Home1({ id }) {
       </div>
     </>
   );
-};
+}
