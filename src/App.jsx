@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Navbar from "./Navbar/index";
 import Navbar1 from "./Navbar/Index1";
@@ -51,6 +51,8 @@ import Referral from "./Components/Authentication/Referral";
 import Referral1 from "./Components/Referral/Referral1";
 import VerifyEmail from "./Components/Authentication/VerifyEamil";
 import Referral2 from "./Components/Referral/Referral2";
+import { useEffect } from "react";
+import ScrollToTop from "./Utils/ScrollToTop";
 
 const App = () => {
   const [navFlag1, setNavFlag1] = useState(true);
@@ -85,6 +87,7 @@ const App = () => {
     <>
       <MainState>
         <BrowserRouter>
+        <ScrollToTop />
           {navFlag1 ? <Navbar /> : null}
           {navFlag2 ? (
             <Navbar1
