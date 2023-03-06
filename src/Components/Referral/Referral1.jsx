@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import MainContext from "../../context/MainContext";
 import { useNavigate } from 'react-router-dom';
+// import { getCountryListMap } from 'country-flags-dial-code';
+import codes from '../../Utils/codes.json';
 
 const Referral1 = (props) => {
     const navigate = useNavigate();
@@ -28,7 +30,8 @@ const Referral1 = (props) => {
         lastName: "",
         phone: "",
         email: "",
-        confirmEmail: ""
+        confirmEmail: "",
+        code: "+91"
     });
 
     const handleChange = (e) => {
@@ -192,11 +195,10 @@ const Referral1 = (props) => {
                             <div className="refe-input">
                                 <label htmlFor="phone">Phone number</label>
                                 <div className="row">
-                                    <select id="country-select">
-                                        <option value="+91">+91</option>
-                                        <option value="+01">+01</option>
-                                        <option value="+92">+92</option>
-                                        <option value="+93">+93</option>
+                                    <select id="country-select" name='code' onChange={handleChange} value={value.code}>
+                                        {codes.map((e,index)=>{
+                                            return <option key={index} value={`+${e.code}`}>{`+${e.code}`}</option>
+                                        })}
                                     </select>
                                     <input type="number" className='cus-inp' id="phone" name="phone" onKeyDown={blockInvalidChar} onChange={handleChange} value={value.phone} />
                                 </div>

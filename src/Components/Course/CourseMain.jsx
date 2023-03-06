@@ -130,10 +130,10 @@ const CourseMain = (props) => {
                 <div className="row course0">
                   {/* <h3>Software & Tech</h3> */}
                   <h3>{e[0].careerType}</h3>
-                  <a href="#">View all</a>
+                  {/* <a href="#">View all</a> */}
                 </div>
 
-                <Splide
+                {/* <Splide
                   hasTrack={false}
                   aria-label="My Favorite Images"
                   options={{
@@ -141,18 +141,20 @@ const CourseMain = (props) => {
                     // rewind: true,Web 22
                     gap: "1rem",
                   }}
-                >
-                  <SplideTrack>
-                    {e.map((f, index1) => {
-                      return (
-                        <SplideSlide key={index1}>
-                          <Card2 joinCourse={joinCourse} f={f} />
-                        </SplideSlide>
-                      )
-                    })}
-                  </SplideTrack>
+                > */}
+                {/* <SplideTrack> */}
+                <div className="row flex-wrap">
+                  {e.map((f, index1) => {
+                    return (
+                      // <div className="row" key={index1}>
+                      <Card2 key={index1} joinCourse={joinCourse} f={f} />
+                      // </div>
+                    )
+                  })}
+                </div>
+                {/* </SplideTrack> */}
 
-                  <div className="splide__arrows">
+                {/* <div className="splide__arrows">
                     <button className="splide__arrow splide__arrow--prev">
                       <img src="/static/images/Vector 4.png" alt="" />
                     </button>
@@ -160,7 +162,7 @@ const CourseMain = (props) => {
                       <img src="/static/images/Vector 3.png" alt="" />
                     </button>
                   </div>
-                </Splide>
+                </Splide> */}
               </div>
             );
           })}

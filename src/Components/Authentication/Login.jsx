@@ -109,15 +109,34 @@ const Login = (props) => {
 
     if (flag) {
       let ans = await context.login(value.email, value.Password);
+      console.log(ans);
       if (ans.status) {
         props.setAlert(ans.message, "success");
         localStorage.setItem(
           kevath_user,
           JSON.stringify({ email: value.email, token: ans.data.access_token })
         );
-        setTimeout(function () {
-          navigate("/profile-section");
-        }, 2000);
+        const data = await context.getUserDetails();
+        console.log(data, "<<<<dataatcontext");
+        // setValue(data.data);
+        // setCurrentAddress(data.data.currentAddress);
+        // setPermanentAddress(data.data.permanentAddress);
+        props.setUserInfo(data.data);
+        localStorage.setItem("kevath_user1", JSON.stringify(data.data));
+
+        setTimeout(async function () {
+          // navigate("/profile-section");
+          const data = await context.getMyCourses();
+          if(data.data.length>0)
+          {
+            navigate('/courses-db');
+          }
+          else
+          { 
+            navigate('/all-resources');
+          }
+        // }, 2000);
+        }, 1500);
       } else {
         props.setAlert(ans.message, "error");
       }

@@ -90,7 +90,7 @@ const Sidebar = () => {
             <div
               className="row"
               onClick={() => {
-                localStorage.removeItem(kevath_user);
+                localStorage.removeItem("kevath_user");
                 localStorage.removeItem("kevath_user1");
                 window.location.href = "/";
               }}

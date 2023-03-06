@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import MainContext from '../../context/MainContext';
+import codes from '../../Utils/codes.json';
 
 const EventReg2 = (props) => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const EventReg2 = (props) => {
     lastName: "",
     email: "",
     phone: "",
+    code: "+91"
   });
 
   const handleChange = (e) => {
@@ -210,12 +212,11 @@ const EventReg2 = (props) => {
             <div className="eve-reg21">
               <label htmlFor="phone">Phone</label>
               <div className="row">
-                <select id="country-select">
-                  <option value="+91">+91</option>
-                  <option value="+01">+01</option>
-                  <option value="+92">+92</option>
-                  <option value="+93">+93</option>
-                </select>
+              <select id="country-select" name='code' onChange={handleChange} value={value.code}>
+                                        {codes.map((e,index)=>{
+                                            return <option key={index} value={`+${e.code}`}>{`+${e.code}`}</option>
+                                        })}
+                                    </select>
                 <input
                   type="number"
                   className='cus-inp'

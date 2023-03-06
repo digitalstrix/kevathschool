@@ -374,6 +374,7 @@ const App = () => {
               path="/login"
               element={
                 <Login
+                  setUserInfo={setUserInfo}
                   setFootFlag={setFootFlag}
                   userFlag={userFlag}
                   setAlert={setAlert}
@@ -491,9 +492,9 @@ const App = () => {
               }
             />
             <Route
-              path="/our-courses"
+              path="/my-courses"
               element={
-                <Db1
+                <Db3
                   userFlag={userFlag}
                   setAlert={setAlert}
                   setNavFlag1={setNavFlag1}
@@ -529,18 +530,6 @@ const App = () => {
             <Route
               path="/courses-db"
               element={
-                <CoursesDb
-                  userFlag={userFlag}
-                  setAlert={setAlert}
-                  setNavFlag1={setNavFlag1}
-                  setNavFlag2={setNavFlag2}
-                  setFootFlag={setFootFlag}
-                />
-              }
-            />
-            <Route
-              path="/my-library"
-              element={
                 <Db3
                   userFlag={userFlag}
                   setAlert={setAlert}
@@ -551,7 +540,19 @@ const App = () => {
               }
             />
             <Route
-              path="/live-classes"
+              path="/all-resources"
+              element={
+                <Db1
+                  userFlag={userFlag}
+                  setAlert={setAlert}
+                  setNavFlag1={setNavFlag1}
+                  setNavFlag2={setNavFlag2}
+                  setFootFlag={setFootFlag}
+                />
+              }
+            />
+            <Route
+              path="/live-classes/:id"
               element={
                 <C1
                   userFlag={userFlag}
