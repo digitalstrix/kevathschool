@@ -1,25 +1,83 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import MainContext from "../../context/MainContext";
 import Card6 from "../Card/Card6";
 
 const Db3 = (props) => {
   const navigate = useNavigate();
-    
+
   useEffect(() => {
     let user = localStorage.getItem('kevath_user');
     if (user) {
-        user = JSON.parse(user);
-        if (!user.token || user.token === '') {
-            navigate('/login');
-        }
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        navigate('/login');
+      }
     }
     else {
-        navigate('/login');
+      navigate('/login');
     }
-    
+
     props.setNavFlag1(false);
     props.setNavFlag2(true);
   }, []);
+
+  const [perPage, setPerPage] = useState(3);
+  const context = useContext(MainContext);
+  const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [joinUrl, setJoinUrl] = useState("");
+
+  useEffect(() => {
+    let user = localStorage.getItem('kevath_user');
+    if (user) {
+      user = JSON.parse(user);
+      if (!user.token || user.token === '') {
+        navigate('/login');
+      }
+    }
+    else {
+      navigate('/login');
+    }
+
+    var x = window.matchMedia("(max-width: 812px)");
+    if (x.matches) {
+      setPerPage(2);
+    }
+    var y = window.matchMedia("(max-width: 604px)");
+    if (y.matches) {
+      setPerPage(1);
+    }
+    props.setNavFlag1(false);
+    props.setNavFlag2(true);
+    props.setFootFlag(true);
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const data = await context.getMyCourses();
+    console.log(data);
+    setData(data.data);
+    // let tempArr = [];
+    // let tempArr1 = [];
+    // let ind = -1;
+    // for (let i of data.data) {
+    //     // console.log(i);
+    //     if (!tempArr.includes(i.careerType)) {
+    //         tempArr.push(i.careerType);
+    //         tempArr1.push([i]);
+    //         ind++;
+    //     }
+    //     else {
+    //         tempArr1[ind].push(i);
+    //     }
+    // }
+    // // console.log(tempArr1);
+    // setData(tempArr1);
+  };
 
   return (
     <>
@@ -31,9 +89,14 @@ const Db3 = (props) => {
       </div>
       <div className="db32">
         <div className="db321">
-          <Card6 />
-          <Card6 />
-          <Card6 />
+          {data.length>0 ? data?.map((e,index)=>{
+            return (
+              <Card6 key={index} data1={e} />
+            )
+          }) : "No Courses found"}
+          
+          {/* <Card6 />
+          <Card6 /> */}
         </div>
       </div>
       <div className="prof-sec-hfu">

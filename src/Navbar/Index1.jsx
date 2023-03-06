@@ -13,7 +13,7 @@ const Index1 = (props) => {
   // };
   // console.log(JSON.parse(localStorage.getItem("kevath_user")), "<<<<<user");
   useEffect(() => {
-    if (Object.keys(props.userInfo)?.length === 0) {
+    if (Object.keys(props?.userInfo)?.length === 0) {
       props.setUserInfo(JSON.parse(localStorage.getItem("kevath_user1")));
     }
 
@@ -49,12 +49,12 @@ const Index1 = (props) => {
     <>
       <nav className="navbar navbar-1 mainNav">
         <div className="nav0 nav-0 row">
-          {/* <Link to="/"> */}
+          <Link to="/all-resources">
           <img src="/static/images5/nav-logo-prof.png" alt="" />
-          {/* </Link> */}
+          </Link>
         </div>
         <div className="nav01 row">
-          <Link to="/our-courses">
+          <Link to="/my-courses">
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i11.png" alt="" />
@@ -62,12 +62,12 @@ const Index1 = (props) => {
               <p>My Courses</p>
             </div>
           </Link>
-          <Link to="/my-library">
+          <Link to="/all-resources">
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i12.png" alt="" />
               </div>
-              <p>My Resources</p>
+              <p>All Resources</p>
             </div>
           </Link>
           <div className="nav1-3">

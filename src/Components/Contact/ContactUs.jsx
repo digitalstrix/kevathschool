@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainContext from '../../context/MainContext';
+import codes from '../../Utils/codes.json';
 
 const ContactUs = (props) => {
     const navigate = useNavigate();
@@ -32,7 +33,8 @@ const ContactUs = (props) => {
         lastName: "",
         email: "",
         phone: "",
-        message: ""
+        message: "",
+        code: "+91"
     });
 
     const handleChange = (e) => {
@@ -223,12 +225,11 @@ const ContactUs = (props) => {
                                     </div>
                                     <div className="prof-sec-input">
                                         <div className="row">
-                                            <select id="country-select">
-                                                <option value="+91">+91</option>
-                                                <option value="+01">+01</option>
-                                                <option value="+92">+92</option>
-                                                <option value="+93">+93</option>
-                                            </select>
+                                        <select id="country-select" name='code' onChange={handleChange} value={value.code}>
+                                        {codes.map((e,index)=>{
+                                            return <option key={index} value={`+${e.code}`}>{`+${e.code}`}</option>
+                                        })}
+                                    </select>
                                             <input type="number" onKeyDown={blockInvalidChar} className='cus-inp' placeholder="Phone Number" name="phone" id='phone' onChange={handleChange} value={value.phone} />
                                         </div>
                                     </div>

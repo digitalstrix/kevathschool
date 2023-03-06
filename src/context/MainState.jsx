@@ -3,6 +3,12 @@ import MainContext from "./MainContext";
 
 const baseUrl = "https://api-dev.kevathschool.com/api/v1";
 
+const logoutUtil=()=>{
+  localStorage.removeItem("kevath_user");
+  localStorage.removeItem("kevath_user1");
+  window.location.href = "/login";
+};
+
 const MainState = (props) => {
   const signup = async (firstName, lastName, email, contact, password) => {
     console.log(firstName, lastName, email, contact, password);
@@ -14,6 +20,10 @@ const MainState = (props) => {
       body: JSON.stringify({ firstName, lastName, email, contact, password }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -28,6 +38,10 @@ const MainState = (props) => {
       body: JSON.stringify({ email, password }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -43,6 +57,10 @@ const MainState = (props) => {
       },
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -61,6 +79,10 @@ const MainState = (props) => {
         redirect: "follow",
       }
     );
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -79,6 +101,10 @@ const MainState = (props) => {
         redirect: "follow",
       }
     );
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -97,6 +123,10 @@ const MainState = (props) => {
         redirect: "follow",
       }
     );
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -113,6 +143,10 @@ const MainState = (props) => {
       body: JSON.stringify({ email, currentPassword, newPassword }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -127,6 +161,10 @@ const MainState = (props) => {
       body: JSON.stringify({ email }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -157,6 +195,10 @@ const MainState = (props) => {
       body: JSON.stringify(data),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -173,6 +215,10 @@ const MainState = (props) => {
       body: JSON.stringify(data1),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -194,6 +240,10 @@ const MainState = (props) => {
       body: JSON.stringify({ referredReferralCode, email, fullName, userId }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -224,6 +274,10 @@ const MainState = (props) => {
       }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -256,6 +310,10 @@ const MainState = (props) => {
       }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     console.log(data);
     return data;
@@ -273,6 +331,10 @@ const MainState = (props) => {
       body: JSON.stringify(data),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -290,6 +352,10 @@ const MainState = (props) => {
       body: JSON.stringify(data),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -313,6 +379,10 @@ const MainState = (props) => {
       }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     
@@ -331,6 +401,10 @@ const MainState = (props) => {
       body: JSON.stringify(data),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -346,6 +420,10 @@ const MainState = (props) => {
       body: JSON.stringify({ first_name, last_name, email }),
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -360,6 +438,10 @@ const MainState = (props) => {
       },
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data1 = await response.json();
     console.log(data1);
     return data1;
@@ -374,6 +456,10 @@ const MainState = (props) => {
       },
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     // console.log(data);
     return data;
@@ -388,6 +474,10 @@ const MainState = (props) => {
       },
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     // console.log(data);
     return data;
@@ -401,6 +491,10 @@ const MainState = (props) => {
       },
       redirect: "follow",
     });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
     const data = await response.json();
     // console.log(data);
     return data;
