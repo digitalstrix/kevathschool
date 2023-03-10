@@ -25,7 +25,7 @@ import { getUserData } from "../../Service/localdata";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Home1({ id , joinCourse}) {
+export default function Home1({ id, joinCourse }) {
   // const data = {
   //   "media": {
   //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
@@ -158,7 +158,9 @@ export default function Home1({ id , joinCourse}) {
                 <li className="para1 li_1"> FAQS </li>
               </ul>
               <br />
-              <button onClick={joinCourse} className="btn3_1 cursor-pointer">APPLY NOW FOR FREE</button>
+              <button onClick={joinCourse} className="btn3_1 cursor-pointer">
+                APPLY NOW FOR FREE
+              </button>
               <br />
               <div className="bm">
                 <img src={vect} alt="" className="vect img_1" />
@@ -546,7 +548,9 @@ export default function Home1({ id , joinCourse}) {
           </div>
           <div className="eve-reg1313">
             <img src="/static/images2/Polygon 8.png" alt="" />
-            <Link to="/contact"><button className="btn btn1">Contact us</button></Link>
+            <Link to="/contact">
+              <button className="btn btn1">Contact us</button>
+            </Link>
           </div>
         </div>
       </div>
