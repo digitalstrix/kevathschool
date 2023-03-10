@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card3 from "../Card/Card3";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import MainContext from '../../context/MainContext';
 
@@ -48,6 +48,17 @@ const EventReg1 = (props) => {
 
   return (
     <>
+      <div className="user-dp-top">
+        <NavLink to="/all-resources" className="user-dp-top1">
+          OUR COURSES
+        </NavLink>
+        <NavLink to="/discover" className="user-dp-top1 user-dp-top-active">
+          OUR EVENTS
+        </NavLink>
+        <div className="user-dp-top1">
+          FREE RESOURCES
+        </div>
+      </div>
       <div className="img-cls">
         <div className="home eve-reg1-main">
           <div className="eve-reg1-main1">
