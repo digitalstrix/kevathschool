@@ -59,6 +59,7 @@ const EventReg1 = (props) => {
           FREE RESOURCES
         </div>
       </div>
+
       <div className="img-cls">
         <div className="home eve-reg1-main">
           <div className="eve-reg1-main1">
@@ -95,6 +96,7 @@ const EventReg1 = (props) => {
           </div>
         </div>
       </div>
+      
       <div className="eve-reg12">
         <div className="eve-reg121">
           <div className="eve-reg1211">

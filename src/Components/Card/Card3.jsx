@@ -68,7 +68,7 @@ const Card3 = ({ data, setAlert }) => {
             {/* <Link to={`/event-register/${data.id}`}> */}
             <button onClick={() => {
               handleSubmit();
-            }} className="btn btn1">Book your seat</button>
+            }} className="btn btn1">{data.participants ? "Join Now" : "Book your seat"}</button>
             {/* </Link> */}
           </div>
         </div>

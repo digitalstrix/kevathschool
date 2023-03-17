@@ -993,7 +993,7 @@ a {
 }
 
 .course-card {
-    width: 33%;
+    width: 31%;
     height: 41rem;
 }
 
@@ -5227,7 +5227,7 @@ input::-ms-clear {
 
 @media screen and (max-width: 1650px) {
     .course-card-text{
-        width: 92%;
+        width: 91%;
     }
 }
 
@@ -5235,11 +5235,8 @@ input::-ms-clear {
     .psi-2112 {
         width: 32.5%;
     }
-    .course-card-text{
-        width: 92%;
-    }
     .course-card {
-        width: 33%;
+        width: 31%;
         height: 38rem;
     }
 }
@@ -5437,7 +5434,7 @@ input::-ms-clear {
         width: 5vw;
     }
     .course-card-text {
-        width: 91%;
+        width: 90%;
         left: 18px;
     }
 }
@@ -5656,7 +5653,7 @@ input::-ms-clear {
     }
     .course-card-text{
         left: 18px;
-        width: 90%;
+        width: 89%;
     }
 }
 
@@ -5736,7 +5733,7 @@ input::-ms-clear {
         padding-top: 0;
         bottom: -250px;
         left: 18px;
-        width: 89%;
+        width: 88%;
     }
     .course-card-img h4{
         font-size: 17px;
@@ -6158,7 +6155,7 @@ input::-ms-clear {
     }
     .eve-reg1-main {
         height: 82vh;
-        margin-top: 4rem;
+        margin-top: 0rem;
     }
     .eve-reg1-11 {
         text-align: center;
@@ -6449,7 +6446,11 @@ input::-ms-clear {
         border-bottom: 3px solid #50b74b;
     }
     .user-dp-top {
-        margin-top: 5rem;
+        margin-top: 0rem;
+        padding-top: 3.5rem;
+    }
+    .user-dp-top1{
+        padding: 0.7rem;
     }
     .user-dp4 h1 {
         margin-bottom: 0;
@@ -6773,7 +6774,7 @@ input::-ms-clear {
     }
     .course-card-text{
         left: 18px;
-        width: 87.3%;
+        width: 86.3%;
         bottom: -240px;
     }
 }
@@ -8214,7 +8215,7 @@ input::-ms-clear {
         width: 100%;
     }
 }
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
     .user-dp-top1 {
         font-size: 8px;
         padding: 0.5rem 0.2rem;
@@ -8261,7 +8262,7 @@ input::-ms-clear {
     .cert21 {
         margin-bottom: 10px;
     }
-}
+} */
 
 @media screen and (max-width: 434px) {
     .fi-card{

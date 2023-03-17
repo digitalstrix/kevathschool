@@ -449,7 +449,7 @@ const MainState = (props) => {
 
   const getCourses = async ({ page, perPage, meta, career_type }) => {
     // const response = await fetch(`${baseUrl}/course?page=${page}&per_page=${perPage}&meta=${meta}&career_type=${career_type}`, {
-    const response = await fetch(`${baseUrl}/course`, {
+    const response = await fetch(`${baseUrl}/course?meta=false`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
