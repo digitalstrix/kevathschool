@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import clock from "./assets/clock.jpg";
 import week from "./assets/week.jpg";
-import vect from "./assets/vect.png"
+import vect from "./assets/vect.png";
 import bt from "./assets/bt.png";
 import bl from "./assets/bl.png";
 import bw from "./assets/bw.png";
@@ -25,7 +25,7 @@ import { getUserData } from "../../Service/localdata";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Home1({ id , joinCourse}) {
+export default function Home1({ id, joinCourse }) {
   // const data = {
   //   "media": {
   //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
@@ -158,9 +158,13 @@ export default function Home1({ id , joinCourse}) {
                 <li className="para1 li_1"> FAQS </li>
               </ul>
               <br />
-              <button onClick={joinCourse} className="btn3_1 cursor-pointer">APPLY NOW FOR FREE</button>
+              <button onClick={joinCourse} className="btn3_1 cursor-pointer">
+                APPLY NOW FOR FREE
+              </button>
               <br />
-              <div className="bm"><img src={vect} alt="" className="vect img_1" /></div>
+              <div className="bm">
+                <img src={vect} alt="" className="vect img_1" />
+              </div>
             </div>
           </div>
         </div>
@@ -199,16 +203,13 @@ export default function Home1({ id , joinCourse}) {
             </div>
           </div>
           <h1 className="n-h1">Course Details</h1>
-          <p className="para4">
-            {data?.description}
-          </p>
+          <p className="para4">{data?.description}</p>
           <div className="box-m">
             <div className="box3">
               <img src={bw} alt="" className="img1 img_1" />
               <h1 className="h-l">
                 {data?.no_of_weeks}
-                <br />
-                ({Math.floor(data?.no_of_weeks / 4)} Months)
+                <br />({Math.floor(data?.no_of_weeks / 4)} Months)
               </h1>
             </div>
             <div className="box3">
@@ -315,13 +316,14 @@ export default function Home1({ id , joinCourse}) {
             <div className="acourse11">
               <div className="acourse111">
                 <h3>Meet Our Instructors & Mentors</h3>
-                <p>Being accomplished developers themselves, the Curriculam Team is an experienced group of coding instructors.</p>
+                <p>
+                  Being accomplished developers themselves, the Curriculam Team
+                  is an experienced group of coding instructors.
+                </p>
               </div>
               <div className="acourse112">
                 {data?.instructors?.map((e, index) => {
-                  return (
-                    <Card5 key={index} data={e} />
-                  );
+                  return <Card5 key={index} data={e} />;
                 })}
               </div>
             </div>
@@ -385,13 +387,13 @@ export default function Home1({ id , joinCourse}) {
           <div className="box7">
             <br />
             <h1 className="n-h2">What You Could Become</h1>
-            <p className="p-7">
-              {data?.whatYouColudBecome?.description}
-            </p>
+            <p className="p-7">{data?.whatYouColudBecome?.description}</p>
             <div className="row2 row flex-wrap mt-3">
               {data?.whatYouColudBecome?.roles?.map((e, index) => {
                 return (
-                  <p key={index} className="mr-3">{e}</p>
+                  <p key={index} className="mr-3">
+                    {e}
+                  </p>
                 );
               })}
             </div>
@@ -462,9 +464,7 @@ export default function Home1({ id , joinCourse}) {
                   <div className="ladder121 course-ladder121">
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          1
-                        </h3>
+                        <h3 className="h3 green">1</h3>
                         <p>Apply For The Program</p>
                       </div>
                     </div>
@@ -473,9 +473,7 @@ export default function Home1({ id , joinCourse}) {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          2
-                        </h3>
+                        <h3 className="h3 green">2</h3>
                         <p>Crack The Admission Test</p>
                       </div>
                     </div>
@@ -484,9 +482,7 @@ export default function Home1({ id , joinCourse}) {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          3
-                        </h3>
+                        <h3 className="h3 green">3</h3>
                         <p>Learn At 0 Upfront Fee</p>
                       </div>
                     </div>
@@ -495,9 +491,7 @@ export default function Home1({ id , joinCourse}) {
                     </div>
                     <div className="ld-box">
                       <div className="ld-box1">
-                        <h3 className="h3 green">
-                          4
-                        </h3>
+                        <h3 className="h3 green">4</h3>
                         <p>Get Placed</p>
                       </div>
                     </div>
@@ -507,16 +501,36 @@ export default function Home1({ id , joinCourse}) {
             </div>
             <h1 className="w-h1">Frequently asked Questions</h1>
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <p className="l-h5">What is the medium of instruction?</p>
-            <p className="m-p">The medium of instruction at Kevath is English. All lectures are delivered in English. As part of the curriculum, we also help you develop your written and verbal communication skills that help you become more employable.</p>
+            <p className="m-p">
+              The medium of instruction at Kevath is English. All lectures are
+              delivered in English. As part of the curriculum, we also help you
+              develop your written and verbal communication skills that help you
+              become more employable.
+            </p>
             <hr />
             <br />
             <br />
@@ -534,10 +548,12 @@ export default function Home1({ id , joinCourse}) {
           </div>
           <div className="eve-reg1313">
             <img src="/static/images2/Polygon 8.png" alt="" />
-            <Link to="/contact"><button className="btn btn1">Contact us</button></Link>
+            <Link to="/contact">
+              <button className="btn btn1">Contact us</button>
+            </Link>
           </div>
         </div>
       </div>
     </>
   );
-};
+}
