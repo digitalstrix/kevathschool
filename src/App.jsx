@@ -552,7 +552,7 @@ const App = () => {
               }
             />
             <Route
-              path="/live-classes/:id"
+              path="/live-classes/:batchId/:courseId/:parentId"
               element={
                 <C1
                   userFlag={userFlag}
@@ -564,7 +564,7 @@ const App = () => {
               }
             />
             <Route
-              path="/program-contents"
+              path="/program-contents/:batchId/:courseId/:parentId"
               element={
                 <C2
                   userFlag={userFlag}
@@ -576,7 +576,7 @@ const App = () => {
               }
             />
             <Route
-              path="/resources-course"
+              path="/resources-course/:batchId/:courseId/:parentId"
               element={
                 <C3
                   userFlag={userFlag}

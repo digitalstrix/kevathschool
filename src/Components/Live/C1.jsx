@@ -1,108 +1,111 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import OutsideClickHandler from 'react-outside-click-handler';
+import MainContext from '../../context/MainContext';
 
 const C1 = (props) => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { batchId, courseId, parentId } = useParams();
+  const { getBatches } = useContext(MainContext);
+  const [data, setData] = useState({});
   // const [data, setData] = useState({});
-  const data = {
-    "media": {
-      "image_url": "https://cdn.kevathschool.com/full-stack.png"
-    },
-    "id": "53ed0181-a200-4ea5-9d41-fafabd0df4f6",
-    "type": "course",
-    "courseType": "PartTime",
-    "careerType": "Spark",
-    "title": "Full Stack Developer",
-    "description": "description of the course",
-    "courseSyllabus": [
-      {
-        "unitName": "unit1",
-        "name": "java",
-        "description": "complete java",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit2",
-        "name": "Node",
-        "description": "node js",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit3",
-        "name": "python",
-        "description": "complete python",
-        "durationWeeks": 6
-      },
-      {
-        "unitName": "unit4",
-        "name": "UI",
-        "description": "complete UI",
-        "durationWeeks": 6
-      },
-      {
-        "unitName": "unit5",
-        "name": "Practice",
-        "description": "complete java",
-        "durationWeeks": 4
-      },
-      {
-        "unitName": "unit6",
-        "name": "Interview Prperation",
-        "description": "Interview Prperation and mock interviews",
-        "durationWeeks": 6
-      }
-    ],
-    "no_of_weeks": 30,
-    "eligibility": [
-      {
-        "image_url": "string",
-        "data": "string",
-        "_id": "63b701815be48cf155826634"
-      }
-    ],
-    "instructors": [
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "https://cdn.kevathschool.com/backend-dev.png"
-      },
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "string"
-      },
-      {
-        "name": "Narendra",
-        "title": "Trainer for python",
-        "description": "string",
-        "image_url": "string"
-      }
-    ],
-    "whatYouColudBecome": {
-      "description": "Tech job landscape in itself is lucrative, dynamic and ever growing. The roles that are offered in software development are also highly diverse.",
-      "roles": [
-        "Front-End Developer",
-        "Front-End Developer",
-        "Front-End Developer",
-        "Front-End Developer"
-      ]
-    },
-    "allowedParticipants": 100,
-    "status": "Registered",
-    "isDeleted": false,
-    "lastDateToApply": "string",
-    "createdDate": "2023-01-05T16:57:06.957Z",
-    "createdBy": null,
-    "modifiedDate": "2023-01-05T16:57:06.957Z",
-    "modifiedBy": null,
-    "whatYouWillLearn": [],
-    "batchId": "89888254763"
-  };
+  // const data = {
+  //   "media": {
+  //     "image_url": "https://cdn.kevathschool.com/full-stack.png"
+  //   },
+  //   "id": "53ed0181-a200-4ea5-9d41-fafabd0df4f6",
+  //   "type": "course",
+  //   "courseType": "PartTime",
+  //   "careerType": "Spark",
+  //   "title": "Full Stack Developer",
+  //   "description": "description of the course",
+  //   "courseSyllabus": [
+  //     {
+  //       "unitName": "unit1",
+  //       "name": "java",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit2",
+  //       "name": "Node",
+  //       "description": "node js",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit3",
+  //       "name": "python",
+  //       "description": "complete python",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit4",
+  //       "name": "UI",
+  //       "description": "complete UI",
+  //       "durationWeeks": 6
+  //     },
+  //     {
+  //       "unitName": "unit5",
+  //       "name": "Practice",
+  //       "description": "complete java",
+  //       "durationWeeks": 4
+  //     },
+  //     {
+  //       "unitName": "unit6",
+  //       "name": "Interview Prperation",
+  //       "description": "Interview Prperation and mock interviews",
+  //       "durationWeeks": 6
+  //     }
+  //   ],
+  //   "no_of_weeks": 30,
+  //   "eligibility": [
+  //     {
+  //       "image_url": "string",
+  //       "data": "string",
+  //       "_id": "63b701815be48cf155826634"
+  //     }
+  //   ],
+  //   "instructors": [
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "https://cdn.kevathschool.com/backend-dev.png"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     },
+  //     {
+  //       "name": "Narendra",
+  //       "title": "Trainer for python",
+  //       "description": "string",
+  //       "image_url": "string"
+  //     }
+  //   ],
+  //   "whatYouColudBecome": {
+  //     "description": "Tech job landscape in itself is lucrative, dynamic and ever growing. The roles that are offered in software development are also highly diverse.",
+  //     "roles": [
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer",
+  //       "Front-End Developer"
+  //     ]
+  //   },
+  //   "allowedParticipants": 100,
+  //   "status": "Registered",
+  //   "isDeleted": false,
+  //   "lastDateToApply": "string",
+  //   "createdDate": "2023-01-05T16:57:06.957Z",
+  //   "createdBy": null,
+  //   "modifiedDate": "2023-01-05T16:57:06.957Z",
+  //   "modifiedBy": null,
+  //   "whatYouWillLearn": [],
+  //   "batchId": "89888254763"
+  // };
 
   useEffect(() => {
     let user = localStorage.getItem('kevath_user');
@@ -120,6 +123,16 @@ const C1 = (props) => {
     props.setNavFlag2(false);
     props.setFootFlag(false);
   }, []);
+
+  useEffect(()=>{
+    getData();
+  },[batchId, courseId, parentId]);
+
+  const getData=async()=>{
+    const ans = await getBatches(batchId);
+    console.log(ans);
+    setData(ans.data[0]);
+  };
 
   const func1 = () => {
     document.querySelector('.db-card31').classList.toggle('none');
@@ -151,18 +164,18 @@ const C1 = (props) => {
             <div className="live-logo">
               <img src="/static/images4/q1.png" alt="" />
             </div>
-            <div className="live11">
+            <NavLink to={`/live-classes/${batchId}/${courseId}/${parentId}`} className="live11">
               <img src="/static/images4/q2.png" alt="" />
               <p>Live Classes</p>
-            </div>
-            <div className="live11">
+            </NavLink>
+            <NavLink to={`/program-contents/${batchId}/${courseId}/${parentId}`} className="live11">
               <img src="/static/images4/q3.png" alt="" />
               <p>Self Learning</p>
-            </div>
-            <div className="live11">
+            </NavLink>
+            <NavLink to={`/resources-course/${batchId}/${courseId}/${parentId}`} className="live11">
               <img src="/static/images4/q4.png" alt="" />
               <p>Resources</p>
-            </div>
+            </NavLink>
             <div className="live11">
               <img src="/static/images4/q5.png" alt="" />
               <p>Assessment</p>
@@ -173,6 +186,7 @@ const C1 = (props) => {
             </div>
           </div>
         </div>
+
         <div className="live2">
           <div className="live-header">
             <div onClick={() => {
@@ -182,27 +196,30 @@ const C1 = (props) => {
                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
               </svg>
             </div>
-            <h4>{data?.title}</h4>
+            <h4>{data?.name}</h4>
             <p>{data?.description}</p>
           </div>
+
           <div className="live21">
             <div className="live211">
               <div className="live2111">
                 <div className="live21111">
                   <div className="live-21">
                     {/* <h5>{data?.title} - Live Classes Training</h5> */}
-                    <h5>{data?.title}</h5>
+                    <h5>{data?.name}</h5>
                   </div>
                   <div className="live-22 row">
                     <img src="/static/images4/q7.png" alt="" />
                     <div className="live-221">
                       <div className="live-2211">
                         <p className="small">Starts</p>
-                        <p>Mon, 15 Aug, 2022 </p>
+                        {/* <p>Mon, 15 Aug, 2022 </p> */}
+                        <p>{new Date(data?.startDate).toLocaleDateString("en-US", {weekday: 'short'})}, {new Date(data?.startDate).getDate()} {new Date(data?.startDate).toLocaleDateString("en-US", {month: "short"})}, {new Date(data?.startDate).getFullYear()}</p>
                       </div>
                       <div className="live-2211">
                         <p className="small">Ends</p>
-                        <p> Sun, 21 Aug, 2022 Online</p>
+                        {/* <p> Sun, 21 Aug, 2022 Online</p> */}
+                        <p>{new Date(data?.endDate).toLocaleDateString("en-US", {weekday: 'short'})}, {new Date(data?.endDate).getDate()} {new Date(data?.endDate).toLocaleDateString("en-US", {month: "short"})}, {new Date(data?.endDate).getFullYear()}</p>
                       </div>
                     </div>
                     <div className="live-221">
@@ -212,7 +229,7 @@ const C1 = (props) => {
                       </div>
                       <div className="live-222 row">
                         <img src="/static/images4/q10.png" alt="" />
-                        <p>{data?.courseType}</p>
+                        <p>{data?.mode}</p>
                       </div>
                     </div>
                   </div>
@@ -235,7 +252,7 @@ const C1 = (props) => {
                   </div>
                 </div>
                 <div className="live21112">
-                  <h5>3/5 Class</h5>
+                  <h5>3/{data?.noOfClass} Class</h5>
                   <div className="db-card-slider row">
                     <progress id="file" value="50" max="100"> 32% </progress>
                   </div>
@@ -356,7 +373,8 @@ const C1 = (props) => {
                   </div>
                 </div> */}
                 <div className="text-center w-full">
-                  <button className="btn btn1">Join Now</button>
+                  {/* <button className="btn btn1">Join Now</button> */}
+                  <a href={data?.joinUrl} target="_blank" className="btn btn1">Join Now</a>
                 </div>
               </div>
             </div>

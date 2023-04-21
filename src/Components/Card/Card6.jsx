@@ -42,7 +42,7 @@ const Card6 = ({ data1 }) => {
           </div>
         </div>
         <div className="db-card22">
-          <Link to={`/live-classes/id`} className="btn btn1">Enter Program</Link>
+          <Link to={`/live-classes/${data?.batchId}/${data?.courseId}/${data?.parentId}`} className="btn btn1">Enter Program</Link>
         </div>
       </div>
       <div className="db-card3 row">

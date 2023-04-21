@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import {
     Accordion,
     AccordionItem,
@@ -9,10 +9,22 @@ import {
 } from 'react-accessible-accordion';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
+import MainContext from '../../context/MainContext';
 
 const C2 = (props) => {
     const navigate = useNavigate();
-    
+    const { batchId, courseId, parentId } = useParams();
+    const { getRecordings } = useContext(MainContext);
+    // const [data, setData] = useState({});
+    const [data, setData] = useState({
+        "topic": "FullStack Developer",
+        "share_url": "https://us06web.zoom.us/rec/share/6HXlQYyp2bZbRCCdPdqIdw-cFjCf_pTinG9muhKNH-5U8d7nnYksjUViEEG1TNSW.uGDw0zKzdJuorRfF",
+        "media": {
+            "image_url": "https://cdn.kevathschool.com/full-stack.png"
+        },
+        "password": "T*zQ8C3*"
+    });
+
     useEffect(() => {
         let user = localStorage.getItem('kevath_user');
         if (user) {
@@ -24,12 +36,22 @@ const C2 = (props) => {
         else {
             navigate('/login');
         }
-        
-        
+
+
         props.setNavFlag1(false);
         props.setNavFlag2(false);
         props.setFootFlag(false);
     }, []);
+
+    useEffect(() => {
+        getData();
+    }, [batchId, courseId, parentId]);
+
+    const getData = async () => {
+        const ans = await getRecordings(courseId);
+        console.log(ans);
+        setData(ans.data[0]);
+    };
 
     const func1 = () => {
         document.querySelector('.c2-live').style.display = 'none';
@@ -67,21 +89,21 @@ const C2 = (props) => {
                         <div className="live-logo">
                             <img src="/static/images4/q1.png" alt="" />
                         </div>
-                        <div className="live11">
+                        <NavLink to={`/live-classes/${batchId}/${courseId}/${parentId}`} className="live11">
                             <img src="/static/images4/q2.png" alt="" />
                             <p>Live Classes</p>
-                        </div>
-                        <div className="live11">
+                        </NavLink>
+                        <NavLink to={`/program-contents/${batchId}/${courseId}/${parentId}`} className="live11">
                             <img src="/static/images4/q3.png" alt="" />
                             <p>Self Learning</p>
                             <div onClick={func2} className="live-open2 live-open">
                                 <img src="/static/images4/w3.png" alt="" />
                             </div>
-                        </div>
-                        <div className="live11">
+                        </NavLink>
+                        <NavLink to={`/resources-course/${batchId}/${courseId}/${parentId}`} className="live11">
                             <img src="/static/images4/q4.png" alt="" />
                             <p>Resources</p>
-                        </div>
+                        </NavLink>
                         <div className="live11">
                             <img src="/static/images4/q5.png" alt="" />
                             <p>Assessment</p>
@@ -521,7 +543,7 @@ const C2 = (props) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default C2;

@@ -200,7 +200,62 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.nav1-30{
+    padding-bottom: 2px;
     margin-right: 17px;
+    padding-left: 4px;
+    padding-right: 6px;
+}
+.pointer{
+    cursor: pointer;
+}
+.resource-modal{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 22%);
+    z-index: 10;
+}
+.resource-modal1{
+    background-color: white;
+    position: relative;
+    top: 50px;
+    height: fit-content;
+    width: 70vmin;
+    padding: 2rem;
+    border-radius: 7px;
+}
+.resource-modal1 h2{
+    text-align: center;
+    margin-bottom: 7px;
+}
+.resource-modal1 h5{
+    margin-bottom: 7px;
+    text-align: center;
+}
+.resource-modal1 b{
+    color: #50B74B;
+    text-align: center;
+}
+.resource-modal1 .close{
+    text-align: end;
+    font-weight: 700;
+}
+.resource-modal-hidden{
+    display: none;
+}
+.resource-modal11 .copy{
+    text-align: center;
+    margin-bottom: 3px;
+}
+.copyAlert{
+    display: none;
+}
+.copy-main{
+    margin-top: 20px;
 }
 
 .btn {
@@ -939,6 +994,9 @@ a {
 
 .course-card1 {
     position: relative;
+}
+.nav1-active{
+    border-bottom: 2px solid #51b848;
 }
 
 .course-card-text {

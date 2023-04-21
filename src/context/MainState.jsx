@@ -500,6 +500,63 @@ const MainState = (props) => {
     return data;
   };
 
+  const getBatches = async (id) => {
+    const response = await fetch(`${baseUrl}/batches?id=${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      redirect: "follow",
+    });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
+  const getRecordings = async (id) => {
+    console.log(id);
+    const response = await fetch(`${baseUrl}/course/recording?course_id=${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      redirect: "follow",
+    });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
+  const getResources = async (id) => {
+    const response = await fetch(`${baseUrl}/resources?parent_id=${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("kevath_user"))?.token}`
+      },
+      redirect: "follow",
+    });
+    if(response.status===401)
+    {
+      logoutUtil();
+    }
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  };
+
+  // const 
+
   return (
     <>
       <MainContext.Provider
@@ -526,7 +583,10 @@ const MainState = (props) => {
           registerParticipantEvent,
           getMyCourses,
           getEvents,
-          getCourseById
+          getCourseById,
+          getBatches,
+          getRecordings,
+          getResources
         }}
       >
         {props.children}

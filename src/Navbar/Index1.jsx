@@ -54,7 +54,7 @@ const Index1 = (props) => {
           </Link>
         </div>
         <div className="nav01 row">
-          <Link to="/my-courses">
+          <Link to="/my-courses" className={window.location.pathname==='/my-courses' ? 'nav1-active nav1-30' : 'nav1-30'}>
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i11.png" alt="" />
@@ -62,7 +62,7 @@ const Index1 = (props) => {
               <p>My Courses</p>
             </div>
           </Link>
-          <Link to="/all-resources">
+          <Link to="/all-resources" className={window.location.pathname==='/all-resources' ? 'nav1-active nav1-30' : 'nav1-30'}>
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i12.png" alt="" />
@@ -82,7 +82,7 @@ const Index1 = (props) => {
             </div>
             <p>Contest</p>
           </div>
-          <Link to="/referral1">
+          <Link to="/referral1" className={window.location.pathname==='/referral1' ? 'nav1-active nav1-30' : 'nav1-30'}>
             <div className="nav1-3">
               <div className="nav1 nav1-1">
                 <img src="/static/images3/i15.png" alt="" />
